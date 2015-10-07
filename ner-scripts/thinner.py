@@ -24,7 +24,7 @@ def thinposts(lines):
 
 if __name__ == "__main__":
 
-    inlocation = "hdfs://scc-culture-mind.lancs.ac.uk/reddit/uncompressed"
+    inlocation = "hdfs://scc-culture-mind.lancs.ac.uk/reddit/Reddit-Compressed"
     outlocation = "hdfs://scc-culture-mind.lancs.ac.uk/user/derczynskil/data/reddit-cleaned-posts"
 
     ##### Main Execution Code
