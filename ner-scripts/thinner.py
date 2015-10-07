@@ -12,7 +12,7 @@ def thinposts(lines):
     posts = []
 
     for line in lines:
-        if !re.match(subreddit_re, line.lower()):
+        if not re.match(subreddit_re, line.lower()):
             continue
 
         comment = json.loads(line)
