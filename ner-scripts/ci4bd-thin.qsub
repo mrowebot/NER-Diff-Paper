@@ -3,7 +3,7 @@
 #$ -m a
 #$ -M leon@dcs.shef.ac.uk
 #$ -o /home/ac1ld/ci4bd-thin.log
-#$ -t 1:1
+#$ -t 1:881
 #$ -N ci4bd-thin
 #$ -l h_rt=3:00:00
 

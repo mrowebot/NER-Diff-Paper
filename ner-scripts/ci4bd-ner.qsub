@@ -11,4 +11,4 @@ module load apps/python-conda
 source activate ci4bd
 
 cd entity-recognition
-./run_tagger.py  -f /fastdata/ac1ld/reddit/thinned/part-`printf "%05d" $SGE_TASK_ID` --model reddit.model.100.gha250m2k.4cat -c brown_paths/gha.250M-c2000.paths --json --json-text body --stdout > /data/ac1ld/reddit-$SGE_TASK_ID
+./run_tagger.py  -f /fastdata/ac1ld/reddit/reddit/thinned-json/thinned$SGE_TASK_ID.json --model reddit.model.100.gha250m2k.4cat -c brown_paths/gha.250M-c2000.paths --json --json-text body --stdout > /data/ac1ld/reddit/annotated/annotated$SGE_TASK_ID.json
