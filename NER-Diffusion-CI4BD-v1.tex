@@ -139,6 +139,16 @@ For this research we will use the following datasets:
 
 %-----------------------------------------------------
 
+\section{Related work}
+
+twitter info propagation
+
+reddit compared to other OSNs: "Lifespan and propagation of information in On-line Social Networks: A case study based on Reddit"  http://www.sciencedirect.com/science/article/pii/S1084804515001307
+
+network structure of reddit: "Navigating the massive world of reddit: using backbone networks to map user interests in social media" https://peerj.com/articles/cs-4/
+
+twitter nlp
+
 
 \section{Data preparation and NER}
 
@@ -151,7 +161,7 @@ The result that we come to at the end of this stage is a rich dataset for tracki
 
 \begin{figure}
 \centering
-\includegraphics[width=\columnwidth]{reddit-example.png}
+\includegraphics[width=0.4\columnwidth]{reddit-example.png}
 \label{fig:reddit-example}
 \caption{Example discussion around a Reddit post.}
 \end{figure}
@@ -164,26 +174,83 @@ Users then may publish comments for each post, and reply to each others' comment
 This leads to a threaded discussion, centred on a particular topic, with a hierarchical comment structure (see Figure~\ref{fig:reddit-example}).
 
 
+\subsection{Subreddit extraction}
 
-NER:
+- subreddit extraction
+
+top lists
+
+describe top lists site
+
+pick 100
+
+extract these over whole sample
+
+figures for raw dataset (\# per year; total volume over time; volume-rank graph of subreddits; possible ref to appx)
+
+\subsection{Adapting NER for Reddit}
+
+-- where is NER first mentioned and defined?
+
+We model micro-topics in conversation as entity mentions.
+This allows tracking of topics at maximally fine granularity, looking at each user's interests at a low level, as opposed to monitoring broader topics such as ``consumer electronics", ``politics" and so on.
+In fact, these broader topics are already explicitly annotated by means of the subreddit topics.
+
+Entity mentions are extracted through named entity recognition.
+Generally, this task aims to detect the boundaries of certain kinds of entities within a certain piece of text.
+In this instance, we tokenise text, splitting it into sentences using the Punkt tokeniser~\cite{kiss2006unsupervised}, and subsequently word-sized chunks, using the {\tt twokenize} tool with some adaptations~\cite{o2010tweetmotif}.
+This tool performs Penn Treebank-style tokenisation, a common standard, with some specific adaptations to enable it to handle the noise present in user-generated text.
+After this, we take a structured prediction approach to deciding which tokens in each sentence are part of an entity, and possibly the type of the entity.
+Finally, we concatenate entity tokens, and use these to build a list of entity mentions in any given input text.
+For example, given the input comment from the source JSON:
+
+\begin{quote}
+``body": ``There are still some really good fighters on this card. Conor McGregor is on the card and so is Gunnar Nelson."
+\end{quote}
+
+The following output entities should be collected:
+
+\begin{quote}
+``entity\_texts": [``Conor McGregor", ``Gunnar Nelson"]
+\end{quote}
+
+Typically, many NER systems take a supervised approach; that is, they use data labelled by humans as training data, from which features are extracted to form training instances for a machine learning algorithm.
+However, NLP systems can be hard to transfer between text types; for example, NER systems for newswire might reach about 89\% F1 on news articles, but only around 40\% on tweets (a form of user-generated content), as found in~\cite{derczynski2015analysis}.
+One approach to overcoming this performance drop when changing text type is to train over a blend of text types.
+For example, Ritter~\cite{ritter2011named} used both IRC\footnote{Internet Relay Chat -- informal internet conversation text} and newswire data when developing a part-of-speech tagger for tweets, as well as an unsupervised language model from the target text type.
+This led to strong performance improvements.
+We follow a similar approach, using a blend of NE-annotated corpora from both newswire and tweets.
+The newswire data is drawn from the CoNLL-2003 evaluation task set~\cite{tjong2003introduction}; the twitter data is from Ritter's early experiments and also the W-NUT 2015 shared task~\cite{ritter2011named,baldwin2015shared}.
 
 - blended text type approach as in ritter 2011
 
 - CRF w/ classical features and all brown string depth features
 
-- use entity-recognition toolkit
+- use entity-recognition toolkit~\cite{derczynski2015usfd}
+
+
+\subsection{Tuning entity recognition}
+
+Entity recognition needs to be tuned to fit Reddit data well.
+There are a number of parameters in our training data balance, feature extraction, and objective function that all reflect the nature of the data and the task at hand.
+We present our method for estimating of these factors, and intrinsic NER evaluation
+
+- prefer precision; beta = 2 (as per ff-rpg paper)
+
 
 - describe reddit annotation/tuning annotation approach (skim, find things it got wrong, annotate them, add to set)
 
+- extract reddit tuning set
+
+
 - estimate Brown c, w based on impact paper findings
 
-- extract reddit tuning set
+- compare blended brown cluster src vs. reddit-only
+
 
 - tune twitter / newswire balance
 
 - one, three, four, ten entity classes?
-
-- prefer precision? which beta value?
 
 
 
