@@ -26,22 +26,14 @@ def thinposts(lines):
             continue
     
         if comment['community'][1]['name'].lower() in subreddits:
-            out_comment = {}
-            tokens = twokenize_wrapper.tokenize(comment['text'])
-            out_comment['body'] = comment['text']
-            out_comment['subreddit'] = comment['community'][1]['name']
-            out_comment['author'] = comment['user']['username']
-            out_comment['created_utc'] = str(int(comment['createdAt']) / 1000)
-            out_comment['tokens'] = tokens
-            out_comment['id'] = 'x'
-            yield(json.dumps(out_comment))
-#            yield reformed_text.strip() + ' <EOS>'
+            tokens = twokenize_wrapper.tokenize(comment['text'].strip())
+            yield ' '.join(tokens) + ' <EOS> '
 
 if __name__ == "__main__":
 
     inlocation = "hdfs://scc-culture-mind.lancs.ac.uk/reddit/Reddit-Compressed"
 #    inlocation = "hdfs://scc-culture-mind.lancs.ac.uk/user/derczynskil/redditmini"
-    outlocation = "hdfs://scc-culture-mind.lancs.ac.uk/user/derczynskil/data/reddit-cleaned-posts"
+    outlocation = "hdfs://scc-culture-mind.lancs.ac.uk/user/derczynskil/data/reddit-plaintext-brown"
 
     ##### Main Execution Code
     conf = SparkConf().setAppName("Subreddit extraction")

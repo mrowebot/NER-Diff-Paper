@@ -40,12 +40,12 @@
 % *** GRAPHICS RELATED PACKAGES ***
 %
 \ifCLASSINFOpdf
-  % \usepackage[pdftex]{graphicx}
+  \usepackage[pdftex]{graphicx}
   % declare the path(s) where your graphic files are
   % \graphicspath{{../pdf/}{../jpeg/}}
   % and their extensions so you won't have to specify these with
   % every instance of \includegraphics
-  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+  \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
 \else
   % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
   % will default to the driver specified in the system graphics.cfg if no
@@ -104,10 +104,14 @@ We are interested in exploring the following research questions:
 
 
 \section{Datasets}
-For this research we will use the following two datasets:
+For this research we will use the following datasets:
+
 \begin{enumerate}
-	\item Twitter data - we have a large corpus of English tweets that we can use here.
-	\item Reddit data - download and access all of the data from the full dump.\footnote{\url{https://archive.org/details/2015_reddit_comments_corpus}}
+	\item Reddit data -- download and access all of the data from the full dump.\footnote{\url{https://archive.org/details/2015_reddit_comments_corpus}}
+	\item CoNLL 2003 data -- a corpus of newswire texts, annotated for named entity chunks and types.
+	This describes where entity mentions are in the text, including locations, organisations, and person mentions.
+	\item Twitter data; unannotated -- we have a large corpus of English tweets that we can use here.
+	\item Twitter data; annotated -- there are two datasets annotated with named entities. These are from Ritter's 2011 EMNLP paper, and the W-NUT 2015 shared task.
 \end{enumerate}
 
 
@@ -133,6 +137,120 @@ For this research we will use the following two datasets:
 --Implement models to forecast if a user will mention an entity and who that will be (hard!)
 
 
+%-----------------------------------------------------
+
+\section{Related work}
+
+twitter info propagation
+
+reddit compared to other OSNs: "Lifespan and propagation of information in On-line Social Networks: A case study based on Reddit"  http://www.sciencedirect.com/science/article/pii/S1084804515001307
+
+network structure of reddit: "Navigating the massive world of reddit: using backbone networks to map user interests in social media" https://peerj.com/articles/cs-4/
+
+twitter nlp
+
+
+\section{Data preparation and NER}
+
+To conduct our study, we need to convert 140GB of compressed Reddit posts into a set of interlinked and time-ordered conversations and the entities mentioned in each of them.
+This provides a number of sub-challenges: sampling of the Reddit data, creating a linked series of conversations, and picking out entity mentions in this text type.
+Reddit data is largely unexplored in the NLP community, despite the large volume of it and the especially rich metadata.
+This poses additional challenges: certainly, given the lack of work on Reddit text, there are no annotated datasets available yet, so supervised in-domain work is not directly possible yet.
+Additionally, the datasets are large, which makes it important to choose a good subset of data on which to do prototyping and development, in order to keep research cycles short.
+The result that we come to at the end of this stage is a rich dataset for tracking entity and concept diffusion within and across communities.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.4\columnwidth]{reddit-example.png}
+\label{fig:reddit-example}
+\caption{Example discussion around a Reddit post.}
+\end{figure}
+
+The Reddit dataset~\cite{reddit-data} is comprised of a sequence of comments, with one JSON record for each one.
+These are ordered temporally.
+Reddit itself is roughly similar to a forum, where top-level divisions are made by topic.
+Within each topic, or {\em subreddit}, there are posts, which begin with either a short piece of text or a link to an external resource -- typically an image, video, or interesting article.
+Users then may publish comments for each post, and reply to each others' comments.
+This leads to a threaded discussion, centred on a particular topic, with a hierarchical comment structure (see Figure~\ref{fig:reddit-example}).
+
+
+\subsection{Subreddit extraction}
+
+- subreddit extraction
+
+top lists
+
+describe top lists site
+
+pick 100
+
+extract these over whole sample
+
+figures for raw dataset (\# per year; total volume over time; volume-rank graph of subreddits; possible ref to appx)
+
+\subsection{Adapting NER for Reddit}
+
+-- where is NER first mentioned and defined?
+
+We model micro-topics in conversation as entity mentions.
+This allows tracking of topics at maximally fine granularity, looking at each user's interests at a low level, as opposed to monitoring broader topics such as ``consumer electronics", ``politics" and so on.
+In fact, these broader topics are already explicitly annotated by means of the subreddit topics.
+
+Entity mentions are extracted through named entity recognition.
+Generally, this task aims to detect the boundaries of certain kinds of entities within a certain piece of text.
+In this instance, we tokenise text, splitting it into sentences using the Punkt tokeniser~\cite{kiss2006unsupervised}, and subsequently word-sized chunks, using the {\tt twokenize} tool with some adaptations~\cite{o2010tweetmotif}.
+This tool performs Penn Treebank-style tokenisation, a common standard, with some specific adaptations to enable it to handle the noise present in user-generated text.
+After this, we take a structured prediction approach to deciding which tokens in each sentence are part of an entity, and possibly the type of the entity.
+Finally, we concatenate entity tokens, and use these to build a list of entity mentions in any given input text.
+For example, given the input comment from the source JSON:
+
+\begin{quote}
+``body": ``There are still some really good fighters on this card. Conor McGregor is on the card and so is Gunnar Nelson."
+\end{quote}
+
+The following output entities should be collected:
+
+\begin{quote}
+``entity\_texts": [``Conor McGregor", ``Gunnar Nelson"]
+\end{quote}
+
+Typically, many NER systems take a supervised approach; that is, they use data labelled by humans as training data, from which features are extracted to form training instances for a machine learning algorithm.
+However, NLP systems can be hard to transfer between text types; for example, NER systems for newswire might reach about 89\% F1 on news articles, but only around 40\% on tweets (a form of user-generated content), as found in~\cite{derczynski2015analysis}.
+One approach to overcoming this performance drop when changing text type is to train over a blend of text types.
+For example, Ritter~\cite{ritter2011named} used both IRC\footnote{Internet Relay Chat -- informal internet conversation text} and newswire data when developing a part-of-speech tagger for tweets, as well as an unsupervised language model from the target text type.
+This led to strong performance improvements.
+We follow a similar approach, using a blend of NE-annotated corpora from both newswire and tweets.
+The newswire data is drawn from the CoNLL-2003 evaluation task set~\cite{tjong2003introduction}; the twitter data is from Ritter's early experiments and also the W-NUT 2015 shared task~\cite{ritter2011named,baldwin2015shared}.
+
+- blended text type approach as in ritter 2011
+
+- CRF w/ classical features and all brown string depth features
+
+- use entity-recognition toolkit~\cite{derczynski2015usfd}
+
+
+\subsection{Tuning entity recognition}
+
+Entity recognition needs to be tuned to fit Reddit data well.
+There are a number of parameters in our training data balance, feature extraction, and objective function that all reflect the nature of the data and the task at hand.
+We present our method for estimating of these factors, and intrinsic NER evaluation
+
+- prefer precision; beta = 2 (as per ff-rpg paper)
+
+
+- describe reddit annotation/tuning annotation approach (skim, find things it got wrong, annotate them, add to set)
+
+- extract reddit tuning set
+
+
+- estimate Brown c, w based on impact paper findings
+
+- compare blended brown cluster src vs. reddit-only
+
+
+- tune twitter / newswire balance
+
+- one, three, four, ten entity classes?
 
 
 
@@ -192,9 +310,10 @@ For this research we will use the following two datasets:
 % http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/
 % The IEEEtran BibTeX style support page is at:
 % http://www.michaelshell.org/tex/ieeetran/bibtex/
-%\bibliographystyle{IEEEtran}
+\bibliographystyle{IEEEtran}
 % argument is your BibTeX string definitions and bibliography database(s)
-%\bibliography{IEEEabrv,../bib/paper}
+%\bibliography{IEEEabrv,NER-Diffusion}
+\bibliography{NER-Diffusion}
 %
 % <OR> manually copy in the resultant .bbl file
 % set second argument of \begin to the number of references

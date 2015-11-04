@@ -1,0 +1,14 @@
+#!/bin/bash
+#$ -S /bin/bash
+#$ -m a
+#$ -M leon@dcs.shef.ac.uk
+#$ -o /home/ac1ld/ci4bd-thin.log
+#$ -t 1:881
+#$ -N ci4bd-thin
+#$ -l h_rt=3:00:00
+
+module load apps/python-conda
+source activate ci4bd
+
+cd /home/ac1ld/NER-Diff-Paper/ner-scripts
+./thinner_nospark.py /fastdata/ac1ld/reddit/reddit/src-serial/split$SGE_TASK_ID.json >  /fastdata/ac1ld/reddit/reddit/thinned-json/thinned$SGE_TASK_ID.json
