@@ -1,110 +1,102 @@
 __author__ = 'rowem'
 import json
-from post import Post
-from datetime import datetime
-import operator
-import pandas as pd
-import matplotlib.pyplot as plt
+import csv
 from pandas import Series
 import numpy as np
+from datetime import datetime
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib
+import sys
 
-# import the reddit posts from the denoted local file
-def importPosts(file):
-    reddit_posts = []
+# plot the k most common entities that are found within the db
+def plotPerEntityDistribution(k):
+    frequencies = {}
+    # Read in the mention frequencies
+    with open('../data/logs/entity_mention_frequencies.csv', 'rb') as csvfile:
+        mentions_reader = csv.reader(csvfile, delimiter='\t')
+        for row in mentions_reader:
+            try:
+                frequencies[str(row[0])] = int(row[1])
+            except Exception as e:
+                print e.message
 
-    jsonFileRead = open(file, 'r')
-    for line in jsonFileRead:
-        # print line
-        json_obj = json.loads(line)
-
-        # initialisation variables
-        author = json_obj['author']
-        forumid = json_obj['subreddit_id']
-        postid = json_obj['id']
-        created_string = float(json_obj['created_utc'])
-        created_date = datetime.fromtimestamp(created_string)
-        post = Post(author, postid, forumid, created_date)
-
-        # secondary variables
-        text = json_obj['body']
-        post.addContent(text)
-        annotations = json_obj['entity_texts']
-        post.addAnnotations(annotations)
-
-        reddit_posts.append(post)
-    return reddit_posts
-
-def plotPerEntityDistribution(posts, k):
-    entity_mentions = {}
-    for post in posts:
-        for annotation in post.annotations:
-            if annotation in entity_mentions:
-                entity_mentions[annotation] += 1
-            else:
-                entity_mentions[annotation] = 1
-
-    data = {'counts': pd.Series(entity_mentions.values(), index=entity_mentions.keys())}
+    data = {'counts': pd.Series(frequencies.values(), index=frequencies.keys())}
     df = pd.DataFrame(data)
     df = df.sort('counts', ascending=False)
     df[0:(k-1)].plot(kind='bar', legend=False)
-    plt.savefig('../data/plots/entity_freq_top_k_' + str(k) + '.pdf', bbox_inches='tight')
+    plt.savefig('../plots/entity_freq_top_k_' + str(k) + '.pdf', bbox_inches='tight')
+    plt.clf()
 
-
-def plotEntityTSDistribution(posts, k):
-    entity_mentions = {}
-    for post in posts:
-        for annotation in post.annotations:
-            if annotation in entity_mentions:
-                entity_mentions[annotation] += 1
-            else:
-                entity_mentions[annotation] = 1
-
-    data = {'counts': pd.Series(entity_mentions.values(), index=entity_mentions.keys())}
+def plotEntityTS(k):
+    # get the top k entities that were mentioned
+    frequencies = {}
+    with open('../data/logs/entity_mention_frequencies.csv', 'rb') as csvfile:
+        mentions_reader = csv.reader(csvfile, delimiter='\t')
+        for row in mentions_reader:
+            frequencies[str(row[0])] = int(row[1])
+    data = {'counts': pd.Series(frequencies.values(), index=frequencies.keys())}
     df = pd.DataFrame(data)
     df = df.sort('counts', ascending=False)
+    # top_entities = df[0:k].index.tolist()
+    top_entities = [df.index[i] for i in range(0, k)]
 
-    # # plot the frequency distribution
-    # plotting_dir = "../data/plots/"
-    # sorted_entity_mentions = sorted(entity_mentions.items(), key=operator.itemgetter(1), reverse=True)
-    # entity_mentions_top_k = {}
-    # count = 1
-    # for entity in sorted_entity_mentions:
-    #     # print entity[0]
-    #     # print entity[1]
-    #     entity_mentions_top_k[entity[0]] = entity[1]
-    #     count += 1
-    #     if count > k:
-    #         break
-    # # sort the top k by value
-    # sorted_entity_mentions_top_k = sorted(entity_mentions_top_k.items(), key=operator.itemgetter(1), reverse=True)
-    # #
-    # x_values = []
-    # y_values = []
-    # for entity in sorted_entity_mentions_top_k:
-    #     print entity[0]
-    #     x_values.append(entity[0])
-    #     y_values.append(entity[1])
-    #
-    # plt.bar(range(len(sorted_entity_mentions_top_k)), y_values, align="center")
-    # plt.xticks(range(len(sorted_entity_mentions_top_k)), x_values)
-    # # plt.xlim([0, k])
-    # locs, labels = plt.xticks()
-    # plt.setp(labels, rotation=90)
-    # plt.savefig('../data/plots/entity_freq_top_k_' + str(k) + '.pdf', bbox_inches='tight')
+    print top_entities
+
+    # load the time-series data
+    entity_ts_string = {}
+    csv.field_size_limit(sys.maxsize)
+    with open('../data/logs/entity_mention_ts.csv', 'rb') as csvfile:
+        mentions_reader = csv.reader(csvfile, delimiter='\t', quoting=csv.QUOTE_NONE)
+        for row in mentions_reader:
+            entity = str(row[0])
+            # print entity
+            if entity in top_entities:
+                ts_string = ""
+                for j in range(1, len(row)-1):
+                    ts_string += str(row[j]) + ","
+                ts_string = ts_string[:-1]
+                entity_ts_string[entity] = ts_string
+
+    # print entity_ts_string.keys()
+
+    # for each user, determine a time-series object and plot this on a graph
+    matplotlib.rcParams.update({'font.size': 8})
+    plt.figure(1)
+    fig_count = 1
+    for entity in top_entities:
+        # print entity
+        ts_string = entity_ts_string[entity]
+        ts_objects = ts_string.split(",")
+        date_frequencies = {}
+        for ts_object in ts_objects:
+            date = datetime.strptime(ts_object.split("|")[0], '%Y-%m-%d')
+            date_frequencies[date] = int(ts_object.split("|")[1])
+        user_ts_date = Series(np.array(date_frequencies.values()), index=date_frequencies.keys())
+        plt.subplot(3, 3, fig_count)
+        user_ts_date.plot()
+        locs, labels = plt.xticks()
+        plt.setp(labels, rotation=45)
+        plt.xlabel("Date")
+        plt.title(entity)
+
+        fig_count += 1
+
+    plt.tight_layout()
+    plt.savefig('../plots/entity_ts.pdf')
+    plt.clf()
+
 
 
 
 
 ### Main execution code
-# load the reddit posts
-local_test_file_path = "../data/annotated/RC_2013-04.100k.annotated.json"
-posts = importPosts(local_test_file_path)
-print len(posts)
-
-# run basic exploratory analyses
-ks = [20, 40, 60, 80, 100]
+# ks = [20, 40, 60, 80, 100]
+ks = [9]
 for k in ks:
-    plotPerEntityDistribution(posts, k)
+#     plotPerEntityDistribution(k)
+    plotEntityTS(k)
 
 top_k_diffusion = 5
+
 
