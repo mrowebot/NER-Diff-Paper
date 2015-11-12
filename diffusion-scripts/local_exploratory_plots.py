@@ -87,16 +87,35 @@ def plotEntityTS(k):
     plt.clf()
 
 
+def getTopKEntities(k):
+    # get the top k entities that were mentioned
+    frequencies = {}
+    with open('../data/logs/entity_mention_frequencies.csv', 'rb') as csvfile:
+        mentions_reader = csv.reader(csvfile, delimiter='\t')
+        for row in mentions_reader:
+            frequencies[str(row[0])] = int(row[1])
+    data = {'counts': pd.Series(frequencies.values(), index=frequencies.keys())}
+    df = pd.DataFrame(data)
+    df = df.sort('counts', ascending=False)
+    # top_entities = df[0:k].index.tolist()
+    top_entities = [df.index[i] for i in range(0, k)]
 
+    # write to local file the top k entities
+    output_string = ""
+    for entity in top_entities:
+        output_string += str(entity) + "\n"
+    f = open('../data/logs/top' + str(k) + "_entities.csv",'w')
+    f.write(output_string) # python will convert \n to os.linesep
+    f.close() # you can omit in most cases as the destructor will call it
 
 
 ### Main execution code
 # ks = [20, 40, 60, 80, 100]
-ks = [9]
-for k in ks:
-#     plotPerEntityDistribution(k)
-    plotEntityTS(k)
+# ks = [9]
+# for k in ks:
+# #     plotPerEntityDistribution(k)
+#     plotEntityTS(k)
 
-top_k_diffusion = 5
-
+top_k_entities = 500
+getTopKEntities(top_k_entities)
 
