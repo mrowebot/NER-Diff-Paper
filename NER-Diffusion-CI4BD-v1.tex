@@ -188,7 +188,7 @@ extract these over whole sample
 
 figures for raw dataset (\# per year; total volume over time; volume-rank graph of subreddits; possible ref to appx)
 
-\subsection{Adapting NER for Reddit}
+\subsection{NER for Reddit}
 
 -- where is NER first mentioned and defined?
 
@@ -222,11 +222,26 @@ This led to strong performance improvements.
 We follow a similar approach, using a blend of NE-annotated corpora from both newswire and tweets.
 The newswire data is drawn from the CoNLL-2003 evaluation task set~\cite{tjong2003introduction}; the twitter data is from Ritter's early experiments and also the W-NUT 2015 shared task~\cite{ritter2011named,baldwin2015shared}.
 
-- blended text type approach as in ritter 2011
+We start using structured predicting in the form of a CRF to label whole sentences at a time.
+For features, we use a fairly classical set, and add some unsupervised word representations to this.
+Our base features are:
 
-- CRF w/ classical features and all brown string depth features
+\begin{itemize}
+\item 
+\end{itemize}
 
-- use entity-recognition toolkit~\cite{derczynski2015usfd}
+In addition, we induce Brown clusters~\cite{brown1992class} and use these as word representations~\cite{turian2009preliminary}.
+Brown clusters are []
+These are typically converted to features by shearing~\cite{derczynski2016generalised}.
+This involves only examining the first $n$ bits of a bitstring.
+However, shearing does not maximise the information preserved in the representation -- sub-clusterings at many levels are lost.
+We therefore experiment with a new method of feature extraction form Brown clusters.
+We take the cluster identifier at every level, tracing the provenance of a terminal word cluster all the way to the root cluster (which contains all word types).
+This preserves the entire set membership of any given term, throughout the induced hierarchical clustering.
+Formally, []
+As a result, the lossy nature of shearing-based feature extraction from Brown clusters is avoided.
+
+Feature extraction, training, classification and JSON annotation are all performed using an entity recognition toolkit (https://github.com/leondz/entity\_recognition~\cite{derczynski2015usfd}), with custom extractors.
 
 
 \subsection{Tuning entity recognition}
@@ -243,9 +258,11 @@ We present our method for estimating of these factors, and intrinsic NER evaluat
 - extract reddit tuning set
 
 
-- estimate Brown c, w based on impact paper findings
+- estimate Brown c, a based on impact paper findings~\cite{derczynski2015tune}
 
 - compare blended brown cluster src vs. reddit-only
+
+- did this using the generalised-brown package~\cite{sean_chester_2015_33758}.
 
 
 - tune twitter / newswire balance
@@ -253,7 +270,7 @@ We present our method for estimating of these factors, and intrinsic NER evaluat
 - one, three, four, ten entity classes?
 
 
-
+- note that while some figures low, ER toolkit is high-ranking sota software, and the task is simply difficult; generalising NER beyond newswire is not yet well understood.
 
 % if have a single appendix:
 %\appendix[Proof of the Zonklar Equations]
