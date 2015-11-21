@@ -2,6 +2,8 @@
 \documentclass[journal,10pt,draftclsnofoot,onecolumn]{IEEEtran}
 
 \usepackage{url}
+\usepackage[tight,footnotesize]{subfigure}
+
 % *** MISC UTILITY PACKAGES ***
 %\usepackage{ifpdf}
 % Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
@@ -271,6 +273,60 @@ We present our method for estimating of these factors, and intrinsic NER evaluat
 
 
 - note that while some figures low, ER toolkit is high-ranking sota software, and the task is simply difficult; generalising NER beyond newswire is not yet well understood.
+
+
+\clearpage
+\section{Entity Diffusion}
+
+\subsection{Entity Mention Cascades}
+-Describe the entity cascade graphs and what these entail
+-Explain how these were derived using graph isomorphism and then the rank induced
+
+\begin{figure}[ht!]
+  \begin{center}
+  \subfigure[Cascade Shapes]{\includegraphics[width=0.49\columnwidth]{plots/cascade_shapes.pdf}\label{fig:cascade_shapes}}   
+  \subfigure[Shape Rank Distribution]{\includegraphics[width=0.49\columnwidth]{plots/cascade_rank_dist.pdf}\label{fig:rank_dist}}
+  \end{center}    
+  \caption{To do}
+  \label{fig:entity_cascades}
+\end{figure}
+
+
+\subsection{Entity Adoption Post-${k-1}^{th}$ Exposure}
+-Potential for adoption at the point of one exposure
+-Per entity-exposure dynamics - add plots of random selection of entities
+
+\begin{figure}[ht!]
+  \begin{center}
+  \subfigure[Exposure-Adoption Global Distribution]{\includegraphics[width=0.49\columnwidth]{plots/exposure_count_dist_full_log.pdf}\label{fig:global_exposure_dist}}   
+  \subfigure[Random Entity Exposure-Adoption Distributions]{\includegraphics[width=0.49\columnwidth]{plots/per_entity_exposure_count_dist_full_log.pdf}\label{fig:entity_exposure_dists}}
+  \end{center}    
+  \caption{To do}
+  \label{fig:exposure_dists}
+\end{figure}
+
+
+
+\subsection{Global Threshold Diffusion Model}
+-Explain the implementation of WSDM2010 work and adaptation for non-sequential dataset scans - necessary due to memory load being infeasible
+
+\subsubsection{Distribution of $\tau_{v,u}$}
+-Present the distribution of $\tau_{v,u}$ and what this implies for the model
+
+\begin{figure}[ht!]
+  \begin{center}
+\includegraphics[width=0.49\columnwidth]{plots/taus_dist_full_log.pdf}
+  \end{center}    
+  \caption{To do}
+  \label{fig:taus_dist}
+\end{figure}
+
+
+\subsection{Experiments}
+-Explain the evaluation process and the computation of the ROC values - per entity
+-Plot variance in the ROC values achieved
+
+
 
 % if have a single appendix:
 %\appendix[Proof of the Zonklar Equations]
