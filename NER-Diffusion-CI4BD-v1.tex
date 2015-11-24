@@ -207,13 +207,13 @@ Finally, we concatenate entity tokens, and use these to build a list of entity m
 For example, given the input comment from the source JSON:
 
 \begin{quote}
-``body": ``There are still some really good fighters on this card. Conor McGregor is on the card and so is Gunnar Nelson."
+\emph{``body": ``There are still some really good fighters on this card. Conor McGregor is on the card and so is Gunnar Nelson."}
 \end{quote}
 
 The following output entities should be collected:
 
 \begin{quote}
-``entity\_texts": [``Conor McGregor", ``Gunnar Nelson"]
+\emph{``entity\_texts": [``Conor McGregor", ``Gunnar Nelson"]}
 \end{quote}
 
 Typically, many NER systems take a supervised approach; that is, they use data labelled by humans as training data, from which features are extracted to form training instances for a machine learning algorithm.
@@ -245,8 +245,8 @@ However, shearing does not maximise the information preserved in the representat
 We therefore experiment with a new method of feature extraction form Brown clusters, which we call {\em provenance-based} feature extraction.
 We take the cluster identifier at every level, tracing the provenance of a terminal word cluster all the way to the root cluster (which contains all word types).
 This preserves the entire set membership of any given term, throughout the induced hierarchical clustering.
-As an example, if the term \emph{fishing} has bitstring $1100101$, the following text features are generated: $1$, $11$, $110$, $1100$, $11001$, $110010$, $1100101$.
-For contrast, if the typical bit depths of 4, 6, 10 and 20~\cite{ratinov2009design} were chosen, only the following features would be generated: $1100$, $110010$, $1100101$.
+As an example, if the term \emph{fishing} has bitstring {\tt 1100101}, the following text features are generated: {\tt 1}, {\tt 11}, {\tt 110}, {\tt 1100}, {\tt 11001}, {\tt 110010}, {\tt 1100101}.
+For contrast, if the typical bit depths of 4, 6, 10 and 20~\cite{ratinov2009design} were chosen, only the following features would be generated: {\tt 1100}, {\tt 110010}, {\tt 1100101}.
 As a result of taking all directly-relevant features in the merge list, the lossy nature of shearing-based feature extraction from Brown clusters is avoided.
 
 Feature extraction, training, classification and JSON annotation are all performed using an entity recognition toolkit (https://github.com/leondz/entity\_recognition~\cite{derczynski2015usfd}), with custom extractors.
@@ -310,7 +310,8 @@ Results for different balances of training data are given in Table~\ref{tab:supe
 
 Note that while some figures seem low when compared to typical newswire level performance, the toolkit used is high-ranking, state-of-the-art research software, coming third in the 2015 W-NUT challenge for entity chunking over tweets.
 The task is simply difficult; Twitter NER recall has always been low.
-In addition, it is a generally consistent finding that generalising NER systems beyond newswire is not yet well understood; systems that perform very well on this text type (e.g. F1 of 0.89 from Stanford NER~\cite{derczynski2013microblog}) can often score very poorly on social media content (F1 of 0.41).
+In addition, it is a generally consistent finding that generalising NER systems beyond newswire is not yet well understood; systems that perform very well on this text type (e.g. F1 of 0.89 from Stanford NER~\cite{derczynski2015analysis}%~\cite{derczynski2013microblog}
+) can often score very poorly on social media content (F1 of 0.41).
 This may be due to overfitting of tools to newswire over time, due to community challenges, dataset in just one type, extra custom rules adapting to formal news text, or other things -- but this is beyond the scope of this paper.
 We do note that our approach uses largely unsupervised feature extraction and performs better than on other social media corpora, also beating the Stanford NER system, in this first attempt at named entity chunking for Reddit.
 
