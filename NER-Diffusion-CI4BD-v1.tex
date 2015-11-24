@@ -233,15 +233,21 @@ Our base features are:
 \end{itemize}
 
 In addition, we induce Brown clusters~\cite{brown1992class} and use these as word representations~\cite{turian2009preliminary}.
-Brown clusters are []
-These are typically converted to features by shearing~\cite{derczynski2016generalised}.
+Brown clustering is a form of hierarchical agglomerative hard clustering, using average mutual information as its objective function.
+It takes as input a corpus, in the form of a sequence of words, and in its generalised form~\cite{derczynski2016generalised}, a single hyperparameter: the size of its active set $a$.
+The result is a sequence of binary merges, describing the set membership of each word type in the corpus as the merges progress.
+For each single word type, therefore, the path to a destination cluster can be described as a bitstring, which details the sequence of binary merges taken.
+The zero-length bitstring describes the situation at the top of the hierarchy, where there is one class.
+
+These bitstrings are typically converted to features by shearing.
 This involves only examining the first $n$ bits of a bitstring.
 However, shearing does not maximise the information preserved in the representation -- sub-clusterings at many levels are lost.
-We therefore experiment with a new method of feature extraction form Brown clusters.
+We therefore experiment with a new method of feature extraction form Brown clusters, which we call {\em provenance-based} feature extraction.
 We take the cluster identifier at every level, tracing the provenance of a terminal word cluster all the way to the root cluster (which contains all word types).
 This preserves the entire set membership of any given term, throughout the induced hierarchical clustering.
-Formally, []
-As a result, the lossy nature of shearing-based feature extraction from Brown clusters is avoided.
+As an example, if the term \emph{fishing} has bitstring $1100101$, the following text features are generated: $1$, $11$, $110$, $1100$, $11001$, $110010$, $1100101$.
+For contrast, if the typical bit depths of 4, 6, 10 and 20~\cite{ratinov2009design} were chosen, only the following features would be generated: $1100$, $110010$, $1100101$.
+As a result of taking all directly-relevant features in the merge list, the lossy nature of shearing-based feature extraction from Brown clusters is avoided.
 
 Feature extraction, training, classification and JSON annotation are all performed using an entity recognition toolkit (https://github.com/leondz/entity\_recognition~\cite{derczynski2015usfd}), with custom extractors.
 
@@ -250,29 +256,63 @@ Feature extraction, training, classification and JSON annotation are all perform
 
 Entity recognition needs to be tuned to fit Reddit data well.
 There are a number of parameters in our training data balance, feature extraction, and objective function that all reflect the nature of the data and the task at hand.
-We present our method for estimating of these factors, and intrinsic NER evaluation
+We present our method for estimating of these factors, and intrinsic NER evaluation.
 
-- prefer precision; beta = 2 (as per ff-rpg paper)
+In terms of evaluation, we prefer recall over precision.
+Over the large dataset, spurious entities are likely to be those that are not seen very often or have an unusual pattern.
+This suggests that there will be great variation in their surface forms, leaving them in the long tail of discovered entities.
+As the majority of our work looks at the more frequent patterns, these are less likely to have an impact.
+Conversely, recall reveals how well the extraction is performing, and it important to track a range of entities.
+In addition, recall has always been more challenging to achieve in social media texts than recall~\cite{ritter2011named,derczynski2015analysis}.
+
+To capture this balance, we take F-scores with $\beta=2$.
+Given precision $P$ and recall $R$, typically an F-score is drawn from $F_\beta$ with $\beta=1$.
+
+\begin{equation}
+F_\beta = (1+\beta^2)\frac{PR}{(\beta^2 P) + R} 
+\end{equation}
+
+When $\beta=1$, precision and recall are balanced in a harmonic mean, e.g. F1-score.
+That is, false positives and false negatives impact results equally.
+To score away from false positives, i.e. wrong cues, we set $\beta=2$.
+
+Our approach here is to tune an entity recogniser with reference to a dataset that matches the target text type.
+We draw this development set from Reddit posts, using comments encountered during our work that appear to have missing or spurious annotations.
+These are then isolated, tokenised, and manually annotated.
+Our annotation format follows~\cite{ritter2011named} in using the Freebase top-level entity type inventory, but only uses the chunking information, as nothing further than this is needed: only the surface forms of entities.
+In total, we identified and annotated 3\,708 tokens of Reddit data, including 149 entity chunks.
+This comprised our development set, which was used to tune a variety of parameters in our approach.
+
+Firstly, we tuned our word representations.
+Specifically, we needed to estimate the number of Brown clusters $C$ to use in feature extraction.
+We also then used this to determine what blend of social, Reddit or news data gave best results in unsupervised feature generation and extraction.
+To tune the value for $C$, we examined a similar scenario with similar dataset sizes, and estimated an optimum.
+We noted that in prior work~\cite{derczynski2015tune}, entity recognition performance with decomposed class prefixes -- similar to the provenance-based features we propose here -- peak at around $C=2500$ for corpora of 16k tokens, $C=5000$ for corpora of 32k tokens, and at higher values for larger datasets.
+As General Brown clustering is dependent on the number of types and the size of the active set $a$, and results are unreliable with $a>C$, we set $C = a = 4000$.
+We then experiment with combinations of newswire, Twitter and Reddit data.
+Brown clusters are extracted using the generalised-brown package~\cite{sean_chester_2015_33758}.
+Results are given in Table~\ref{tab:brown-tuning}.
+
+-- results of brown cluster tuning
 
 
-- describe reddit annotation/tuning annotation approach (skim, find things it got wrong, annotate them, add to set)
-
-- extract reddit tuning set
-
-
-- estimate Brown c, a based on impact paper findings~\cite{derczynski2015tune}
-
-- compare blended brown cluster src vs. reddit-only
-
-- did this using the generalised-brown package~\cite{sean_chester_2015_33758}.
+In addition, we draw supervised data for multiple datasets in order to approximate the Reddit text type.
+We take data from Reddit, taking the union of corpora used in previous work that follow the Freebase ten-class entity scheme~\cite{ritter2011named,baldwin2015shared}.
+This scheme gives broader coverage than e.g. the three-class ACE named entity scheme.
+For newswire, we use the Reuters RCV1 corpus annotations that were part of the CoNLL-2003 shared task~\cite{tjong2003introduction}.
+Classes are removed before training, making this just a chunking task.
+We compare against Stanford NER~\cite{finkel2005incorporating} as a baseline.
+Results for different balances of training data are given in Table~\ref{tab:supervision-balance}
 
 
-- tune twitter / newswire balance
-
-- one, three, four, ten entity classes?
+-- analysis of cross-genre ne chunking performance
 
 
-- note that while some figures low, ER toolkit is high-ranking sota software, and the task is simply difficult; generalising NER beyond newswire is not yet well understood.
+Note that while some figures seem low when compared to typical newswire level performance, the toolkit used is high-ranking, state-of-the-art research software, coming third in the 2015 W-NUT challenge for entity chunking over tweets.
+The task is simply difficult; Twitter NER recall has always been low.
+In addition, it is a generally consistent finding that generalising NER systems beyond newswire is not yet well understood; systems that perform very well on this text type (e.g. F1 of 0.89 from Stanford NER~\cite{derczynski2013microblog}) can often score very poorly on social media content (F1 of 0.41).
+This may be due to overfitting of tools to newswire over time, due to community challenges, dataset in just one type, extra custom rules adapting to formal news text, or other things -- but this is beyond the scope of this paper.
+We do note that our approach uses largely unsupervised feature extraction and performs better than on other social media corpora, also beating the Stanford NER system, in this first attempt at named entity chunking for Reddit.
 
 
 \clearpage
