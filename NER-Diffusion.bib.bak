@@ -106,18 +106,6 @@
   Pages                    = {363--370}
 }
 
-@InProceedings{goyal2010learning,
-  Title                    = {Learning influence probabilities in social networks},
-  Author                   = {Goyal, Amit and Bonchi, Francesco and Lakshmanan, Laks VS},
-  Booktitle                = {Proceedings of the third ACM international conference on Web search and data mining},
-  Year                     = {2010},
-  Organization             = {ACM},
-  Pages                    = {241--250},
-
-  Owner                    = {rowem},
-  Timestamp                = {2015.11.26}
-}
-
 @Article{kiss2006unsupervised,
   Title                    = {Unsupervised multilingual sentence boundary detection},
   Author                   = {Kiss, Tibor and Strunk, Jan},

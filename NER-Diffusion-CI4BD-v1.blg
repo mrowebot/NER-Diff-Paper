@@ -1,0 +1,56 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: NER-Diffusion-CI4BD-v1.aux
+The style file: IEEEtran.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: NER-Diffusion.bib
+-- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+
+Done.
+You've used 18 entries,
+            4039 wiz_defined-function locations,
+            915 strings with 10989 characters,
+and the built_in function-call counts, 14292 in all, are:
+= -- 1095
+> -- 362
+< -- 118
++ -- 196
+- -- 62
+* -- 682
+:= -- 2047
+add.period$ -- 44
+call.type$ -- 18
+change.case$ -- 18
+chr.to.int$ -- 294
+cite$ -- 18
+duplicate$ -- 1016
+empty$ -- 1238
+format.name$ -- 79
+if$ -- 3325
+int.to.chr$ -- 0
+int.to.str$ -- 18
+missing$ -- 180
+newline$ -- 79
+num.names$ -- 18
+pop$ -- 457
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 2
+skip$ -- 1093
+stack$ -- 0
+substring$ -- 704
+swap$ -- 808
+text.length$ -- 20
+text.prefix$ -- 0
+top$ -- 5
+type$ -- 18
+warning$ -- 0
+while$ -- 70
+width$ -- 20
+write$ -- 187

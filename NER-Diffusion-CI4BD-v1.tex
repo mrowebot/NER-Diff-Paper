@@ -1,8 +1,8 @@
-
 \documentclass[journal,10pt,draftclsnofoot,onecolumn]{IEEEtran}
 
 \usepackage{url}
 \usepackage[tight,footnotesize]{subfigure}
+\usepackage{amsthm}
 
 % *** MISC UTILITY PACKAGES ***
 %\usepackage{ifpdf}
@@ -63,6 +63,8 @@
 
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
+
+\newtheorem{mydef}{Definition}
 
 
 \begin{document}
@@ -318,38 +320,110 @@ We do note that our approach uses largely unsupervised feature extraction and pe
 
 \clearpage
 \section{Entity Diffusion}
+In this section we now move on to examining how the recognised entities emerge and \emph{diffuse} through the analysed subreddits.
+As per prior work, one of the first things that we can inspect is the \emph{shape} of entity mention cascades: that is, the patterns of diffusion that such entities exhibit when cited in conversation chains. 
+We begin by explaining how such patterns are derived, before then moving on to showing that patterns emerge.
 
 \subsection{Entity Mention Cascades}
--Describe the entity cascade graphs and what these entail
--Explain how these were derived using graph isomorphism and then the rank induced
+Prior work by Leskovec et al. \cite{leskovec2007patterns} examined the shapes of hyperlink cascades through the blogosphere; in doing so, investigating that patterns appear in terms of the diffusion of links.
+We follow a similar process here, however we instead inspect the emergence of entities in conversation chains in reddit.
+We first make the following explicit.
+
+\begin{mydef}
+(Entity Cascade) A cascade of ${<p_i, pj>} \in C_e$ of an entity $e \in E$ occurs when two or more posts citing the entity are chained together in a reply graph. 
+Hence: $C_e = \{<p_i, p_j> : p_i \rightarrow p_j \in R, cites(p_1) = cites(p_j) = e\}$.
+\end{mydef}
+
+Our goal is to derive all entity cascades for each entity in our analysis, and then examine how the shapes and sizes of these cascades differ.
+To gather each entity's cascades, we retrieved all subreddit posts that contained a given entity.
+For each post ($p \in P_e$), we then recovered the reply-chain that that entity appeared within - this was performed by going \emph{up} the reply chain from $p$ to its parent post (i.e. the post that $p$ was replying to) and \emph{down} the reply chain by getting the posts that replied to $p$.
+When iterating through the posts, if we came across a post that replied to another post in an existing chain then that post was added to the chain.
+We only maintained posts within the chain that cited the entity in question: this produced entity cascades where each consecutive post in the chain mentions the entity - we refer to this as \emph{strict cascade derivation}, as we do not consider posts higher-up or lower-down the reply chain that cite the entity yet are connected by a non-entity citing post. \footnote{The Python code for deriving these chains is available at the following URL: \url{https://github.com/mattroweshow/NER-Diff-Paper}}
+
+This process produces, in essence, a collection of cascade graphs for each entity, each of which may have isomorphic shapes yet contain different node labels (i.e. different post ids).
+We reduced each entity's cascade graph collection down to a frequency distribution of the \emph{canonical form} of each graph using Cordella at al.'s \cite{cordella2001improved} graph isomorphism approach.
+A further reduction was run to compile a frequency distribution of the cascade shapes across all entities.
+Fig. \ref{fig:entity_cascades} show both the top-20 entity cascade shapes on the left (Fig. \ref{fig:cascade_shapes}) and the ranking of the patterns' frequencies on a log-log scale (Fig. \ref{fig:rank_dist}).
+Upon inspection, one thing becomes immediately apparent: entity cascades are shallow and short at the top-3 ranks, however after this position we start to see chains of discussions as being popular which are deeper and narrow.
+This result contrasts somewhat to prior work \cite{leskovec2007patterns} where cascades of hyperlinks between blogs were shallower in depth yet wider - in terms of the breadth of diffusion at the first level from the seed. 
+The ranking of the patterns follows a general power-law distribution where a small section of patterns (i.e. the top-20) are seen most often - this is somewhat expected as it would be very rare for an entity to be cited in a long thread with many branching reply-chains.
 
 \begin{figure}[ht!]
   \begin{center}
-  \subfigure[Cascade Shapes]{\includegraphics[width=0.49\columnwidth]{plots/cascade_shapes.pdf}\label{fig:cascade_shapes}}   
-  \subfigure[Shape Rank Distribution]{\includegraphics[width=0.49\columnwidth]{plots/cascade_rank_dist.pdf}\label{fig:rank_dist}}
+  \subfigure[Top-20 Cascade Shapes]{\includegraphics[width=0.49\columnwidth]{plots/cascade_shapes.pdf}\label{fig:cascade_shapes}}   
+  \subfigure[Cascade Shape Rank Distribution]{\includegraphics[width=0.49\columnwidth]{plots/cascade_rank_dist.pdf}\label{fig:rank_dist}}
   \end{center}    
-  \caption{To do}
+  \caption{The top-20 cascade shapes are generally deep and narrow with little branching (Fig. \ref{fig:cascade_shapes}, while the cascade shape rank follows a power-law distribution (Fig. \ref{fig:rank_dist}.}
   \label{fig:entity_cascades}
 \end{figure}
 
-
 \subsection{Entity Adoption Post-$({k-1})^{th}$ Exposure}
--Potential for adoption at the point of one exposure
--Per entity-exposure dynamics - add plots of random selection of entities
+Inspection of the shape of entity cascades through Reddit discussion threads reveals some interesting traits, suggesting that an entity is likely to be a adopted if it has been discussed \emph{a priori} within the same discussion thread.
+One natural question that emerges from this is the extent to which exposures to entities play a role in actually adopting (i.e. citing) the entity in question.
+To investigate the relationship between exposures and adoptions, we sampled the top-500 entities from our whole annotated dataset and calculated the probability of a user adopting an entity after being \emph{exposed} to the entity $k$ times.
+
+\begin{mydef}
+\label{def:exposure}
+(Exposure) A user $u$ is exposed to an entity $e$ at time $t$ if a given post $p \in P^{\Gamma(u,t}$ authored by a neighbour of $v \in \Gamma(u)$ contains the entity $e$, where neighbours of $u$ are those users that he interacted within prior to $t$.
+\end{mydef}
+
+Based on this definition we iterated through all posts chronologically that cited a given entity, and if the post was the first time that a user cited the entity (i.e. he/she was not \emph{activated}) then we counted how many \emph{exposures} the user had received prior to the time of the post - logging this as $k$.
+Fig. \ref{fig:global_exposure_dist} present the \emph{overall} plot of the probability (i.e. relative frequency) of users adopting an entity after $k$ exposures to the entity.
+Immediately, one can note that the mode of this distribution is at $0$ and that the mean if $k=23$: this implies that users are most likely to actually cite an entity without having been exposed to it, in fact $P(adoption) \rightarrow 0, k \rightarrow \infty$.
+We are somewhat guarded in \emph{generalising} from this result, as our experimental setup here - given the scale of the data we are playing with and the tractability of annotating the entirety of Reddit - does result in only a fraction of Reddit being annotated with entities.
+Hence, it is possible that entities emerge from other subreddits, yet we are unable to capture this at present - our future work makes suggestions as to how this effect can be validated.
+
+The second plot below (Fig. \ref{fig:entity_exposure_dists}) shows a sample of 9 entities' adoption-exposure distributions, all of which have similar shapes (with a mode at $0$) and a heavy-tail.
+Variance exists, however, in the means that these distributions have, for instance the entity \emph{PS1}\footnote{Denoting the original Playstation video-games console.} has a much lower mean than the entity \emph{Hungary} suggesting that users require less stimulation to discuss the former than the latter.
+The nature of how and why the distributions differ is something that requires further investigation.
 
 \begin{figure}[ht!]
   \begin{center}
   \subfigure[Exposure-Adoption Global Distribution]{\includegraphics[width=0.49\columnwidth]{plots/exposure_count_dist_full_log.pdf}\label{fig:global_exposure_dist}}   
-  \subfigure[Random Entity Exposure-Adoption Distributions]{\includegraphics[width=0.49\columnwidth]{plots/per_entity_exposure_count_dist_full_log.pdf}\label{fig:entity_exposure_dists}}
+  \subfigure[Sampled Entity Exposure-Adoption Distributions]{\includegraphics[width=0.49\columnwidth]{plots/per_entity_exposure_count_dist_full_log.pdf}\label{fig:entity_exposure_dists}}
   \end{center}    
-  \caption{To do}
+  \caption{The probability of a user adopting an entity as a function of $k$ prior exposures to the entity has a heavy-tailed distribution (Fig. \ref{fig:global_exposure_dist}) that is consistent across all entities, including a sample of 9 random entities (Fig. \ref{fig:entity_exposure_dists}).}
   \label{fig:exposure_dists}
 \end{figure}
 
 
-
 \subsection{Global Threshold Diffusion Model}
--Explain the implementation of WSDM2010 work and adaptation for non-sequential dataset scans - necessary due to memory load being infeasible
+We now move on to forecasting the diffusion of entities across Reddit.
+For this, we use a modified implementation of Goyal et al.'s general threshold model \cite{goyal2010learning} to parallelise the computation of the model.
+The core principle of the model is that one can calculate the probability of a user ($u$) adopting an entity ($e$) based on how his neighbours ($v \in \Gamma(u)$) have influenced him previously.
+Hence, the probability of $u$ adopting an entity is calculated as follows:
+
+\begin{equation}
+p_u\big(\Gamma(u)\big) = 1 - \displaystyle\prod_{v \in \Gamma(u)}\big(1 - p_{v,u}\big)
+\end{equation}
+
+In Goyal et al.'s prior framework, the probability of influence ($p_{v,u}$) of $v$ on $u$ is based upon the maximum likelihood estimate of a single Bernoulli trial.
+An entity propagation occurs between $v$ to $u$ when when the latter cites $e$ after being exposed to it by the former (as per Definition \ref{def:exposure}), hence a count of how many actions propagate between $v$ and $u$ can be recorded in $A_{v2u}$.
+From this, the influence probability between $v$ and $u$ based on such \emph{propagation} can be calculated as follows, where $A_v$ is how many times $v$ has cited an entity:
+
+\begin{equation}
+p^{A}_{v,u} = \frac{A_{v2u}}{A_v}
+\end{equation}
+
+
+
+
+\subsubsection{Influence from Interactions}
+In this paper we extend this formulation
+
+Influence probability from interactions:
+\begin{equation}
+p^{I}_{v,u} = \frac{\vert \{ p_u : p_v \in P_v, p_u \in P_u, p_u \rightarrow p_v \} \vert}{\vert \{ p_u : p_u \in P_u, p_u \rightarrow . \} \vert}
+\end{equation}
+
+\subsubsection{Influence from Community-Homophily}
+Influence probability from community homphily
+\begin{equation}
+p^C_{v,u} = \frac{\vert C_u \cap C_v \vert}{\vert C_u \cup C_v \vert}
+\end{equation}
+
+For learning the pairwise (i.e. $u,v$) action propagation counts ($A_{v2u}$) we use the same algorithm as from \cite{goyal2010learning} by partitioning the top-500 entities into 80\%:20\% training/testing segments.
+
 
 \subsubsection{Distribution of $\tau_{v,u}$}
 -Present the distribution of $\tau_{v,u}$ and what this implies for the model
@@ -389,6 +463,14 @@ $\alpha p_{u}^{A} + \beta p_{u}^{I}  + \gamma p_{u}^{C}$ & & \\
 \paragraph{Per-Entity Results}
 -Plot the distribution of per-entity roc values for the above models
 
+\section{Discussion and Future Work}
+-Defend the adoption-exposure claim of mode at 0, and explain how validation of this claim is planned in our future work using regexes over the entirety of Reddit to speed up computation.
+
+FW1:
+-Compartment Models of community-wise diffusion
+
+FW2:
+-Vulnerability windows and colinear diffusion patterns
 
 
 % if have a single appendix:
