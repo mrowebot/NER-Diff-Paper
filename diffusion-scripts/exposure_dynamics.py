@@ -218,6 +218,7 @@ def computeExposureGraphForTop500Entities():
         .collectAsMap()
     print("Reply Orig Map Size = " + str(len(reply_orig_map)))
     # print(reply_orig_map)
+    # TODO: Convert code to HBase format as this fails to broadcast with Java heap space memory error
     reply_orig_map_broadcast = sc.broadcast(reply_orig_map)
 
     # # get the: {orig, [reply]} dictionary

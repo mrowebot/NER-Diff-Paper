@@ -1944,7 +1944,7 @@ retain O
 the O
 Golan B 
 Heights I 
-Israel I-b-loc
+Israel I
 captured O
 from O
 Syria B 
@@ -3451,7 +3451,7 @@ hostage O
 after O
 a O
 Taleban B 
-MiG-19 I-b-misc
+MiG-19 I
 fighter O
 forced O
 their O
@@ -6843,7 +6843,7 @@ in O
 four-day O
 
 English B 
-County I-b-misc
+County I
 Championship I 
 cricket O
 matches O
@@ -8893,7 +8893,7 @@ SYDNEY B
 1996-08-22 O
 
 Australian B 
-Davis I-b-misc
+Davis I
 Cup I 
 captain O
 John B 
@@ -18087,7 +18087,7 @@ offenders O
 -DOCSTART- O
 
 Czech B 
-CNB-120 I-b-misc
+CNB-120 I
 index O
 rises O
 1.2 O
@@ -22932,7 +22932,7 @@ assassination O
 of O
 the O
 French B 
-Roman I-b-misc
+Roman I
 Catholic I 
 Bishop O
 Pierre B 
@@ -29991,7 +29991,7 @@ MOTOR O
 RACING O
 - O
 BELGIAN B 
-GRAND I-b-misc
+GRAND I
 PRIX I 
 PRACTICE O
 TIMES O
@@ -30016,7 +30016,7 @@ Sunday O
 's O
 
 Belgian B 
-Grand I-b-misc
+Grand I
 Prix I 
 motor O
 race O
@@ -41819,7 +41819,7 @@ and O
 a O
 captured O
 Russian B 
-T-72 I-b-misc
+T-72 I
 tank O
 roared O
 out O
@@ -62200,7 +62200,7 @@ had O
 expelled O
 28 O
 Rwandan B 
-Hutu I-b-misc
+Hutu I
 refugees O
 accused O
 of O
@@ -62223,7 +62223,7 @@ spokesman O
 for O
 the O
 Tutsi-dominated B 
-Rwandan I-b-misc
+Rwandan I
 army O
 , O
 told O
@@ -62312,7 +62312,7 @@ to O
 1.1 O
 million O
 Rwandan B 
-Hutu I-b-misc
+Hutu I
 refugees O
 who O
 fled O
@@ -78660,7 +78660,7 @@ MILAN B
 1996-08-25 O
 
 Italian B 
-Cup I-b-misc
+Cup I
 winners O
 Fiorentina B 
 beat O
@@ -79587,7 +79587,7 @@ Claydon I
 CYCLING O
 - O
 SWISS B 
-GRAND I-b-misc
+GRAND I
 PRIX I 
 RESULT O
 . O
@@ -79602,9 +79602,9 @@ the O
 232-km O
 
 Swiss B 
-Grand I-b-misc
+Grand I
 Prix I 
-World I-b-misc
+World I
 Cup I 
 cycling O
 race O
@@ -79808,7 +79808,7 @@ victory O
 in O
 the O
 Swiss B 
-Grand I-b-misc
+Grand I
 Prix I 
 on O
 Sunday O
@@ -115980,7 +115980,7 @@ victory O
 in O
 the O
 Belgian B 
-Formula I-b-misc
+Formula I
 One I 
 Grand I 
 Prix I 
@@ -124635,7 +124635,7 @@ lead O
 in O
 the O
 AL B 
-East I-b-misc
+East I
 over O
 Baltimore B 
 fell O
@@ -137229,7 +137229,7 @@ White O
 Chg O
 
 Billings B 
-MT I-b-loc
+MT I
 4.62 O
 up O
 .01 O
@@ -137240,7 +137240,7 @@ dn O
 --- O
 
 Havre B 
-MT I-b-loc
+MT I
 4.54 O
 dn O
 .10 O
@@ -137250,7 +137250,7 @@ dn O
 --- O
 
 Rudyard B 
-MT I-b-loc
+MT I
 4.54 O
 dn O
 .10 O
@@ -137261,7 +137261,7 @@ dn O
 
 Wolf B 
 Point I 
-MT I-b-loc
+MT I
 4.41 O
 dn O
 .10 O
@@ -137271,7 +137271,7 @@ dn O
 --- O
 
 Portland B 
-OR I-b-loc
+OR I
 5.60 O
 up O
 .02 O
@@ -137280,7 +137280,7 @@ dn O
 .01 O
 
 Pendleton B 
-OR I-b-loc
+OR I
 --- O
 --- O
 --- O
@@ -137291,7 +137291,7 @@ up O
 
 Coolee B 
 City I 
-WA I-b-loc
+WA I
 5.13 O
 up O
 .02 O
@@ -137301,7 +137301,7 @@ up O
 unc O
 
 Waterville B 
-WA I-b-loc
+WA I
 5.05 O
 up O
 .02 O
@@ -137311,7 +137311,7 @@ up O
 unc O
 
 Wenatchee B 
-WA I-b-loc
+WA I
 5.15 O
 up O
 .02 O
@@ -140696,7 +140696,7 @@ militants O
 . O
 
 British B 
-Jewish I-b-misc
+Jewish I
 groups O
 have O
 also O
@@ -140717,7 +140717,7 @@ FIS B
 and O
 the O
 Palestinian B 
-Islamic I-b-misc
+Islamic I
 group O
 Hamas B 
 are O
@@ -143855,7 +143855,7 @@ copies O
 of O
 the O
 Cyprus-based B 
-Arabic I-b-misc
+Arabic I
 monthly O
 newspaper O
 al-Tadamun B 
@@ -144801,10 +144801,10 @@ AUGUST O
 CDU B 
 / I 
 CSU I 
-SPD I-b-org
-FDP I-b-org
-Greens I-b-org
-PDS I-b-org
+SPD I
+FDP I
+Greens I
+PDS I
 
 Emnid B 
 Aug O
@@ -144848,10 +144848,10 @@ JULY O
 CDU B 
 / I 
 CSU I 
-SPD I-b-org
-FDP I-b-org
-Greens I-b-org
-PDS I-b-org
+SPD I
+FDP I
+Greens I
+PDS I
 
 Emnid B 
 July O
@@ -144876,10 +144876,10 @@ JUNE O
 CDU B 
 / I 
 CSU I 
-SPD I-b-org
-FDP I-b-org
-Greens I-b-org
-PDS I-b-org
+SPD I
+FDP I
+Greens I
+PDS I
 
 Emnid B 
 June O
@@ -144923,10 +144923,10 @@ MAY O
 CDU B 
 / I 
 CSU I 
-SPD I-b-org
-FDP I-b-org
-Greens I-b-org
-PDS I-b-org
+SPD I
+FDP I
+Greens I
+PDS I
 
 Emnid B 
 May O
@@ -144970,10 +144970,10 @@ APRIL O
 CDU B 
 / I 
 CSU I 
-SPD I-b-org
-FDP I-b-org
-Greens I-b-org
-PDS I-b-org
+SPD I
+FDP I
+Greens I
+PDS I
 
 Emnid B 
 April O
@@ -145018,10 +145018,10 @@ ELECTION O
 CDU B 
 / I 
 CSU I 
-SPD I-b-org
-FDP I-b-org
-Greens I-b-org
-PDS I-b-org
+SPD I
+FDP I
+Greens I
+PDS I
 
 41.5 O
 36.4 O
@@ -145161,7 +145161,7 @@ speak O
 to O
 a O
 British-based B 
-Iraqi I-b-misc
+Iraqi I
 police O
 named O
 as O
@@ -145431,7 +145431,7 @@ said O
 The O
 Airbus B 
 310 I 
-Flight I-b-misc
+Flight I
 150 I 
 , O
 which O
@@ -145764,7 +145764,7 @@ of O
 the O
 Airbus B 
 310 I 
-Flight I-b-misc
+Flight I
 150 I 
 , O
 which O
@@ -151982,7 +151982,7 @@ Oldham B
 CRICKET O
 - O
 ENGLISH B 
-COUNTY I-b-misc
+COUNTY I
 CHAMPIONSHIP I 
 SCORES O
 . O
@@ -152002,7 +152002,7 @@ day O
 of O
 four-day O
 English B 
-County I-b-misc
+County I
 Championship I 
 cricket O
 matches O
@@ -152337,7 +152337,7 @@ he O
 won O
 the O
 English B 
-2,000 I-b-misc
+2,000 I
 Guineas I 
 on O
 Mister B 
@@ -152425,7 +152425,7 @@ coxless O
 pairs O
 at O
 the O
-Atlanta B-b-misc
+Atlanta B
 Games I 
 and O
 said O
@@ -156989,7 +156989,7 @@ candidate O
 for O
 National B 
 League I 
-Most I-b-misc
+Most I
 Valuable I 
 Player I 
 honours O
@@ -157372,7 +157372,7 @@ to O
 win O
 the O
 Spanish B 
-Super I-b-misc
+Super I
 Cup I 
 6-5 O
 on O
@@ -157586,7 +157586,7 @@ SOCCER O
 SUMMARY O
 OF O
 SPANISH B 
-SUPER I-b-misc
+SUPER I
 CUP I 
 . O
 
@@ -157597,7 +157597,7 @@ Summary O
 of O
 the O
 Spanish B 
-Super I-b-misc
+Super I
 Cup I 
 , O
 second O
@@ -157658,7 +157658,7 @@ SOCCER O
 BARCELONA B 
 WIN O
 SPANISH B 
-SUPER I-b-misc
+SUPER I
 CUP I 
 . O
 
@@ -157669,7 +157669,7 @@ Result O
 of O
 the O
 Spanish B 
-Super I-b-misc
+Super I
 Cup I 
 , O
 second O
@@ -173022,7 +173022,7 @@ rainfall O
 in O
 the O
 U.S. B 
-High I-b-loc
+High I
 Plains I 
 has O
 produced O
@@ -175433,7 +175433,7 @@ The O
 MQM B 
 speaks O
 for O
-Urdu-speaking B-b-misc
+Urdu-speaking B
 Moslems I 
 who O
 migrated O
@@ -183495,7 +183495,7 @@ on O
 board O
 the O
 Russian-made B 
-MI-17 I-b-misc
+MI-17 I
 helicopter O
 were O
 taken O
@@ -210620,7 +210620,7 @@ offices O
 on O
 the O
 French B 
-Mediterranean I-b-misc
+Mediterranean I
 island O
 of O
 Corsica B 

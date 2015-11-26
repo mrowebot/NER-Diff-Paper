@@ -50,7 +50,7 @@ def computeGlobalCascadeIsomorphicDistribution():
     # output: (entity, [connected_chain]) - tuple
     def induce_type1_cascades(tuple):
         entity = tuple[0]
-        chains = tuple[1]['cascades']
+        chains = tuple[1]
         # entity_posts = tuple[1]['posts']
 
         # Get the entity posts
@@ -134,13 +134,13 @@ def computeGlobalCascadeIsomorphicDistribution():
         return (entity, canonical_chains)
 
     # Input: (entity, [post])
-    # Output: [(entity, {cascades: [cascade], posts: [post]})]
+    # Output: [(entity, {cascades: [cascade]})]
     def computePerEntityCascadesAndPosts(tuple):
         entity = tuple[0]
         posts = tuple[1]
 
         # Get the broadcast maps that need to be used
-        # orig_replies_map = orig_replies_map_broadcast.value
+        orig_replies_map = orig_replies_map_broadcast.value
         reply_orig_map = reply_orig_map_broadcast.value
 
         # Get the cascade graphs for each entity
@@ -157,8 +157,8 @@ def computeGlobalCascadeIsomorphicDistribution():
 
                 # Starting from the seed post in a possible chain
                 # get the replies to the post - down the chain
-                if post in reply_orig_map.values():
-                    replies = [orig_post for orig_post in reply_orig_map.values() if orig_post is post]
+                if post in orig_replies_map:
+                    replies = orig_replies_map[post]
                     to_process += replies
                     for reply in replies:
                         chain.append(reply + "->" + post)
@@ -174,8 +174,8 @@ def computeGlobalCascadeIsomorphicDistribution():
                     # log that the post has been processed in an already found chain
                     chain_posts.add(to_process_post)
                     # get the replies to this post
-                    if to_process_post in reply_orig_map.values():
-                        replies = [orig_post for orig_post in reply_orig_map.values() if orig_post is to_process_post]
+                    if to_process_post in orig_replies_map:
+                        replies = orig_replies_map[to_process_post]
                         to_process += replies
                         for reply in replies:
                             chain.append(reply + "->" + to_process_post)
@@ -191,9 +191,6 @@ def computeGlobalCascadeIsomorphicDistribution():
         # Return the entity chains
         return (entity, entity_chains)
 
-
-
-
     ###### Execution code
     conf = SparkConf().setAppName("NER Diffusion - Cascade Pattern Mining")
     conf.set("spark.python.worker.memory","10g")
@@ -202,7 +199,7 @@ def computeGlobalCascadeIsomorphicDistribution():
     conf.set("spark.default.parallelism", "12")
     conf.set("spark.mesos.coarse", "true")
     conf.set("spark.driver.maxResultSize", "10g")
-    conf.set("spark.cores.max", "5")
+    conf.set("spark.cores.max", "15")
     conf.setMaster("mesos://zk://scc-culture-slave9.lancs.ac.uk:2181/mesos")
     conf.set("spark.executor.uri", "hdfs://scc-culture-mind.lancs.ac.uk/lib/spark-1.3.0-bin-hadoop2.4.tgz")
     conf.set("spark.broadcast.factory", "org.apache.spark.broadcast.TorrentBroadcastFactory")
@@ -270,7 +267,7 @@ def computeGlobalCascadeIsomorphicDistribution():
     # #     .take(10)
     # # print("Entity connected cacades Map Size = " + str(len(canonical_cascade_patterns_distribution_map)))
     # # print(canonical_cascade_patterns_distribution_map)
-    #
+
     print("Top Patterns:")
     canonical_cascade_patterns_distribution = canonical_cascade_patterns\
         .flatMap(lambda x: x[1] if len(x) is 2 else ["null"])\

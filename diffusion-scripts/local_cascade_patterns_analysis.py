@@ -95,7 +95,7 @@ def plot_cascade_patterns_shapes():
     for i in range(1, k+1):
         plt.subplot(4, 4, i)
         # pos = nx.graphviz_layout(df.index[i], prog='dot')
-        nx.draw(df.index[i], with_labels=False, node_size=50)
+        nx.draw(nx.reverse(df.index[i-1]), with_labels=False, node_size=50)
         plt.title("$r_{" + str(i) + "}$")
     plt.tight_layout()
     plt.savefig('../plots/cascade_shapes.pdf', bbox_inches='tight')

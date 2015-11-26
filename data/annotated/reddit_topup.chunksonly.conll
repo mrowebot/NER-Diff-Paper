@@ -768,7 +768,7 @@ might	O
 point	O
 to	O
 El	B
-Dorado	I-loc
+Dorado	I
 as	O
 well	O
 ?	O
@@ -807,7 +807,7 @@ currently	O
 working	O
 by	O
 Battery	B
-Park	I-loc
+Park	I
 and	O
 has	O
 a	O
@@ -818,7 +818,7 @@ the	O
 lines	O
 to	O
 Ellis	B
-Island	I-loc
+Island	I
 /	O
 Statue	B
 of	I
@@ -1255,8 +1255,8 @@ towards	O
 a	O
 drug-free	O
 South	B
-East	I-loc
-Asia	I-loc
+East	I
+Asia	I
 ,	O
 according	O
 to	O

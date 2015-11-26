@@ -634,7 +634,7 @@ I	O
 going	O
 home	O
 to	O
-Wisconsin	B-loc
+Wisconsin	B
 for	O
 a	O
 few	O
@@ -823,7 +823,7 @@ people	O
 	
 What	O
 Do	O
-S.F.	B-loc
+S.F.	B
 Rabbis	O
 Eat	O
 Before	O
@@ -870,7 +870,7 @@ work	O
 !	O
 going	O
 to	O
-alderwood	B-loc
+alderwood	B
 again	O
 :)	O
 yay	O
@@ -1241,7 +1241,7 @@ the	O
 show	O
 tomorrow	O
 in	O
-Hawaii	B-loc
+Hawaii	B
 ?	O
 	
 chinese	O
@@ -1267,7 +1267,7 @@ got	O
 mine	O
 in	O
 bbt	O
-aintree	B-loc
+aintree	B
 today	O
 .	O
 Played	O
@@ -1508,7 +1508,7 @@ RT	O
 :	O
 Here	O
 in	O
-DC	B-loc
+DC	B
 !	O
 About	O
 to	O
@@ -1712,7 +1712,7 @@ will	O
 air	O
 in	O
 the	O
-UK	B-loc
+UK	B
 on	O
 October	O
 18	O
@@ -1803,7 +1803,7 @@ you	O
 are	O
 staying	O
 in	O
-Gainesville	B-loc
+Gainesville	B
 ,	O
 come	O
 check	O
@@ -1837,7 +1837,7 @@ to	O
 the	O
 show	O
 at	O
-Berkeley	B-loc
+Berkeley	B
 in	O
 Oct	O
 6th	O
@@ -2138,7 +2138,7 @@ a	O
 Deal	O
 Pro	O
 in	O
-Chicago	B-loc
+Chicago	B
 in	O
 November	O
 !	O
@@ -2229,7 +2229,7 @@ slap	O
 ..	O
 	
 Shows	O
-Tonight-Local	O
+Tonightal	O
 Natives	B
 @TheMusicBoxLA	O
 ,	O
@@ -2280,7 +2280,7 @@ a	O
 y/o	O
 kid	O
 from	O
-japan	B-loc
+japan	B
 who	O
 won	O
 the	O
@@ -2651,7 +2651,7 @@ and	O
 36	O
 seconds	O
 to	O
-Doha	B-loc
+Doha	B
 ....	O
 	
 Having	O
@@ -3293,7 +3293,7 @@ Playboy	B
 10	O
 October	O
 2010	O
-Slovenia	B-loc
+Slovenia	B
 :	O
 Playboy	B
 -	O
@@ -3370,8 +3370,8 @@ kwijt	O
 Accounts	O
 Payable	O
 Coordinator	O
-North	B-loc
-York	I-loc
+North	B
+York	I
 -	O
 $37K	O
 (	O
@@ -3379,11 +3379,11 @@ $37K	O
 year	O
 Contract)Location	O
 :	O
-Toronto	B-loc
+Toronto	B
 ,	O
-Ontario	B-loc
+Ontario	B
 ,	O
-CANADA	B-loc
+CANADA	B
 ...	O
 http://bit.ly/aOe78A	O
 #jobs	O
@@ -3420,7 +3420,7 @@ If	O
 you	O
 are	O
 in	O
-Belfast	B-loc
+Belfast	B
 this	O
 weekend	O
 go	O
@@ -3729,7 +3729,7 @@ badass	O
 Beautiful	O
 day	O
 in	O
-Chicago	B-loc
+Chicago	B
 !	O
 Nice	O
 to	O
@@ -3737,7 +3737,7 @@ get	O
 away	O
 from	O
 the	O
-Florida	B-loc
+Florida	B
 heat	O
 .	O
 	
@@ -3951,7 +3951,7 @@ at	O
 St	B
 Johns	I
 before	O
-ASPEN	B-loc
+ASPEN	B
 	
 @BeliebinMinajj	O
 OMG	O
@@ -3986,7 +3986,7 @@ you	O
 are	O
 staying	O
 in	O
-Gainesville	B-loc
+Gainesville	B
 ,	O
 come	O
 check	O
@@ -4346,7 +4346,7 @@ when	O
 he	O
 goes	O
 to	O
-richmond	B-loc
+richmond	B
 ??	O
 	
 @jonronson	O
@@ -4678,9 +4678,9 @@ Potbelly	B
 Lincoln	I
 Park	I
 in	O
-Chicago	B-loc
+Chicago	B
 ,	O
-IL	B-loc
+IL	B
 http://bit.ly/bKMFgi	O
 	
 Gotta	O
@@ -4860,7 +4860,7 @@ Hangeland	B
 won't	O
 be	O
 at	O
-Fulham	B-loc
+Fulham	B
 for	O
 long	O
 http://bit.ly/aCXCNE	O
@@ -5178,7 +5178,7 @@ for	O
 Sports	B
 Day	I
 in	O
-Canada	B-loc
+Canada	B
 #yyc	O
 #sportsday	O
 http://ow.ly/2G4sf	O
@@ -6606,7 +6606,7 @@ RT	O
 it	O
 's	O
 in	O
-England	B-loc
+England	B
 .	O
 Will	O
 tweet	O
@@ -7246,7 +7246,7 @@ time	O
 :)	O
 	
 #lindsaylohan	O
-US	B-loc
+US	B
 -	O
 Lindsay	B
 Lohan	I
@@ -7551,7 +7551,7 @@ be	O
 at	O
 tomorrow	O
 in	O
-maryland	B-loc
+maryland	B
 ??	O
 	
 Now	O
@@ -7640,7 +7640,7 @@ Playboy	B
 10	O
 October	O
 2010	O
-Slovenia	B-loc
+Slovenia	B
 :	O
 Playboy	B
 -	O
@@ -7665,10 +7665,10 @@ my	O
 time	O
 now	O
 btwn	O
-SF	B-loc
+SF	B
 and	O
-San	B-loc
-Mateo	I-loc
+San	B
+Mateo	I
 	
 Time	O
 magazine	O
@@ -7701,7 +7701,7 @@ gggrrrrr	O
 much	O
 prefer	O
 a	O
-GA	B-loc
+GA	B
 announcement	O
 that	O
 they	O
@@ -7716,7 +7716,7 @@ a	O
 bad	O
 time	O
 for	O
-GA	B-loc
+GA	B
 fans	O
 at	O
 the	O
@@ -7828,7 +7828,7 @@ mix(cma	O
 center	O
 )	O
 in	O
-corbin	B-loc
+corbin	B
 .	O
 	
 Willow	B
@@ -7867,8 +7867,8 @@ York	I
 Fashion	I
 Week	I
 :	O
-New	B-loc
-York	I-loc
+New	B
+York	I
 Fa	O
 ...	O
 http://bit.ly/aMaJNB	O
@@ -7908,8 +7908,8 @@ supposed	O
 to	O
 rain	O
 in	O
-The	B-loc
-Bay	I-loc
+The	B
+Bay	I
 on	O
 Sunday	O
 ...	O
@@ -7934,12 +7934,12 @@ parties	O
 on	O
 Saturday	O
 -	O
-Clemson	B-loc
+Clemson	B
 party	O
 at	O
 http://bit.ly/cds8Pd	O
 ;	O
-Auburn	B-loc
+Auburn	B
 party	O
 at	O
 http://bit.ly/9X1KP8	O
@@ -8226,7 +8226,7 @@ THE	O
 FOOTBALL	O
 FEVER	O
 :	O
-Ohio	B-loc
+Ohio	B
 head	O
 coach	O
 Frank	B
@@ -8285,8 +8285,8 @@ at	O
 Mai	B
 Tai	I
 in	O
-Long	B-loc
-Beach	I-loc
+Long	B
+Beach	I
 .	O
 I'm	O
 considering	O
@@ -8463,7 +8463,7 @@ Comm	O
 meeting	O
 ,	O
 where	O
-Willingham	B-loc
+Willingham	B
 probe	O
 took	O
 a	O
@@ -8533,7 +8533,7 @@ Enjoy	O
 your	O
 time	O
 in	O
-Harrison	B-loc
+Harrison	B
 .	O
 	
 Off	O
@@ -8745,7 +8745,7 @@ game	O
 toooonight	O
 .	O
 then	O
-auburn	B-loc
+auburn	B
 game	O
 tomorrow	O
 !!!!	O
@@ -8896,7 +8896,7 @@ tomrrw	O
 and	O
 back	O
 to	O
-Kent	B-loc
+Kent	B
 !'	O
 	
 That	O
@@ -8981,14 +8981,14 @@ had	O
 of	O
 early	O
 80s	O
-NYC	B-loc
+NYC	B
 was	O
 if	O
 you	O
 went	O
 to	O
-Central	B-loc
-Park	I-loc
+Central	B
+Park	I
 after	O
 dark	O
 you'd	O
@@ -9031,7 +9031,7 @@ luck	O
 @TomCruise	O
 I'm	O
 from	O
-Brazil	B-loc
+Brazil	B
 ....	O
 and	O
 I	O
@@ -9136,7 +9136,7 @@ I	O
 3	O
 fall	O
 in	O
-Rodanthe	B-loc
+Rodanthe	B
 @OBXcom	O
 	
 tea	O
@@ -9353,7 +9353,7 @@ It	O
 's	O
 official	O
 !!!	O
-Vegas	B-loc
+Vegas	B
 for	O
 the	O
 weekend	O
@@ -9372,7 +9372,7 @@ RT	O
 Just	O
 landed	O
 in	O
-DC	B-loc
+DC	B
 .	O
 Is	O
 anybody	O
@@ -9659,9 +9659,9 @@ great	O
 week	O
 in	O
 our	O
-SF	B-loc
+SF	B
 and	O
-LA	B-loc
+LA	B
 offices	O
 .	O
 Glad	O
@@ -9673,7 +9673,7 @@ AMerican	B
 flight	O
 back	O
 to	O
-NYC	B-loc
+NYC	B
 	
 Opted	O
 for	O
@@ -9755,11 +9755,11 @@ takes	O
 six	O
 wickets	O
 as	O
-Pakistan	B-loc
+Pakistan	B
 beat	O
-England	B-loc
+England	B
 :	O
-LONDON	B-loc
+LONDON	B
 ,	O
 Sept	O
 17	O
@@ -10111,7 +10111,7 @@ there	O
 actually	O
 anything	O
 on	O
-UK	B-loc
+UK	B
 tv	O
 tonight	O
 !	O
@@ -10156,7 +10156,7 @@ tomorrow	O
 i'll	O
 go	O
 to	O
-Nijverdal	B-loc
+Nijverdal	B
 and	O
 meet	O
 @ElineEpica	O
@@ -10873,7 +10873,7 @@ It	O
 's	O
 getting	O
 across	O
-London	B-loc
+London	B
 that	O
 's	O
 the	O
@@ -10902,8 +10902,8 @@ a	O
 friday	O
 #blown	O
 	
-NEW	B-loc
-ORLEANS	I-loc
+NEW	B
+ORLEANS	I
 !	O
 -	O
 Tonight	O
@@ -11275,7 +11275,7 @@ Under	O
 the	O
 headline	O
 "	O
-China	B-loc
+China	B
 needs	O
 to	O
 elaborate	O
@@ -11336,7 +11336,7 @@ me	O
 very	O
 happy	O
 	
-estonia	B-loc
+estonia	B
 tomorrow	O
 with	O
 @MyiaOnFyia	O
@@ -11448,7 +11448,7 @@ market	O
 ,	O
 9-1	O
 in	O
-DC	B-loc
+DC	B
 .	O
 Come	O
 by	O
@@ -11471,7 +11471,7 @@ day	O
 of	O
 freedom	O
 	
-California	B-loc
+California	B
 Woman	O
 Dies	O
 in	O
@@ -11748,8 +11748,8 @@ http://tinyurl.com/39tkyfh	O
 Analogy	O
 time	O
 !	O
-Loyola	B-loc
-Chicago	B-loc
+Loyola	B
+Chicago	B
 :	O
 Alexei	B
 ::	O
@@ -11880,9 +11880,9 @@ pm	O
 Buffs	O
 FB	O
 :	O
-Giddings	B-loc
+Giddings	B
 faces	O
-Elgin	B-loc
+Elgin	B
 tonite	O
 @	O
 Wildcat	B
@@ -12041,7 +12041,7 @@ time	O
 with	O
 family	O
 from	O
-delaware	B-loc
+delaware	B
 ,	O
 or	O
 leftover	O
@@ -12193,8 +12193,8 @@ a	O
 police	O
 escort	O
 in	O
-Chapel	B-loc
-Hill	I-loc
+Chapel	B
+Hill	I
 ...	O
 game	O
 tonight	O
@@ -12221,8 +12221,8 @@ Launches	O
 Five	O
 City	O
 Tour	O
-MONTCLAIR	B-loc
-N.J.	B-loc
+MONTCLAIR	B
+N.J.	B
 ...:	O
 The	O
 all	O
@@ -12350,12 +12350,12 @@ parties	O
 on	O
 Saturday	O
 -	O
-Clemson	B-loc
+Clemson	B
 party	O
 at	O
 http://bit.ly/cds8Pd	O
 ;	O
-Auburn	B-loc
+Auburn	B
 party	O
 at	O
 http://bit	O
@@ -12601,8 +12601,8 @@ the	O
 bumper	O
 stickers	O
 of	O
-Fayette	B-loc
-County	I-loc
+Fayette	B
+County	I
 :	O
 "	O
 Ever	O
@@ -12643,8 +12643,8 @@ here	O
 .	O
 Deliver	O
 on	O
-Dayton	B-loc
-NJ	I-loc
+Dayton	B
+NJ	I
 tomorrow	O
 (@	O
 Ball	B
@@ -13152,7 +13152,7 @@ sorting	O
 pope	B
 visit	O
 to	O
-birmingham	B-loc
+birmingham	B
 stuff	O
 out	O
 .....	O
@@ -13404,7 +13404,7 @@ AND	O
 Juniper	B
 routers	O
 for	O
-America	B-loc
+America	B
 's	O
 largest	O
 wireless	O
@@ -13662,7 +13662,7 @@ anniversary	O
 :	O
 Observances	O
 in	O
-Temecula	B-loc
+Temecula	B
 and	O
 elsewhere	O
 throughout	O
@@ -13742,7 +13742,7 @@ meeting	O
 with	O
 Trisha	B
 in	O
-Paris	B-loc
+Paris	B
 for	O
 this	O
 week	O
@@ -14413,8 +14413,8 @@ the	O
 middle	O
 .	O
 	
-Eastern	B-loc
-Bloc	I-loc
+Eastern	B
+Bloc	I
 25th	O
 b'day	O
 party	O
@@ -14749,7 +14749,7 @@ LIVE	I
 SUENALO	B
 !	O
 FROM	O
-MIAMI	B-loc
+MIAMI	B
 W/	O
 SHAKEMODE	B
 AND	O
@@ -14767,7 +14767,7 @@ the	O
 show	O
 tomorrow	O
 in	O
-Hawaii	B-loc
+Hawaii	B
 ?	O
 	
 @atlgc17	O
@@ -14872,7 +14872,7 @@ got	O
 mine	O
 in	O
 bbt	O
-aintree	B-loc
+aintree	B
 today	O
 .	O
 Played	O
@@ -14910,7 +14910,7 @@ bloody	O
 Pope	B
 clogging	O
 up	O
-London	B-loc
+London	B
 tomorrow	O
 .	O
 I	O
@@ -15129,11 +15129,11 @@ at	O
 Centennial	B
 College	I
 (	O
-Progress	B-loc
-Campus	I-loc
+Progress	B
+Campus	I
 )	O
 in	O
-Scarborough	B-loc
+Scarborough	B
 .	O
 @ccsai	O
 	
@@ -15192,7 +15192,7 @@ Are	I
 Dancing	I
 "	O
 (	O
-Copenhagen	B-loc
+Copenhagen	B
 March	O
 2010	O
 )	O
@@ -15566,7 +15566,7 @@ fans	O
 at	O
 103.5	O
 in	O
-Chicago	B-loc
+Chicago	B
 today	O
 http://tumblr.com/xvliuc7q5	O
 	
@@ -16140,7 +16140,7 @@ Mike	B
 Davis	I
 in	O
 :	O
-Texas	B-loc
+Texas	B
 wide	O
 receiver	O
 John	B
@@ -16175,7 +16175,7 @@ if	O
 they're	O
 coming	O
 to	O
-Arizona	B-loc
+Arizona	B
 next	O
 year	O
 ??	O
@@ -16260,7 +16260,7 @@ When	O
 on	O
 vacation	O
 in	O
-Cebu	B-loc
+Cebu	B
 ,	O
 you	O
 do	O
@@ -16310,7 +16310,7 @@ tonight	O
 right	O
 ?	O
 	
-Edmonton	B-loc
+Edmonton	B
 dealers	O
 raise	O
 $320000	O
@@ -17554,7 +17554,7 @@ game	O
 9:00	O
 pm	O
 at	O
-Burnaby	B-loc
+Burnaby	B
 8Rinks	O
 .	O
 Please	O
@@ -18391,7 +18391,7 @@ best	O
 Done	O
 teaching	O
 in	O
-Viera	B-loc
+Viera	B
 time	O
 for	O
 some	O
@@ -18399,7 +18399,7 @@ eats	O
 and	O
 back	O
 to	O
-orlando	B-loc
+orlando	B
 ,	O
 possibly	O
 swing	O
@@ -19230,7 +19230,7 @@ do	O
 you	O
 come	O
 in	O
-orlando	B-loc
+orlando	B
 one	O
 day	O
 let	O
@@ -19420,11 +19420,11 @@ aeration	O
 overseeding	O
 season	O
 for	O
-Atlanta	B-loc
+Atlanta	B
 &amp;	O
 N	O
 .	O
-Georgia	B-loc
+Georgia	B
 .	O
 Do	O
 some	O
@@ -19561,7 +19561,7 @@ dies	O
 after	O
 performance	O
 in	O
-Ohio	B-loc
+Ohio	B
 :	O
 George	B
 N	I
@@ -19791,7 +19791,7 @@ Sept	O
 .	O
 22	O
 in	O
-Detroit	B-loc
+Detroit	B
 .	O
 Register	O
 now	O
@@ -19861,10 +19861,10 @@ RT	O
 Woke	O
 up	O
 in	O
-Sacramento	B-loc
+Sacramento	B
 .	O
 The	O
-CA	B-loc
+CA	B
 weather	O
 feels	O
 great	O
@@ -19895,11 +19895,11 @@ on	O
 Milford	B
 Rd	I
 ,	O
-Lindis	B-loc
-Pass	I-loc
+Lindis	B
+Pass	I
 and	O
-Arthurs	B-loc
-Pass	I-loc
+Arthurs	B
+Pass	I
 today	O
 http://ow.ly/2G4Re	O
 No	O
@@ -19908,9 +19908,9 @@ for	O
 Desert	B
 Rd	I
 ,	O
-Lewis	B-loc
+Lewis	B
 ,	O
-Rimutakas	B-loc
+Rimutakas	B
 	
 @Nolicious	O
 have	O
@@ -20513,8 +20513,8 @@ spend	O
 the	O
 weekend	O
 in	O
-Happy	B-loc
-Valley	I-loc
+Happy	B
+Valley	I
 !	O
 	
 Comment	O
@@ -20874,7 +20874,7 @@ Site	O
 )	O
 &gt;	O
 &gt;	O
-Delhomme	B-loc
+Delhomme	B
 doubtful	O
 for	O
 Sunday	O
@@ -21270,9 +21270,9 @@ showcased	O
 at	O
 Limelight	B
 on	O
-St	B-loc
-.	I-loc
-Mary's.	I-loc
+St	B
+.	I
+Mary's.	I
 	
 I	O
 feel	O
@@ -21677,7 +21677,7 @@ before	O
 the	O
 shirt	O
 	
-Lelystad	B-loc
+Lelystad	B
 -	O
 za	O
 18	O
@@ -21772,12 +21772,12 @@ is	O
 one	O
 Tuesday	O
 in	O
-AUS	B-loc
+AUS	B
 and	O
 the	O
 one	O
 in	O
-RR	B-loc
+RR	B
 on	O
 Friday	O
 .	O
@@ -21845,10 +21845,10 @@ in	O
 Off	O
 camping	O
 to	O
-Robinhoods	B-loc
-bay	I-loc
+Robinhoods	B
+bay	I
 In	O
-Jasmin	B-loc
+Jasmin	B
 .	O
 Good	O
 weekend	O
@@ -21896,8 +21896,8 @@ too	O
 A	O
 week	O
 in	O
-New	B-loc
-Jersey	I-loc
+New	B
+Jersey	I
 ,	O
 of	O
 all	O
@@ -21910,7 +21910,7 @@ want	O
 to	O
 hear	O
 a	O
-*Boston*	B-loc
+*Boston*	B
 accent	O
 again	O
 .	O
@@ -21921,7 +21921,7 @@ RT	O
 Just	O
 arrived	O
 in	O
-Sacramento	B-loc
+Sacramento	B
 !	O
 What	O
 a	O
@@ -22141,7 +22141,7 @@ stuff	O
 moving	O
 to	O
 the	O
-UK	B-loc
+UK	B
 in	O
 approx	O
 12	O
@@ -22189,7 +22189,7 @@ Twisted	O
 two	O
 nighter	O
 in	O
-London	B-loc
+London	B
 NOVEMBER	O
 18	O
 ...	O
@@ -22780,7 +22780,7 @@ really	O
 good	O
 stuff	O
 at	O
-KSC	B-loc
+KSC	B
 .	O
 	
 Today	O
@@ -23320,7 +23320,7 @@ my	O
 first	O
 day	O
 in	O
-Vegas	B-loc
+Vegas	B
 and	O
 I	O
 am	O
@@ -23621,7 +23621,7 @@ still	O
 unbearable	O
 .	O
 Give	O
-Arizona	B-loc
+Arizona	B
 a	O
 break	O
 .	O
@@ -24116,7 +24116,7 @@ shares	O
 shoot	O
 up	O
 after	O
-Romania	B-loc
+Romania	B
 mo	O
 	
 I	O
@@ -24727,7 +24727,7 @@ race	O
 reportedly	O
 ahead	O
 in	O
-AK	B-loc
+AK	B
 .	O
 	
 @rattleknackers	O
@@ -24987,7 +24987,7 @@ http://bit.ly/bsyz9H	O
 be	O
 back	O
 in	O
-LA	B-loc
+LA	B
 tomorrow	O
 night	O
 !	O
@@ -25096,7 +25096,7 @@ to	O
 da	O
 gump	O
 today	O
-alabama	B-loc
+alabama	B
 here	O
 I	O
 come	O
@@ -25149,7 +25149,7 @@ when	O
 theycame	O
 to	O
 the	O
-uk	B-loc
+uk	B
 this	O
 year	O
 ,	O
@@ -25178,7 +25178,7 @@ NZST)	O
 km	O
 south-west	O
 of	O
-Christchurch	B-loc
+Christchurch	B
 .	O
 http://tinyurl.com/265n4mx	O
 #eqnz	O
@@ -25264,7 +25264,7 @@ at	O
 The	B
 Standard	I
 in	O
-LA	B-loc
+LA	B
 tonight	O
 !	O
 http://fb.me/I91IUaEq	O
@@ -25273,10 +25273,10 @@ RT	O
 @TRAEABN	O
 Headed	O
 to	O
-Shreveport	B-loc
+Shreveport	B
 then	O
-Lake	B-loc
-Charles	I-loc
+Lake	B
+Charles	I
 -might	O
 as	O
 well	O
@@ -25289,8 +25289,8 @@ the	O
 slab	O
 show	O
 in	O
-Lake	B-loc
-Charles	I-loc
+Lake	B
+Charles	I
 ..	O
 	
 LIVESTRONG	B
@@ -25479,7 +25479,7 @@ DITR	O
 REI	O
 Update	O
 :	O
-California	B-loc
+California	B
 Home	O
 Sales	O
 Decline	O
@@ -25517,7 +25517,7 @@ WE	O
 AINT	O
 LIKE	O
 THESE	O
-HOLLYWOOD	B-loc
+HOLLYWOOD	B
 AZZ	O
 RAPPERS	O
 WE	O
@@ -25551,7 +25551,7 @@ out	O
 long*	O
 @MicahPardKing	O
 	
-Israel	B-loc
+Israel	B
 grinds	O
 to	O
 a	O
@@ -25607,7 +25607,7 @@ all	O
 my	O
 girls	O
 in	O
-london	B-loc
+london	B
 or	O
 travelling	O
 up	O
@@ -25848,7 +25848,7 @@ driving	O
 driving	O
 away	O
 to	O
-Phil	B-loc
+Phil	B
 .	O
 Tasty	O
 dinner	O
@@ -26123,9 +26123,9 @@ shot	O
 biotch	O
 !	O
 	
-Columbus	B-loc
+Columbus	B
 ,	O
-GA	B-loc
+GA	B
 :	O
 @TimmNintey146	O
 and	O
@@ -26162,7 +26162,7 @@ Moonshine	I
 has	O
 arrived	O
 in	O
-Nashville	B-loc
+Nashville	B
 --	O
 Give	O
 it	O
@@ -26174,7 +26174,7 @@ it	O
 in	O
 stores	O
 .	O
-KY	B-loc
+KY	B
 ships	O
 next	O
 week	O
@@ -26432,7 +26432,7 @@ by	O
 Mariel	B
 Concepcion	I
 ,	O
-NY	B-loc
+NY	B
 |	O
 September	O
 1	O
@@ -26459,7 +26459,7 @@ time	O
 I	O
 position	O
 to	O
-Manchester	B-loc
+Manchester	B
 tomorrow	O
 on	O
 BA	O
@@ -26467,7 +26467,7 @@ BA	O
 and	O
 fly	O
 to	O
-Barbados	B-loc
+Barbados	B
 on	O
 Sunday	O
 	
@@ -26563,7 +26563,7 @@ birthday	O
 have	O
 fun	O
 in	O
-vancouver	B-loc
+vancouver	B
 tonight	O
 !	O
 	
@@ -26624,7 +26624,7 @@ $	O
 I'd	O
 move	O
 to	O
-VT	B-loc
+VT	B
 and	O
 buy	O
 some	O
@@ -26825,7 +26825,7 @@ stuff	O
 	
 Tomorrow	O
 -	O
-London	B-loc
+London	B
 -	O
 Hyde	B
 Park	I
@@ -27362,7 +27362,7 @@ driving	O
 driving	O
 away	O
 to	O
-Phil	B-loc
+Phil	B
 .	O
 Tasty	O
 dinner	O
@@ -28811,8 +28811,8 @@ ur	O
 fans	O
 in	O
 the	O
-Middle	B-loc
-East	I-loc
+Middle	B
+East	I
 :)	O
 hope	O
 to	O
@@ -28936,12 +28936,12 @@ Lucid	B
 Dementia	I
 Playing	O
 in	O
-Austin	B-loc
+Austin	B
 Tonite	O
 at	O
-The	B-loc
-Scoot	I-loc
-Inn	I-loc
+The	B
+Scoot	I
+Inn	I
 at	O
 1am	O
 !	O
@@ -28957,15 +28957,15 @@ Sales	O
 Consultant(s	O
 )	O
 -	O
-Greenville	B-loc
+Greenville	B
 ,	O
-AL	B-loc
+AL	B
 http://bit.ly/dflARA	O
 	
 @hannibal_flow	O
 I	O
 got	O
-miami	B-loc
+miami	B
 pics	O
 for	O
 days	O
@@ -28977,8 +28977,8 @@ today	O
 yuck	O
 lol	O
 	
-Buck	B-loc
-mountain	I-loc
+Buck	B
+mountain	I
 tomorrow	O
 .	O
 #adirondacks	O
@@ -28990,7 +28990,7 @@ LOW	O
 ARE	O
 COMMING	O
 TO	O
-GLASGOW	B-loc
+GLASGOW	B
 !!!!!!!!!!!!!!!!!!!	O
 	
 RT	O
@@ -29056,7 +29056,7 @@ RT	O
 :	O
 Performing	O
 in	O
-Naples	B-loc
+Naples	B
 tomorrow	O
 with	O
 N.E.R.D.	B
@@ -29073,7 +29073,7 @@ show	O
 Tonight	O
 Stars	B
 in	O
-Vordingborg	B-loc
+Vordingborg	B
 -	O
 few	O
 tic	O
@@ -29318,7 +29318,7 @@ stuff	O
 leaving	O
 for	O
 the	O
-bahamas	B-loc
+bahamas	B
 tomorrow	O
 though	O
 !!	O
@@ -30084,7 +30084,7 @@ Read	O
 so	O
 much	O
 on	O
-India	B-loc
+India	B
 ,	O
 looks	O
 like	O
@@ -30113,17 +30113,17 @@ before	O
 or	O
 after	O
 at	O
-Pi	B-loc
+Pi	B
 !	O
-CWE	B-loc
+CWE	B
 and	O
-Delmar	B-loc
+Delmar	B
 are	O
 around	O
 the	O
 corner	O
 ,	O
-Kirkwood	B-loc
+Kirkwood	B
 &amp;	O
 ...	O
 http://fb.me/I6SZ52nW	O
@@ -30384,7 +30384,7 @@ Hip	O
 9	O
 days	O
 then	O
-Sydney	B-loc
+Sydney	B
 	
 "	O
 why	O
@@ -30459,9 +30459,9 @@ year	O
 old	O
 Penny	B
 of	O
-Mesa	B-loc
+Mesa	B
 ,	O
-AZ	B-loc
+AZ	B
 who	O
 had	O
 heart	O
@@ -30610,7 +30610,7 @@ home	O
 finally	O
 .	O
 	
-Chicago	B-loc
+Chicago	B
 Weekend	O
 Events	O
 :	O
@@ -31329,7 +31329,7 @@ lol	O
 i'm	O
 moving	O
 to	O
-america	B-loc
+america	B
 when	O
 i'm	O
 at	O
@@ -31696,8 +31696,8 @@ down	O
 the	O
 road	O
 in	O
-Ft	B-loc
-Mitchell	I-loc
+Ft	B
+Mitchell	I
 .	O
 No	O
 time	O
@@ -32098,12 +32098,12 @@ half	O
 the	O
 time	O
 in	O
-inglewood	B-loc
+inglewood	B
 the	O
 other	O
 half	O
 in	O
-mv	B-loc
+mv	B
 ...	O
 where	O
 u	O
@@ -32528,7 +32528,7 @@ HoveLive	B
 Festival	I
 tomorrow	O
 in	O
-Belgium	B-loc
+Belgium	B
 !	O
 http://fb.me/v5CUZkEY	O
 	
@@ -32542,7 +32542,7 @@ video	O
 for	O
 tonight	O
 's	O
-Cahill	B-loc
+Cahill	B
 event	O
 :	O
 http://youtu.be/KX5jNnDMfxA	O
@@ -32570,7 +32570,7 @@ Land	B
 of	I
 Talk	I
 -	O
-Minneapolis	B-loc
+Minneapolis	B
 (	O
 First	O
 Avenue	O
@@ -32612,7 +32612,7 @@ http://bit.ly/cw730s	O
 wanna	O
 go	O
 to	O
-Liffey	B-loc
+Liffey	B
 valley	O
 tomorrow	O
 ?	O
@@ -32872,7 +32872,7 @@ When	O
 TIFF	B
 is	O
 in	O
-Tdot	B-loc
+Tdot	B
 ,	O
 ALWAYS	O
 have	O
@@ -33525,7 +33525,7 @@ tomorow	O
 i'll	O
 be	O
 in	O
-Taorminaa	B-loc
+Taorminaa	B
 :D	O
 DD	O
 ^^	O
@@ -34119,7 +34119,7 @@ I	O
 must	O
 go	O
 to	O
-D.C.	B-loc
+D.C.	B
 next	O
 month	O
 .	O
@@ -34527,7 +34527,7 @@ bod	O
 !	O
 http://ow.ly/2FPLk	O
 	
-Jupiter	B-loc
+Jupiter	B
 :	O
 Closest	O
 Approach	O
@@ -34599,7 +34599,7 @@ I	O
 haven't	O
 driven	O
 to	O
-bc	B-loc
+bc	B
 in	O
 years	O
 ,	O
@@ -34906,7 +34906,7 @@ http://bit.ly/bcqNCs'	O
 So	O
 here	O
 in	O
-Belgium	B-loc
+Belgium	B
 its	O
 now	O
 7minutes	O
@@ -35692,7 +35692,7 @@ Best	O
 #free	O
 #livemusic	O
 in	O
-#Denver	B-loc
+#Denver	B
 tonight	O
 with	O
 the	O
@@ -35745,7 +35745,7 @@ Island	I
 West	O
 Ave	O
 ,	O
-Patchogue)	B-loc
+Patchogue)	B
 .	O
 http://4sq.com/aX6N26	O
 	
@@ -35775,7 +35775,7 @@ time	O
 Woot	O
 !	O
 My	O
-Oakland	B-loc
+Oakland	B
 line	O
 made	O
 the	O
@@ -35955,7 +35955,7 @@ to	O
 make	O
 tonight	O
 's	O
-Brixton	B-loc
+Brixton	B
 bashment	O
 our	O
 birthday	O
@@ -36000,8 +36000,8 @@ tonight	O
 thru	O
 Sunday	O
 in	O
-South	B-loc
-Park-	I-loc
+South	B
+Park-	I
 please	O
 retweet	O
 please	O
@@ -36015,7 +36015,7 @@ Dawn	I
 '	O
 Returns	O
 to	O
-Vancouver	B-loc
+Vancouver	B
 on	O
 January	O
 11th	O
@@ -36051,8 +36051,8 @@ Day	I
 Join	O
 us	O
 at	O
-UP	B-loc
-Diliman	I-loc
+UP	B
+Diliman	I
 for	O
 a	O
 day	O
@@ -36132,7 +36132,7 @@ RT	O
 ill	O
 be	O
 in	O
-DC	B-loc
+DC	B
 tonight	O
 where	O
 u	O
@@ -36318,7 +36318,7 @@ trade	O
 Travis	B
 Toomey	I
 to	O
-Seattle	B-loc
+Seattle	B
 for	O
 4th	O
 Rd	O
@@ -36871,7 +36871,7 @@ AGO	O
 http://www.youtube.com/watch?v=eLMui7zBiXo	O
 we	O
 beat	O
-kilkenny	B-loc
+kilkenny	B
 after	O
 they	O
 beat	O
@@ -37368,7 +37368,7 @@ company	O
 next	O
 Friday	O
 in	O
-NYC	B-loc
+NYC	B
 ...	O
 	
 I	O
@@ -37447,7 +37447,7 @@ up	O
 here	O
 though	O
 ,	O
-Wrawby	B-loc
+Wrawby	B
 is	O
 where	O
 I	O
@@ -37527,7 +37527,7 @@ The	I
 Sunshine	I
 Band	I
 .	O
-#Dallas	B-loc
+#Dallas	B
 #concerts	O
 http	O
 :/	O
@@ -37692,7 +37692,7 @@ Good	O
 day	O
 :)	O
 from	O
-JPN	B-loc
+JPN	B
 .	O
 	
 Good	O
@@ -38270,10 +38270,10 @@ will	O
 Greek	B
 Festival	I
 at	O
-St	B-loc
-Johns	I-loc
+St	B
+Johns	I
 before	O
-ASPEN	B-loc
+ASPEN	B
 	
 RT	O
 @ajc	O
@@ -38345,7 +38345,7 @@ strike	O
 has	O
 fans	O
 of	O
-Calcio	B-loc
+Calcio	B
 worried	O
 ....	O
 	
@@ -38382,7 +38382,7 @@ window	O
 Beautiful	O
 day	O
 in	O
-Chicago	B-loc
+Chicago	B
 !	O
 Nice	O
 to	O
@@ -38390,7 +38390,7 @@ get	O
 away	O
 from	O
 the	O
-Florida	B-loc
+Florida	B
 heat	O
 .	O
 	
@@ -38886,19 +38886,19 @@ Let	O
 's	O
 gooooooooooo	O
 	
-MD	B-loc
+MD	B
 Jobs	O
 |	O
 Executive	O
 Pharmacist-Full	O
 Time	O
-Float-Ellicott	B-loc
-City	I-loc
+Float-Ellicott	B
+City	I
 ,	O
-MD	B-loc
+MD	B
 Job	O
 (	O
-MD	B-loc
+MD	B
 )	O
 http://bit.ly/daNH6v	O
 #Job	O
@@ -38934,8 +38934,8 @@ Let	O
 's	O
 go	O
 to	O
-New	B-loc
-York	I-loc
+New	B
+York	I
 tomorrow	O
 with	O
 Blakehurst	B
@@ -39238,7 +39238,7 @@ Perhaps	O
 it	O
 's	O
 time	O
-America	B-loc
+America	B
 was	O
 run	O
 like	O
@@ -39373,9 +39373,9 @@ Round	O
 ,	O
 Motoland	O
 of	O
-Aragon	B-loc
+Aragon	B
 ,	O
-Spain	B-loc
+Spain	B
 ,	O
 day	O
 one	O
@@ -39556,17 +39556,17 @@ coming	O
 #FullHouse	O
 	
 #cricket	O
-Lancashire	B-loc
+Lancashire	B
 let	O
 Powell	B
 go	O
 early	O
 :	O
-Lancashire	B-loc
+Lancashire	B
 have	O
 released	O
-West	B-loc
-Indies	I-loc
+West	B
+Indies	I
 fast	O
 bowler	O
 Daren	B
@@ -39701,7 +39701,7 @@ lol	O
 You	O
 gone	O
 go	O
-Hamm	B-loc
+Hamm	B
 next	O
 Thursday	O
 on	O
@@ -39785,8 +39785,8 @@ Sotheby	B
 |	I
 '	I
 s	I
-Hong	B-loc
-Kong	I-loc
+Hong	B
+Kong	I
 twentieth	O
 century	O
 Chinese	O
@@ -40344,7 +40344,7 @@ at	O
 First	B
 Baptist	I
 on	O
-Harvard	B-loc
+Harvard	B
 http://bit.ly/bsnOkT	O
 Musical	O
 celebration	O
@@ -40595,9 +40595,9 @@ New	O
 show	O
 announced	O
 in	O
-Orillia	B-loc
+Orillia	B
 ,	O
-ON	B-loc
+ON	B
 at	O
 Leacock	B
 Museum	I
@@ -40616,7 +40616,7 @@ Playing	O
 a	O
 show	O
 in	O
-Portland	B-loc
+Portland	B
 ,	O
 OR	O
 at	O
@@ -40824,7 +40824,7 @@ it	O
 back	O
 home	O
 to	O
-GA	B-loc
+GA	B
 .	O
 It	O
 sucks	O
@@ -41106,8 +41106,8 @@ Launches	O
 Five	O
 City	O
 Tour	O
-MONTCLAIR	B-loc
-N.J.	B-loc
+MONTCLAIR	B
+N.J.	B
 ...:	O
 The	O
 all	O
@@ -41469,7 +41469,7 @@ day	O
 http://www.youtube.com/watch?v=eLMui7zBiXo	O
 we	O
 beat	O
-kilkenny	B-loc
+kilkenny	B
 after	O
 they	O
 beat	O
@@ -42032,7 +42032,7 @@ somewhere	O
 to	O
 live	O
 around	O
-Coolum	B-loc
+Coolum	B
 .	O
 Sun	O
 ,	O
@@ -42135,7 +42135,7 @@ done	O
 :)	O
 	
 Costco	B
-Irvine	B-loc
+Irvine	B
 has	O
 fresh	O
 sushi	O
@@ -42159,13 +42159,13 @@ Ride	I
 my	O
 ride	O
 across	O
-USA	B-loc
+USA	B
 ,	O
 tonight	O
 only	O
 ,	O
-San	B-loc
-Francisco	I-loc
+San	B
+Francisco	I
 6pm	O
 contact	O
 Jennifer	B
@@ -42250,7 +42250,7 @@ It	O
 already	O
 tomorrow	O
 in	O
-Australia	B-loc
+Australia	B
 so	O
 can	O
 you	O
@@ -42291,7 +42291,7 @@ now	O
 @Tink3rbell94	O
 going	O
 to	O
-GA	B-loc
+GA	B
 ,	O
 don't	O
 know	O
@@ -42302,7 +42302,7 @@ I	O
 thought	O
 about	O
 it	O
-ATL	B-loc
+ATL	B
 stood	O
 out	O
 in	O
@@ -42632,9 +42632,9 @@ just	O
 pissed	O
 off	O
 the	O
-Vista	B-loc
-del	I-loc
-Lago	I-loc
+Vista	B
+del	I
+Lago	I
 Eagles	B
 ,	O
 well	O
@@ -42792,7 +42792,7 @@ on	O
 A	O
 look	O
 at	O
-NYC	B-loc
+NYC	B
 's	O
 Electric	B
 Lady	I
@@ -42898,7 +42898,7 @@ answers	O
 will	O
 be	O
 in	O
-Sweden	B-loc
+Sweden	B
 ,	O
 so	O
 you	O
@@ -43110,9 +43110,9 @@ AT	O
 VISIONS	B
 LOUNGE	I
 IN	O
-HICKORY	B-loc
+HICKORY	B
 ,	O
-NC	B-loc
+NC	B
 ON	O
 WEDNESDAY	O
 ;	O
@@ -43345,8 +43345,8 @@ asks	O
 What	O
 part	O
 of	O
-the	B-loc
-States	I-loc
+the	B
+States	I
 are	O
 you	O
 from	O
@@ -43590,7 +43590,7 @@ Moonshine	I
 has	O
 arrived	O
 in	O
-Nashville	B-loc
+Nashville	B
 --	O
 Give	O
 it	O
@@ -43602,7 +43602,7 @@ it	O
 in	O
 stores	O
 .	O
-KY	B-loc
+KY	B
 ships	O
 next	O
 week	O
@@ -43715,7 +43715,7 @@ WE	O
 AINT	O
 LIKE	O
 THESE	O
-HOLLYWOOD	B-loc
+HOLLYWOOD	B
 AZZ	O
 RAPPERS	O
 WE	O
@@ -43776,7 +43776,7 @@ Deep	B
 Sea	I
 Intervention	I
 opens	O
-Singapore	B-loc
+Singapore	B
 facility	O
 :	O
 September	O
@@ -44049,7 +44049,7 @@ power	O
 	
 Game	O
 @	O
-Widener	B-loc
+Widener	B
 tonight	O
 at	O
 7:30	O
@@ -44224,11 +44224,11 @@ and	O
 64	O
 F	O
 at	O
-Buffalo	B-loc
-Municipal	I-loc
-Airport	I-loc
+Buffalo	B
+Municipal	I
+Airport	I
 ,	O
-MN	B-loc
+MN	B
 Winds	O
 are	O
 Calm	O
@@ -44427,7 +44427,7 @@ come	O
 out	O
 here	O
 in	O
-Scotland	B-loc
+Scotland	B
 yet	O
 ?	O
 i've	O
@@ -44948,8 +44948,8 @@ eat	O
 after	O
 off	O
 to	O
-garden	B-loc
-grove	I-loc
+garden	B
+grove	I
 	
 The	B
 Metro	I
@@ -45064,12 +45064,12 @@ parties	O
 on	O
 Saturday	O
 -	O
-Clemson	B-loc
+Clemson	B
 party	O
 at	O
 http://bit.ly/cds8Pd	O
 ;	O
-Auburn	B-loc
+Auburn	B
 party	O
 at	O
 http://bit	O
@@ -45215,9 +45215,9 @@ another	O
 property	O
 tomorrow	O
 in	O
-Greenville	B-loc
+Greenville	B
 ,	O
-OH	B-loc
+OH	B
 	
 On	O
 my	O
@@ -45428,7 +45428,7 @@ at	O
 Bond	O
 Street	O
 in	O
-Soho	B-loc
+Soho	B
 .	O
 If	O
 your	O
@@ -45563,14 +45563,14 @@ days	O
 of	O
 meetings	O
 with	O
-Houston	B-loc
+Houston	B
 ,	O
 Fes	B
 is	O
 back	O
 in	O
-Salt	B-loc
-Lake	I-loc
+Salt	B
+Lake	I
 .	O
 	
 @jess_robbo	O
@@ -45606,7 +45606,7 @@ Wednesday-MvC3	O
 Fight	B
 Club	I
 in	O
-Chicago	B-loc
+Chicago	B
 .	O
 Pringles	B
 ,	O
@@ -45870,7 +45870,7 @@ Kodjoe	I
 He'll	O
 be	O
 in	O
-NYC	B-loc
+NYC	B
 for	O
 a	O
 meet	O
@@ -46326,7 +46326,7 @@ the	O
 luckiest	O
 guy	O
 in	O
-america	B-loc
+america	B
 ...	O
 soooo	O
 jealous	O
@@ -46336,7 +46336,7 @@ My	O
 1st	O
 trip	O
 to	O
-Fenway	B-loc
+Fenway	B
 tonight	O
 http://twitpic.com/2pdwoo	O
 	
@@ -46359,7 +46359,7 @@ to	O
 see	O
 you	O
 at	O
-Newcastle-Upon-Tyne	B-loc
+Newcastle-Upon-Tyne	B
 in	O
 Feb	O
 ,	O
@@ -46731,7 +46731,7 @@ off	O
 	
 back	O
 from	O
-Verona	B-loc
+Verona	B
 :)	O
 Looking	O
 forward	O
@@ -46739,7 +46739,7 @@ to	O
 come	O
 back	O
 in	O
-Paris	B-loc
+Paris	B
 next	O
 week	O
 .	O
@@ -46880,7 +46880,7 @@ Aah	O
 "	O
 crew	O
 in	O
-Toronto	B-loc
+Toronto	B
 ?	O
 November	O
 ?	O
@@ -47104,7 +47104,7 @@ plans	O
 lol	O
 !	O
 	
-Salem	B-loc
+Salem	B
 Daily	O
 Dish//	O
 Chef	O
@@ -47207,8 +47207,8 @@ market	O
 makers	O
 post-'flash	O
 crash':	O
-NEW	B-loc
-YORK	I-loc
+NEW	B
+YORK	I
 ,	O
 Sept	O
 17	O
@@ -47333,9 +47333,9 @@ for	O
 Theater	O
 and	O
 Film	O
-U	B-loc
-of	I-loc
-W	I-loc
+U	B
+of	I
+W	I
 ROOM	O
 0T15	O
 11:30	O
@@ -47547,13 +47547,13 @@ F	O
 at	O
 Islip	O
 ,	O
-Long	B-loc
-Island	I-loc
-Mac	I-loc
-Arthur	I-loc
-Airport	I-loc
+Long	B
+Island	I
+Mac	I
+Arthur	I
+Airport	I
 ,	O
-NY	B-loc
+NY	B
 Winds	O
 are	O
 North	O
@@ -48079,7 +48079,7 @@ After	O
 experiencing	O
 loos	O
 in	O
-Japan	B-loc
+Japan	B
 ,	O
 I'm	O
 spoiled	O
@@ -48095,7 +48095,7 @@ baraabar	O
 Iwebslog	O
 .	O
 com	O
-Jupiter	B-loc
+Jupiter	B
 making	O
 closest	O
 approach	O
@@ -48110,7 +48110,7 @@ AP	O
 -	O
 Better	O
 catch	O
-Jupiter	B-loc
+Jupiter	B
 next	O
 ...	O
 http://l.mytr.in/aQn2Kg	O
@@ -48157,7 +48157,7 @@ FML	O
 Just	O
 bought	O
 my	O
-Newcastle	B-loc
+Newcastle	B
 K	B
 !	I
 Tour	I
@@ -48326,7 +48326,7 @@ pal	O
 !!	O
 How	O
 's	O
-Hawaii	B-loc
+Hawaii	B
 ??	O
 when	O
 are	O
@@ -48470,7 +48470,7 @@ LOL	O
 	
 going	O
 to	O
-tucson	B-loc
+tucson	B
 tonight	O
 :/	O
 	
@@ -48727,7 +48727,7 @@ say	O
 it	O
 again	O
 :	O
-Indian	B-loc
+Indian	B
 food	O
 RULES	O
 .	O
@@ -48763,11 +48763,11 @@ Town	B
 Square	I
 Place	I
 on	O
-Pavonia	B-loc
-Avenue	I-loc
+Pavonia	B
+Avenue	I
 in	O
 the	O
-Newport	B-loc
+Newport	B
 ...	O
 http://tumblr.com/xmyiud0zl	O
 	
@@ -48902,7 +48902,7 @@ RT	O
 @shashiranjanttv	O
 second	O
 is	O
-Bawana	B-loc
+Bawana	B
 constituency	O
 on	O
 Feb	O
@@ -48954,9 +48954,9 @@ fabulous	O
 day	O
 in	O
 Discover	O
-Downtown	B-loc
-La	I-loc
-Grange	I-loc
+Downtown	B
+La	I
+Grange	I
 for	O
 their	O
 5th	O
@@ -49001,7 +49001,7 @@ favourite	O
 sun	O
 glasses	O
 in	O
-Melbourne	B-loc
+Melbourne	B
 is	O
 not	O
 the	O
@@ -49293,13 +49293,13 @@ is	O
 currently	O
 raining	O
 over	O
-Sta	B-loc
-.	I-loc
-Ana	I-loc
-Municipal	I-loc
-Grounds	I-loc
+Sta	B
+.	I
+Ana	I
+Municipal	I
+Grounds	I
 ,	O
-#Cagayan	B-loc
+#Cagayan	B
 .	O
 Rain	O
 rate	O
@@ -49400,7 +49400,7 @@ is	O
 ready	O
 !	O
 
-#NewDelhi	B-loc
+#NewDelhi	B
 Jan	O
 14	O
 13:30	O
@@ -49410,7 +49410,7 @@ few	O
 clouds	O
 Humidity	O
 80%	O
-India	B-loc
+India	B
 ..	O
 http://t.co/jfF5NRtfXB	O
 
@@ -49441,11 +49441,11 @@ http://t.co/uM4RLmKwfy	O
 December	O
 ???	O
 @	O
-Kennesaw	B-loc
-Mountain	I-loc
-National	I-loc
-Battlefield	I-loc
-Park	I-loc
+Kennesaw	B
+Mountain	I
+National	I
+Battlefield	I
+Park	I
 http://t.co/HqxsnFhE6n	O
 
 Kung	O
@@ -50047,7 +50047,7 @@ for	O
 February	O
 23rd	O
 .	O
-Philly	B-loc
+Philly	B
 gotta	O
 stop	O
 sleeping	O
@@ -50123,7 +50123,7 @@ Interview	I
 "	O
 out	O
 of	O
-Chicago	B-loc
+Chicago	B
 theaters	O
 ,	O
 just	O
@@ -50229,7 +50229,7 @@ girls	O
 sunday	O
 going	O
 to	O
-NYC	B-loc
+NYC	B
 for	O
 the	O
 first	O
@@ -50462,7 +50462,7 @@ please	O
 (	O
 i	O
 from	O
-INDONESIA	B-loc
+INDONESIA	B
 ,	O
 hope	O
 you	O
@@ -50825,7 +50825,7 @@ Nah	O
 check	O
 tomorrow	O
 
-Egypt	B-loc
+Egypt	B
 stock	O
 exchange	O
 loses	O
@@ -50965,8 +50965,8 @@ Valley	I
 will	O
 play	O
 the	O
-San	B-loc
-Diego	I-loc
+San	B
+Diego	I
 Jewish	B
 Academy	I
 tomorrow	O
@@ -51010,7 +51010,7 @@ SW	O
 km/h	O
 Humidity	O
 85%	O
-Germany	B-loc
+Germany	B
 ..	O
 http://t.co/ceBi1C27rN	O
 
@@ -52036,13 +52036,13 @@ James	B
 Brendan	I
 Connolly	I
 of	O
-#Southie	B-loc
+#Southie	B
 .	O
 The	O
 world	O
 will	O
 see	O
-Boston	B-loc
+Boston	B
 at	O
 its	O
 finest	O
@@ -52059,12 +52059,12 @@ the	O
 following	O
 areas	O
 :	O
-East	B-loc
-Slopes	I-loc
-of	I-loc
-the	I-loc
-Washington	I-loc
-Cascades-WA	I-loc
+East	B
+Slopes	I
+of	I
+the	I
+Washington	I
+Cascades-WA	I
 .	O
 Effective	O
 until	O
@@ -52266,10 +52266,10 @@ PM	O
 
 Picture	O
 Of	O
-City	B-loc
-Of	I-loc
-New	I-loc
-York	I-loc
+City	B
+Of	I
+New	I
+York	I
 Fire	O
 Department	O
 Ladder	B
@@ -52406,7 +52406,7 @@ I	O
 head	O
 back	O
 to	O
-oswego	B-loc
+oswego	B
 on	O
 the	O
 25th	O
@@ -52429,7 +52429,7 @@ sun	O
 iz	O
 shining	O
 
-Edison	B-loc
+Edison	B
 #weather	O
 on	O
 January	O
@@ -52708,7 +52708,7 @@ Is	O
 At	O
 12:05	O
 P.M.	O
-Dallas	B-loc
+Dallas	B
 Time	O
 Tomorrow	O
 !	O
@@ -52847,7 +52847,7 @@ up	O
 tomorrow	O
 :)	O
 
-#Orlando	B-loc
+#Orlando	B
 weather	O
 January	O
 13	O
@@ -52995,8 +52995,8 @@ I	O
 could	O
 be	O
 in	O
-Santa	B-loc
-Fe	I-loc
+Santa	B
+Fe	I
 by	O
 930pm	O
 
@@ -53090,7 +53090,7 @@ are	O
 leaving	O
 today	O
 from	O
-Venice	B-loc
+Venice	B
 !	O
 Feeling	O
 very	O
@@ -53181,7 +53181,7 @@ a	O
 church	O
 service	O
 in	O
-Omaha	B-loc
+Omaha	B
 ,	O
 his	O
 or	O
@@ -53193,7 +53193,7 @@ arrested	O
 .	O
 #StrangeLaws	O
 in	O
-Nebraska	B-loc
+Nebraska	B
 
 Thursday	O
 was	O
@@ -53297,7 +53297,7 @@ its	O
 vision	O
 document	O
 for	O
-Delhi	B-loc
+Delhi	B
 polls	O
 today	O
 http://t.co/VZ78in0bky	O
@@ -53388,7 +53388,7 @@ the	O
 highest	O
 honor	O
 from	O
-France	B-loc
+France	B
 tomorrow	O
 for	O
 her	O
@@ -53536,7 +53536,7 @@ Beantown	I
 http://t.co/MvPiaZ3rHR	O
 
 CoreLogic	B
-US	B-loc
+US	B
 home	O
 prices	O
 jump	O
@@ -53630,7 +53630,7 @@ an	O
 end	O
 #RavensNation	O
 
-Pluto	B-loc
+Pluto	B
 didn't	O
 even	O
 complete	O
@@ -53813,7 +53813,7 @@ SCANS	O
 :	O
 @Thalia	O
 Hola	O
-Mexico	B-loc
+Mexico	B
 December	O
 24	O
 ,	O
@@ -54397,10 +54397,10 @@ Sign	O
 up	O
 for	O
 the	O
-Middle	B-loc
-East	I-loc
+Middle	B
+East	I
 and	O
-Africa	B-loc
+Africa	B
 December	O
 Regional	O
 Debate	O
@@ -54572,7 +54572,7 @@ Quintero	I
 man	O
 shot	O
 by	O
-Wichita	B-loc
+Wichita	B
 police	O
 ,	O
 tomorrow	O
@@ -54838,7 +54838,7 @@ http://t.co/04P5I9VIA7	O
 
 I'm	O
 leaving	O
-yakima	B-loc
+yakima	B
 on	O
 Wednesday	O
 ughh	O
@@ -55447,7 +55447,7 @@ on	O
 Sunday	O
 .	O
 The	O
-Spain	B-loc
+Spain	B
 international	O
 scored	O
 from	O
@@ -55505,7 +55505,7 @@ a	O
 stag	O
 party	O
 in	O
-Brighton	B-loc
+Brighton	B
 mid	O
 March	O
 ?	O
@@ -55976,8 +55976,8 @@ RT	O
 :	O
 Residents	O
 of	O
-Nandi-Kabras	B-loc
-border	I-loc
+Nandi-Kabras	B
+border	I
 struggle	O
 to	O
 rebuild	O
@@ -56126,7 +56126,7 @@ WILL	O
 ROAD	O
 TRIP	O
 TO	O
-SA	B-loc
+SA	B
 TOMORROW	O
 
 http://t.co/cHnlh36QsW	O
@@ -56176,10 +56176,10 @@ Justin	B
 and	O
 fans	O
 in	O
-Beverly	B-loc
-Hills	I-loc
+Beverly	B
+Hills	I
 ,	O
-CA	B-loc
+CA	B
 last	O
 night	O
 -	O
@@ -56527,7 +56527,7 @@ best	O
 .	O
 
 When	O
-Utah	B-loc
+Utah	B
 lawmakers	O
 convene	O
 for	O
@@ -56702,16 +56702,16 @@ Honeymooners	B
 to	O
 Come	O
 to	O
-Charlestown	B-loc
+Charlestown	B
 on	O
 March	O
 6	O
 and	O
 7	O
 |	O
-Catonsville	B-loc
+Catonsville	B
 ,	O
-MD	B-loc
+MD	B
 Patch	O
 http://t.co/wfVGpX5dCU	O
 
@@ -56744,11 +56744,11 @@ fools	O
 --	O
 Speech	O
 in	O
-St	B-loc
-,	I-loc
-Louis	I-loc
+St	B
+,	I
+Louis	I
 ,	O
-Missouri	B-loc
+Missouri	B
 ,	O
 March	O
 22	O
@@ -57072,7 +57072,7 @@ Ascend	B
 GX1	I
 ,	O
 in	O
-China	B-loc
+China	B
 at	O
 ...	O
 http://t.co/KuzAhRKR3j	O
@@ -57220,9 +57220,9 @@ RT	O
 SCHOOL	O
 DELAY	O
 :	O
-Prince	B-loc
-William	I-loc
-Co	I-loc
+Prince	B
+William	I
+Co	I
 .	O
 Public	O
 Schools	O
@@ -57297,9 +57297,9 @@ RT	O
 :	O
 TIKET	O
 PROMO	O
-Ambon	B-loc
+Ambon	B
 -	O
-Jakarta	B-loc
+Jakarta	B
 |	O
 1-10	O
 Feb	O
@@ -57380,8 +57380,8 @@ http://t.co/gEWwG6HJNE	O
 
 Thousands	O
 of	O
-Hong	B-loc
-Kongers	I-loc
+Hong	B
+Kongers	I
 March	O
 for	O
 Democracy	B
@@ -57437,7 +57437,7 @@ YOU	O
 I	O
 M	O
 FROM	O
-PUNJAB	B-loc
+PUNJAB	B
 
 RT	O
 @IowaCitySchools	O
@@ -57495,8 +57495,8 @@ I'm	O
 heading	O
 back	O
 to	O
-North	B-loc
-Carolina	I-loc
+North	B
+Carolina	I
 to	O
 see	O
 the	O
@@ -57535,7 +57535,7 @@ add	O
 c19	O
 names	O
 to	O
-Ukraine	B-loc
+Ukraine	B
 sanctions	O
 list	O
 on	O
@@ -57639,8 +57639,8 @@ ART	O
 FAIR	O
 coming	O
 to	O
-Cape	B-loc
-Town	I-loc
+Cape	B
+Town	I
 this	O
 February	O
 !	O
@@ -58107,9 +58107,9 @@ AND	O
 FBI	B
 TO	O
 REPEAT	O
-PESAWAR	B-loc
+PESAWAR	B
 ,	O
-INDIA	B-loc
+INDIA	B
 MAY	O
 BE	O
 BLAMED	O
@@ -58143,8 +58143,8 @@ http://t.co/OmxeIQDbzk	O
 RT	O
 Crof	O
 :	O
-Saudi	B-loc
-Arabia	I-loc
+Saudi	B
+Arabia	I
 :	O
 One	O
 new	O
@@ -58395,8 +58395,8 @@ smirim	O
 
 Coming	O
 to	O
-Costa	B-loc
-Mesa	I-loc
+Costa	B
+Mesa	I
 January	O
 30th	O
 ,	O
@@ -58625,11 +58625,11 @@ Brutality	O
 PM	B
 Modi	I
 on	O
-Pakistan	B-loc
+Pakistan	B
 School	O
 Attack	O
 :	O
-India	B-loc
+India	B
 on	O
 Tuesday	O
 condemned	O
@@ -58666,9 +58666,9 @@ sep	O
 
 Whoa	O
 !	O
-New	B-loc
-York	I-loc
-City	I-loc
+New	B
+York	I
+City	I
 is	O
 getting	O
 almost	O
@@ -58682,7 +58682,7 @@ Tuesday	O
 combined	O
 !	O
 Checked	O
-Montreal	B-loc
+Montreal	B
 and	O
 we're	O
 only	O
@@ -58916,7 +58916,7 @@ THE	O
 HG	O
 :	O
 2617	O
-Washington	B-loc
+Washington	B
 :	O
 314*223*6367	O
 @detroit781_doe	O
@@ -59474,7 +59474,7 @@ Friday	O
 @mkc419	O
 I	O
 hear	O
-Nashville	B-loc
+Nashville	B
 's	O
 a	O
 good	O
@@ -59576,7 +59576,7 @@ til	O
 RT	O
 @BBCBreaking	O
 :	O
-US	B-loc
+US	B
 economy	O
 grows	O
 by	O
@@ -59911,13 +59911,13 @@ lol	O
 im	O
 off	O
 tae	O
-inverness	B-loc
+inverness	B
 and	O
-perth	B-loc
+perth	B
 the	O
 morra	O
-the	B-loc
-peterhead	I-loc
+the	B
+peterhead	I
 Tuesday	O
 busy	O
 start	O
@@ -59974,7 +59974,7 @@ shoulder	O
 bag	O
 made	O
 in	O
-France	B-loc
+France	B
 :	O
 $	O
 20.00	O
@@ -60201,7 +60201,7 @@ live	O
 !	O
 
 #Job	O
-#KansasCity	B-loc
+#KansasCity	B
 Area	O
 Sales	O
 Director	O
@@ -60210,8 +60210,8 @@ Publisher	O
 (	O
 950)	O
 :	O
-MO-Kansas	B-loc
-City	I-loc
+MO-Kansas	B
+City	I
 ,	O
 Join	O
 the	O
@@ -60274,8 +60274,8 @@ TAG	O
 RT	O
 @Shamrock_Dan	O
 :	O
-Kuwait	B-loc
-City	I-loc
+Kuwait	B
+City	I
 coastline	O
 .	O
 March	O
@@ -60487,7 +60487,7 @@ Davis	I
 ,	O
 comes	O
 to	O
-Hartford	B-loc
+Hartford	B
 to	O
 celebrate	O
 the	O
@@ -60506,7 +60506,7 @@ Priest	I
 Press	O
 Conference	O
 In	O
-Hollywood	B-loc
+Hollywood	B
 http://t.co/422TPARXDz	O
 
 RT	O
@@ -60532,8 +60532,8 @@ isthatjessiej	O
 and	O
 @kristen3196	O
 in	O
-New	B-loc
-York	I-loc
+New	B
+York	I
 on	O
 12th	O
 December	O
@@ -60877,9 +60877,9 @@ RT	O
 JUNE	O
 ,	O
 2015	O
-LEEDS	B-loc
+LEEDS	B
 ,	O
-UK	B-loc
+UK	B
 FIRST	B
 DIRECT	I
 ARENA	I
@@ -60959,8 +60959,8 @@ house	O
 &amp;	O
 bass	O
 inna	O
-Chapel	B-loc
-Hill	I-loc
+Chapel	B
+Hill	I
 town	O
 this	O
 Sat	O
@@ -61049,7 +61049,7 @@ RT	O
 "	O
 Apocalypse	O
 ".	O
-Toulouse	B-loc
+Toulouse	B
 -	O
 BM	O
 -	O
@@ -61068,7 +61068,7 @@ f	O
 14th	O
 century	O
 (	O
-England	B-loc
+England	B
 )	O
 http://t.co/lDqnacLjp8	O
 
@@ -61267,11 +61267,11 @@ announces	O
 sweeping	O
 changes	O
 to	O
-U	B-loc
-.	I-loc
-S	I-loc
-.	I-loc
--Cuba	B-loc
+U	B
+.	I
+S	I
+.	I
+-Cuba	B
 relations	O
 :	O
 JC	O
@@ -61284,7 +61284,7 @@ Dec	O
 UPI	O
 )	O
 --	O
-U.S.	B-loc
+U.S.	B
 Pr	O
 ...	O
 http://t.co/2C0PiwaSfO	O
@@ -61423,7 +61423,7 @@ Field	I
 will	O
 play	O
 at	O
-Seattle	B-loc
+Seattle	B
 for	O
 the	O
 NFC	B
@@ -61558,7 +61558,7 @@ love	O
 
 Via	O
 @travelmail	O
-Sweden	B-loc
+Sweden	B
 's	O
 ice	O
 hotel	O
@@ -61707,7 +61707,7 @@ leaders	O
 who	O
 will	O
 attend	O
-Paris	B-loc
+Paris	B
 rally	O
 on	O
 Sunday	O
@@ -61747,7 +61747,7 @@ RT	O
 :	O
 12th	O
 Man	O
-Seattle	B-loc
+Seattle	B
 Chevron	O
 Blue	O
 and	O
@@ -61853,7 +61853,7 @@ de	O
 lagrimas	O
 
 @Retail_Surveys	O
-#Belgium	B-loc
+#Belgium	B
 #Shoppers	O
 #Survey	O
 EPC	B
@@ -61968,7 +61968,7 @@ Bieber	I
 with	O
 fans	O
 in	O
-California	B-loc
+California	B
 today	O
 .	O
 (	O
@@ -62048,7 +62048,7 @@ Mock	B
 Assessment	I
 Centre	I
 in	O
-London	B-loc
+London	B
 !	O
 http://t.co/uYUFEQoO9v	O
 #gradjob	O
@@ -62258,7 +62258,7 @@ niya	O
 Happy	O
 Holidays	O
 from	O
-Arizona	B-loc
+Arizona	B
 .	O
 May	O
 you	O
@@ -62842,7 +62842,7 @@ over	O
 223,000	O
 #veterans	O
 in	O
-Kansas	B-loc
+Kansas	B
 .	O
 Preserve	O
 their	O
@@ -63061,7 +63061,7 @@ all	O
 our	O
 friends	O
 in	O
-Russia	B-loc
+Russia	B
 take	O
 the	O
 grand	O
@@ -63199,7 +63199,7 @@ ended	O
 
 Tomorrow	O
 :	O
-UK	B-loc
+UK	B
 state	O
 TV	O
 to	O
@@ -63648,7 +63648,7 @@ Beautiful	O
 December	O
 day	O
 in	O
-Chicago	B-loc
+Chicago	B
 .	O
 Wait	O
 .	O
@@ -63801,8 +63801,8 @@ playing	O
 #Wax	B
 Club	I
 Bangkok	I
-#Bangkok	B-loc
-#Thailand	B-loc
+#Bangkok	B
+#Thailand	B
 ,	O
 Fri	O
 06	O
@@ -64039,7 +64039,7 @@ night	O
 :	O
 severe	O
 for	O
-Boston	B-loc
+Boston	B
 .	O
 #WBZ	O
 http://t.co/VEOfRVTwSU	O
@@ -64127,9 +64127,9 @@ SMITE	B
 World	I
 Championship	I
 in	O
-Atlanta	B-loc
+Atlanta	B
 ,	O
-GA	B-loc
+GA	B
 Jan	O
 9th-11th	O
 !	O
@@ -64241,7 +64241,7 @@ got	O
 close	O
 to	O
 20	O
-NY	B-loc
+NY	B
 classics	O
 for	O
 you	O
@@ -64533,7 +64533,7 @@ need	O
 to	O
 know	O
 about	O
-Toronto	B-loc
+Toronto	B
 in	O
 your	O
 inbox	O
@@ -64661,7 +64661,7 @@ the	O
 year	O
 here	O
 in	O
-SA	B-loc
+SA	B
 .	O
 I	O
 rode	O
@@ -64767,8 +64767,8 @@ CITES	B
 corrupt	O
 permits	O
 for	O
-#China	B-loc
-Zimbabwe	B-loc
+#China	B
+Zimbabwe	B
 Gov	O
 attacks	O
 elephants	O
@@ -65276,7 +65276,7 @@ who	O
 want	O
 to	O
 take	O
-Nigeria	B-loc
+Nigeria	B
 back	O
 to	O
 the	O
@@ -65435,7 +65435,7 @@ successful	O
 Saturday	O
 !	O
 
-NY	B-loc
+NY	B
 Congressman	O
 Michael	B
 Grimm	I
@@ -65633,7 +65633,7 @@ http://t.co/REVbmFHQFv	O
 $MAR	O
 #travel	O
 
-#Denver	B-loc
+#Denver	B
 :	O
 Guster	B
 Live	O
@@ -65775,15 +65775,15 @@ January	O
 )	O
 Located	O
 at	O
-Brgy	B-loc
+Brgy	B
 .	O
-Lantic	B-loc
+Lantic	B
 ,	O
-Carmona	B-loc
+Carmona	B
 ,	O
-Cavite	B-loc
+Cavite	B
 Near	O
-Alabang	B-loc
+Alabang	B
 and	O
 ...	O
 http://t.co/ixEvz5hVxI	O
