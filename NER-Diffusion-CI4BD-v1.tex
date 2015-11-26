@@ -292,7 +292,7 @@ We present our method for estimating of these factors, and intrinsic NER evaluat
 \end{figure}
 
 
-\subsection{Entity Adoption Post-${k-1}^{th}$ Exposure}
+\subsection{Entity Adoption Post-$({k-1})^{th}$ Exposure}
 -Potential for adoption at the point of one exposure
 -Per entity-exposure dynamics - add plots of random selection of entities
 
@@ -325,6 +325,28 @@ We present our method for estimating of these factors, and intrinsic NER evaluat
 \subsection{Experiments}
 -Explain the evaluation process and the computation of the ROC values - per entity
 -Plot variance in the ROC values achieved
+
+\subsubsection{Results}
+
+\begin{table}
+\begin{center}
+\caption{to do}
+\begin{tabular}{ l c c}
+\hline
+ & Static & Discrete Time ($-\tau_{u,v}$) \\
+\hline
+$p_{u}^{A}$ (Actions Propagation-based) & 0.722 & \\
+$p_{u}^{I}$ (Interactions-based) & & \\
+$p_{u}^{C}$ (Community-homophily) & & \\
+$\alpha p_{u}^{A} + \beta p_{u}^{I}  + \gamma p_{u}^{C}$ & & \\
+\hline
+\end{tabular}
+\label{tab:ml_datasets}
+\end{center}
+\end{table}
+
+\paragraph{Per-Entity Results}
+-Plot the distribution of per-entity roc values for the above models
 
 
 

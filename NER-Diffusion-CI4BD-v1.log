@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  21 NOV 2015 16:46
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  25 NOV 2015 13:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -376,12 +376,8 @@ inclusion: multiple pdfs with page group included in a single page
 
 pdfTeX warning: /usr/texbin/pdflatex (file ./plots/exposure_count_dist_full_log
 .pdf): PDF inclusion: multiple pdfs with page group included in a single page
-> <./plots/per_entity_exposure_count_dist_full_log.pdf
-
-pdfTeX warning: /usr/texbin/pdflatex (file ./plots/per_entity_exposure_count_di
-st_full_log.pdf): PDF inclusion: multiple pdfs with page group included in a si
-ngle page
->] <plots/taus_dist_full_log.pdf, id=273, 527.77174pt x 406.51875pt>
+> <./plots/per_entity_exposure_count_dist_full_log.pdf>]
+<plots/taus_dist_full_log.pdf, id=244, 527.77174pt x 406.51875pt>
 File: plots/taus_dist_full_log.pdf Graphic file (type pdf)
 
 <use plots/taus_dist_full_log.pdf>
@@ -395,27 +391,31 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 2611 strings out of 493488
- 42890 string characters out of 3141326
- 98502 words of memory out of 3000000
- 5892 multiletter control sequences out of 15000+200000
- 39097 words of font info for 74 fonts, out of 3000000 for 9000
+ 2615 strings out of 493488
+ 42933 string characters out of 3141326
+ 98510 words of memory out of 3000000
+ 5895 multiletter control sequences out of 15000+200000
+ 40821 words of font info for 76 fonts, out of 3000000 for 9000
  960 hyphenation exceptions out of 8191
- 37i,8n,24p,335b,331s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 37i,9n,24p,335b,331s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
-xlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texl
-ive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texliv
-e/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
-/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2
-012/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2012/texm
-f-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2012/texmf-dist/fon
-ts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/u
-rw/times/utmri8a.pfb>
-Output written on NER-Diffusion-CI4BD-v1.pdf (7 pages, 673927 bytes).
+xlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texl
+ive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texliv
+e/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/
+2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/20
+12/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2012/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2012/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2012/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2012/texmf
+-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2012/texmf-dist/fo
+nts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/
+urw/times/utmr8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/times/
+utmri8a.pfb>
+Output written on NER-Diffusion-CI4BD-v1.pdf (7 pages, 936937 bytes).
 PDF statistics:
- 343 PDF objects out of 1000 (max. 8388607)
- 90 compressed objects within 1 object stream
+ 339 PDF objects out of 1000 (max. 8388607)
+ 109 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
