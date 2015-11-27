@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2010.8.7)  27 NOV 2015 17:14
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2010.8.7)  27 NOV 2015 18:11
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -222,25 +222,26 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 114.
  [1{/usr/local/texlive/2009/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2] <reddit-example.png, id=11, 502.87875pt x 734.745pt>
+[2] <reddit-example.png, id=13, 502.87875pt x 734.745pt>
 File: reddit-example.png Graphic file (type png)
 
-<use reddit-example.png> [3 <./reddit-example.png>]
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 213.
+<use reddit-example.png> [3]
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 231.
 
 
 (/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-) [4] [5]
+) [4 <./reddit-example.png>] [5]
 
 LaTeX Warning: Reference `tab:brown-tuning' on page 6 undefined on input line 3
-04.
+22.
 
+[6]
 
-LaTeX Warning: Reference `tab:supervision-balance' on page 6 undefined on input
- line 315.
+LaTeX Warning: Reference `tab:supervision-balance' on page 7 undefined on input
+ line 333.
 
-[6] [7] <plots/cascade_shapes.pdf, id=36, 566.46034pt x 423.4338pt>
+[7] <plots/cascade_shapes.pdf, id=36, 566.46034pt x 423.4338pt>
 File: plots/cascade_shapes.pdf Graphic file (type pdf)
 
 <use plots/cascade_shapes.pdf>
@@ -267,18 +268,18 @@ File: plots/taus_dist.pdf Graphic file (type pdf)
 <plots/taus_dist_full_log.pdf, id=263, 527.77174pt x 406.51875pt>
 File: plots/taus_dist_full_log.pdf Graphic file (type pdf)
 
-<use plots/taus_dist_full_log.pdf> [11 <./plots/taus_dist.pdf> <./plots/taus_di
-st_full_log.pdf>] [12] [13] (./NER-Diffusion-CI4BD-v1.bbl [14]) [15]
+<use plots/taus_dist_full_log.pdf> [11] [12 <./plots/taus_dist.pdf> <./plots/ta
+us_dist_full_log.pdf>] [13] (./NER-Diffusion-CI4BD-v1.bbl [14]) [15]
 (./NER-Diffusion-CI4BD-v1.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 2164 strings out of 493848
- 34711 string characters out of 3149208
- 87669 words of memory out of 3000000
- 5444 multiletter control sequences out of 15000+200000
+ 2167 strings out of 493848
+ 34770 string characters out of 3149208
+ 88681 words of memory out of 3000000
+ 5447 multiletter control sequences out of 15000+200000
  41957 words of font info for 77 fonts, out of 3000000 for 9000
  717 hyphenation exceptions out of 8191
  26i,9n,24p,742b,331s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -298,7 +299,7 @@ t/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2009/texmf-dist/fonts/
 type1/urw/times/utmb8a.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/urw/
 times/utmr8a.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/urw/times/utmr
 i8a.pfb>
-Output written on NER-Diffusion-CI4BD-v1.pdf (15 pages, 1055264 bytes).
+Output written on NER-Diffusion-CI4BD-v1.pdf (15 pages, 1060059 bytes).
 PDF statistics:
  408 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -21,6 +21,30 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{bakshy2012role}
+E.~Bakshy, I.~Rosenn, C.~Marlow, and L.~Adamic, ``The role of social networks
+  in information diffusion,'' in \emph{Proceedings of the 21st international
+  conference on World Wide Web}.\hskip 1em plus 0.5em minus 0.4em\relax ACM,
+  2012, pp. 519--528.
+
+\bibitem{romero2011differences}
+D.~M. Romero, B.~Meeder, and J.~Kleinberg, ``Differences in the mechanics of
+  information diffusion across topics: idioms, political hashtags, and complex
+  contagion on twitter,'' in \emph{Proceedings of the 20th international
+  conference on World wide web}.\hskip 1em plus 0.5em minus 0.4em\relax ACM,
+  2011, pp. 695--704.
+
+\bibitem{goyal2010learning}
+A.~Goyal, F.~Bonchi, and L.~V. Lakshmanan, ``Learning influence probabilities
+  in social networks,'' in \emph{Proceedings of the third ACM international
+  conference on Web search and data mining}.\hskip 1em plus 0.5em minus
+  0.4em\relax ACM, 2010, pp. 241--250.
+
+\bibitem{fang2013predicting}
+X.~Fang, P.~J.-H. Hu, Z.~Li, and W.~Tsai, ``Predicting adoption probabilities
+  in social networks,'' \emph{Information Systems Research}, vol.~24, no.~1,
+  pp. 128--145, 2013.
+
 \bibitem{reddit-data}
 J.~Baumgartner, ``Complete public {Reddit} comments corpus,'' 2015.
 
@@ -114,11 +138,5 @@ L.~P. Cordella, P.~Foggia, C.~Sansone, and M.~Vento, ``An improved algorithm
   for matching large graphs,'' in \emph{3rd IAPR-TC15 workshop on graph-based
   representations in pattern recognition}.\hskip 1em plus 0.5em minus
   0.4em\relax Citeseer, 2001, pp. 149--159.
-
-\bibitem{goyal2010learning}
-A.~Goyal, F.~Bonchi, and L.~V. Lakshmanan, ``Learning influence probabilities
-  in social networks,'' in \emph{Proceedings of the third ACM international
-  conference on Web search and data mining}.\hskip 1em plus 0.5em minus
-  0.4em\relax ACM, 2010, pp. 241--250.
 
 \end{thebibliography}

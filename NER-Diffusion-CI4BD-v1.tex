@@ -151,11 +151,25 @@ Diffusion of information is a well studied topic, and is of particular interest 
 \textbf{TODO: Leon - add in existing works in NER that are relevant here}
 
 \subsection{Information Diffusion}
-Information diffusion works:
+Bakshy et al. \cite{bakshy2012role} conducted a large-scale randomised control trial to examine the effects of information exposure on information diffusion, using the Facebook platform.
+The authors were able to assign Facebook users \emph{randomly} with a $1/3$ probability to the \emph{feed} group, and the remainder to the \emph{no feed} group and then \emph{hide} information (i.e. status posts) posted within the latter's group.
+Bokshy et al. found, unsurprisingly, that users who were \emph{exposed} to information (i.e. those in the feed group) from their friends are more likely to share it on.
+
+The closest work to the study of entity diffusion can be found in studies of hashtag diffusion.
+For instance, Romero et al. \cite{romero2011differences} studied the spread of the top-500 hashtags posted in a sample of $>3B$ tweets collected over a six-month period, finding that users were most likely to \emph{adopt} a hashtag (i.e. mention/cite it in their Tweet) after receiving $4$ exposures from their friends.
+The authors found marked differences in the adoption of hashtags based on their topics, something which - as we will show below - is not present in entity diffusion.
+
 Goyal et al. \cite{goyal2010learning} track the diffusion of \emph{actions} on Flickr, where actions are users joining a group.
 A general threshold model is proposed that determines the probability of influence between two arbitrary users based on the relative frequency of action propagation observed before between the users divided by the absolute number of actions of the user responsible for the propagation.
 We use this general threshold framework, but extend it into the entity-mention setting, hence: we track the \emph{mention} of an entity by a user over time and calculate the probability of influence that an \emph{adopter}'s neighbours have had upon him.
 Furthermore, we also extend this framework to test for two additional constructs: (i) influence of interactions before adoption (i.e. did the degree to which an individual communicated with a previous entity adopter influence their own adoption?), and (ii) community homophily (i.e. does the similarity between users' interests - based upon similarity in subreddit posting - have an effect on adoption of an entity?).
+
+Fang et al. \cite{fang2013predicting} presented a method to predict adoption probabilities in social networks by controlling for potential confounding, unobservable variables - proposing a modification of expectation-maximisation to induce a Naive bayes predictive model.
+The authors found that social influence alone is sufficient to recover the diffusion process, and thus external factors - that are latent - must be countered for within any predictive model, in the context of predicting the adoption of social ties.
+Although such a framework allows one to control for confounding in the diffusion process, the study of the spread of entities is yet to be studied: hence in this work we aim to provide the \emph{first} effort in this space and to discern between the effects of social influence, interactions, and community homophily.
+
+
+
 
 twitter info propagation
 
@@ -384,10 +398,13 @@ Fig. \ref{fig:global_exposure_dist} present the \emph{overall} plot of the proba
 Immediately, one can note that the mode of this distribution is at $0$ and that the mean if $k=23$: this implies that users are most likely to actually cite an entity without having been exposed to it, in fact $P(adoption) \rightarrow 0, k \rightarrow \infty$.
 We are somewhat guarded in \emph{generalising} from this result, as our experimental setup here - given the scale of the data we are playing with and the tractability of annotating the entirety of Reddit - does result in only a fraction of Reddit being annotated with entities.
 Hence, it is possible that entities emerge from other subreddits, yet we are unable to capture this at present - our future work makes suggestions as to how this effect can be validated.
+Furthermore, this finding contrasts somewhat to existing patterns of \emph{hashtag} adoption \cite{romero2011differences}: in hashtag adoption, there is a clear mode at around $k=4$ exposures, after which the probability of adoption curtails.
+This difference is likely due to two factors: firstly, the differences of the platforms - as Twitter acts as a public broadcast spectrum where information is presented in feeds and is then passed on, while Reddit is more interaction and discussion-driven, and; secondly, the manner in which users are \emph{exposed} to information - on Twitter this via subscriptions to other users and observing trends in the trending topics area, while Reddit requires users to read through threaded discussions and \emph{notice} entities within.
 
 The second plot below (Fig. \ref{fig:entity_exposure_dists}) shows a sample of 9 entities' adoption-exposure distributions, all of which have similar shapes (with a mode at $0$) and a heavy-tail.
 Variance exists, however, in the means that these distributions have, for instance the entity \emph{PS1}\footnote{Denoting the original Playstation video-games console.} has a much lower mean than the entity \emph{Hungary} suggesting that users require less stimulation to discuss the former than the latter.
-The nature of how and why the distributions differ is something that requires further investigation.
+The nature of how and why the distributions differ is something that requires further investigation - for instance, clustering the entities per-topic and then examining the \emph{pooled} exposure-adoption graphs would allow one to understand topic-level patterns of spread (in a similar vein to \cite{romero2011differences}).
+
 
 \begin{figure}[ht!]
   \begin{center}
