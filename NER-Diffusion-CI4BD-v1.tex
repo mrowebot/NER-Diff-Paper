@@ -394,69 +394,119 @@ The core principle of the model is that one can calculate the probability of a u
 Hence, the probability of $u$ adopting an entity is calculated as follows:
 
 \begin{equation}
+\label{eq:joint_prob}
 p_u\big(\Gamma(u)\big) = 1 - \displaystyle\prod_{v \in \Gamma(u)}\big(1 - p_{v,u}\big)
 \end{equation}
 
 In Goyal et al.'s prior framework, the probability of influence ($p_{v,u}$) of $v$ on $u$ is based upon the maximum likelihood estimate of a single Bernoulli trial.
-An entity propagation occurs between $v$ to $u$ when when the latter cites $e$ after being exposed to it by the former (as per Definition \ref{def:exposure}), hence a count of how many actions propagate between $v$ and $u$ can be recorded in $A_{v2u}$.
-From this, the influence probability between $v$ and $u$ based on such \emph{propagation} can be calculated as follows, where $A_v$ is how many times $v$ has cited an entity:
+An entity propagation occurs between $v$ to $u$ when when the latter cites $e$ after being exposed to it by the former (as per Definition \ref{def:exposure}), hence a count of how many entities propagate between $v$ and $u$ can be recorded in $E_{v2u}$.
+From this, the influence probability between $v$ and $u$ based on such \emph{propagation} can be calculated as follows, where $E_v$ is how many times $v$ has cited an entity:
 
 \begin{equation}
-p^{A}_{v,u} = \frac{A_{v2u}}{A_v}
+\label{eq:action_prob}
+p^{E}_{v,u} = \frac{E_{v2u}}{E_v}
 \end{equation}
 
+The authors explain how there are two variants of this calculation: (i) a static Bernoulli random trial where Equation \ref{eq:action_prob} is calculated from the training set (ignoring time), and: (ii) a discrete time Bernoulli random trial where counts are only placed within $E_{v2u}$ and $E_v$ if they the citation of an entity is within a discrete time interval, that is: if the time that $u$ adopts an entity $e$ is given by time $t_u$ then $E_{v2u}$ and $E_v$ are composed from the entity posts of $v$ which each have time $t_v \in [t_u - \tau_{v,u}, t_u)$, where $\tau_{v,u}$ is derived as follows (only considering $v, u \in U$ (set of all users) if $u$ has contacted $v$ prior to $t_u$:
+
+\begin{equation}
+\tau_{v,u} = \frac{\displaystyle\sum_{e \in E} (t_u(e) - t_v(e)}{E_{v2u}}
+\end{equation}
+
+Fig. \ref{fig:taus_hist} shows the binned distribution of the $\tau_{v,u}$ values (reduced from milliseconds to hours to ease legibility): one can note how the distribution has a right skew with the mode of the distribution (roughly) being at one hour - that is, the majority of \emph{influence} from one person to another occurs within one hour, this then gradually curtails off with fewer people having larger \emph{influence windows}.
+The log-log plot of the relative frequency distribution (Fig. \ref{fig:taus_loglog}) shows the \emph{heavy-tail} property of the distribution, and that the mean window width is $10,780$ hours ($\approx 449$ days $\approx 1.2$ years), thus suggesting a degree of \emph{stickiness} in the Reddit communities where people remain for long periods.
 
 
+\begin{figure}[ht!]
+  \begin{center}
+  \subfigure[Binned Frequency Distribution of $\tau_{v,u}$ values]{\includegraphics[width=0.49\columnwidth]{plots/taus_dist.pdf}\label{fig:taus_hist}}   
+  \subfigure[Log-log Plot of the Binned $\tau_{v,u}$ distribution]{\includegraphics[width=0.49\columnwidth]{plots/taus_dist_full_log.pdf}\label{fig:taus_loglog}}
+  \end{center}    
+  \caption{The influence window ($\tau_{v,u}$) between two arbitrary users characterises the average time for an entity to propagate from $v$ to $u$. In hours, this value has a \emph{right-skew} (Fig. \ref{fig:taus_hist}), while the log-log plot (Fig. \ref{fig:taus_loglog}) of the relative frequency distribution demonstrates the heavy-tail nature of the distribution with a mean of $10,780$ hours ($\approx 449$ days $\approx 1.2$ years).}
+  \label{fig:taus}
+\end{figure}
 
-\subsubsection{Influence from Interactions}
-In this paper we extend this formulation
+\subsubsection{Additional Influence Dynamics}
+The neat formulation of the general threshold model, and the monotonic-submodular nature of the probability of adoption function ($p_u(\Gamma(u)$), means that we can vary the mechanism by which we derive the \emph{influence probability} ($p_{v,u}$) between two user $v$ and $u$ to test for different influence effects.
+Our contribution here is to test for the influence of \emph{prior interactions} and \emph{community homophily} using the general threshold model.
+To compute the influence probability based on interactions, we derive $p^I_{v,u}$ as follows:
 
-Influence probability from interactions:
 \begin{equation}
 p^{I}_{v,u} = \frac{\vert \{ p_u : p_v \in P_v, p_u \in P_u, p_u \rightarrow p_v \} \vert}{\vert \{ p_u : p_u \in P_u, p_u \rightarrow . \} \vert}
 \end{equation}
 
-\subsubsection{Influence from Community-Homophily}
-Influence probability from community homphily
+While the influence probability based upon community homophily ($p_{v,u}^C$ is derived as follows:
+
 \begin{equation}
 p^C_{v,u} = \frac{\vert C_u \cap C_v \vert}{\vert C_u \cup C_v \vert}
 \end{equation}
 
-For learning the pairwise (i.e. $u,v$) action propagation counts ($A_{v2u}$) we use the same algorithm as from \cite{goyal2010learning} by partitioning the top-500 entities into 80\%:20\% training/testing segments.
+We calculate the same two variants as the entity-propagation influence probability as above (static Bernoulli, and discrete-time Bernoulli) for these influence probabilities by only considering interactions between $u$ and $v$ that fall within $[t_u - \tau_{v,u}, t_u)$ (for interactions-based) and posts within subreddits by $u$ and $v$ that were made within $[t_u - \tau_{v,u}, t_u)$ (for community-homophily).
 
-
-\subsubsection{Distribution of $\tau_{v,u}$}
--Present the distribution of $\tau_{v,u}$ and what this implies for the model
-
-\begin{figure}[ht!]
-  \begin{center}
-\includegraphics[width=0.49\columnwidth]{plots/taus_dist_full_log.pdf}
-  \end{center}    
-  \caption{To do}
-  \label{fig:taus_dist}
-\end{figure}
-
+In order to eliminate bias in our below experiments - when we attempt to forecast entity adoption for users - we divided the top-500 entities into an 80\%:20\% split for training and testing respectively.
+Then, for the above influence probabilities (entity-propagations, interactions-based, community-homophily) we used different strategies for their calculation.
+For the entity-propagation influence probability ($p^E_u(S)$) we used the training segment to calculate the values of $E_{v2u}$ and $E_v$, and also $\tau_{v,u}$ - for all pairs of interacting users within the training segment - this follows the experimental setup of \cite{goyal2010learning}.
+One thing that is somewhat limited about this approach, is that we are observing future effects when calculating $E_{v2u}$ and $E_v$ that we take forward into our experiments, as we observe how influence has occurred between users prior to an adoption happening.
+To some extent, this is somewhat unavoidable in the context of the dataset splitting as $\tau_{v,u}$ must be calculated somehow - an alternative for future work here is to use a fixed time-split and use the first 80\% of entity-posts for training and the rest for testing - this does somewhat limited the generalisation capability however as new entities that appear in the latter portion would have limited information to learn their patterns of diffusion from.
 
 \subsection{Experiments}
--Explain the evaluation process and the computation of the ROC values - per entity
--Plot variance in the ROC values achieved
+As mentioned above, one of our goals here is to \emph{forecast} the adoption of entities by users as their spread through Reddit.
+To this end, we used an experimental setup that induces the joint probability function (Eq. \ref{eq:joint_prob}) for the users citing entities within the test set by tracking their probability of adopting a given entity as a function of their neighbours influence.
+Our goal therefore is to examine which of the above influence probability functions are best suited to predicting adoptions.
+We now explain our experimental setup before moving on to present the results of such models.
+
+\subsubsection{Experimental Setup}
+Using the 100 randomly sampled subreddits and running the above Named Entity Recogniser over these subreddits' posts, resulted in a total of XXX posts in our dataset (using only those from the 100 subreddits) written by 4,139,814 users.
+Of those users we had 2,745,311 user-to-user edges derived from XXX interactions.
+
+\paragraph{Deriving Adoption Probabilities}
+In order to test which model was best (from above) we took the entities within the test set, and ran the following process: we chronologically ordered each entities' posts and then iterated through the posts set one-by-one.
+For each post's author ($v$) we then checked if he had been \emph{activated} before - i.e. had he cited the entity? - if not, then this would be first time he had cited $e$.
+If this was the case then we retrieved the prior interactions that the user had had and calculated (for each prior neighbour - $u \in \Gamma(v, t_u)$) the probability of influence between $v$ and $u$ using the above influence probability variants (e.g. interactions-based with static Bernoulli setting).
+We then updated the probability of adoption of $u$.
+By iterating through the set of time-ordered posts we maintained adoption-outcome tuples of the form $<u, p_u, r_u>$ where $r_u \in \{0,1\}$ denoting whether the user ultimately adopted the entity $e$ or not.
+Our evaluation of the models used these tuples to calculate the area under the Receiver Operator Characteristic curve, aiming to achieve a value of $1$ (for perfect prediction - with $0.5$ being the random model baseline.
+
+\paragraph{Parallelising Processing}
+As we are working with \emph{big data} here, we made two efforts to parallelise the processes above - induction of adoption probability over the test set entities.
+First, all of the data used for the experiments (timestamped interactions between users, entity posts, post details, $E_{v2u}$ values, $\tau_{v2u}$ values) was uploaded into HBase\footnote{\url{https://hbase.apache.org/}} tables ensuring that we could \emph{quickly} access the data using time-specific queries (e.g. \emph{return all interactions where $u$ is the source before 12th January 2010}).
+Second, we used Apache Spark\footnote{\url{http://spark.apache.org/}} to parallelise the per-entity diffusion processes.
+This was performed by loading the names of the test entities into HDFS and then forcing Spark to partition the entity list into at least 30 partitions.
+Each partition was then iterated over and the the above test process run: (i) retrieving time-ordered entity posts from HBase, (ii) iterating over the post set, (iii) retrieving per-user interactions prior to the time of a given post, (iv) calculating the pairwise influence probabilities.
+The final calculated probability of adoption for each user ($u$) together with the label of whether they adopted the entity or not were recorded in a separate HBase table of results.
+
+Unfortunately, due to the use of sample of 100 of the top-500 entities in our experiments, iteration over the the time-ordered post set requires an expensive sequential scan - which cannot be avoided.
+That said, we were able to add a second level of parallelism however, given the sub modular and monotonic nature of the joint probability as follows.
+Calculation of the probability of $e$ being adopted by $u$ is derived from Eq. \ref{eq:joint_prob}, and is calculated from the prior neighbours of $u$ before adoption.
+Now, as this function is sub modular and monotonic, can \emph{update} the probability of adoption given a new neighbour's ($v$) influence probability having being calculated as:
+
+\begin{equation}
+p_s(\Gamma(u) \cup p_{v,u}) = p_s(\Gamma(u)) + (1 - p_s(\Gamma(u))) * p_{v,u}
+\end{equation}
+
+Now, our additional layer of parallelism occurs by \emph{multithreading} the calculation of the influence probabilities between $v$ and each of his neighbours $u \in \Gamma(v)$, thus we calculate these pairwise influence probabilities in parallel and then update $p_u(\Gamma(u)) : \forall u \in \Gamma(v)$.\footnote{N.b. the maintenance of the interactions between users records both the source and target of the interaction, hence we can retrieve directed interactions both ways - i.e. $u \rightarrow v \wedge v \rightarrow u$.}
+In sum: our first layer of parallelism occurs by splitting the processing up per entity (using Apache Spark to process a partition of entities in parallel); while our second layer of parallelism occurs within the Spark job for each entity where we parallelise the computation of the influence probabilities between two users - although this parallelism occurs \emph{within} each iteration through the time-ordered set of entity posts.
+The Java implementation of this code can be found in the github repository,\footnote{\url{https://github.com/mattroweshow/NER-Diff-Paper}} including the functions for building the HBase tables, deriving the entity-propagation counts ($E_{v2u}$) and the test algorithm.
 
 \subsubsection{Results}
+Table \ref{tab:macro_results} presents the results from our experiments of the various models and probability settings
+
 
 \begin{table}
 \begin{center}
 \caption{to do}
-\begin{tabular}{ l c c}
+\begin{tabular}{l l c c}
 \hline
- & Static & Discrete Time ($-\tau_{u,v}$) \\
+& & \multicolumn{2}{c}{Probability Setting} \\
+& & Static & Discrete Time ($t_v \in [t_u - \tau_{u,v}, t_u)$) \\
 \hline
-$p_{u}^{A}$ (Actions Propagation-based) & 0.722 & \\
-$p_{u}^{I}$ (Interactions-based) & & \\
-$p_{u}^{C}$ (Community-homophily) & & \\
-$\alpha p_{u}^{A} + \beta p_{u}^{I}  + \gamma p_{u}^{C}$ & & \\
+Model & $p_{u}^{E}$ (Actions Propagation-based) & 0.722 & \\
+& $p_{u}^{I}$ (Interactions-based) & & \\
+& $p_{u}^{C}$ (Community-homophily) & & \\
+%$\alpha p_{u}^{A} + \beta p_{u}^{I}  + \gamma p_{u}^{C}$ & & \\
 \hline
 \end{tabular}
-\label{tab:ml_datasets}
+\label{tab:macro_results}
 \end{center}
 \end{table}
 
