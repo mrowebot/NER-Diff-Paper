@@ -144,6 +144,18 @@ For this research we will use the following datasets:
 %-----------------------------------------------------
 
 \section{Related work}
+In this work we investigate how entities diffuse over time through the online community platform Reddit.
+Diffusion of information is a well studied topic, and is of particular interest today given the myriad ways in which Web users consume information and are thus influenced by what they read, and with whom they interact with, online.
+
+\subsection{Named Entity Recognition}
+\textbf{TODO: Leon - add in existing works in NER that are relevant here}
+
+\subsection{Information Diffusion}
+Information diffusion works:
+Goyal et al. \cite{goyal2010learning} track the diffusion of \emph{actions} on Flickr, where actions are users joining a group.
+A general threshold model is proposed that determines the probability of influence between two arbitrary users based on the relative frequency of action propagation observed before between the users divided by the absolute number of actions of the user responsible for the propagation.
+We use this general threshold framework, but extend it into the entity-mention setting, hence: we track the \emph{mention} of an entity by a user over time and calculate the probability of influence that an \emph{adopter}'s neighbours have had upon him.
+Furthermore, we also extend this framework to test for two additional constructs: (i) influence of interactions before adoption (i.e. did the degree to which an individual communicated with a previous entity adopter influence their own adoption?), and (ii) community homophily (i.e. does the similarity between users' interests - based upon similarity in subreddit posting - have an effect on adoption of an entity?).
 
 twitter info propagation
 
@@ -456,7 +468,7 @@ Our goal therefore is to examine which of the above influence probability functi
 We now explain our experimental setup before moving on to present the results of such models.
 
 \subsubsection{Experimental Setup}
-Using the 100 randomly sampled subreddits and running the above Named Entity Recogniser over these subreddits' posts, resulted in a total of XXX posts in our dataset (using only those from the 100 subreddits) written by 4,139,814 users.
+Using the 100 randomly sampled subreddits and running the above Named Entity Recogniser over these subreddits' posts, resulted in a total of XXX posts in our dataset (using only those from the 100 subreddits) written by 4,139,814 users - the entity recogniser also extracted 8,797,271 entities.
 Of those users we had 2,745,311 user-to-user edges derived from XXX interactions.
 
 \paragraph{Deriving Adoption Probabilities}
@@ -484,7 +496,8 @@ Now, as this function is sub modular and monotonic, can \emph{update} the probab
 p_s(\Gamma(u) \cup p_{v,u}) = p_s(\Gamma(u)) + (1 - p_s(\Gamma(u))) * p_{v,u}
 \end{equation}
 
-Now, our additional layer of parallelism occurs by \emph{multithreading} the calculation of the influence probabilities between $v$ and each of his neighbours $u \in \Gamma(v)$, thus we calculate these pairwise influence probabilities in parallel and then update $p_u(\Gamma(u)) : \forall u \in \Gamma(v)$.\footnote{N.b. the maintenance of the interactions between users records both the source and target of the interaction, hence we can retrieve directed interactions both ways - i.e. $u \rightarrow v \wedge v \rightarrow u$.}
+Now, our additional layer of parallelism occurs by \emph{multithreading} the calculation of the influence probabilities between $v$ and each of his neighbours $u \in \Gamma(v)$, thus we calculate these pairwise influence probabilities in parallel and then update $p_u(\Gamma(u)) : \forall u \in \Gamma(v)$.\footnote{N.b. the maintenance of the interactions between users records both the source and target of the interaction, hence we can retrieve directed interactions both ways - i.e. $v \rightarrow u \wedge v \leftarrow u$.}
+
 In sum: our first layer of parallelism occurs by splitting the processing up per entity (using Apache Spark to process a partition of entities in parallel); while our second layer of parallelism occurs within the Spark job for each entity where we parallelise the computation of the influence probabilities between two users - although this parallelism occurs \emph{within} each iteration through the time-ordered set of entity posts.
 The Java implementation of this code can be found in the github repository,\footnote{\url{https://github.com/mattroweshow/NER-Diff-Paper}} including the functions for building the HBase tables, deriving the entity-propagation counts ($E_{v2u}$) and the test algorithm.
 
@@ -494,15 +507,16 @@ Table \ref{tab:macro_results} presents the results from our experiments of the v
 
 \begin{table}
 \begin{center}
-\caption{to do}
-\begin{tabular}{l l c c}
+\caption{Area under the Receiver Operator Characteristic Curve (ROC) values for the different probability settings and influence probability settings within the general threshold model. 
+We calculated the micro-averaged ROC value (i.e. inducing the ROC over all entities' $<p_u, r_u>$ pairs) and the macro-averaged ROC value (i.e. inducing per-entity ROC values and then averaging them) - we also record the standard deviation of this latter metric within parentheses to show the variance in performance across entities. }
+\begin{tabular}{ l | c c}
 \hline
-& & \multicolumn{2}{c}{Probability Setting} \\
-& & Static & Discrete Time ($t_v \in [t_u - \tau_{u,v}, t_u)$) \\
+& \multicolumn{2}{c}{Probability Setting} \\
+Model & Static & Discrete Time ($t_v \in [t_u - \tau_{u,v}, t_u)$) \\
 \hline
-Model & $p_{u}^{E}$ (Actions Propagation-based) & 0.722 & \\
-& $p_{u}^{I}$ (Interactions-based) & & \\
-& $p_{u}^{C}$ (Community-homophily) & & \\
+Entity-propagations ($p_{u}^{E}$)  & $0.730 / 0.713(\pm0.095)$ & \\
+Interactions-based ($p_{u}^{I}$) & $0.501 / 0.560(\pm0.102)$ & \\
+Community-homophily ($p_{u}^{C}$) & & \\
 %$\alpha p_{u}^{A} + \beta p_{u}^{I}  + \gamma p_{u}^{C}$ & & \\
 \hline
 \end{tabular}
@@ -521,6 +535,11 @@ FW1:
 
 FW2:
 -Vulnerability windows and colinear diffusion patterns
+-Extending diffusion from univariate (deterministic case) to multivariate case?
+
+
+
+\section{Conclusions}
 
 
 % if have a single appendix:
