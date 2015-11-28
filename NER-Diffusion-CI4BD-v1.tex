@@ -180,27 +180,27 @@ This leads to a threaded discussion, centred on a particular topic, with a hiera
 
 \subsection{Subreddit extraction}
 
-- subreddit extraction
+The Reddit dataset is very large, and to apply our diffusion models for the first time could prove computationally intense to the point of becoming infeasible.
+To this end, we reduced the volume of content analysed.
+As the goal is to analyse and model behaviour within communities, we can pare down the whole dataset without damaging the objects being studied by select a subset of subreddits, rather than comments.
+Each subreddit is a complete self-enclosed community for our purposes.
 
-top lists
+We selected the subreddits to examine by drawing from those that were most popular.
+Selections were made based on {\tt http://redditlist.com/}, a website that ranks communities by recent activity, subscriber count and also current growth rate.
+In total, we selected 100 subreddits.
 
-describe top lists site
+After this, we unpacked the Reddit dataset and filtered out posts not belonging to our queried subset of subreddits.
+This led to {\bf how many docs?}, compared to {\bf and how many here?} in the entire dataset.
 
-pick 100
+{\bf figures for raw dataset (\# per year; total volume over time; volume-rank graph of subreddits; possible ref to appx) }
 
-extract these over whole sample
-
-figures for raw dataset (\# per year; total volume over time; volume-rank graph of subreddits; possible ref to appx)
-
-\subsection{NER for Reddit}
-
--- where is NER first mentioned and defined?
+\subsection{Named Entity Recognition for Reddit}
 
 We model micro-topics in conversation as entity mentions.
 This allows tracking of topics at maximally fine granularity, looking at each user's interests at a low level, as opposed to monitoring broader topics such as ``consumer electronics", ``politics" and so on.
 In fact, these broader topics are already explicitly annotated by means of the subreddit topics.
 
-Entity mentions are extracted through named entity recognition.
+Entity mentions are extracted through named entity recognition (NER).
 Generally, this task aims to detect the boundaries of certain kinds of entities within a certain piece of text.
 In this instance, we tokenise text, splitting it into sentences using the Punkt tokeniser~\cite{kiss2006unsupervised}, and subsequently word-sized chunks, using the {\tt twokenize} tool with some adaptations~\cite{o2010tweetmotif}.
 This tool performs Penn Treebank-style tokenisation, a common standard, with some specific adaptations to enable it to handle the noise present in user-generated text.
@@ -231,7 +231,11 @@ For features, we use a fairly classical set, and add some unsupervised word repr
 Our base features are:
 
 \begin{itemize}
-\item 
+\item Lower-case form of word;
+\item Word prefix and suffix (two- and three-character);
+\item Previous and next word;
+\item Flags set if the word is all uppercase, titlecase, or digits;
+\item These flags for the previous and next words;
 \end{itemize}
 
 In addition, we induce Brown clusters~\cite{brown1992class} and use these as word representations~\cite{turian2009preliminary}.
@@ -248,10 +252,10 @@ We therefore experiment with a new method of feature extraction form Brown clust
 We take the cluster identifier at every level, tracing the provenance of a terminal word cluster all the way to the root cluster (which contains all word types).
 This preserves the entire set membership of any given term, throughout the induced hierarchical clustering.
 As an example, if the term \emph{fishing} has bitstring {\tt 1100101}, the following text features are generated: {\tt 1}, {\tt 11}, {\tt 110}, {\tt 1100}, {\tt 11001}, {\tt 110010}, {\tt 1100101}.
-For contrast, if the typical bit depths of 4, 6, 10 and 20~\cite{ratinov2009design} were chosen, only the following features would be generated: {\tt 1100}, {\tt 110010}, {\tt 1100101}.
+For contrast, if the typical bit depths~\cite{ratinov2009design} of 4, 6, 10 and 20 were chosen, only the following features would be generated: {\tt 1100}, {\tt 110010}, {\tt 1100101}.
 As a result of taking all directly-relevant features in the merge list, the lossy nature of shearing-based feature extraction from Brown clusters is avoided.
 
-Feature extraction, training, classification and JSON annotation are all performed using an entity recognition toolkit (https://github.com/leondz/entity\_recognition~\cite{derczynski2015usfd}), with custom extractors.
+Feature extraction, training, classification and JSON annotation are all performed using an entity recognition toolkit~\cite{derczynski2015usfd},\footnote{https://github.com/leondz/entity\_recognition} with custom extractors.
 
 
 \subsection{Tuning entity recognition}
@@ -265,7 +269,7 @@ Over the large dataset, spurious entities are likely to be those that are not se
 This suggests that there will be great variation in their surface forms, leaving them in the long tail of discovered entities.
 As the majority of our work looks at the more frequent patterns, these are less likely to have an impact.
 Conversely, recall reveals how well the extraction is performing, and it important to track a range of entities.
-In addition, recall has always been more challenging to achieve in social media texts than recall~\cite{ritter2011named,derczynski2015analysis}.
+In addition, it has almost always been more challenging to achieve high recall in social media texts than high precision~\cite{ritter2011named,derczynski2015analysis}.
 
 To capture this balance, we take F-scores with $\beta=2$.
 Given precision $P$ and recall $R$, typically an F-score is drawn from $F_\beta$ with $\beta=1$.
@@ -276,7 +280,7 @@ F_\beta = (1+\beta^2)\frac{PR}{(\beta^2 P) + R}
 
 When $\beta=1$, precision and recall are balanced in a harmonic mean, e.g. F1-score.
 That is, false positives and false negatives impact results equally.
-To score away from false positives, i.e. wrong cues, we set $\beta=2$.
+To give a great penalty to false negatives, and favour recall, we set $\beta=2$.
 
 Our approach here is to tune an entity recogniser with reference to a dataset that matches the target text type.
 We draw this development set from Reddit posts, using comments encountered during our work that appear to have missing or spurious annotations.
