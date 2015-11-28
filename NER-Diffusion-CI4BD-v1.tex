@@ -144,6 +144,32 @@ For this research we will use the following datasets:
 %-----------------------------------------------------
 
 \section{Related work}
+In this work we investigate how entities diffuse over time through the online community platform Reddit.
+Diffusion of information is a well studied topic, and is of particular interest today given the myriad ways in which Web users consume information and are thus influenced by what they read, and with whom they interact with, online.
+
+\subsection{Named Entity Recognition}
+\textbf{TODO: Leon - add in existing works in NER that are relevant here}
+
+\subsection{Information Diffusion}
+Bakshy et al. \cite{bakshy2012role} conducted a large-scale randomised control trial to examine the effects of information exposure on information diffusion, using the Facebook platform.
+The authors were able to assign Facebook users \emph{randomly} with a $1/3$ probability to the \emph{feed} group, and the remainder to the \emph{no feed} group and then \emph{hide} information (i.e. status posts) posted within the latter's group.
+Bokshy et al. found, unsurprisingly, that users who were \emph{exposed} to information (i.e. those in the feed group) from their friends are more likely to share it on.
+
+The closest work to the study of entity diffusion can be found in studies of hashtag diffusion.
+For instance, Romero et al. \cite{romero2011differences} studied the spread of the top-500 hashtags posted in a sample of $>3B$ tweets collected over a six-month period, finding that users were most likely to \emph{adopt} a hashtag (i.e. mention/cite it in their Tweet) after receiving $4$ exposures from their friends.
+The authors found marked differences in the adoption of hashtags based on their topics, something which - as we will show below - is not present in entity diffusion.
+
+Goyal et al. \cite{goyal2010learning} track the diffusion of \emph{actions} on Flickr, where actions are users joining a group.
+A general threshold model is proposed that determines the probability of influence between two arbitrary users based on the relative frequency of action propagation observed before between the users divided by the absolute number of actions of the user responsible for the propagation.
+We use this general threshold framework, but extend it into the entity-mention setting, hence: we track the \emph{mention} of an entity by a user over time and calculate the probability of influence that an \emph{adopter}'s neighbours have had upon him.
+Furthermore, we also extend this framework to test for two additional constructs: (i) influence of interactions before adoption (i.e. did the degree to which an individual communicated with a previous entity adopter influence their own adoption?), and (ii) community homophily (i.e. does the similarity between users' interests - based upon similarity in subreddit posting - have an effect on adoption of an entity?).
+
+Fang et al. \cite{fang2013predicting} presented a method to predict adoption probabilities in social networks by controlling for potential confounding, unobservable variables - proposing a modification of expectation-maximisation to induce a Naive bayes predictive model.
+The authors found that social influence alone is sufficient to recover the diffusion process, and thus external factors - that are latent - must be countered for within any predictive model, in the context of predicting the adoption of social ties.
+Although such a framework allows one to control for confounding in the diffusion process, the study of the spread of entities is yet to be studied: hence in this work we aim to provide the \emph{first} effort in this space and to discern between the effects of social influence, interactions, and community homophily.
+
+
+
 
 twitter info propagation
 
@@ -376,10 +402,13 @@ Fig. \ref{fig:global_exposure_dist} present the \emph{overall} plot of the proba
 Immediately, one can note that the mode of this distribution is at $0$ and that the mean if $k=23$: this implies that users are most likely to actually cite an entity without having been exposed to it, in fact $P(adoption) \rightarrow 0, k \rightarrow \infty$.
 We are somewhat guarded in \emph{generalising} from this result, as our experimental setup here - given the scale of the data we are playing with and the tractability of annotating the entirety of Reddit - does result in only a fraction of Reddit being annotated with entities.
 Hence, it is possible that entities emerge from other subreddits, yet we are unable to capture this at present - our future work makes suggestions as to how this effect can be validated.
+Furthermore, this finding contrasts somewhat to existing patterns of \emph{hashtag} adoption \cite{romero2011differences}: in hashtag adoption, there is a clear mode at around $k=4$ exposures, after which the probability of adoption curtails.
+This difference is likely due to two factors: firstly, the differences of the platforms - as Twitter acts as a public broadcast spectrum where information is presented in feeds and is then passed on, while Reddit is more interaction and discussion-driven, and; secondly, the manner in which users are \emph{exposed} to information - on Twitter this via subscriptions to other users and observing trends in the trending topics area, while Reddit requires users to read through threaded discussions and \emph{notice} entities within.
 
 The second plot below (Fig. \ref{fig:entity_exposure_dists}) shows a sample of 9 entities' adoption-exposure distributions, all of which have similar shapes (with a mode at $0$) and a heavy-tail.
 Variance exists, however, in the means that these distributions have, for instance the entity \emph{PS1}\footnote{Denoting the original Playstation video-games console.} has a much lower mean than the entity \emph{Hungary} suggesting that users require less stimulation to discuss the former than the latter.
-The nature of how and why the distributions differ is something that requires further investigation.
+The nature of how and why the distributions differ is something that requires further investigation - for instance, clustering the entities per-topic and then examining the \emph{pooled} exposure-adoption graphs would allow one to understand topic-level patterns of spread (in a similar vein to \cite{romero2011differences}).
+
 
 \begin{figure}[ht!]
   \begin{center}
@@ -460,7 +489,7 @@ Our goal therefore is to examine which of the above influence probability functi
 We now explain our experimental setup before moving on to present the results of such models.
 
 \subsubsection{Experimental Setup}
-Using the 100 randomly sampled subreddits and running the above Named Entity Recogniser over these subreddits' posts, resulted in a total of XXX posts in our dataset (using only those from the 100 subreddits) written by 4,139,814 users.
+Using the 100 randomly sampled subreddits and running the above Named Entity Recogniser over these subreddits' posts, resulted in a total of XXX posts in our dataset (using only those from the 100 subreddits) written by 4,139,814 users - the entity recogniser also extracted 8,797,271 entities.
 Of those users we had 2,745,311 user-to-user edges derived from XXX interactions.
 
 \paragraph{Deriving Adoption Probabilities}
@@ -488,7 +517,8 @@ Now, as this function is sub modular and monotonic, can \emph{update} the probab
 p_s(\Gamma(u) \cup p_{v,u}) = p_s(\Gamma(u)) + (1 - p_s(\Gamma(u))) * p_{v,u}
 \end{equation}
 
-Now, our additional layer of parallelism occurs by \emph{multithreading} the calculation of the influence probabilities between $v$ and each of his neighbours $u \in \Gamma(v)$, thus we calculate these pairwise influence probabilities in parallel and then update $p_u(\Gamma(u)) : \forall u \in \Gamma(v)$.\footnote{N.b. the maintenance of the interactions between users records both the source and target of the interaction, hence we can retrieve directed interactions both ways - i.e. $u \rightarrow v \wedge v \rightarrow u$.}
+Now, our additional layer of parallelism occurs by \emph{multithreading} the calculation of the influence probabilities between $v$ and each of his neighbours $u \in \Gamma(v)$, thus we calculate these pairwise influence probabilities in parallel and then update $p_u(\Gamma(u)) : \forall u \in \Gamma(v)$.\footnote{N.b. the maintenance of the interactions between users records both the source and target of the interaction, hence we can retrieve directed interactions both ways - i.e. $v \rightarrow u \wedge v \leftarrow u$.}
+
 In sum: our first layer of parallelism occurs by splitting the processing up per entity (using Apache Spark to process a partition of entities in parallel); while our second layer of parallelism occurs within the Spark job for each entity where we parallelise the computation of the influence probabilities between two users - although this parallelism occurs \emph{within} each iteration through the time-ordered set of entity posts.
 The Java implementation of this code can be found in the github repository,\footnote{\url{https://github.com/mattroweshow/NER-Diff-Paper}} including the functions for building the HBase tables, deriving the entity-propagation counts ($E_{v2u}$) and the test algorithm.
 
@@ -498,15 +528,16 @@ Table \ref{tab:macro_results} presents the results from our experiments of the v
 
 \begin{table}
 \begin{center}
-\caption{to do}
-\begin{tabular}{l l c c}
+\caption{Area under the Receiver Operator Characteristic Curve (ROC) values for the different probability settings and influence probability settings within the general threshold model. 
+We calculated the micro-averaged ROC value (i.e. inducing the ROC over all entities' $<p_u, r_u>$ pairs) and the macro-averaged ROC value (i.e. inducing per-entity ROC values and then averaging them) - we also record the standard deviation of this latter metric within parentheses to show the variance in performance across entities. }
+\begin{tabular}{ l | c c}
 \hline
-& & \multicolumn{2}{c}{Probability Setting} \\
-& & Static & Discrete Time ($t_v \in [t_u - \tau_{u,v}, t_u)$) \\
+& \multicolumn{2}{c}{Probability Setting} \\
+Model & Static & Discrete Time ($t_v \in [t_u - \tau_{u,v}, t_u)$) \\
 \hline
-Model & $p_{u}^{E}$ (Actions Propagation-based) & 0.722 & \\
-& $p_{u}^{I}$ (Interactions-based) & & \\
-& $p_{u}^{C}$ (Community-homophily) & & \\
+Entity-propagations ($p_{u}^{E}$)  & $0.730 / 0.713(\pm0.095)$ & \\
+Interactions-based ($p_{u}^{I}$) & $0.501 / 0.560(\pm0.102)$ & \\
+Community-homophily ($p_{u}^{C}$) & & \\
 %$\alpha p_{u}^{A} + \beta p_{u}^{I}  + \gamma p_{u}^{C}$ & & \\
 \hline
 \end{tabular}
@@ -525,6 +556,11 @@ FW1:
 
 FW2:
 -Vulnerability windows and colinear diffusion patterns
+-Extending diffusion from univariate (deterministic case) to multivariate case?
+
+
+
+\section{Conclusions}
 
 
 % if have a single appendix:
