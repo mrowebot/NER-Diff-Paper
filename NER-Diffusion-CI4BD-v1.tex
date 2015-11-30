@@ -135,8 +135,8 @@ For this research we will use the following datasets:
 	\item Reddit data -- download and access all of the data from the full dump.\footnote{\url{https://archive.org/details/2015_reddit_comments_corpus}}
 	\item CoNLL 2003 data -- a corpus of newswire texts, annotated for named entity chunks and types.
 	This describes where entity mentions are in the text, including locations, organisations, and person mentions.
-	\item Twitter data; unannotated -- we have a large corpus of English tweets that we can use here.
-	\item Twitter data; annotated -- there are two datasets annotated with named entities. These are from Ritter's 2011 EMNLP paper, and the W-NUT 2015 shared task.
+	\item Twitter data; unannotated -- we have a large corpus of English tweets that we can use here, taken from an archive of the garden hose feed.
+	\item Twitter data; annotated -- there are two datasets annotated with named entities. These are from Ritter's 2011 EMNLP paper~\cite{ritter2011named}, and the W-NUT 2015 shared task~\cite{baldwin2015shared}.
 \end{enumerate}
 
 
@@ -288,7 +288,12 @@ For features, we use a fairly classical set, and add some unsupervised word repr
 Our base features are:
 
 \begin{itemize}
-\item 
+\item Lower-case form of word;
+\item Word prefix and suffix (two- and three-character);
+\item Previous and next word;
+\item Flags set if the word is all uppercase, titlecase, or digits;
+\item These flags for the previous and next words;
+\item The next and prior bigrams.
 \end{itemize}
 
 In addition, we induce Brown clusters~\cite{brown1992class} and use these as word representations~\cite{turian2009preliminary}.
@@ -305,10 +310,10 @@ We therefore experiment with a new method of feature extraction form Brown clust
 We take the cluster identifier at every level, tracing the provenance of a terminal word cluster all the way to the root cluster (which contains all word types).
 This preserves the entire set membership of any given term, throughout the induced hierarchical clustering.
 As an example, if the term \emph{fishing} has bitstring {\tt 1100101}, the following text features are generated: {\tt 1}, {\tt 11}, {\tt 110}, {\tt 1100}, {\tt 11001}, {\tt 110010}, {\tt 1100101}.
-For contrast, if the typical bit depths of 4, 6, 10 and 20~\cite{ratinov2009design} were chosen, only the following features would be generated: {\tt 1100}, {\tt 110010}, {\tt 1100101}.
+For contrast, if the typical bit depths~\cite{ratinov2009design} of 4, 6, 10 and 20 were chosen, only the following features would be generated: {\tt 1100}, {\tt 110010}, {\tt 1100101}.
 As a result of taking all directly-relevant features in the merge list, the lossy nature of shearing-based feature extraction from Brown clusters is avoided.
 
-Feature extraction, training, classification and JSON annotation are all performed using an entity recognition toolkit (https://github.com/leondz/entity\_recognition~\cite{derczynski2015usfd}), with custom extractors.
+Feature extraction, training, classification and JSON annotation are all performed using an entity recognition toolkit~\cite{derczynski2015usfd}),\footnote{https://github.com/leondz/entity\_recognition} with custom extractors.
 
 
 \subsection{Tuning entity recognition}
@@ -322,7 +327,7 @@ Over the large dataset, spurious entities are likely to be those that are not se
 This suggests that there will be great variation in their surface forms, leaving them in the long tail of discovered entities.
 As the majority of our work looks at the more frequent patterns, these are less likely to have an impact.
 Conversely, recall reveals how well the extraction is performing, and it important to track a range of entities.
-In addition, recall has always been more challenging to achieve in social media texts than recall~\cite{ritter2011named,derczynski2015analysis}.
+In addition, it has often been more challenging to achieve high recall in social media texts than high precision~\cite{ritter2011named,derczynski2015analysis}.
 
 To capture this balance, we take F-scores with $\beta=2$.
 Given precision $P$ and recall $R$, typically an F-score is drawn from $F_\beta$ with $\beta=1$.
@@ -333,7 +338,7 @@ F_\beta = (1+\beta^2)\frac{PR}{(\beta^2 P) + R}
 
 When $\beta=1$, precision and recall are balanced in a harmonic mean, e.g. F1-score.
 That is, false positives and false negatives impact results equally.
-To score away from false positives, i.e. wrong cues, we set $\beta=2$.
+To score away from false negatives, i.e. missed entity mentions, we set $\beta=2$.
 
 Our approach here is to tune an entity recogniser with reference to a dataset that matches the target text type.
 We draw this development set from Reddit posts, using comments encountered during our work that appear to have missing or spurious annotations.
@@ -341,6 +346,45 @@ These are then isolated, tokenised, and manually annotated.
 Our annotation format follows~\cite{ritter2011named} in using the Freebase top-level entity type inventory, but only uses the chunking information, as nothing further than this is needed: only the surface forms of entities.
 In total, we identified and annotated 3\,708 tokens of Reddit data, including 149 entity chunks.
 This comprised our development set, which was used to tune a variety of parameters in our approach.
+
+
+\begin{table}
+\centering
+\begin{tabular}{lrrrr}
+\hline
+{\bf Brown cluster composition} & {\bf Precision} & {\bf Recall} & {\bf F1} & {\bf F2} \\
+\hline
+\multicolumn{5}{c}{Newswire training data} \\
+\hline
+RCV Newswire          & 63.57 & 59.73 & 61.59 & 60.96 \\
+Tweets                & 62.75 & 64.43 & 63.58 & 63.86 \\
+Blended twitter/news  & 68.42 & 61.07 & 64.54 & 63.34 \\
+Reddit                & 66.32 & 67.11 & 66.71 & 66.84 \\
+\hline
+\multicolumn{5}{c}{\emph{Twitter training data}} \\
+\hline
+RCV Newswire          & 73.02 & 30.87 & 43.39 & 38.22 \\
+Tweets                & 70.37 & 38.26 & 49.57 & 45.12 \\
+Blended twitter/news  & 65.28 & 31.54 & 42.53 & 38.10 \\
+Reddit                & 76.34 & 47.65 & 58.68 & 54.47 \\
+\hline
+\multicolumn{5}{c}{\emph{Blended training data, 50:50}} \\
+\hline
+RCV Newswire          & 66.67 & 42.96 & 52.25 & 48.74 \\
+Tweets                & 66.10 & 52.35 & 58.43 & 56.25 \\
+Blended twitter/news  & 68.69 & 45.64 & 54.84 & 51.39 \\
+Reddit                & 70.08 & 59.73 & 64.49 & 62.82 \\
+\hline
+\end{tabular}
+\label{tab:brown-tuning}
+\end{table}
+
+
+In addition, we draw supervised data for multiple datasets in order to approximate the Reddit text type.
+We take data from Reddit, taking the union of corpora used in previous work that follow the Freebase ten-class entity scheme~\cite{ritter2011named,baldwin2015shared}.
+This scheme gives broader coverage than e.g. the three-class ACE named entity scheme.
+For newswire, we use the Reuters RCV1 corpus annotations that were part of the CoNLL-2003 shared task~\cite{tjong2003introduction}.
+Classes are removed before training, making this just a chunking task.
 
 Firstly, we tuned our word representations.
 Specifically, we needed to estimate the number of Brown clusters $C$ to use in feature extraction.
@@ -353,36 +397,12 @@ We then experiment with combinations of newswire, Twitter and Reddit data.
 Brown clusters are extracted using the generalised-brown package~\cite{sean_chester_2015_33758}.
 Results are given in Table~\ref{tab:brown-tuning}.
 
-\begin{table}
-\centering
-\begin{tabular}{lrrrr}
-\hline
-{\bf Brown cluster composition} & {\bf Precision} & {\bf Recall} & {\bf F1} & {\bf F2} \\
-\hline
-\multicolumn{5}{c}{Newswire training data} \\
-\hline
-RCV Newswire          & 63.57 & 59.73 & 61.59 & 60.96 \\
-Tweets                &  &  &  & \\
-Blended twitter/news  & 68.42 & 61.07 & 64.54 & 63.34\\
-Reddit                &  &  &  & \\
-\hline
-\multicolumn{5}{c}{\emph{Twitter training data}} \\
-\hline
-RCV Newswire          & 73.02 & 30.87 & 43.39 & 38.22 \\
-Tweets                &  &  &  \\
-Blended twitter/news  & 65.28 & 31.54 & 42.53 & 38.10 \\
-Reddit                &  &  &  \\
-\hline
-\multicolumn{5}{c}{\emph{Blended training data, 50:50}} \\
-\hline
-RCV Newswire          & 66.67 & 42.96 & 52.25 & 48.74 \\
-Tweets                &  &  &  \\
-Blended twitter/news  & 68.69 & 45.64 & 54.84 & 51.39 \\
-Reddit                &  &  &  \\
-\hline
-\end{tabular}
-\label{tab:brown-tuning}
-\end{table}
+Note how the scores are consistently best in each category when inducing Brown clusters from Reddit data.
+Attempts to approximate this using newswire, twitter, or a blend of those two did not score as well.
+This is remarkable, especially considering as we used on 64M tokens of Reddit data for cluster induction, compared to around 130k total for the other text type blends.
+This strongly illustrates the importance of taking the target text type into account during unsupervised feature extraction.
+
+
 
 \begin{figure}
 \centering
@@ -391,23 +411,39 @@ Reddit                &  &  &  \\
 \label{fig:rcv-scaling}
 \end{figure}
 
+We also examined the learning rate of our entity chunking system, scaling up the RCV newswire data.
+We experimented with pure newswire and also newswire plus tweet training data, and with pure newswire vs. blended clusters.
+Results are given in Figure~\ref{fig:rcv-scaling}.
+They suggest that adding too much newswire reduces performance, and that sticking to just newswire clusters also reduces performance.
+Based on these data, we hypothesised that insufficient regularisation had lead to overfitting.
+To test this, we re-ran the experiments on half the newswire data using a $c_2$ regularisation penalty of $10^{-1}$ compared to the default $10^{-3}$.
+This increased F2 from 61.38\% to 62.07\%; so, while effective, still a marginal increase.
+The likely best remedy to high performance is to manually label a quantity of Reddit data for named entities, but given the prohibitive cost of that, we find we have a strong rough solution from near-genre supervised training data, flexible techniques, and in-genre unsupervised feature representations (Brown clusters).
 
-In addition, we draw supervised data for multiple datasets in order to approximate the Reddit text type.
-We take data from Reddit, taking the union of corpora used in previous work that follow the Freebase ten-class entity scheme~\cite{ritter2011named,baldwin2015shared}.
-This scheme gives broader coverage than e.g. the three-class ACE named entity scheme.
-For newswire, we use the Reuters RCV1 corpus annotations that were part of the CoNLL-2003 shared task~\cite{tjong2003introduction}.
-Classes are removed before training, making this just a chunking task.
+
 %We compare against Stanford NER~\cite{finkel2005incorporating} as a baseline.
 %Results for different balances of training data are given in Table~\ref{tab:supervision-balance}
 
 
-%-- analysis of cross-genre ne chunking performance
+\subsection{NER analysis}%-- analysis of cross-genre ne chunking performance
 
 It is interesting to note that adding the Twitter chunking data is generally not helpful.
 Also, performance generally drops when adding extra newswire data.
 This drop reflects the findings of earlier work~\cite{ritter2011named}, where a small amount of Twitter training data led to better social media NE chunking performance than when augmented with additional newswire training data.
 
 
+\begin{figure}
+\centering
+\caption{Top nine entities and their mention intensity over time}
+\includegraphics{plots/entity_ts.pdf}
+\label{fig:entity-ts}
+\end{figure}
+
+Based on these NER results, we ran entity chunking over the subreddits selected.
+Examining entities by mention count, we were then able to build a longitudinal analysis of popular entities.
+Figure~\ref{fig:entity-ts} shows the mention intensity of the top nine entity surface forms over time.
+Note the field effect of Reddit growth pushing entity mention frequency up universally over time, and the spikes corresponding to major events.
+For example, Obama peaked in late 2012, around the national election in the US; and iPhone mentions peak around iPhone releases.
 
 Note that while some figures seem low when compared to typical newswire level performance, the toolkit used is high-ranking, state-of-the-art research software, coming third in the 2015 W-NUT challenge for entity chunking over tweets.
 The task is simply difficult; Twitter NER recall has always been low.
