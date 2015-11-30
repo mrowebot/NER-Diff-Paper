@@ -1,7 +1,12 @@
-This is BibTeX, Version 0.99c (TeX Live 2009)
+This is BibTeX, Version 0.99d (TeX Live 2015/dev/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: NER-Diffusion-CI4BD-v1.aux
 The style file: IEEEtran.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: NER-Diffusion.bib
 Repeated entry---line 379 of file NER-Diffusion.bib
  : @inproceedings{bakshy2012role
@@ -18,10 +23,6 @@ I'm skipping whatever remains of this entry
 Repeated entry---line 408 of file NER-Diffusion.bib
  : @article{brown1992class
  :                        ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 420 of file NER-Diffusion.bib
- : @misc{sean_chester_2015_33758
- :                              ,
 I'm skipping whatever remains of this entry
 Repeated entry---line 432 of file NER-Diffusion.bib
  : @inproceedings{cordella2001improved
@@ -92,45 +93,45 @@ I'm skipping whatever remains of this entry
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 
 Done.
-You've used 36 entries,
+You've used 35 entries,
             4039 wiz_defined-function locations,
-            1020 strings with 14926 characters,
-and the built_in function-call counts, 30144 in all, are:
-= -- 2321
-> -- 795
+            1016 strings with 14781 characters,
+and the built_in function-call counts, 29731 in all, are:
+= -- 2289
+> -- 786
 < -- 249
-+ -- 425
-- -- 138
-* -- 1445
-:= -- 4263
-add.period$ -- 90
-call.type$ -- 36
-change.case$ -- 44
++ -- 421
+- -- 136
+* -- 1427
+:= -- 4190
+add.period$ -- 88
+call.type$ -- 35
+change.case$ -- 43
 chr.to.int$ -- 615
-cite$ -- 36
-duplicate$ -- 2147
-empty$ -- 2595
-format.name$ -- 177
-if$ -- 7056
+cite$ -- 35
+duplicate$ -- 2113
+empty$ -- 2556
+format.name$ -- 174
+if$ -- 6968
 int.to.chr$ -- 0
-int.to.str$ -- 36
-missing$ -- 384
-newline$ -- 133
-num.names$ -- 44
-pop$ -- 963
+int.to.str$ -- 35
+missing$ -- 376
+newline$ -- 128
+num.names$ -- 43
+pop$ -- 938
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 2304
+skip$ -- 2274
 stack$ -- 0
-substring$ -- 1486
-swap$ -- 1730
+substring$ -- 1485
+swap$ -- 1708
 text.length$ -- 44
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 36
+type$ -- 35
 warning$ -- 0
-while$ -- 147
-width$ -- 38
-write$ -- 359
-(There were 21 error messages)
+while$ -- 146
+width$ -- 37
+write$ -- 349
+(There were 20 error messages)

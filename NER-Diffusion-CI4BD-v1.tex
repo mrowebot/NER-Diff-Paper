@@ -91,12 +91,12 @@ Leon Derczynski\IEEEauthorrefmark{2}\\}
 % in the abstract or keywords.
 \begin{abstract}
 Existing studies of how information diffuses across social networks has thus far concentrated on analysing and recovering the spread of deterministic innovations such as URLs, hashtags, and group membership.
-However investigating how named entities (i.e. proper nouns) appear and spread has yet to be explored, largely due to the computationally intractable nature of performing large-scale entity extraction.
-In this paper we present, to the best of our knowledge, one of the first pieces of work to examine the diffusion of named entities on social media (using Reddit as our case study platform).
-We first investigate how named entities can be accurately recognised and extracted from discussion posts, using an automated approach based upon conditional random fields and brown clustering.
+However investigating how mentioned of real-world entities appear and spread has yet to be explored, largely due to the computationally intractable nature of performing large-scale entity extraction.
+In this paper we present, to the best of our knowledge, one of the first pieces of work to losslessly examine the diffusion of named entities on social media, using Reddit as our case study platform.
+We first investigate how named entities can be accurately recognised and extracted from discussion posts, using an automated approach based upon structured prediction and Brown clustering.
 We then use these extracted entities to study the patterns of entity cascades and how the probability of a user adopting an entity (i.e. mentioning it) is associated with exposures to the entity.
 We put these pieces together by presenting a parallelised diffusion model that can forecast the probability of entity adoption, finding that the influence of adoption between users can be characterised by their prior interactions - as opposed to whether the users propagated entity-adoptions beforehand.
-Our findings have important implications for researchers studying language and influence, and for digital marketers who wish to understand entity-level influence dynamics.
+Our findings have important implications for researchers studying influence and language, and for digital marketers who wish to understand entity-level influence dynamics.
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
@@ -110,10 +110,10 @@ Our findings have important implications for researchers studying language and i
 \section{Introduction}
 Understanding who influences whom and under what conditions forms a core component of information diffusion studies.
 Recovering the so-called \emph{diffusion process} allows researchers and marketers to understand how messages are passed between users, and what contributes to their flow.
-In turn, this allows for simulation and predictive models to be engineered that forecast the expected spread of information, allowing such spread \emph{potential} to be maximised.
+In turn, this allows for simulation and predictive models to be engineered that forecast the expected spread of information, allowing such \emph{spread potential} to be maximised or minimised.
 
-To date, studies of information diffusion on social media and in social networks have concentrated on tracking URLs (e.g. through retweets), link-creation between blogs, hashtags being adopted over time, and group membership adoption; and with different diffusion mechanisms under the microscope (e.g. social contagion, homophily, social reinforcement, structural equivalence, etc.).
-Despite the rise in such studies, and in tandem the proliferation of data over which studies can be performed, as yet, and to the best of our knowledge, no work has tracked the spread of named entities over time - a `\emph{named entity}' here being a proper noun represented a person, place, organisation, or something similar.
+To date, studies of information diffusion on social media and in social networks have concentrated on tracking URLs (e.g. through retweets), link-creation between blogs, hashtags being adopted over time, and group membership adoption; and with different diffusion mechanisms under the microscope (e.g. social contagion, homophily, social reinforcement, rumour spread, structural equivalence, etc.).
+Despite the rise in such studies, and in tandem the proliferation of data over which studies can be performed, as yet, and to the best of our knowledge, no work has tracked the spread of entity mentions over time - a `\emph{named entity}' here being a proper noun represented a person, place, organisation, or something similar.
 Understanding \emph{how} named entities diffuse through social networks and being able to \emph{predict} their adoption would provide valuable insights into how topics emerge and spread.
 
 The aim of this paper is to understand how named entities diffuse through social media based discourse, using the online community platform Reddit as the focus of our work.
@@ -124,13 +124,13 @@ Using the recognised named entities we then carried out a study of how such enti
 The contributions that we make in this paper are as follows:
 
 \begin{enumerate}
-	\item A method to recognise and extract named entities found with discussion posts based upon conditional random fields and brown clustering, together with an evaluation of this method.
+	\item A method to recognise and extract named entities found with discussion posts based upon conditional random fields and Brown clustering, together with an evaluation of this method.
 	\item A study of how entities spread and are adopted following exposures, using an approach based upon graph isomorphism to track patterns of entity diffusion.
 	\item A parallelised general threshold diffusion model (using Apache Spark), based on the work of Goyal et al. \cite{goyal2010learning}, that incorporates different entity-adoption constructs (entity propagation, influence of interactions, community homophily) when calculating adoption probabilities - this is accompanied by a comparative empirical evaluation of the different constructs when forecasting entity adoption within the diffusion process.
 \end{enumerate}
 
 We have structured the paper as follows: in the following section we cover related work within the areas of named entity recognition and information diffusion - paying particular attention in the latter's case to existing works that are \emph{similar} to entity diffusion.
-In section \ref{sec:datasets_ner} we explain the preparation of the Reddit dataset for our experiments - including down-sampling of 100 subreddits - and the named entity recognition (NER) methodology that we employed.
+In section \ref{sec:datasets_ner} we explain the preparation of the Reddit dataset for our experiments - including down-sampling of 100 subreddits - and the adapted named entity recognition (NER) methodology that we employed.
 Section \ref{sec:diffusion} presents findings from our analysis of entity cascades (i.e. their shapes and forms) and how exposure frequency and entity-adoption probability are associated.
 This section also describes our implementation of the parallelised general threshold diffusion model and experiments that assess the efficacy of various influence constructs in the entity-diffusion process.
 Section \ref{sec:discussions} discusses the findings that we have drawn from this work and plans for future work, and section \ref{sec:conclusions} finishes the paper with our conclusions.
@@ -169,14 +169,16 @@ We first review state of the art approaches for recognising named entities, befo
 \subsection{Named Entity Recognition}
 Named entity recognition (NER) has been a long-recognised NLP task, the earliest major instances of which are perhaps the ACE and MUC challenges.
 The goal is typically to extract mentions of certain types of entities, like organisations, locations or person names.
-Generally, NER systems can be reduced to problems of representation, induction, dependency modelling and integration of real-world knowledge~\cite{nadeau2007survey,RatinovRo09}.
+Generally, NER systems can be structured in terms of representation, induction, dependency modelling and integration of real-world knowledge~\cite{nadeau2007survey,RatinovRo09}.
 
-While initially conducted over newswire~\cite{tjong2003introduction}, the older tools tend not to perform so well on modern text types, such as tweets and other short social media text~\cite{derczynski2013microblog}.
-Simultaneously, the value in non-newswire data has rocketed: for example, social media now provides us with a sample of all human discourse, unmolested by news editors, publishing guidelines and the like, and all in digital format -- leading to whole new fields of research opening in computational social science~\cite{hovy2015user,plank2015personality,preoctiuc2015studying}.
+While initially conducted over newswire~\cite{tjong2003introduction}, older tools tend not to perform so well on modern text types, such as tweets and other short social media text~\cite{derczynski2013microblog}.
+Simultaneously, the value in non-newswire data has rocketed: for example, social media now provides us with a sample of all human discourse, unmolested by news editors, publishing guidelines and the like, and all in digital format -- leading to whole new fields of research opening in computational social science, examining e.g. demographics~\cite{hovy2015user}, personality~\cite{plank2015personality} and income~\cite{preoctiuc2015studying}.
 
-Research on NER for social media content is, accordingly, a hot area~\cite{ritter2011named,liu2011recognizing,plank2014adapting,cherryunreasonable}, with multiple recent shared tasks~\cite{rowe2015microposts2015,baldwin2015shared}.
+Research on NER for social media content is, accordingly, a hot area, including general approaches~\cite{ritter2011named}, topic-specific approaches~\cite{liu2011recognizing}, adapting from known genres~\cite{plank2014adapting}; these are driven by and evaluated in multiple recent shared tasks~\cite{rowe2015microposts2015,baldwin2015shared}.
 The task is generally cast as a domain adaptation problem from newswire data, integrating the two kinds of data for training~\cite{cherryunreasonable} or including a lexical normalisation step~\cite{han2011lexical} to drag the problem back to territory more familiar to existing models and methods.
-Two major perceived challenges are that NEs mentioned in tweets change over time~\cite{derczynski2013microblog,fromreide2014crowdsourcing}, and that diversity of context makes NER more difficult~\cite{derczynski2015analysis}. 
+Two major perceived challenges are that NEs mentioned in tweets change over time~\cite{fromreide2014crowdsourcing}, and that diversity of context makes NER more difficult~\cite{derczynski2015analysis}. 
+Here we address NER without any in-domain data, which leads to a successful and transferable approach.
+
 
 \subsection{Information Diffusion}
 Studies of information diffusion have largely concentrated on \emph{deterministic} signals of diffusion such as tracking URLs, hashtags, and adoption behaviour (e.g. group signups); however to the best of our knowledge such studies have yet to focus on how entities diffuse.
@@ -214,7 +216,7 @@ We build time \emph{explicitly} into our adaptation of Goyal et al.'s \cite{goya
 \section{Datasets preparation and NER}
 \label{sec:datasets_ner} 
 In order to study entity diffusion at a \emph{large-scale} we used the entire dump\footnote{\url{https://archive.org/details/2015_reddit_comments_corpus}} of Reddit from its inception through to July 2015 - this provided a dataset of $140$Gb of data compressed containing $\sim1.7$B posts (i.e. original thread starter posts and comments).
-As we will describe below, we also required corpora from which we could \emph{train} our named entity recogniser - and also assess its performance - therefore we also used the following three datasets:
+As we will describe below, we also required corpora from which we could \emph{model} and \emph{train} our named entity recogniser - and also assess its performance - therefore we also used the following three datasets:
 (i) \emph{CoNLL 2003 data}, a corpus of newswire texts, annotated for named entity chunks and types - this describes where entity mentions are in the text, including locations, organisations, and person mentions; 
 (ii) \emph{Twitter data (unannotated)}, comprised of a large corpus of English tweets taken from an archive of the garden hose feed, and; 
 (iii) \emph{Twitter data (annotated)}, comprised of datasets annotated with named entities - one from Ritter's 2011 EMNLP paper~\cite{ritter2011named} and a second from W-NUT 2015 shared task \cite{baldwin2015shared}.
@@ -222,16 +224,16 @@ As we will describe below, we also required corpora from which we could \emph{tr
 %\subsection{Data Preparation}
 To conduct our study, we needed to convert the full $140$GB of compressed Reddit posts into a set of interlinked and time-ordered conversations and the entities mentioned in each of them.
 This provides a number of sub-challenges: sampling of the Reddit data, creating a linked series of conversations, and picking out entity mentions in this text type.
-Reddit data is largely unexplored in the NLP community, despite the large volume of it and the especially rich metadata.
+Reddit data is largely unexplored in the NLP community, despite its large volume and especially rich metadata.
 This poses additional challenges: certainly, given the lack of work on Reddit text, there are no annotated datasets available yet, so supervised in-domain work is not directly possible.
-Additionally, the datasets are large, which makes it important to choose a good subset of data on which to do prototyping and development, in order to keep research cycles short.
-The result that we come to at the end of this stage is a rich dataset for tracking entity diffusion within and across communities.
+Additionally, the datasets are large, which makes it important to choose a good subset of data on which to do prototyping and development.
+The result that we come to at the end of this stage is a complete dataset for tracking entity diffusion within communities.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.4\columnwidth]{reddit-example.png}
 \label{fig:reddit-example}
-\caption{Example discussion around a Reddit post.}
+\includegraphics[width=0.4\columnwidth]{reddit-example.png}
+\caption{Example Reddit post. Note topic at the top, followed by comments, with conversations descending in a tree-like hierarchical fashion}
 \end{figure}
 
 The Reddit dataset~\cite{reddit-data} is comprised of a sequence of comments, with one JSON record for each one.
@@ -306,14 +308,14 @@ The result is a sequence of binary merges, describing the set membership of each
 For each single word type, therefore, the path to a destination cluster can be described as a bitstring, which details the sequence of binary merges taken.
 The zero-length bitstring describes the situation at the top of the hierarchy, where there is one class.
 
-These bitstrings are typically converted to features by shearing.
+These bitstrings are typically converted to features by \emph{shearing}~\cite{derczynski2016generalised}.
 This involves only examining the first $n$ bits of a bitstring.
 However, shearing does not maximise the information preserved in the representation -- sub-clusterings at many levels are lost.
 We therefore experiment with a new method of feature extraction from Brown clusters, which we call {\em provenance-based} feature extraction.
 We take the cluster identifier at every level, tracing the provenance of a terminal word cluster all the way to the root cluster (which contains all word types).
 This preserves the entire set membership of any given term, throughout the induced hierarchical clustering.
-As an example, if the term \emph{fishing} has bitstring {\tt 1100101}, the following text features are generated: {\tt 1}, {\tt 11}, {\tt 110}, {\tt 1100}, {\tt 11001}, {\tt 110010}, {\tt 1100101}.
-For contrast, if the typical bit depths~\cite{ratinov2009design} of 4, 6, 10 and 20 were chosen, only the following features would be generated: {\tt 1100}, {\tt 110010}, {\tt 1100101}.
+For example, given the bitstring {\tt 1100101}, the following text features are generated: {\tt 1}, {\tt 11}, {\tt 110}, {\tt 1100}, {\tt 11001}, {\tt 110010}, {\tt 1100101}.
+If the typical bit depths~\cite{ratinov2009design} of 4, 6, 10 and 20 were chosen, only the following features would be generated: {\tt 1100}, {\tt 110010}, {\tt 1100101}.
 As a result of taking all directly-relevant features in the merge list, the lossy nature of shearing-based feature extraction from Brown clusters is avoided.
 Feature extraction, training, classification and JSON annotation are all performed using an entity recognition toolkit~\cite{derczynski2015usfd},\footnote{https://github.com/leondz/entity\_recognition} with custom extractors.
 
@@ -328,17 +330,17 @@ In terms of evaluation, we prefer recall over precision.
 Over the large dataset, spurious entities are likely to be those that are not seen very often or have an unusual pattern.
 This suggests that there will be great variation in their surface forms, leaving them in the long tail of discovered entities.
 As the majority of our work looks at the more frequent patterns, these are less likely to have an impact.
-Conversely, recall reveals how well the extraction is performing, and is important to tracking a range of entities.\footnote{N.b. It has often been more challenging to achieve high recall in social media texts than high precision~\cite{ritter2011named,derczynski2015analysis}.}
-
-To capture this balance, we take F-scores with $\beta=2$.
-Given precision $P$ and recall $R$, typically an F-score is drawn from $F_\beta$ with $\beta=1$.
+Conversely, recall expresses how broadly and comprehensively the extraction is performing, and is important to tracking a range of entities.\footnote{N.b. It has often been more challenging to achieve high recall in social media texts than high precision~\cite{ritter2011named,derczynski2015analysis}.}
+%That is to say, the problem addressed is more tolerant to low precision in input data than low recall.
 
 \begin{equation}
 F_\beta = (1+\beta^2)\frac{PR}{(\beta^2 P) + R} 
 \end{equation}
 
+
 When $\beta=1$, precision and recall are balanced in a harmonic mean, e.g. F1-score.
 That is, false positives and false negatives impact results equally.
+Given precision $P$ and recall $R$, typically an F-score is drawn from $F_\beta$ with $\beta=1$.
 To score away from false negatives, i.e. missed entity mentions, we set $\beta=2$.
 
 Our approach here is to tune an entity recogniser with reference to a dataset that matches the target text type.
@@ -360,21 +362,21 @@ This comprised our development set, which was used to tune a variety of paramete
 \hline
 RCV Newswire          & 63.57 & 59.73 & 61.59 & 60.96 \\
 Tweets                & 62.75 & 64.43 & 63.58 & 63.86 \\
-Blended twitter/news  & 68.42 & 61.07 & 64.54 & 63.34 \\
+Blended tweets/news  & 68.42 & 61.07 & 64.54 & 63.34 \\
 Reddit                & 66.32 & 67.11 & 66.71 & 66.84 \\
 \hline
 \multicolumn{5}{c}{\emph{Twitter training data}} \\
 \hline
 RCV Newswire          & 73.02 & 30.87 & 43.39 & 38.22 \\
 Tweets                & 70.37 & 38.26 & 49.57 & 45.12 \\
-Blended twitter/news  & 65.28 & 31.54 & 42.53 & 38.10 \\
+Blended tweets/news  & 65.28 & 31.54 & 42.53 & 38.10 \\
 Reddit                & 76.34 & 47.65 & 58.68 & 54.47 \\
 \hline
 \multicolumn{5}{c}{\emph{Blended training data, 50:50}} \\
 \hline
 RCV Newswire          & 66.67 & 42.96 & 52.25 & 48.74 \\
 Tweets                & 66.10 & 52.35 & 58.43 & 56.25 \\
-Blended twitter/news  & 68.69 & 45.64 & 54.84 & 51.39 \\
+Blended tweets/news  & 68.69 & 45.64 & 54.84 & 51.39 \\
 Reddit                & 70.08 & 59.73 & 64.49 & 62.82 \\
 \hline
 \end{tabular}
@@ -396,7 +398,7 @@ We noted that in prior work~\cite{derczynski2015tune}, entity recognition perfor
 As General Brown clustering is dependent on the number of types and the size of the active set $a$, and results are unreliable with $a>C$, we set $C = a = 2,560$.
 This offers a decent trade-off between computational cost of building clusters, and the quality of the clusterings used.
 We then experiment with combinations of newswire, Twitter and Reddit data.
-Brown clusters are extracted using the generalised-brown package~\cite{sean_chester_2015_33758}.
+%Brown clusters are extracted using the generalised-brown package.~\cite{sean_chester_2015_33758}.
 Results are given in Table~\ref{tab:brown-tuning}.
 
 Note how the scores are consistently best in each category when inducing Brown clusters from Reddit data.
@@ -416,12 +418,14 @@ This strongly illustrates the importance of taking the target text type into acc
 We also examined the learning rate of our entity chunking system, scaling up the RCV newswire data.
 We experimented with pure newswire and also newswire plus tweet training data, and with pure newswire vs. blended clusters.
 Results are given in Figure~\ref{fig:rcv-scaling}.
+Unlike prior experiences with NLP on user-generated content, blending training text types in supervised learning did not lead to improved performance.
 They suggest that adding too much newswire reduces performance, and that sticking to just newswire clusters also reduces performance.
+
 Based on this data, we hypothesised that insufficient regularisation had lead to overfitting.
 To test this, we re-ran the experiments on half the newswire data using a $c_2$ regularisation penalty of $10^{-1}$ compared to the default $10^{-3}$.
 This increased F2 from 61.38\% to 62.07\%; so, while effective, still a marginal increase.
-The likely best remedy to high performance is to manually label a quantity of Reddit data for named entities, but given the prohibitive cost of that, we find we have a strong rough solution from near-genre supervised training data, flexible techniques, and in-genre unsupervised feature representations (Brown clusters).
-Hence, we used training data composed from newswire and twitter equal parts, with the newswire and twitter brown clusters for annotating the named entities across the 100 sampled subreddits.\footnote{N.b. When predicting entity diffusion we used the top-500 entities which were manually verified for accuracy, and were found to be valid entities.}
+A potential improvement is to manually label a quantity of Reddit data for named entities, but given its prohibitive cost, we find we have a strong enough solution from near-genre supervised training data and in-genre unsupervised feature representations (Brown clusters).
+Hence, we used training data composed from newswire and twitter equal parts, with the newswire and twitter Brown clusters for annotating the named entities across the 100 sampled subreddits.\footnote{NB. When predicting entity diffusion we used the top-500 entities which were manually verified for accuracy, and were found to be correct.}
 
 
 %We compare against Stanford NER~\cite{finkel2005incorporating} as a baseline.
@@ -432,7 +436,7 @@ Hence, we used training data composed from newswire and twitter equal parts, wit
 
 It is interesting to note that adding the Twitter chunking data is generally not helpful.
 Also, performance generally drops when adding extra newswire data.
-This drop reflects the findings of earlier work~\cite{ritter2011named}, where a small amount of Twitter training data led to better social media NE chunking performance than when augmented with additional newswire training data.
+This drop reflects the findings of earlier work~\cite{ritter2011named}, where a little Twitter training data improved social media NE chunking performance more than additional newswire training data.
 
 \begin{figure}
 \begin{center}
@@ -696,7 +700,7 @@ In the introduction of this paper we set forth three research questions.
 We now revisit these questions and highlight the evidence presented in our paper and how this has contributed towards answering the questions:
 
 \textbf{RQ1:} How can we accurately detect named entities in social media based discourse, given its myriad formats, often informal vernacular, and inherent noise (e.g. misspellings, abbreviations, etc.)?
-We have presented a method to detect named entities within Reddit posts that uses Conditional Random Fields and brown clustering.
+We have presented a method to detect named entities within Reddit posts that uses structured prediction and Brown clustering.
 Furthermore, we presented an empirical evaluation of our method when trained using a blend of named entity annotated corpora to \emph{transfer} existing annotations from disparate corpora (covering different language styles) as training data.
 
  \textbf{RQ2:} What process governs the spread of entities? And how does such spread occur?

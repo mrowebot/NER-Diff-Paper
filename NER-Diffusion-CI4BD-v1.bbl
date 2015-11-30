@@ -85,11 +85,6 @@ B.~Plank, D.~Hovy, R.~McDonald, and A.~S{\o}gaard, ``Adapting taggers to
   0.4em\relax Dublin, Ireland: Dublin City University and Association for
   Computational Linguistics, 2014, pp. 1783--1792.
 
-\bibitem{cherryunreasonable}
-C.~Cherry and H.~Guo, ``The unreasonable effectiveness of word representations
-  for {Twitter} named entity recognition,'' in \emph{Proceedings of NAACL},
-  2015.
-
 \bibitem{rowe2015microposts2015}
 M.~Rowe, M.~Stankovic, and A.-S. Dadzie, ``{\#Microposts2015 -- 5th Workshop on
   'Making Sense of Microposts': Big things come in small packages},'' in
@@ -102,6 +97,11 @@ T.~Baldwin, Y.-B. Kim, M.~C. de~Marneffe, A.~Ritter, B.~Han, and W.~Xu,
   ``Shared tasks of the 2015 workshop on noisy user-generated text: {Twitter}
   lexical normalization and named entity recognition,'' \emph{Proc. W-NUT
   (ACL-IJCNLP)}, pp. 126--135, 2015.
+
+\bibitem{cherryunreasonable}
+C.~Cherry and H.~Guo, ``The unreasonable effectiveness of word representations
+  for {Twitter} named entity recognition,'' in \emph{Proceedings of NAACL},
+  2015.
 
 \bibitem{han2011lexical}
 B.~Han and T.~Baldwin, ``Lexical normalisation of short text messages: Makn
@@ -206,13 +206,6 @@ L.~Derczynski, I.~Augenstein, and K.~Bontcheva, ``{USFD: Twitter NER with Drift
 L.~Derczynski, S.~Chester, and K.~S. B{\o}gh, ``{Tune Your Brown Clustering,
   Please},'' in \emph{Proceedings of the conference on Recent Advances in
   Natural Language Processing (RANLP)}, 2015.
-
-\bibitem{sean_chester_2015_33758}
-\BIBentryALTinterwordspacing
-S.~Chester and L.~Derczynski, ``{generalised-brown: Source code for AAAI 2016
-  paper},'' Nov. 2015. [Online]. Available:
-  \url{http://dx.doi.org/10.5281/zenodo.33758}
-\BIBentrySTDinterwordspacing
 
 \bibitem{leskovec2007patterns}
 J.~Leskovec, M.~McGlohon, C.~Faloutsos, N.~S. Glance, and M.~Hurst, ``Patterns
