@@ -2,6 +2,18 @@
 % Encoding: UTF-8
 
 
+@InProceedings{bakshy2012role,
+  Title                    = {The role of social networks in information diffusion},
+  Author                   = {Bakshy, Eytan and Rosenn, Itamar and Marlow, Cameron and Adamic, Lada},
+  Booktitle                = {Proceedings of the 21st international conference on World Wide Web},
+  Year                     = {2012},
+  Organization             = {ACM},
+  Pages                    = {519--528},
+
+  Date-added               = {2015-11-27 17:33:53 +0000},
+  Date-modified            = {2015-11-27 17:33:53 +0000}
+}
+
 @Article{baldwin2015shared,
   Title                    = {Shared tasks of the 2015 workshop on noisy user-generated text: {Twitter} lexical normalization and named entity recognition},
   Author                   = {Baldwin, Timothy and Kim, Young-Bum and de Marneffe, Marie Catherine and Ritter, Alan and Han, Bo and Xu, Wei},
@@ -38,6 +50,7 @@
   Month                    = nov,
   Year                     = {2015},
 
+  Bdsk-url-1               = {http://dx.doi.org/10.5281/zenodo.33758},
   Doi                      = {10.5281/zenodo.33758},
   Url                      = {http://dx.doi.org/10.5281/zenodo.33758}
 }
@@ -97,6 +110,19 @@
   Publisher                = {Elsevier}
 }
 
+@Article{fang2013predicting,
+  Author                   = {Fang, Xiao and Hu, Paul Jen-Hwa and Li, Zhepeng and Tsai, Weiyu},
+  Journal                  = {Information Systems Research},
+  Year                     = {2013},
+  Number                   = {1},
+  Pages                    = {128--145},
+  Volume                   = {24},
+
+  Date-added               = {2015-11-27 17:45:01 +0000},
+  Date-modified            = {2015-11-27 17:45:01 +0000},
+  Publisher                = {INFORMS}
+}
+
 @InProceedings{finkel2005incorporating,
   Title                    = {Incorporating non-local information into information extraction systems by gibbs sampling},
   Author                   = {Finkel, Jenny Rose and Grenager, Trond and Manning, Christopher},
@@ -104,6 +130,30 @@
   Year                     = {2005},
   Organization             = {Association for Computational Linguistics},
   Pages                    = {363--370}
+}
+
+@InProceedings{goyal2010learning,
+  Title                    = {Learning influence probabilities in social networks},
+  Author                   = {Goyal, Amit and Bonchi, Francesco and Lakshmanan, Laks VS},
+  Booktitle                = {Proceedings of the third ACM international conference on Web search and data mining},
+  Year                     = {2010},
+  Organization             = {ACM},
+  Pages                    = {241--250},
+
+  Owner                    = {rowem},
+  Timestamp                = {2015.11.26}
+}
+
+@Article{huang2014temporal,
+  Title                    = {Temporal scaling in information propagation},
+  Author                   = {Huang, Junming and Li, Chao and Wang, Wen-Qiang and Shen, Hua-Wei and Li, Guojie and Cheng, Xue-Qi},
+  Journal                  = {Scientific reports},
+  Year                     = {2014},
+  Volume                   = {4},
+
+  Owner                    = {rowem},
+  Publisher                = {Nature Publishing Group},
+  Timestamp                = {2015.11.30}
 }
 
 @Article{kiss2006unsupervised,
@@ -157,6 +207,18 @@
   Pages                    = {1524--1534}
 }
 
+@InProceedings{romero2011differences,
+  Title                    = {Differences in the mechanics of information diffusion across topics: idioms, political hashtags, and complex contagion on twitter},
+  Author                   = {Romero, Daniel M and Meeder, Brendan and Kleinberg, Jon},
+  Booktitle                = {Proceedings of the 20th international conference on World wide web},
+  Year                     = {2011},
+  Organization             = {ACM},
+  Pages                    = {695--704},
+
+  Date-added               = {2015-11-27 17:56:30 +0000},
+  Date-modified            = {2015-11-27 17:56:30 +0000}
+}
+
 @InProceedings{tjong2003introduction,
   Title                    = {Introduction to the {CoNLL-2003} shared task: Language-independent named entity recognition},
   Author                   = {Tjong Kim Sang, Erik F and De Meulder, Fien},
@@ -172,5 +234,29 @@
   Booktitle                = {NIPS Workshop on Grammar Induction, Representation of Language and Language Learning},
   Year                     = {2009},
   Pages                    = {1--8}
+}
+
+@InProceedings{wang2014mmrate,
+  Title                    = {Mmrate: Inferring multi-aspect diffusion networks with multi-pattern cascades},
+  Author                   = {Wang, Senzhang and Hu, Xia and Yu, Philip S and Li, Zhoujun},
+  Booktitle                = {Proceedings of the 20th ACM SIGKDD international conference on Knowledge discovery and data mining},
+  Year                     = {2014},
+  Organization             = {ACM},
+  Pages                    = {1246--1255},
+
+  Date-added               = {2015-11-27 17:31:05 +0000},
+  Date-modified            = {2015-11-27 17:31:05 +0000}
+}
+
+@InProceedings{yang2012we,
+  Title                    = {We know what@ you\# tag: does the dual role affect hashtag adoption?},
+  Author                   = {Yang, Lei and Sun, Tao and Zhang, Ming and Mei, Qiaozhu},
+  Booktitle                = {Proceedings of the 21st international conference on World Wide Web},
+  Year                     = {2012},
+  Organization             = {ACM},
+  Pages                    = {261--270},
+
+  Owner                    = {rowem},
+  Timestamp                = {2015.11.30}
 }
 

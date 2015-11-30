@@ -21,6 +21,11 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{guille2013information}
+A.~Guille, H.~Hacid, C.~Favre, and D.~A. Zighed, ``Information diffusion in
+  online social networks: A survey,'' \emph{ACM SIGMOD Record}, vol.~42, no.~2,
+  pp. 17--28, 2013.
+
 \bibitem{bakshy2012role}
 E.~Bakshy, I.~Rosenn, C.~Marlow, and L.~Adamic, ``The role of social networks
   in information diffusion,'' in \emph{Proceedings of the 21st international
@@ -34,6 +39,12 @@ D.~M. Romero, B.~Meeder, and J.~Kleinberg, ``Differences in the mechanics of
   conference on World wide web}.\hskip 1em plus 0.5em minus 0.4em\relax ACM,
   2011, pp. 695--704.
 
+\bibitem{yang2012we}
+L.~Yang, T.~Sun, M.~Zhang, and Q.~Mei, ``We know what@ you\# tag: does the dual
+  role affect hashtag adoption?'' in \emph{Proceedings of the 21st
+  international conference on World Wide Web}.\hskip 1em plus 0.5em minus
+  0.4em\relax ACM, 2012, pp. 261--270.
+
 \bibitem{goyal2010learning}
 A.~Goyal, F.~Bonchi, and L.~V. Lakshmanan, ``Learning influence probabilities
   in social networks,'' in \emph{Proceedings of the third ACM international
@@ -41,9 +52,13 @@ A.~Goyal, F.~Bonchi, and L.~V. Lakshmanan, ``Learning influence probabilities
   0.4em\relax ACM, 2010, pp. 241--250.
 
 \bibitem{fang2013predicting}
-X.~Fang, P.~J.-H. Hu, Z.~Li, and W.~Tsai, ``Predicting adoption probabilities
-  in social networks,'' \emph{Information Systems Research}, vol.~24, no.~1,
-  pp. 128--145, 2013.
+X.~Fang, P.~J.-H. Hu, Z.~Li, and W.~Tsai, \emph{Information Systems Research},
+  vol.~24, no.~1, pp. 128--145, 2013.
+
+\bibitem{huang2014temporal}
+J.~Huang, C.~Li, W.-Q. Wang, H.-W. Shen, G.~Li, and X.-Q. Cheng, ``Temporal
+  scaling in information propagation,'' \emph{Scientific reports}, vol.~4,
+  2014.
 
 \bibitem{reddit-data}
 J.~Baumgartner, ``Complete public {Reddit} comments corpus,'' 2015.
