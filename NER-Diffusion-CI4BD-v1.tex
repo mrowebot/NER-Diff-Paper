@@ -115,7 +115,7 @@ However, in order to study named entities and how they diffuse, we answer three 
 \begin{enumerate}
 	\item \textbf{RQ1:} How can we accurately detect named entities in social media based discourse, given its myriad formats, often informal vernacular, and inherent noise (e.g. misspellings, abbreviations, etc.)?
 	\item \textbf{RQ2:} What process governs the spread of entities? And how does such spread occur?
-	\item \textbf{RQ3:} How can we predict the spresd o named entities and who will begin talking about them?	
+	\item \textbf{RQ3:} How can we predict the spread of named entities and who will begin talking about them?	
 \end{enumerate}
 
 We explore the above questions by providing an approach to annotate Reddit posts with named entities found within them.
@@ -169,7 +169,7 @@ In this work we investigate how entities diffuse over time through the online co
 Diffusion of information is a well studied topic, and is of particular interest today given the myriad ways in which Web users consume information and are thus influenced by what they read, and with whom they interact with, online.
 
 \subsection{Named Entity Recognition}
-Named entity recognition has been a long-recognised NLP task, the earliest major instances of which are perhaps the ACE and MUC challenges.
+Named entity recognition (NER) has been a long-recognised NLP task, the earliest major instances of which are perhaps the ACE and MUC challenges.
 The goal is typically to extract mentions of certain types of entities, like organisations, locations or person names.
 Generally, NER systems can be reduced to problems of representation, induction, dependency modelling and integration of real-world knowledge~\cite{nadeau2007survey,RatinovRo09}.
 
@@ -239,23 +239,19 @@ This leads to a threaded discussion, centred on a particular topic, with a hiera
 
 \subsection{Subreddit extraction}
 
-Subreddits can be found in the github repository of this work \url{https://github.com/mattroweshow/NER-Diff-Paper}
+The Reddit dataset is large, and needs to be pared down for initial analysis.
+Fortunately, the data is segmented by community, meaning that we can adjust the scope of the study arbitrarily by selecting a certain number of subreddits and taking the whole.
+This is in contrast to, for example, Twitter, where reducing the sample is performed by reducing the sampling of posts~\cite{kergl2014endogenesis}, thus leading to broken conversation threads and so on.
+We chose to examine one hundred entire individual subreddit communities.
 
-- subreddit extraction
+The subreddits were chosen from a list of top subreddits (http://redditlist.com/), which ranks communities based on levels of activity, numbers of subscribers, and rates of growth.
+The list of chosen communities can be found in the github repository of this work \url{https://github.com/mattroweshow/NER-Diff-Paper}
 
-top lists
-
-describe top lists site
-
-pick 100
-
-extract these over whole sample
-
-figures for raw dataset (\# per year; total volume over time; volume-rank graph of subreddits; possible ref to appx)
+%figures for raw dataset (\# per year; total volume over time; volume-rank graph of subreddits; possible ref to appx)
 
 \subsection{NER for Reddit}
 
--- where is NER first mentioned and defined?
+%-- where is NER first mentioned and defined?
 
 We model micro-topics in conversation as entity mentions.
 This allows tracking of topics at maximally fine granularity, looking at each user's interests at a low level, as opposed to monitoring broader topics such as ``consumer electronics", ``politics" and so on.
