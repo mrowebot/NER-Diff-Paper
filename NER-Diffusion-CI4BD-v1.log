@@ -1,19 +1,11 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2010.8.7)  27 NOV 2015 18:11
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.15)  30 NOV 2015 10:55
 entering extended mode
- \write18 enabled.
- file:line:error style messages enabled.
+ restricted \write18 enabled.
  %&-line parsing enabled.
 **NER-Diffusion-CI4BD-v1.tex
 (./NER-Diffusion-CI4BD-v1.tex
-LaTeX2e <2009/09/24>
-Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
-yphenation, german-x-2009-06-19, ngerman-x-2009-06-19, ancientgreek, ibycus, ar
-abic, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danish, dutc
-h, esperanto, estonian, farsi, finnish, french, galician, german, ngerman, mono
-greek, greek, hungarian, icelandic, indonesian, interlingua, irish, italian, ku
-rmanji, latin, latvian, lithuanian, mongolian, mongolian2a, bokmal, nynorsk, po
-lish, portuguese, romanian, russian, sanskrit, serbian, slovak, slovenian, span
-ish, swedish, turkish, ukenglish, ukrainian, uppersorbian, welsh, loaded.
+LaTeX2e <2011/06/27>
+Babel <3.9h> and hyphenation patterns for 78 languages loaded.
 (./IEEEtran.cls
 Document Class: IEEEtran 2014/09/17 V1.8a by Michael Shell
 -- See the "IEEEtran_HOWTO" manual for usage information.
@@ -27,7 +19,7 @@ Document Class: IEEEtran 2014/09/17 V1.8a by Michael Shell
 \@IEEEtrantmptoksA=\toks14
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 458.
 
-(/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 -- Using 8.5in x 11in (letter) paper.
@@ -120,11 +112,11 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
 \@IEEEtmpitemindent=\dimen124
 \c@IEEEbiography=\count93
 \@IEEEtranrubishbin=\box27
-) (/usr/local/texlive/2009/texmf-dist/tex/latex/ltxmisc/url.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
-Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-(/usr/local/texlive/2009/texmf-dist/tex/latex/subfigure/subfigure.sty
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.sty
 Package: subfigure 2002/03/15 v2.1.5 subfigure package
 \subfigtopskip=\skip44
 \subfigcapskip=\skip45
@@ -140,11 +132,11 @@ Package: subfigure 2002/03/15 v2.1.5 subfigure package
 ****************************************
 * Local config file subfigure.cfg used *
 ****************************************
-(/usr/local/texlive/2009/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.cfg)
 \subfig@top=\skip48
 \subfig@bottom=\skip49
 )
-(/usr/local/texlive/2009/texmf-dist/tex/latex/amscls/amsthm.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2004/08/06 v2.20
 \thm@style=\toks15
 \thm@bodyfont=\toks16
@@ -156,26 +148,33 @@ Package: amsthm 2004/08/06 v2.20
 \thm@headsep=\skip52
 \dth@everypar=\toks20
 )
-(/usr/local/texlive/2009/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2009/texmf-dist/tex/latex/graphics/keyval.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks21
 )
-(/usr/local/texlive/2009/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2009/texmf-dist/tex/latex/graphics/trig.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(/usr/local/texlive/2009/texmf-dist/tex/latex/latexconfig/graphics.cfg
-File: graphics.cfg 2009/08/28 v1.8 graphics configuration of TeX Live
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-(/usr/local/texlive/2009/texmf-dist/tex/latex/pdftex-def/pdftex.def
-File: pdftex.def 2009/08/25 v0.04m Graphics/color for pdfTeX
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
 \Gread@gobject=\count98
 ))
 \Gin@req@height=\dimen127
@@ -200,7 +199,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
 LaTeX Font Info:    ... okay on input line 70.
 
 -- Lines per column: 37 (exact).
-(/usr/local/texlive/2009/texmf-dist/tex/context/base/supp-pdf.mkii
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count100
 \scratchdimen=\dimen129
@@ -211,8 +210,55 @@ LaTeX Font Info:    ... okay on input line 70.
 \MPscratchCnt=\count103
 \MPscratchDim=\dimen130
 \MPnumerator=\count104
+\makeMPintoPDFobject=\count105
 \everyMPtoPDFconversion=\toks23
+) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.jpeg,.png,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 114.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -221,15 +267,18 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 114.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 114.
- [1{/usr/local/texlive/2009/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2] <reddit-example.png, id=13, 502.87875pt x 734.745pt>
-File: reddit-example.png Graphic file (type png)
 
-<use reddit-example.png> [3]
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
+<reddit-example.png, id=14, 502.87875pt x 734.745pt>
+File: reddit-example.png Graphic file (type png)
+ <use reddit-example.png>
+Package pdftex.def Info: reddit-example.png used on input line 194.
+(pdftex.def)             Requested size: 187.89914pt x 274.53088pt.
+
+[3]
 LaTeX Font Info:    Try loading font information for OT1+pcr on input line 231.
 
-
-(/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 ) [4 <./reddit-example.png>] [5]
 
@@ -241,67 +290,92 @@ LaTeX Warning: Reference `tab:brown-tuning' on page 6 undefined on input line 3
 LaTeX Warning: Reference `tab:supervision-balance' on page 7 undefined on input
  line 333.
 
-[7] <plots/cascade_shapes.pdf, id=36, 566.46034pt x 423.4338pt>
+[7] <plots/cascade_shapes.pdf, id=37, 566.46034pt x 423.4338pt>
 File: plots/cascade_shapes.pdf Graphic file (type pdf)
 
 <use plots/cascade_shapes.pdf>
+Package pdftex.def Info: plots/cascade_shapes.pdf used on input line 379.
+(pdftex.def)             Requested size: 230.18253pt x 172.06479pt.
+
 <plots/cascade_rank_dist.pdf, id=38, 507.32033pt x 403.13109pt>
 File: plots/cascade_rank_dist.pdf Graphic file (type pdf)
 
-<use plots/cascade_rank_dist.pdf> [8
+<use plots/cascade_rank_dist.pdf>
+Package pdftex.def Info: plots/cascade_rank_dist.pdf used on input line 380.
+(pdftex.def)             Requested size: 230.18253pt x 182.90822pt.
+ [8
 
-] [9 <./plots/cascade_shapes.pdf> <./plots/cascade_rank_dist.pdf>]
-<plots/exposure_count_dist_full_log.pdf, id=211, 524.76048pt x 404.51125pt>
+] [9 <./plots/cascade_shapes.pdf> <./plots/cascade_rank_dist.pdf
+
+pdfTeX warning: pdflatex (file ./plots/cascade_rank_dist.pdf): PDF inclusion: m
+ultiple pdfs with page group included in a single page
+>] <plots/exposure_count_dist_full_log.pdf, id=211, 524.76048pt x 404.51125pt>
 File: plots/exposure_count_dist_full_log.pdf Graphic file (type pdf)
 
 <use plots/exposure_count_dist_full_log.pdf>
-<plots/per_entity_exposure_count_dist_full_log.pdf, id=213, 578.88268pt x 433.3
+Package pdftex.def Info: plots/exposure_count_dist_full_log.pdf used on input l
+ine 411.
+(pdftex.def)             Requested size: 230.18253pt x 177.43616pt.
+
+<plots/per_entity_exposure_count_dist_full_log.pdf, id=212, 578.88268pt x 433.3
 9856pt>
 File: plots/per_entity_exposure_count_dist_full_log.pdf Graphic file (type pdf)
 
- <use plots/per_entity_exposure_count_dist_full_log.pdf> [10 <./plots/exposure_
-count_dist_full_log.pdf> <./plots/per_entity_exposure_count_dist_full_log.pdf>]
- <plots/taus_dist.pdf, id=261, 522.47069pt x 401.93915pt>
+ <use plots/per_entity_exposure_count_dist_full_log.pdf>
+Package pdftex.def Info: plots/per_entity_exposure_count_dist_full_log.pdf used
+ on input line 412.
+(pdftex.def)             Requested size: 230.18253pt x 172.33131pt.
+ [10 <./plots/exposure_count_dist_full_log.pdf> <./plots/per_entity_exposure_co
+unt_dist_full_log.pdf>] <plots/taus_dist.pdf, id=261, 522.47069pt x 401.93915pt
+>
 File: plots/taus_dist.pdf Graphic file (type pdf)
 
 <use plots/taus_dist.pdf>
-<plots/taus_dist_full_log.pdf, id=263, 527.77174pt x 406.51875pt>
+Package pdftex.def Info: plots/taus_dist.pdf used on input line 451.
+(pdftex.def)             Requested size: 230.18253pt x 177.08069pt.
+
+<plots/taus_dist_full_log.pdf, id=262, 527.77174pt x 406.51875pt>
 File: plots/taus_dist_full_log.pdf Graphic file (type pdf)
 
-<use plots/taus_dist_full_log.pdf> [11] [12 <./plots/taus_dist.pdf> <./plots/ta
-us_dist_full_log.pdf>] [13] (./NER-Diffusion-CI4BD-v1.bbl [14]) [15]
-(./NER-Diffusion-CI4BD-v1.aux)
+<use plots/taus_dist_full_log.pdf>
+Package pdftex.def Info: plots/taus_dist_full_log.pdf used on input line 452.
+(pdftex.def)             Requested size: 230.18253pt x 177.29944pt.
+ [11] [12 <./plots/taus_dist.pdf> <./plots/taus_dist_full_log.pdf
+
+pdfTeX warning: pdflatex (file ./plots/taus_dist_full_log.pdf): PDF inclusion: 
+multiple pdfs with page group included in a single page
+>] [13] (./NER-Diffusion-CI4BD-v1.bbl [14]) [15] (./NER-Diffusion-CI4BD-v1.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 2167 strings out of 493848
- 34770 string characters out of 3149208
- 88681 words of memory out of 3000000
- 5447 multiletter control sequences out of 15000+200000
- 41957 words of font info for 77 fonts, out of 3000000 for 9000
- 717 hyphenation exceptions out of 8191
- 26i,9n,24p,742b,331s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/local/texlive/2009/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
-xlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
-live/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texli
-ve/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive
-/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2
-009/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/200
-9/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2009/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2009/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2009/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2009/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2009/texmf-dis
-t/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2009/texmf-dist/fonts/
-type1/urw/times/utmb8a.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/urw/
-times/utmr8a.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/urw/times/utmr
-i8a.pfb>
-Output written on NER-Diffusion-CI4BD-v1.pdf (15 pages, 1060059 bytes).
+ 2746 strings out of 493304
+ 44409 string characters out of 6139871
+ 105789 words of memory out of 5000000
+ 6170 multiletter control sequences out of 15000+600000
+ 41957 words of font info for 77 fonts, out of 8000000 for 9000
+ 960 hyphenation exceptions out of 8191
+ 37i,9n,24p,742b,333s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri
+8a.pfb>
+Output written on NER-Diffusion-CI4BD-v1.pdf (15 pages, 1020937 bytes).
 PDF statistics:
- 408 PDF objects out of 1000 (max. 8388607)
+ 409 PDF objects out of 1000 (max. 8388607)
+ 142 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
