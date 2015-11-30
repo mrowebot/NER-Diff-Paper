@@ -21,6 +21,101 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{nadeau2007survey}
+D.~Nadeau and S.~Sekine, ``A survey of named entity recognition and
+  classification,'' \emph{Journal of Linguisticae Investigationes}, vol.~30,
+  no.~1, pp. 1--20, 2007.
+
+\bibitem{RatinovRo09}
+L.~Ratinov and D.~Roth, ``Design challenges and misconceptions in named entity
+  recognition,'' in \emph{Proceedings of CoNLL}, 6 2009.
+
+\bibitem{tjong2003introduction}
+E.~F. Tjong Kim~Sang and F.~De~Meulder, ``Introduction to the {CoNLL-2003}
+  shared task: Language-independent named entity recognition,'' in
+  \emph{Proceedings of the seventh Conference on Natural Language
+  Learning}.\hskip 1em plus 0.5em minus 0.4em\relax ACL, 2003, pp. 142--147.
+
+\bibitem{derczynski2013microblog}
+L.~Derczynski, D.~Maynard, N.~Aswani, and K.~Bontcheva, ``Microblog-genre noise
+  and impact on semantic annotation accuracy,'' in \emph{Proceedings of the
+  24th ACM Conference on Hypertext and Social Media}.\hskip 1em plus 0.5em
+  minus 0.4em\relax ACM, 2013, pp. 21--30.
+
+\bibitem{hovy2015user}
+D.~Hovy, A.~Johannsen, and A.~S{\o}gaard, ``User review sites as a resource for
+  large-scale sociolinguistic studies,'' in \emph{Proceedings of the 24th
+  International Conference on World Wide Web}.\hskip 1em plus 0.5em minus
+  0.4em\relax International World Wide Web Conferences Steering Committee,
+  2015, pp. 452--461.
+
+\bibitem{plank2015personality}
+B.~Plank and D.~Hovy, ``Personality traits on {Twitter}--or--{How} to get 1,500
+  personality tests in a week,'' in \emph{Proceedings of the 6th Workshop on
+  Computational Approaches to Subjectivity, Sentiment and Social Media
+  Analysis}, 2015, pp. 92--98.
+
+\bibitem{preoctiuc2015studying}
+D.~Preo{\c{t}}iuc-Pietro, S.~Volkova, V.~Lampos, Y.~Bachrach, and N.~Aletras,
+  ``Studying user income through language, behaviour and affect in social
+  media,'' \emph{PloS one}, vol.~10, no.~9, p. e0138717, 2015.
+
+\bibitem{ritter2011named}
+A.~Ritter, S.~Clark, O.~Etzioni \emph{et~al.}, ``Named entity recognition in
+  tweets: an experimental study,'' in \emph{Proceedings of the Conference on
+  Empirical Methods in Natural Language Processing}.\hskip 1em plus 0.5em minus
+  0.4em\relax ACL, 2011, pp. 1524--1534.
+
+\bibitem{liu2011recognizing}
+X.~Liu, S.~Zhang, F.~Wei, and M.~Zhou, ``{Recognizing Named Entities in
+  Tweets},'' in \emph{Proceedings of the HLT-ACL}, Y.~Matsumoto and
+  R.~Mihalcea, Eds.\hskip 1em plus 0.5em minus 0.4em\relax Portland, Oregon,
+  USA: Association for Computational Linguistics, 2011, pp. 359--367.
+
+\bibitem{plank2014adapting}
+B.~Plank, D.~Hovy, R.~McDonald, and A.~S{\o}gaard, ``Adapting taggers to
+  {Twitter} with not-so-distant supervision,'' in \emph{Proceedings of COLING:
+  Technical Papers}, J.~Tsujii and J.~Hajic, Eds.\hskip 1em plus 0.5em minus
+  0.4em\relax Dublin, Ireland: Dublin City University and Association for
+  Computational Linguistics, 2014, pp. 1783--1792.
+
+\bibitem{cherryunreasonable}
+C.~Cherry and H.~Guo, ``The unreasonable effectiveness of word representations
+  for {Twitter} named entity recognition,'' in \emph{Proceedings of NAACL},
+  2015.
+
+\bibitem{rowe2015microposts2015}
+M.~Rowe, M.~Stankovic, and A.-S. Dadzie, ``{\#Microposts2015 -- 5th Workshop on
+  'Making Sense of Microposts': Big things come in small packages},'' in
+  \emph{Proceedings of the 24th International Conference on World Wide Web
+  Companion}.\hskip 1em plus 0.5em minus 0.4em\relax International World Wide
+  Web Conferences Steering Committee, 2015, pp. 1551--1552.
+
+\bibitem{baldwin2015shared}
+T.~Baldwin, Y.-B. Kim, M.~C. de~Marneffe, A.~Ritter, B.~Han, and W.~Xu,
+  ``Shared tasks of the 2015 workshop on noisy user-generated text: {Twitter}
+  lexical normalization and named entity recognition,'' \emph{Proc. W-NUT
+  (ACL-IJCNLP)}, pp. 126--135, 2015.
+
+\bibitem{han2011lexical}
+B.~Han and T.~Baldwin, ``Lexical normalisation of short text messages: Makn
+  sens a \#twitter,'' in \emph{Proceedings of the ACL-HLT}, Y.~Matsumoto and
+  R.~Mihalcea, Eds.\hskip 1em plus 0.5em minus 0.4em\relax Portland, Oregon,
+  USA: Association for Computational Linguistics, June 2011, pp. 368--378.
+
+\bibitem{fromreide2014crowdsourcing}
+H.~Fromreide, D.~Hovy, and A.~S{\o}gaard, ``{Crowdsourcing and annotating NER
+  for Twitter \#drift},'' in \emph{Proceedings of LREC}, N.~Calzolari,
+  K.~Choukri, T.~Declerck, H.~Loftsson, B.~Maegaard, J.~Mariani, A.~Moreno,
+  J.~Odijk, and S.~Piperidis, Eds.\hskip 1em plus 0.5em minus 0.4em\relax
+  European Language Resources Association, 2014, pp. 2544--2547.
+
+\bibitem{derczynski2015analysis}
+L.~Derczynski, D.~Maynard, G.~Rizzo, M.~van Erp, G.~Gorrell, R.~Troncy,
+  J.~Petrak, and K.~Bontcheva, ``Analysis of named entity recognition and
+  linking for tweets,'' \emph{Information Processing \& Management}, vol.~51,
+  no.~2, pp. 32--49, 2015.
+
 \bibitem{bakshy2012role}
 E.~Bakshy, I.~Rosenn, C.~Marlow, and L.~Adamic, ``The role of social networks
   in information diffusion,'' in \emph{Proceedings of the 21st international
@@ -57,30 +152,6 @@ T.~Kiss and J.~Strunk, ``Unsupervised multilingual sentence boundary
 B.~O'Connor, M.~Krieger, and D.~Ahn, ``{TweetMotif: Exploratory Search and
   Topic Summarization for Twitter},'' in \emph{Proc. ICWSM}.\hskip 1em plus
   0.5em minus 0.4em\relax AAAI, 2010.
-
-\bibitem{derczynski2015analysis}
-L.~Derczynski, D.~Maynard, G.~Rizzo, M.~van Erp, G.~Gorrell, R.~Troncy,
-  J.~Petrak, and K.~Bontcheva, ``Analysis of named entity recognition and
-  linking for tweets,'' \emph{Information Processing \& Management}, vol.~51,
-  no.~2, pp. 32--49, 2015.
-
-\bibitem{ritter2011named}
-A.~Ritter, S.~Clark, O.~Etzioni \emph{et~al.}, ``Named entity recognition in
-  tweets: an experimental study,'' in \emph{Proceedings of the Conference on
-  Empirical Methods in Natural Language Processing}.\hskip 1em plus 0.5em minus
-  0.4em\relax ACL, 2011, pp. 1524--1534.
-
-\bibitem{tjong2003introduction}
-E.~F. Tjong Kim~Sang and F.~De~Meulder, ``Introduction to the {CoNLL-2003}
-  shared task: Language-independent named entity recognition,'' in
-  \emph{Proceedings of the seventh Conference on Natural Language
-  Learning}.\hskip 1em plus 0.5em minus 0.4em\relax ACL, 2003, pp. 142--147.
-
-\bibitem{baldwin2015shared}
-T.~Baldwin, Y.-B. Kim, M.~C. de~Marneffe, A.~Ritter, B.~Han, and W.~Xu,
-  ``Shared tasks of the 2015 workshop on noisy user-generated text: {Twitter}
-  lexical normalization and named entity recognition,'' \emph{Proc. W-NUT
-  (ACL-IJCNLP)}, pp. 126--135, 2015.
 
 \bibitem{brown1992class}
 P.~F. Brown, P.~V. Desouza, R.~L. Mercer, V.~J.~D. Pietra, and J.~C. Lai,
@@ -120,13 +191,6 @@ S.~Chester and L.~Derczynski, ``{generalised-brown: Source code for AAAI 2016
   paper},'' Nov. 2015. [Online]. Available:
   \url{http://dx.doi.org/10.5281/zenodo.33758}
 \BIBentrySTDinterwordspacing
-
-\bibitem{finkel2005incorporating}
-J.~R. Finkel, T.~Grenager, and C.~Manning, ``Incorporating non-local
-  information into information extraction systems by gibbs sampling,'' in
-  \emph{Proceedings of the 43rd Annual Meeting on Association for Computational
-  Linguistics}.\hskip 1em plus 0.5em minus 0.4em\relax Association for
-  Computational Linguistics, 2005, pp. 363--370.
 
 \bibitem{leskovec2007patterns}
 J.~Leskovec, M.~McGlohon, C.~Faloutsos, N.~S. Glance, and M.~Hurst, ``Patterns

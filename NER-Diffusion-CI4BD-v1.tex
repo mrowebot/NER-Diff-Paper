@@ -3,6 +3,7 @@
 \usepackage{url}
 \usepackage[tight,footnotesize]{subfigure}
 \usepackage{amsthm}
+\usepackage{multirow}
 
 % *** MISC UTILITY PACKAGES ***
 %\usepackage{ifpdf}
@@ -148,7 +149,16 @@ In this work we investigate how entities diffuse over time through the online co
 Diffusion of information is a well studied topic, and is of particular interest today given the myriad ways in which Web users consume information and are thus influenced by what they read, and with whom they interact with, online.
 
 \subsection{Named Entity Recognition}
-\textbf{TODO: Leon - add in existing works in NER that are relevant here}
+Named entity recognition has been a long-recognised NLP task, the earliest major instances of which are perhaps the ACE and MUC challenges.
+The goal is typically to extract mentions of certain types of entities, like organisations, locations or person names.
+Generally, NER systems can be reduced to problems of representation, induction, dependency modelling and integration of real-world knowledge~\cite{nadeau2007survey,RatinovRo09}.
+
+While initially conducted over newswire~\cite{tjong2003introduction}, the older tools tend net to perform so well on modern text types, such as tweets and other short social media text~\cite{derczynski2013microblog}.
+Simultaneously, the value in non-newswire data has rocketed: for example, social media now provides us with a sample of all human discourse, unmolested by news editors, publishing guidelines and the like, and all in digital format -- leading to whole new fields of research opening in computational social science~\cite{hovy2015user,plank2015personality,preoctiuc2015studying}.
+
+Research on NER for social media content is, accordingly, a hot area~\cite{ritter2011named,liu2011recognizing,plank2014adapting,cherryunreasonable}, with multiple recent shared tasks~\cite{rowe2015microposts2015,baldwin2015shared}.
+The task is generally cast as a domain adaptation problem from newswire data, integrating the two kinds of data for training~\cite{cherryunreasonable} or including a lexical normalisation step~\cite{han2011lexical} to drag the problem back to territory more familiar to existing models and methods.
+Two major perceived challenges are that NEs mentioned in tweets change over time~\cite{derczynski2013microblog,fromreide2014crowdsourcing}, and that diversity of context makes NER more difficult~\cite{derczynski2015analysis}. 
 
 \subsection{Information Diffusion}
 Bakshy et al. \cite{bakshy2012role} conducted a large-scale randomised control trial to examine the effects of information exposure on information diffusion, using the Facebook platform.
@@ -171,13 +181,9 @@ Although such a framework allows one to control for confounding in the diffusion
 
 
 
-twitter info propagation
-
 reddit compared to other OSNs: "Lifespan and propagation of information in On-line Social Networks: A case study based on Reddit"  http://www.sciencedirect.com/science/article/pii/S1084804515001307
 
 network structure of reddit: "Navigating the massive world of reddit: using backbone networks to map user interests in social media" https://peerj.com/articles/cs-4/
-
-twitter nlp
 
 
 \section{Data preparation and NER}
@@ -316,12 +322,49 @@ Specifically, we needed to estimate the number of Brown clusters $C$ to use in f
 We also then used this to determine what blend of social, Reddit or news data gave best results in unsupervised feature generation and extraction.
 To tune the value for $C$, we examined a similar scenario with similar dataset sizes, and estimated an optimum.
 We noted that in prior work~\cite{derczynski2015tune}, entity recognition performance with decomposed class prefixes -- similar to the provenance-based features we propose here -- peak at around $C=2500$ for corpora of 16k tokens, $C=5000$ for corpora of 32k tokens, and at higher values for larger datasets.
-As General Brown clustering is dependent on the number of types and the size of the active set $a$, and results are unreliable with $a>C$, we set $C = a = 4000$.
+As General Brown clustering is dependent on the number of types and the size of the active set $a$, and results are unreliable with $a>C$, we set $C = a = 2560$.
+This offers a decent trade-off between computational cost of building clusters, and the quality of the clusterings used.
 We then experiment with combinations of newswire, Twitter and Reddit data.
 Brown clusters are extracted using the generalised-brown package~\cite{sean_chester_2015_33758}.
 Results are given in Table~\ref{tab:brown-tuning}.
 
--- results of brown cluster tuning
+\begin{table}
+\centering
+\begin{tabular}{lrrrr}
+\hline
+{\bf Brown cluster composition} & {\bf Precision} & {\bf Recall} & {\bf F1} & {\bf F2} \\
+\hline
+\multicolumn{5}{c}{Newswire training data} \\
+\hline
+RCV Newswire          & 63.57 & 59.73 & 61.59 & 60.96 \\
+Tweets                &  &  &  & \\
+Blended twitter/news  & 68.42 & 61.07 & 64.54 & 63.34\\
+Reddit                &  &  &  & \\
+\hline
+\multicolumn{5}{c}{\emph{Twitter training data}} \\
+\hline
+RCV Newswire          & 73.02 & 30.87 & 43.39 & 38.22 \\
+Tweets                &  &  &  \\
+Blended twitter/news  & 65.28 & 31.54 & 42.53 & 38.10 \\
+Reddit                &  &  &  \\
+\hline
+\multicolumn{5}{c}{\emph{Blended training data, 50:50}} \\
+\hline
+RCV Newswire          & 66.67 & 42.96 & 52.25 & 48.74 \\
+Tweets                &  &  &  \\
+Blended twitter/news  & 68.69 & 45.64 & 54.84 & 51.39 \\
+Reddit                &  &  &  \\
+\hline
+\end{tabular}
+\label{tab:brown-tuning}
+\end{table}
+
+\begin{figure}
+\centering
+\includegraphics{entity-chunking/chart-results-rcv-crop.pdf}
+\caption{Scaling newswire (RCV) training data under three conditions: blended news and twitter clusters; blended news and twitter clusters with extra twitter training data; just new clusters.}
+\label{fig:rcv-scaling}
+\end{figure}
 
 
 In addition, we draw supervised data for multiple datasets in order to approximate the Reddit text type.
@@ -329,11 +372,16 @@ We take data from Reddit, taking the union of corpora used in previous work that
 This scheme gives broader coverage than e.g. the three-class ACE named entity scheme.
 For newswire, we use the Reuters RCV1 corpus annotations that were part of the CoNLL-2003 shared task~\cite{tjong2003introduction}.
 Classes are removed before training, making this just a chunking task.
-We compare against Stanford NER~\cite{finkel2005incorporating} as a baseline.
-Results for different balances of training data are given in Table~\ref{tab:supervision-balance}
+%We compare against Stanford NER~\cite{finkel2005incorporating} as a baseline.
+%Results for different balances of training data are given in Table~\ref{tab:supervision-balance}
 
 
--- analysis of cross-genre ne chunking performance
+%-- analysis of cross-genre ne chunking performance
+
+It is interesting to note that adding the Twitter chunking data is generally not helpful.
+Also, performance generally drops when adding extra newswire data.
+This drop reflects the findings of earlier work~\cite{ritter2011named}, where a small amount of Twitter training data led to better social media NE chunking performance than when augmented with additional newswire training data.
+
 
 
 Note that while some figures seem low when compared to typical newswire level performance, the toolkit used is high-ranking, state-of-the-art research software, coming third in the 2015 W-NUT challenge for entity chunking over tweets.

@@ -1,51 +1,56 @@
-This is BibTeX, Version 0.99c (TeX Live 2009)
+This is BibTeX, Version 0.99d (TeX Live 2015/dev/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: NER-Diffusion-CI4BD-v1.aux
 The style file: IEEEtran.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: NER-Diffusion.bib
 -- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 
 Done.
-You've used 21 entries,
+You've used 32 entries,
             4039 wiz_defined-function locations,
-            934 strings with 11663 characters,
-and the built_in function-call counts, 17129 in all, are:
-= -- 1319
-> -- 433
-< -- 147
-+ -- 236
-- -- 73
-* -- 819
-:= -- 2437
-add.period$ -- 52
-call.type$ -- 21
-change.case$ -- 21
-chr.to.int$ -- 366
-cite$ -- 21
-duplicate$ -- 1210
-empty$ -- 1472
-format.name$ -- 93
-if$ -- 3995
+            999 strings with 14153 characters,
+and the built_in function-call counts, 26822 in all, are:
+= -- 2062
+> -- 701
+< -- 221
++ -- 375
+- -- 121
+* -- 1284
+:= -- 3787
+add.period$ -- 80
+call.type$ -- 32
+change.case$ -- 40
+chr.to.int$ -- 549
+cite$ -- 32
+duplicate$ -- 1910
+empty$ -- 2320
+format.name$ -- 156
+if$ -- 6281
 int.to.chr$ -- 0
-int.to.str$ -- 21
-missing$ -- 212
-newline$ -- 88
-num.names$ -- 21
-pop$ -- 533
+int.to.str$ -- 32
+missing$ -- 341
+newline$ -- 121
+num.names$ -- 40
+pop$ -- 859
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1310
+skip$ -- 2050
 stack$ -- 0
-substring$ -- 875
-swap$ -- 976
-text.length$ -- 25
+substring$ -- 1328
+swap$ -- 1536
+text.length$ -- 38
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 21
+type$ -- 32
 warning$ -- 0
-while$ -- 85
-width$ -- 23
-write$ -- 216
+while$ -- 131
+width$ -- 34
+write$ -- 321
