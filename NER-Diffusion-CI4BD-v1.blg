@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2015/dev/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: NER-Diffusion-CI4BD-v1.aux
 The style file: IEEEtran.bst
@@ -8,51 +8,130 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: NER-Diffusion.bib
+Repeated entry---line 379 of file NER-Diffusion.bib
+ : @inproceedings{bakshy2012role
+ :                              ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 391 of file NER-Diffusion.bib
+ : @article{baldwin2015shared
+ :                           ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 401 of file NER-Diffusion.bib
+ : @misc{reddit-data
+ :                  ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 408 of file NER-Diffusion.bib
+ : @article{brown1992class
+ :                        ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 432 of file NER-Diffusion.bib
+ : @inproceedings{cordella2001improved
+ :                                    ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 444 of file NER-Diffusion.bib
+ : @article{derczynski2015usfd
+ :                            ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 452 of file NER-Diffusion.bib
+ : @inproceedings{derczynski2016generalised
+ :                                         ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 459 of file NER-Diffusion.bib
+ : @inproceedings{derczynski2015tune
+ :                                  ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 466 of file NER-Diffusion.bib
+ : @inproceedings{derczynski2013microblog
+ :                                       ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 475 of file NER-Diffusion.bib
+ : @article{derczynski2015analysis
+ :                                ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 487 of file NER-Diffusion.bib
+ : @article{fang2013predicting
+ :                            ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 509 of file NER-Diffusion.bib
+ : @inproceedings{goyal2010learning
+ :                                 ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 547 of file NER-Diffusion.bib
+ : @article{kiss2006unsupervised
+ :                              ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 559 of file NER-Diffusion.bib
+ : @inproceedings{leskovec2007patterns
+ :                                    ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 572 of file NER-Diffusion.bib
+ : @inproceedings{o2010tweetmotif
+ :                               ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 580 of file NER-Diffusion.bib
+ : @inproceedings{ratinov2009design
+ :                                 ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 589 of file NER-Diffusion.bib
+ : @inproceedings{ritter2011named
+ :                               ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 598 of file NER-Diffusion.bib
+ : @inproceedings{romero2011differences
+ :                                     ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 610 of file NER-Diffusion.bib
+ : @inproceedings{tjong2003introduction
+ :                                     ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 619 of file NER-Diffusion.bib
+ : @inproceedings{turian2009preliminary
+ :                                     ,
+I'm skipping whatever remains of this entry
 -- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
-Warning--empty title in fang2013predicting
 
 Done.
-You've used 24 entries,
+You've used 35 entries,
             4039 wiz_defined-function locations,
-            949 strings with 12132 characters,
-and the built_in function-call counts, 19493 in all, are:
-= -- 1501
-> -- 506
-< -- 166
-+ -- 274
-- -- 87
-* -- 935
-:= -- 2779
-add.period$ -- 58
-call.type$ -- 24
-change.case$ -- 23
-chr.to.int$ -- 408
-cite$ -- 25
-duplicate$ -- 1381
-empty$ -- 1661
-format.name$ -- 110
-if$ -- 4541
+            1016 strings with 14781 characters,
+and the built_in function-call counts, 29731 in all, are:
+= -- 2289
+> -- 786
+< -- 249
++ -- 421
+- -- 136
+* -- 1427
+:= -- 4190
+add.period$ -- 88
+call.type$ -- 35
+change.case$ -- 43
+chr.to.int$ -- 615
+cite$ -- 35
+duplicate$ -- 2113
+empty$ -- 2556
+format.name$ -- 174
+if$ -- 6968
 int.to.chr$ -- 0
-int.to.str$ -- 24
-missing$ -- 245
-newline$ -- 97
-num.names$ -- 24
-pop$ -- 613
+int.to.str$ -- 35
+missing$ -- 376
+newline$ -- 128
+num.names$ -- 43
+pop$ -- 938
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1492
+skip$ -- 2274
 stack$ -- 0
-substring$ -- 975
-swap$ -- 1115
-text.length$ -- 30
+substring$ -- 1485
+swap$ -- 1708
+text.length$ -- 44
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 24
-warning$ -- 1
-while$ -- 96
-width$ -- 26
-write$ -- 244
-(There was 1 warning)
+type$ -- 35
+warning$ -- 0
+while$ -- 146
+width$ -- 37
+write$ -- 349
+(There were 20 error messages)

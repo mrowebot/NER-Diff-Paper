@@ -90,13 +90,7 @@ Leon Derczynski\IEEEauthorrefmark{2}\\}
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
 \begin{abstract}
-Existing studies of how information diffuses across social networks has thus far concentrated on analysing and recovering the spread of deterministic innovations such as URLs, hashtags, and group membership.
-However investigating how mentioned of real-world entities appear and spread has yet to be explored, largely due to the computationally intractable nature of performing large-scale entity extraction.
-In this paper we present, to the best of our knowledge, one of the first pieces of work to losslessly examine the diffusion of named entities on social media, using Reddit as our case study platform.
-We first investigate how named entities can be accurately recognised and extracted from discussion posts, using an automated approach based upon structured prediction and Brown clustering.
-We then use these extracted entities to study the patterns of entity cascades and how the probability of a user adopting an entity (i.e. mentioning it) is associated with exposures to the entity.
-We put these pieces together by presenting a parallelised diffusion model that can forecast the probability of entity adoption, finding that the influence of adoption between users can be characterised by their prior interactions - as opposed to whether the users propagated entity-adoptions beforehand.
-Our findings have important implications for researchers studying influence and language, and for digital marketers who wish to understand entity-level influence dynamics.
+To do
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
@@ -108,31 +102,31 @@ Our findings have important implications for researchers studying influence and 
 
 
 \section{Introduction}
-Understanding who influences whom and under what conditions forms a core component of information diffusion studies.
+Understanding who influences whom and under what conditions forms a core component of studies of information diffusion.
 Recovering the so-called \emph{diffusion process} allows researchers and marketers to understand how messages are passed between users, and what contributes to their flow.
-In turn, this allows for simulation and predictive models to be engineered that forecast the expected spread of information, allowing such \emph{spread potential} to be maximised or minimised.
+In turn, this allows for simulation and predictive models to be engineered that forecast the expected spread of information, and thus allow such spread \emph{potential} to be maximised.
 
-To date, studies of information diffusion on social media and in social networks have concentrated on tracking URLs (e.g. through retweets), link-creation between blogs, hashtags being adopted over time, and group membership adoption; and with different diffusion mechanisms under the microscope (e.g. social contagion, homophily, social reinforcement, rumour spread, structural equivalence, etc.).
-Despite the rise in such studies, and in tandem the proliferation of data over which studies can be performed, as yet, and to the best of our knowledge, no work has tracked the spread of entity mentions over time - a `\emph{named entity}' here being a proper noun represented a person, place, organisation, or something similar.
-Understanding \emph{how} named entities diffuse through social networks and being able to \emph{predict} their adoption would provide valuable insights into how topics emerge and spread.
+To date, studies of information diffusion on social media and in social networks have concentrated on tracking URLs - i.e. through retweets, link-creation between blogs, hashtags being adopted over time, and group membership adoption; and with different mechanisms of diffusion under the microscope - social contagion, homophily, social reinforcement, structural equivalence.
+Despite the rise in such studies, and in tandem the proliferation of data over which studies have been performed, as yet, and to the best of our knowledge, no work has tracked the spread of named entities over time - a `\emph{named entity}' here being a proper noun represented a person, place, organisation, or something similar.
+Understanding \emph{how} named entities diffuse through social networks and being able to \emph{predict} their adoption would provide valuable (to researchers and marketers) insights into how topics emerge in discussions and under what conditions.
 
-The aim of this paper is to understand how named entities diffuse through social media based discourse, using the online community platform Reddit as the focus of our work.
-However, in order to study named entities and how they diffuse, we must answer the following three research questions: \textbf{RQ1:} How can we accurately detect named entities in social media based discourse, given its myriad formats, often informal vernacular, and inherent noise (e.g. misspellings, abbreviations, etc.)? \textbf{RQ2:} What process governs the spread of entities? And how does such spread occur? \textbf{RQ3:} How can we predict the spread of named entities and who will begin talking about them?	
+The aim of this paper is to understand how named entities \emph{emerge} and \emph{spread} through social media based discourse, using the community-messaging platform - the so-called `\emph{front page of the Internet}' - Reddit as the dataset used for this research.
+However, in order to study named entities and how they diffuse, we answer three research questions, as follows: \textbf{RQ1:} How can we accurately detect named entities in social media based discourse, given its myriad formats, often informal vernacular, and inherent noise (e.g. misspellings, abbreviations, etc.)? \textbf{RQ2:} What process governs the spread of entities? And how does such spread occur? \textbf{RQ3:} How can we predict the spread of named entities and who will begin talking about them?	
 
-We explored the above questions by devising an approach to recognise entities found in community message board posts - using Reddit as our study platform.
-Using the recognised named entities we then carried out a study of how such entities were adopted over time, how they spread, and created an approach to (accurately) predict the adoption of named entities by users based upon the computation of influence probabilities (e.g. achieving $ROC$ value of $0.755$ in one instance).
+We explore the above questions by providing an approach to annotate Reddit posts with named entities found within them.
+Using the annotated entities we then present a study of how such entities are adopted over time, how they spread, and how the adoption of entities can be predicted accurately (e.g. achieving $ROC$ value of $0.755$ in one instance).
 The contributions that we make in this paper are as follows:
 
 \begin{enumerate}
-	\item A method to recognise and extract named entities found with discussion posts based upon structured prediction and Brown clustering, together with an evaluation of this method.
+	\item A method to annotate discussion posts with named entities.
 	\item A study of how entities spread and are adopted following exposures, using an approach based upon graph isomorphism to track patterns of entity diffusion.
-	\item A parallelised general threshold diffusion model (using Apache Spark), based on the work of Goyal et al. \cite{goyal2010learning}, that incorporates different entity-adoption constructs (entity propagation, influence of interactions, community homophily) when calculating adoption probabilities - this is accompanied by a comparative empirical evaluation of the different constructs when forecasting entity adoption within the diffusion process.
+	\item An implementation of the general threshold diffusion model, originally devised by Goyal et al. \cite{goyal2010learning}, that compares entity-adoption constructs (entity propagation, influence of interactions, community homophily) when calculating adoption probabilities - this is accompanied by a comparative empirical evaluation of the different constructs when forecasting entity adoption within the diffusion process.
 \end{enumerate}
 
 We have structured the paper as follows: in the following section we cover related work within the areas of named entity recognition and information diffusion - paying particular attention in the latter's case to existing works that are \emph{similar} to entity diffusion.
-In section \ref{sec:datasets_ner} we explain the preparation of the Reddit dataset for our experiments - including down-sampling of 100 subreddits - and the adapted named entity recognition (NER) methodology that we employed.
+In section \ref{sec:datasets_ner} we explain the preparation of the Reddit dataset for our experiments - including down-sampling of 100 subreddits - and the named entity recognition (NER) methodology that we employed.
 Section \ref{sec:diffusion} presents findings from our analysis of entity cascades (i.e. their shapes and forms) and how exposure frequency and entity-adoption probability are associated.
-This section also describes our implementation of the parallelised general threshold diffusion model and experiments that assess the efficacy of various influence constructs in the entity-diffusion process.
+This section also describes our implementation of the general threshold diffusion model and experiments that assess the efficacy of various influence constructs in the entity-diffusion process.
 Section \ref{sec:discussions} discusses the findings that we have drawn from this work and plans for future work, and section \ref{sec:conclusions} finishes the paper with our conclusions.
 
 
@@ -164,27 +158,25 @@ Section \ref{sec:discussions} discusses the findings that we have drawn from thi
 \label{sec:rw}
 In this work we investigate how entities diffuse over time through the online community platform Reddit.
 Diffusion of information is a well studied topic, and is of particular interest today given the myriad ways in which Web users consume information and are thus influenced by what they read, and with whom they interact with, online.
-We first review state of the art approaches for recognising named entities, before then describing existing works that have studied information diffusion.
 
 \subsection{Named Entity Recognition}
-Named entity recognition (NER) has been a long-recognised NLP task, the earliest major instances of which are perhaps the ACE and MUC challenges.
+Named entity recognition has been a long-recognised NLP task, the earliest major instances of which are perhaps the ACE and MUC challenges.
 The goal is typically to extract mentions of certain types of entities, like organisations, locations or person names.
-Generally, NER systems can be structured in terms of representation, induction, dependency modelling and integration of real-world knowledge~\cite{nadeau2007survey,RatinovRo09}.
+Generally, NER systems can be reduced to problems of representation, induction, dependency modelling and integration of real-world knowledge~\cite{nadeau2007survey,RatinovRo09}.
 
-While initially conducted over newswire~\cite{tjong2003introduction}, older tools tend not to perform so well on modern text types, such as tweets and other short social media text~\cite{derczynski2013microblog}.
-Simultaneously, the value in non-newswire data has rocketed: for example, social media now provides us with a sample of all human discourse, unmolested by news editors, publishing guidelines and the like, and all in digital format -- leading to whole new fields of research opening in computational social science, examining e.g. demographics~\cite{hovy2015user}, personality~\cite{plank2015personality} and income~\cite{preoctiuc2015studying}.
+While initially conducted over newswire~\cite{tjong2003introduction}, the older tools tend net to perform so well on modern text types, such as tweets and other short social media text~\cite{derczynski2013microblog}.
+Simultaneously, the value in non-newswire data has rocketed: for example, social media now provides us with a sample of all human discourse, unmolested by news editors, publishing guidelines and the like, and all in digital format -- leading to whole new fields of research opening in computational social science~\cite{hovy2015user,plank2015personality,preoctiuc2015studying}.
 
-Research on NER for social media content is, accordingly, a hot area, including general approaches~\cite{ritter2011named}, topic-specific approaches~\cite{liu2011recognizing}, adapting from known genres~\cite{plank2014adapting}; these are driven by and evaluated in multiple recent shared tasks~\cite{rowe2015microposts2015,baldwin2015shared}.
+Research on NER for social media content is, accordingly, a hot area~\cite{ritter2011named,liu2011recognizing,plank2014adapting,cherryunreasonable}, with multiple recent shared tasks~\cite{rowe2015microposts2015,baldwin2015shared}.
 The task is generally cast as a domain adaptation problem from newswire data, integrating the two kinds of data for training~\cite{cherryunreasonable} or including a lexical normalisation step~\cite{han2011lexical} to drag the problem back to territory more familiar to existing models and methods.
-Two major perceived challenges are that NEs mentioned in tweets change over time~\cite{fromreide2014crowdsourcing}, and that diversity of context makes NER more difficult~\cite{derczynski2015analysis}. 
-Here we address NER without any in-domain data, which leads to a successful and transferable approach.
-
+Two major perceived challenges are that NEs mentioned in tweets change over time~\cite{derczynski2013microblog,fromreide2014crowdsourcing}, and that diversity of context makes NER more difficult~\cite{derczynski2015analysis}. 
 
 \subsection{Information Diffusion}
-Studies of information diffusion have largely concentrated on \emph{deterministic} signals of diffusion such as tracking URLs, hashtags, and adoption behaviour (e.g. group signups); however to the best of our knowledge such studies have yet to focus on how entities diffuse.
-We now focus on key pieces of work that are closely-aligned to the study of entity-diffusion in the context of social networks - should the reader wish to know more about information diffusion models, and in greater detail, then please refer to Guile et al.'s \cite{guille2013information} comprehensive survey of such models.
+The diffusion of information has been studied in order to understand under what conditions users \emph{pass on} information, and are thus \emph{stimulated} to do so.
+Such investigations have largely concentrated on \emph{deterministic} signals of diffusion such as tracking URLs, hashtags, and adoption behaviour (e.g. group signups); however to the best of our knowledge such studies have yet to focus on how entities diffuse.
+In this section of the paper we focus on key pieces of work that are closely-aligned to the study of entity-diffusion in the context of social networks - should the reader wish to know more about information diffusion models, and in greater detail, then please refer to Guile et al.'s \cite{guille2013information} comprehensive survey of such models.
 
-The study of information adoption and sharing was undertaken by Bakshy et al. \cite{bakshy2012role} who conducted a large-scale randomised controlled trial to examine the effects of \emph{information exposure} on information diffusion, using the Facebook platform.
+The study of information adoption and sharing was undertaken by Bakshy et al. \cite{bakshy2012role} who conducted a large-scale randomised control trial to examine the effects of \emph{information exposure} on information diffusion, using the Facebook platform.
 The authors were able to assign Facebook users \emph{randomly} with a $1/3$ probability to a \emph{feed} group, and the remainder to a \emph{no feed} group and then \emph{hide} information (i.e. status posts) posted within the latter's group.
 Bokshy et al. found, unsurprisingly, that users who were \emph{exposed} to information (i.e. those in the feed group) from their friends are more likely to share it on - implying that such exposure has an influential effect.
 
@@ -195,16 +187,16 @@ More recent work by Yang et al. \cite{yang2012we} studied both the role of hasht
 Our work differs from \cite{yang2012we} by studying the adoption of entities based on pairwise interactions between users - i.e. how one user influences another to adopt an entity - as opposed to the content properties of the entity.
 
 The different modalities of diffusion signals encompass the adoption of behaviour by users from previous adopters, for instance the work of Goyal et al. \cite{goyal2010learning} tracked the diffusion of \emph{actions} on Flickr, where actions were defined as users joining a group (i.e. a photography-topical group).
-A general threshold model was proposed that determines the probability of influence between two arbitrary users based on the relative frequency of action propagations observed before, divided by the absolute number of actions of the user responsible for the propagation.
+A general threshold model was proposed that determines the probability of influence between two arbitrary users based on the relative frequency of action propagations observed before between the users divided by the absolute number of actions of the user responsible for the propagation.
 The authors found that computing the average time of influence between two users led to more accurate computation of influence probabilities.
 In this paper, we use the general threshold framework from \cite{goyal2010learning}, but extend it into the entity-mention setting, hence: we track the \emph{mention} of an entity by a user over time and calculate the probability of influence that an \emph{adopter}'s neighbours have had upon him.
 Furthermore, we also extend this framework to test for two additional constructs: (i) influence of interactions before adoption (i.e. did the degree to which an individual communicated with a previous entity adopter influence their own adoption?), and (ii) community homophily (i.e. does the similarity between users' interests - based upon similarity in subreddit posting - have an effect on adoption of an entity?).
 
 Fang et al. \cite{fang2013predicting} presented a method to predict adoption probabilities in social networks by controlling for potential confounding, unobservable variables - proposing a modification of expectation-maximisation to induce a Naive bayes predictive model.
-The authors found that social influence alone is insufficient to recover the diffusion process, and thus external factors - that are latent - must be countered for within any predictive model - this was in the context of predicting the adoption of social ties.
+The authors found that social influence alone is sufficient to recover the diffusion process, and thus external factors - that are latent - must be countered for within any predictive model, in the context of predicting the adoption of social ties.
 The adoption of information within a social network and its propagation was studied by Huang et al. \cite{huang2014temporal} by considering the role of temporal dynamics.
 The authors found that the probability of diffusion between users (\emph{retweets} on Chinese microblogging platform Sina Weibo) reduces as a function of time from the last interaction between the users, thereby suggesting that \emph{temporal dynamics} have a strong effect in diffusion.
-We build time \emph{explicitly} into our adaptation of Goyal et al.'s \cite{goyal2010learning} general threshold diffusion model - by comparing static and discrete time versions of adoption probabilities.
+We build in time \emph{explicitly} into our adaptation of Goyal et al.'s \cite{goyal2010learning} general threshold diffusion model - by comparing static and discrete time versions of adoption probabilities.
 
 
 
@@ -212,28 +204,32 @@ We build time \emph{explicitly} into our adaptation of Goyal et al.'s \cite{goya
 %
 %twitter nlp
 
+%\section{Datasets}
+%For this research we will use the following datasets:
+%\begin{enumerate}
+%	\item Reddit data -- download and access all of the data from the full dump.\footnote{\url{https://archive.org/details/2015_reddit_comments_corpus}}
+%	\item CoNLL 2003 data -- a corpus of newswire texts, annotated for named entity chunks and types.
+%	This describes where entity mentions are in the text, including locations, organisations, and person mentions.
+%	\item Twitter data; unannotated -- we have a large corpus of English tweets that we can use here.
+%	\item Twitter data; annotated -- there are two datasets annotated with named entities. These are from Ritter's 2011 EMNLP paper, and the W-NUT 2015 shared task.
+%\end{enumerate}
 
-\section{Datasets preparation and NER}
-\label{sec:datasets_ner} 
-In order to study entity diffusion at a \emph{large-scale} we used the entire dump\footnote{\url{https://archive.org/details/2015_reddit_comments_corpus}} of Reddit from its inception through to July 2015 - this provided a dataset of $140$Gb of data compressed containing $\sim1.7$B posts (i.e. original thread starter posts and comments).
-As we will describe below, we also required corpora from which we could \emph{model} and \emph{train} our named entity recogniser - and also assess its performance - therefore we also used the following three datasets:
-(i) \emph{CoNLL 2003 data}, a corpus of newswire texts, annotated for named entity chunks and types - this describes where entity mentions are in the text, including locations, organisations, and person mentions; 
-(ii) \emph{Twitter data (unannotated)}, comprised of a large corpus of English tweets taken from an archive of the garden hose feed, and; 
-(iii) \emph{Twitter data (annotated)}, comprised of datasets annotated with named entities - one from Ritter's 2011 EMNLP paper~\cite{ritter2011named} and a second from W-NUT 2015 shared task \cite{baldwin2015shared}.
 
-%\subsection{Data Preparation}
-To conduct our study, we needed to convert the full $140$GB of compressed Reddit posts into a set of interlinked and time-ordered conversations and the entities mentioned in each of them.
+\section{Data preparation and NER}
+\label{sec:datasets_ner}
+
+To conduct our study, we needed to convert 140GB of compressed Reddit posts into a set of interlinked and time-ordered conversations and the entities mentioned in each of them.
 This provides a number of sub-challenges: sampling of the Reddit data, creating a linked series of conversations, and picking out entity mentions in this text type.
-Reddit data is largely unexplored in the NLP community, despite its large volume and especially rich metadata.
-This poses additional challenges: certainly, given the lack of work on Reddit text, there are no annotated datasets available yet, so supervised in-domain work is not directly possible.
-Additionally, the datasets are large, which makes it important to choose a good subset of data on which to do prototyping and development.
-The result that we come to at the end of this stage is a complete dataset for tracking entity diffusion within communities.
+Reddit data is largely unexplored in the NLP community, despite the large volume of it and the especially rich metadata.
+This poses additional challenges: certainly, given the lack of work on Reddit text, there are no annotated datasets available yet, so supervised in-domain work is not directly possible yet.
+Additionally, the datasets are large, which makes it important to choose a good subset of data on which to do prototyping and development, in order to keep research cycles short.
+The result that we come to at the end of this stage is a rich dataset for tracking entity and concept diffusion within and across communities.
 
 \begin{figure}
 \centering
-\label{fig:reddit-example}
 \includegraphics[width=0.4\columnwidth]{reddit-example.png}
-\caption{Example Reddit post. Note topic at the top, followed by comments, with conversations descending in a tree-like hierarchical fashion}
+\label{fig:reddit-example}
+\caption{Example discussion around a Reddit post.}
 \end{figure}
 
 The Reddit dataset~\cite{reddit-data} is comprised of a sequence of comments, with one JSON record for each one.
@@ -246,22 +242,28 @@ This leads to a threaded discussion, centred on a particular topic, with a hiera
 
 \subsection{Subreddit extraction}
 
-The Reddit dataset is large, and needs to be pared down for initial analysis.
-Fortunately, the data is segmented by community, meaning that we can adjust the scope of the study arbitrarily by selecting a certain number of subreddits and taking the whole.
-This is in contrast to, for example, Twitter, where reducing the sample is performed by reducing the sampling of posts~\cite{kergl2014endogenesis}, thus leading to broken conversation threads and so on.
-We chose to examine one hundred entire individual subreddit communities.
-The subreddits were chosen from a list of top subreddits,\footnote{\url{http://redditlist.com/}} which ranks communities based on levels of activity, numbers of subscribers, and rates of growth.
-The list of chosen communities can be found in the github repository of this work.\footnote{\url{https://github.com/mattroweshow/NER-Diff-Paper/tree/master/data}}
+Subreddits can be found in the github repository of this work \url{https://github.com/mattroweshow/NER-Diff-Paper}
 
-%figures for raw dataset (\# per year; total volume over time; volume-rank graph of subreddits; possible ref to appx)
+- subreddit extraction
+
+top lists
+
+describe top lists site
+
+pick 100
+
+extract these over whole sample
+
+figures for raw dataset (\# per year; total volume over time; volume-rank graph of subreddits; possible ref to appx)
 
 \subsection{NER for Reddit}
 
-%-- where is NER first mentioned and defined?
+-- where is NER first mentioned and defined?
 
 We model micro-topics in conversation as entity mentions.
 This allows tracking of topics at maximally fine granularity, looking at each user's interests at a low level, as opposed to monitoring broader topics such as ``consumer electronics", ``politics" and so on.
 In fact, these broader topics are already explicitly annotated by means of the subreddit topics.
+
 Entity mentions are extracted through named entity recognition.
 Generally, this task aims to detect the boundaries of certain kinds of entities within a certain piece of text.
 In this instance, we tokenise text, splitting it into sentences using the Punkt tokeniser~\cite{kiss2006unsupervised}, and subsequently word-sized chunks, using the {\tt twokenize} tool with some adaptations~\cite{o2010tweetmotif}.
@@ -288,17 +290,12 @@ This led to strong performance improvements.
 We follow a similar approach, using a blend of NE-annotated corpora from both newswire and tweets.
 The newswire data is drawn from the CoNLL-2003 evaluation task set~\cite{tjong2003introduction}; the twitter data is from Ritter's early experiments and also the W-NUT 2015 shared task~\cite{ritter2011named,baldwin2015shared}.
 
-We start using structured predicting in the form of a Conditional Random Fields (CRF) model to label whole sentences at a time.
+We start using structured predicting in the form of a CRF to label whole sentences at a time.
 For features, we use a fairly classical set, and add some unsupervised word representations to this.
 Our base features are:
 
 \begin{itemize}
-\item Lower-case form of word;
-\item Word prefix and suffix (two- and three-character);
-\item Previous and next word;
-\item Flags set if the word is all uppercase, titlecase, or digits;
-\item These flags for the previous and next words;
-\item The next and prior bigrams.
+\item 
 \end{itemize}
 
 In addition, we induce Brown clusters~\cite{brown1992class} and use these as word representations~\cite{turian2009preliminary}.
@@ -308,16 +305,17 @@ The result is a sequence of binary merges, describing the set membership of each
 For each single word type, therefore, the path to a destination cluster can be described as a bitstring, which details the sequence of binary merges taken.
 The zero-length bitstring describes the situation at the top of the hierarchy, where there is one class.
 
-These bitstrings are typically converted to features by \emph{shearing}~\cite{derczynski2016generalised}.
+These bitstrings are typically converted to features by shearing.
 This involves only examining the first $n$ bits of a bitstring.
 However, shearing does not maximise the information preserved in the representation -- sub-clusterings at many levels are lost.
-We therefore experiment with a new method of feature extraction from Brown clusters, which we call {\em provenance-based} feature extraction.
+We therefore experiment with a new method of feature extraction form Brown clusters, which we call {\em provenance-based} feature extraction.
 We take the cluster identifier at every level, tracing the provenance of a terminal word cluster all the way to the root cluster (which contains all word types).
 This preserves the entire set membership of any given term, throughout the induced hierarchical clustering.
-For example, given the bitstring {\tt 1100101}, the following text features are generated: {\tt 1}, {\tt 11}, {\tt 110}, {\tt 1100}, {\tt 11001}, {\tt 110010}, {\tt 1100101}.
-If the typical bit depths~\cite{ratinov2009design} of 4, 6, 10 and 20 were chosen, only the following features would be generated: {\tt 1100}, {\tt 110010}, {\tt 1100101}.
+As an example, if the term \emph{fishing} has bitstring {\tt 1100101}, the following text features are generated: {\tt 1}, {\tt 11}, {\tt 110}, {\tt 1100}, {\tt 11001}, {\tt 110010}, {\tt 1100101}.
+For contrast, if the typical bit depths of 4, 6, 10 and 20~\cite{ratinov2009design} were chosen, only the following features would be generated: {\tt 1100}, {\tt 110010}, {\tt 1100101}.
 As a result of taking all directly-relevant features in the merge list, the lossy nature of shearing-based feature extraction from Brown clusters is avoided.
-Feature extraction, training, classification and JSON annotation are all performed using an entity recognition toolkit~\cite{derczynski2015usfd},\footnote{https://github.com/leondz/entity\_recognition} with custom extractors.
+
+Feature extraction, training, classification and JSON annotation are all performed using an entity recognition toolkit (https://github.com/leondz/entity\_recognition~\cite{derczynski2015usfd}), with custom extractors.
 
 
 \subsection{Tuning entity recognition}
@@ -330,30 +328,40 @@ In terms of evaluation, we prefer recall over precision.
 Over the large dataset, spurious entities are likely to be those that are not seen very often or have an unusual pattern.
 This suggests that there will be great variation in their surface forms, leaving them in the long tail of discovered entities.
 As the majority of our work looks at the more frequent patterns, these are less likely to have an impact.
-Conversely, recall expresses how broadly and comprehensively the extraction is performing, and is important to tracking a range of entities.\footnote{N.b. It has often been more challenging to achieve high recall in social media texts than high precision~\cite{ritter2011named,derczynski2015analysis}.}
-%That is to say, the problem addressed is more tolerant to low precision in input data than low recall.
+Conversely, recall reveals how well the extraction is performing, and it important to track a range of entities.
+In addition, recall has always been more challenging to achieve in social media texts than recall~\cite{ritter2011named,derczynski2015analysis}.
+
+To capture this balance, we take F-scores with $\beta=2$.
+Given precision $P$ and recall $R$, typically an F-score is drawn from $F_\beta$ with $\beta=1$.
 
 \begin{equation}
 F_\beta = (1+\beta^2)\frac{PR}{(\beta^2 P) + R} 
 \end{equation}
 
-
 When $\beta=1$, precision and recall are balanced in a harmonic mean, e.g. F1-score.
 That is, false positives and false negatives impact results equally.
-Given precision $P$ and recall $R$, typically an F-score is drawn from $F_\beta$ with $\beta=1$.
-To score away from false negatives, i.e. missed entity mentions, we set $\beta=2$.
+To score away from false positives, i.e. wrong cues, we set $\beta=2$.
 
 Our approach here is to tune an entity recogniser with reference to a dataset that matches the target text type.
 We draw this development set from Reddit posts, using comments encountered during our work that appear to have missing or spurious annotations.
 These are then isolated, tokenised, and manually annotated.
 Our annotation format follows~\cite{ritter2011named} in using the Freebase top-level entity type inventory, but only uses the chunking information, as nothing further than this is needed: only the surface forms of entities.
-In total, we identified and annotated $3,708$ tokens of Reddit data, including $149$ entity chunks.
+In total, we identified and annotated 3\,708 tokens of Reddit data, including 149 entity chunks.
 This comprised our development set, which was used to tune a variety of parameters in our approach.
 
+Firstly, we tuned our word representations.
+Specifically, we needed to estimate the number of Brown clusters $C$ to use in feature extraction.
+We also then used this to determine what blend of social, Reddit or news data gave best results in unsupervised feature generation and extraction.
+To tune the value for $C$, we examined a similar scenario with similar dataset sizes, and estimated an optimum.
+We noted that in prior work~\cite{derczynski2015tune}, entity recognition performance with decomposed class prefixes -- similar to the provenance-based features we propose here -- peak at around $C=2500$ for corpora of 16k tokens, $C=5000$ for corpora of 32k tokens, and at higher values for larger datasets.
+As General Brown clustering is dependent on the number of types and the size of the active set $a$, and results are unreliable with $a>C$, we set $C = a = 2560$.
+This offers a decent trade-off between computational cost of building clusters, and the quality of the clusterings used.
+We then experiment with combinations of newswire, Twitter and Reddit data.
+Brown clusters are extracted using the generalised-brown package~\cite{sean_chester_2015_33758}.
+Results are given in Table~\ref{tab:brown-tuning}.
 
 \begin{table}
 \centering
-\caption{Results from applying different corpora blends as training data for named entity recognition.}
 \begin{tabular}{lrrrr}
 \hline
 {\bf Brown cluster composition} & {\bf Precision} & {\bf Recall} & {\bf F1} & {\bf F2} \\
@@ -361,27 +369,34 @@ This comprised our development set, which was used to tune a variety of paramete
 \multicolumn{5}{c}{Newswire training data} \\
 \hline
 RCV Newswire          & 63.57 & 59.73 & 61.59 & 60.96 \\
-Tweets                & 62.75 & 64.43 & 63.58 & 63.86 \\
-Blended tweets/news  & 68.42 & 61.07 & 64.54 & 63.34 \\
-Reddit                & 66.32 & 67.11 & 66.71 & 66.84 \\
+Tweets                &  &  &  & \\
+Blended twitter/news  & 68.42 & 61.07 & 64.54 & 63.34\\
+Reddit                &  &  &  & \\
 \hline
 \multicolumn{5}{c}{\emph{Twitter training data}} \\
 \hline
 RCV Newswire          & 73.02 & 30.87 & 43.39 & 38.22 \\
-Tweets                & 70.37 & 38.26 & 49.57 & 45.12 \\
-Blended tweets/news  & 65.28 & 31.54 & 42.53 & 38.10 \\
-Reddit                & 76.34 & 47.65 & 58.68 & 54.47 \\
+Tweets                &  &  &  \\
+Blended twitter/news  & 65.28 & 31.54 & 42.53 & 38.10 \\
+Reddit                &  &  &  \\
 \hline
 \multicolumn{5}{c}{\emph{Blended training data, 50:50}} \\
 \hline
 RCV Newswire          & 66.67 & 42.96 & 52.25 & 48.74 \\
-Tweets                & 66.10 & 52.35 & 58.43 & 56.25 \\
-Blended tweets/news  & 68.69 & 45.64 & 54.84 & 51.39 \\
-Reddit                & 70.08 & 59.73 & 64.49 & 62.82 \\
+Tweets                &  &  &  \\
+Blended twitter/news  & 68.69 & 45.64 & 54.84 & 51.39 \\
+Reddit                &  &  &  \\
 \hline
 \end{tabular}
 \label{tab:brown-tuning}
 \end{table}
+
+\begin{figure}
+\centering
+\includegraphics{entity-chunking/chart-results-rcv-crop.pdf}
+\caption{Scaling newswire (RCV) training data under three conditions: blended news and twitter clusters; blended news and twitter clusters with extra twitter training data; just new clusters.}
+\label{fig:rcv-scaling}
+\end{figure}
 
 
 In addition, we draw supervised data for multiple datasets in order to approximate the Reddit text type.
@@ -389,68 +404,17 @@ We take data from Reddit, taking the union of corpora used in previous work that
 This scheme gives broader coverage than e.g. the three-class ACE named entity scheme.
 For newswire, we use the Reuters RCV1 corpus annotations that were part of the CoNLL-2003 shared task~\cite{tjong2003introduction}.
 Classes are removed before training, making this just a chunking task.
-
-Firstly, we tuned our word representations.
-Specifically, we needed to estimate the number of Brown clusters $C$ to use in feature extraction.
-We also then used this to determine what blend of social, Reddit or news data gave best results in unsupervised feature generation and extraction.
-To tune the value for $C$, we examined a similar scenario with similar dataset sizes, and estimated an optimum.
-We noted that in prior work~\cite{derczynski2015tune}, entity recognition performance with decomposed class prefixes -- similar to the provenance-based features we propose here -- peak at around $C=2,500$ for corpora of 16k tokens, $C=5,000$ for corpora of 32k tokens, and at higher values for larger datasets.
-As General Brown clustering is dependent on the number of types and the size of the active set $a$, and results are unreliable with $a>C$, we set $C = a = 2,560$.
-This offers a decent trade-off between computational cost of building clusters, and the quality of the clusterings used.
-We then experiment with combinations of newswire, Twitter and Reddit data.
-%Brown clusters are extracted using the generalised-brown package.~\cite{sean_chester_2015_33758}.
-Results are given in Table~\ref{tab:brown-tuning}.
-
-Note how the scores are consistently best in each category when inducing Brown clusters from Reddit data.
-Attempts to approximate this using newswire, twitter, or a blend of those two did not score as well.
-This is remarkable, especially considering as we used on 64M tokens of Reddit data for cluster induction, compared to around 130k total for the other text type blends.
-This strongly illustrates the importance of taking the target text type into account during unsupervised feature extraction.
-
-
-
-\begin{figure}
-\centering
-\includegraphics[width=0.79\columnwidth]{entity-chunking/chart-results-rcv-crop.pdf}
-\caption{Scaling newswire (RCV) training data under three conditions: blended news and twitter clusters; blended news and twitter clusters with extra twitter training data; just new clusters.}
-\label{fig:rcv-scaling}
-\end{figure}
-
-We also examined the learning rate of our entity chunking system, scaling up the RCV newswire data.
-We experimented with pure newswire and also newswire plus tweet training data, and with pure newswire vs. blended clusters.
-Results are given in Figure~\ref{fig:rcv-scaling}.
-Unlike prior experiences with NLP on user-generated content, blending training text types in supervised learning did not lead to improved performance.
-They suggest that adding too much newswire reduces performance, and that sticking to just newswire clusters also reduces performance.
-
-Based on this data, we hypothesised that insufficient regularisation had lead to overfitting.
-To test this, we re-ran the experiments on half the newswire data using a $c_2$ regularisation penalty of $10^{-1}$ compared to the default $10^{-3}$.
-This increased F2 from 61.38\% to 62.07\%; so, while effective, still a marginal increase.
-A potential improvement is to manually label a quantity of Reddit data for named entities, but given its prohibitive cost, we find we have a strong enough solution from near-genre supervised training data and in-genre unsupervised feature representations (Brown clusters).
-Hence, we used training data composed from newswire and twitter equal parts, with the newswire and twitter Brown clusters for annotating the named entities across the 100 sampled subreddits.\footnote{NB. When predicting entity diffusion we used the top-500 entities which were manually verified for accuracy, and were found to be correct.}
-
-
 %We compare against Stanford NER~\cite{finkel2005incorporating} as a baseline.
 %Results for different balances of training data are given in Table~\ref{tab:supervision-balance}
 
 
-\subsection{NER analysis}%-- analysis of cross-genre ne chunking performance
+%-- analysis of cross-genre ne chunking performance
 
 It is interesting to note that adding the Twitter chunking data is generally not helpful.
 Also, performance generally drops when adding extra newswire data.
-This drop reflects the findings of earlier work~\cite{ritter2011named}, where a little Twitter training data improved social media NE chunking performance more than additional newswire training data.
+This drop reflects the findings of earlier work~\cite{ritter2011named}, where a small amount of Twitter training data led to better social media NE chunking performance than when augmented with additional newswire training data.
 
-\begin{figure}
-\begin{center}
-\includegraphics[width=0.79\columnwidth]{plots/entity_ts.pdf}
-\caption{Top nine entities and their mention intensity over time}
-\end{center}
-\label{fig:entity-ts}
-\end{figure}
 
-Based on these NER results, we ran entity chunking over the subreddits selected.
-Examining entities by mention count, we were then able to build a longitudinal analysis of popular entities.
-Figure~\ref{fig:entity-ts} shows the mention intensity of the top nine entity surface forms over time.
-Note the field effect of Reddit growth pushing entity mention frequency up universally over time, and the spikes corresponding to major events.
-For example, Obama peaked in late 2012, around the national election in the US; and iPhone mentions peak around iPhone releases.
 
 Note that while some figures seem low when compared to typical newswire level performance, the toolkit used is high-ranking, state-of-the-art research software, coming third in the 2015 W-NUT challenge for entity chunking over tweets.
 The task is simply difficult; Twitter NER recall has always been low.
@@ -459,15 +423,16 @@ In addition, it is a generally consistent finding that generalising NER systems 
 This may be due to overfitting of tools to newswire over time, due to community challenges, dataset in just one type, extra custom rules adapting to formal news text, or other things -- but this is beyond the scope of this paper.
 We do note that our approach uses largely unsupervised feature extraction and performs better than on other social media corpora, also beating the Stanford NER system, in this first attempt at named entity chunking for Reddit.
 
+
 \section{Entity Diffusion}
 \label{sec:diffusion}
-In this section we now move on to examining how the recognised named entities emerge and \emph{diffuse} through the analysed subreddits.
+In this section we now move on to examining how the recognised entities emerge and \emph{diffuse} through the analysed subreddits.
 As per prior work, one of the first things that we can inspect is the \emph{shape} of entity mention cascades: that is, the patterns of diffusion that such entities exhibit when cited in conversation chains. 
-We begin by explaining how such patterns are derived, before then moving on to showing what patterns emerge.
+We begin by explaining how such patterns are derived, before then moving on to showing that patterns emerge.
 
 \subsection{Entity Mention Cascades}
-Prior work by Leskovec et al. \cite{leskovec2007patterns} examined the shapes of hyperlink cascades through the blogosphere to identify patterns of link diffusion.
-We follow a similar process here, however we instead inspect the emergence of entities in conversation chains in Reddit.
+Prior work by Leskovec et al. \cite{leskovec2007patterns} examined the shapes of hyperlink cascades through the blogosphere; in doing so, investigating that patterns appear in terms of the diffusion of links.
+We follow a similar process here, however we instead inspect the emergence of entities in conversation chains in reddit.
 We first make the following explicit.
 
 \begin{mydef}
@@ -475,46 +440,46 @@ We first make the following explicit.
 Hence: $C_e = \{<p_i, p_j> : p_i \rightarrow p_j \in R, cites(p_1) = cites(p_j) = e\}$.
 \end{mydef}
 
-Our goal is to derive all cascades for each entity in our analysis, and then examine how the shapes and sizes of these cascades differ.
-To gather each entity's cascades, we retrieved all (of the 100) subreddit posts that contained a given entity $e$.
-Then, for each post ($p \in P_e$) we recovered the reply-chain that that entity appeared within - this was performed by going \emph{up} the reply chain from $p$ to its parent post (i.e. the post that $p$ was replying to) and \emph{down} the reply chain by getting the posts that replied to $p$.
+Our goal is to derive all entity cascades for each entity in our analysis, and then examine how the shapes and sizes of these cascades differ.
+To gather each entity's cascades, we retrieved all subreddit posts that contained a given entity.
+For each post ($p \in P_e$), we then recovered the reply-chain that that entity appeared within - this was performed by going \emph{up} the reply chain from $p$ to its parent post (i.e. the post that $p$ was replying to) and \emph{down} the reply chain by getting the posts that replied to $p$.
 When iterating through the posts, if we came across a post that replied to another post in an existing chain then that post was added to the chain.
-We only maintained posts within the chain that cited the entity in question: this produced entity cascades where each consecutive post in the chain mentions the entity - we refer to this as \emph{strict cascade derivation}, as we do not consider posts higher-up or lower-down the reply chain that cite the entity yet are connected by a non-entity citing post. \footnote{Chain-derivation Python code can be found here: \url{https://github.com/mattroweshow/NER-Diff-Paper/tree/master/diffusion-scripts}}
+We only maintained posts within the chain that cited the entity in question: this produced entity cascades where each consecutive post in the chain mentions the entity - we refer to this as \emph{strict cascade derivation}, as we do not consider posts higher-up or lower-down the reply chain that cite the entity yet are connected by a non-entity citing post. \footnote{The Python code for deriving these chains is available at the following URL: \url{https://github.com/mattroweshow/NER-Diff-Paper}}
 
 This process produces, in essence, a collection of cascade graphs for each entity, each of which may have isomorphic shapes yet contain different node labels (i.e. different post ids).
 We reduced each entity's cascade graph collection down to a frequency distribution of the \emph{canonical form} of each graph using Cordella at al.'s \cite{cordella2001improved} graph isomorphism approach.
 A further reduction was run to compile a frequency distribution of the cascade shapes across all entities.
 Fig. \ref{fig:entity_cascades} show both the top-20 entity cascade shapes on the left (Fig. \ref{fig:cascade_shapes}) and the ranking of the patterns' frequencies on a log-log scale (Fig. \ref{fig:rank_dist}).
-Upon inspection, one thing becomes immediately apparent: entity cascades are shallow and short at the top-3 ranks, however after this position we start to see chains of discussions as being popular which are deeper and narrower.
+Upon inspection, one thing becomes immediately apparent: entity cascades are shallow and short at the top-3 ranks, however after this position we start to see chains of discussions as being popular which are deeper and narrow.
 This result contrasts somewhat to prior work \cite{leskovec2007patterns} where cascades of hyperlinks between blogs were shallower in depth yet wider - in terms of the breadth of diffusion at the first level from the seed. 
 The ranking of the patterns follows a general power-law distribution where a small section of patterns (i.e. the top-20) are seen most often - this is somewhat expected as it would be very rare for an entity to be cited in a long thread with many branching reply-chains.
 
 \begin{figure}[ht!]
   \begin{center}
-  \subfigure[Top-20 Cascade Shapes]{\includegraphics[width=0.49\columnwidth]{plots/cascade_shapes.pdf}\label{fig:cascade_shapes}}   
+  \subfigure[Top-20 Cascade Shapes (thick lines represent arrow heads)]{\includegraphics[width=0.49\columnwidth]{plots/cascade_shapes.pdf}\label{fig:cascade_shapes}}   
   \subfigure[Cascade Shape Rank Distribution]{\includegraphics[width=0.49\columnwidth]{plots/cascade_rank_dist.pdf}\label{fig:rank_dist}}
   \end{center}    
-  \caption{The top-20 cascade shapes are generally deep and narrow with little branching (Fig. \ref{fig:cascade_shapes}, while the cascade shape rank follows a power-law distribution (Fig. \ref{fig:rank_dist}.}
+  \caption{The top-20 cascade shapes are generally deep and narrow with little branching (Fig. \ref{fig:cascade_shapes} ), while the cascade shape rank follows a power-law distribution (Fig. \ref{fig:rank_dist}.}
   \label{fig:entity_cascades}
 \end{figure}
 
 \subsection{Entity Adoption Post-$({k-1})^{th}$ Exposure}
 Inspection of the shape of entity cascades through Reddit discussion threads reveals some interesting traits, suggesting that an entity is likely to be a adopted if it has been discussed \emph{a priori} within the same discussion thread.
-One natural question that emerges from this is to question the extent to which exposures to an entity play a role in actually adopting (i.e. citing) the entity in question.
-To investigate the relationship between exposures and adoptions, we took the top-500 entities from our whole annotated dataset and calculated the probability of a user adopting an entity after being \emph{exposed} to the entity $k$ times, defining an exposure as follows:
+One natural question that emerges from this is the extent to which exposures to entities play a role in actually adopting (i.e. citing) the entity in question.
+To investigate the relationship between exposures and adoptions, we sampled the top-500 entities from our whole annotated dataset and calculated the probability of a user adopting an entity after being \emph{exposed} to the entity $k$ times.
 
 \begin{mydef}
 \label{def:exposure}
-(Exposure) A user $u$ is exposed to an entity $e$ at time $t$ if a given post $p \in P^{\Gamma(u)}$ authored by a neighbour of $u$ (i.e. $v \in \Gamma(u)$) contains the entity $e$, where neighbours interacted with $u$ prior to $t$.
+(Exposure) A user $u$ is exposed to an entity $e$ at time $t$ if a given post $p \in P^{\Gamma(u,t}$ authored by a neighbour of $v \in \Gamma(u)$ contains the entity $e$, where neighbours of $u$ are those users that he interacted within prior to $t$.
 \end{mydef}
 
 Based on this definition we iterated through all posts chronologically that cited a given entity, and if the post was the first time that a user cited the entity (i.e. he/she was not \emph{activated}) then we counted how many \emph{exposures} the user had received prior to the time of the post - logging this as $k$.
 Fig. \ref{fig:global_exposure_dist} present the \emph{overall} plot of the probability (i.e. relative frequency) of users adopting an entity after $k$ exposures to the entity.
-Immediately, one can note that the mode of this distribution is at $0$ and that the mean is $k=23$: this implies that users are most likely to actually cite an entity without having been exposed to it, in fact $P(adoption) \rightarrow 0, k \rightarrow \infty$.
+Immediately, one can note that the mode of this distribution is at $0$ and that the mean if $k=23$: this implies that users are most likely to actually cite an entity without having been exposed to it, in fact $P(adoption) \rightarrow 0, k \rightarrow \infty$.
 We are somewhat guarded in \emph{generalising} from this result, as our experimental setup here - given the scale of the data we are playing with and the tractability of annotating the entirety of Reddit - does result in only a fraction of Reddit being annotated with entities.
 Hence, it is possible that entities emerge from other subreddits, yet we are unable to capture this at present - our future work makes suggestions as to how this effect can be validated.
-Furthermore, this finding contrasts somewhat to existing patterns of \emph{hashtag} adoption \cite{romero2011differences} where there is a clear mode at around $k=4$ exposures, after which the probability of adoption curtails.
-This difference is likely due to two factors: firstly, the differences of the platforms - as Twitter acts as a public broadcast spectrum where information is presented in feeds and is then passed on, while Reddit is more interaction and discussion-driven, and; secondly, the manner in which users are \emph{exposed} to information - on Twitter this is via subscriptions to other users and observing trends in the trending topics area, while Reddit requires users to read through threaded discussions and \emph{notice} entities within.
+Furthermore, this finding contrasts somewhat to existing patterns of \emph{hashtag} adoption \cite{romero2011differences}: in hashtag adoption, there is a clear mode at around $k=4$ exposures, after which the probability of adoption curtails.
+This difference is likely due to two factors: firstly, the differences of the platforms - as Twitter acts as a public broadcast spectrum where information is presented in feeds and is then passed on, while Reddit is more interaction and discussion-driven, and; secondly, the manner in which users are \emph{exposed} to information - on Twitter this via subscriptions to other users and observing trends in the trending topics area, while Reddit requires users to read through threaded discussions and \emph{notice} entities within.
 
 The second plot below (Fig. \ref{fig:entity_exposure_dists}) shows a sample of 9 entities' adoption-exposure distributions, all of which have similar shapes (with a mode at $0$) and a heavy-tail.
 Variance exists, however, in the means that these distributions have, for instance the entity \emph{PS1}\footnote{Denoting the original Playstation video-games console.} has a much lower mean than the entity \emph{Hungary} suggesting that users require less stimulation to discuss the former than the latter.
@@ -533,7 +498,7 @@ The nature of how and why the distributions differ is something that requires fu
 
 \subsection{Global Threshold Diffusion Model}
 We now move on to forecasting the diffusion of entities across Reddit.
-For this, we used a modified implementation of Goyal et al.'s general threshold model \cite{goyal2010learning} to parallelise the computation of the model.
+For this, we use a modified implementation of Goyal et al.'s general threshold model \cite{goyal2010learning} to parallelise the computation of the model.
 The core principle of the model is that one can calculate the probability of a user ($u$) adopting an entity ($e$) based on how his neighbours ($v \in \Gamma(u)$) have influenced him previously.
 Hence, the probability of $u$ adopting an entity is calculated as follows:
 
@@ -543,7 +508,7 @@ p_u\big(\Gamma(u)\big) = 1 - \displaystyle\prod_{v \in \Gamma(u)}\big(1 - p_{v,u
 \end{equation}
 
 In Goyal et al.'s prior framework, the probability of influence ($p_{v,u}$) of $v$ on $u$ is based upon the maximum likelihood estimate of a single Bernoulli trial.
-An entity propagation occurs between $v$ to $u$ when the latter cites $e$ after being exposed to it by the former (as per Definition \ref{def:exposure}), hence a count of how many entities propagate between $v$ and $u$ can be recorded in $E_{v2u}$.
+An entity propagation occurs between $v$ to $u$ when when the latter cites $e$ after being exposed to it by the former (as per Definition \ref{def:exposure}), hence a count of how many entities propagate between $v$ and $u$ can be recorded in $E_{v2u}$.
 From this, the influence probability between $v$ and $u$ based on such \emph{propagation} can be calculated as follows, where $E_v$ is how many times $v$ has cited an entity:
 
 \begin{equation}
@@ -551,13 +516,13 @@ From this, the influence probability between $v$ and $u$ based on such \emph{pro
 p^{E}_{v,u} = \frac{E_{v2u}}{E_v}
 \end{equation}
 
-The authors explain how there are two variants of this calculation: (i) a static Bernoulli random trial where Equation \ref{eq:action_prob} is calculated from the training set (ignoring time), and: (ii) a discrete time Bernoulli random trial where counts are only placed within $E_{v2u}$ and $E_v$ if the citation of an entity is within a discrete time interval, that is: if the time that $u$ adopts an entity $e$ is given by time $t_u$ then $E_{v2u}$ and $E_v$ are composed from the entity posts of $v$ which each have time $t_v \in [t_u - \tau_{v,u}, t_u)$, where $\tau_{v,u}$ is derived as follows (only considering $v, u \in U$ (set of all users) if $u$ has contacted $v$ prior to $t_u$:
+The authors explain how there are two variants of this calculation: (i) a static Bernoulli random trial where Equation \ref{eq:action_prob} is calculated from the training set (ignoring time), and: (ii) a discrete time Bernoulli random trial where counts are only placed within $E_{v2u}$ and $E_v$ if they the citation of an entity is within a discrete time interval, that is: if the time that $u$ adopts an entity $e$ is given by time $t_u$ then $E_{v2u}$ and $E_v$ are composed from the entity posts of $v$ which each have time $t_v \in [t_u - \tau_{v,u}, t_u)$, where $\tau_{v,u}$ is derived as follows (only considering $v, u \in U$ (set of all users) if $u$ has contacted $v$ prior to $t_u$:
 
 \begin{equation}
 \tau_{v,u} = \frac{\displaystyle\sum_{e \in E} (t_u(e) - t_v(e)}{E_{v2u}}
 \end{equation}
 
-Fig. \ref{fig:taus_hist} shows the binned distribution of the $\tau_{v,u}$ values: one can note how the distribution has a right skew with the mode of the distribution (roughly) being at one hour, this then gradually curtails off with fewer people having larger \emph{influence windows}.
+Fig. \ref{fig:taus_hist} shows the binned distribution of the $\tau_{v,u}$ values (reduced from milliseconds to hours to ease legibility): one can note how the distribution has a right skew with the mode of the distribution (roughly) being at one hour - that is, the majority of \emph{influence} from one person to another occurs within one hour, this then gradually curtails off with fewer people having larger \emph{influence windows}.
 The log-log plot of the relative frequency distribution (Fig. \ref{fig:taus_loglog}) shows the \emph{heavy-tail} property of the distribution, and that the mean window width is $10,780$ hours ($\approx 449$ days $\approx 1.2$ years), thus suggesting a degree of \emph{stickiness} in the Reddit communities where people remain for long periods.
 
 
@@ -570,8 +535,8 @@ The log-log plot of the relative frequency distribution (Fig. \ref{fig:taus_logl
   \label{fig:taus}
 \end{figure}
 
-\subsubsection{Additional Influence Dynamics - Entity-Adoption Constructs}
-The neat formulation of the general threshold model, and the monotonic-submodular nature of the probability of adoption function ($p_u(\Gamma(u)$), means that we can vary the mechanism by which we derive the \emph{influence probability} ($p_{v,u}$) between two users $v$ and $u$ to test for different influence effects - we refer to these as \emph{entity-adoption constructs}.
+\subsubsection{Additional Influence Dynamics}
+The neat formulation of the general threshold model, and the monotonic-submodular nature of the probability of adoption function ($p_u(\Gamma(u)$), means that we can vary the mechanism by which we derive the \emph{influence probability} ($p_{v,u}$) between two user $v$ and $u$ to test for different influence effects.
 Our contribution here is to test for the influence of \emph{prior interactions} and \emph{community homophily} using the general threshold model.
 To compute the influence probability based on interactions, we derive $p^I_{v,u}$ as follows:
 
@@ -579,29 +544,30 @@ To compute the influence probability based on interactions, we derive $p^I_{v,u}
 p^{I}_{v,u} = \frac{\vert \{ p_u : p_v \in P_v, p_u \in P_u, p_u \rightarrow p_v \} \vert}{\vert \{ p_u : p_u \in P_u, p_u \rightarrow . \} \vert}
 \end{equation}
 
-While the influence probability based upon community homophily ($p_{v,u}^C$) is derived as follows:
+While the influence probability based upon community homophily ($p_{v,u}^C$ is derived as follows:
 
 \begin{equation}
 p^C_{v,u} = \frac{\vert C_u \cap C_v \vert}{\vert C_u \cup C_v \vert}
 \end{equation}
 
-We calculate the same two variants as the entity-propagation influence probability as above (static Bernoulli, and discrete-time Bernoulli), for the discrete-time case we only consider interactions between $u$ and $v$ that fall within $[t_u - \tau_{v,u}, t_u)$ (interactions-based) and posts within subreddits by $u$ and $v$ that were made within $[t_u - \tau_{v,u}, t_u)$ (community-homophily).
+We calculate the same two variants as the entity-propagation influence probability as above (static Bernoulli, and discrete-time Bernoulli) for these influence probabilities by only considering interactions between $u$ and $v$ that fall within $[t_u - \tau_{v,u}, t_u)$ (for interactions-based) and posts within subreddits by $u$ and $v$ that were made within $[t_u - \tau_{v,u}, t_u)$ (for community-homophily).
 
 In order to eliminate bias in our below experiments - when we attempt to forecast entity adoption for users - we divided the top-500 entities into an 80\%:20\% split for training and testing respectively.
 Then, for the above influence probabilities (entity-propagations, interactions-based, community-homophily) we used different strategies for their calculation.
-For the entity-propagation influence probability ($p^E_u(\Gamma(u))$) we used the training segment to calculate the values of $E_{v2u}$ and $E_v$, and also $\tau_{v,u}$ - for all pairs of interacting users within the training segment - this follows the experimental setup of \cite{goyal2010learning}.
+For the entity-propagation influence probability ($p^E_u(S)$) we used the training segment to calculate the values of $E_{v2u}$ and $E_v$, and also $\tau_{v,u}$ - for all pairs of interacting users within the training segment - this follows the experimental setup of \cite{goyal2010learning}.
 One thing that is somewhat limited about this approach, is that we are observing future effects when calculating $E_{v2u}$ and $E_v$ that we take forward into our experiments, as we observe how influence has occurred between users prior to an adoption happening.
-To some extent, this is somewhat unavoidable in the context of the dataset splitting as $\tau_{v,u}$ must be calculated somehow - an alternative for future work here is to use a fixed time-split and use the first 80\% of entity-posts for training and the rest for testing.
+To some extent, this is somewhat unavoidable in the context of the dataset splitting as $\tau_{v,u}$ must be calculated somehow - an alternative for future work here is to use a fixed time-split and use the first 80\% of entity-posts for training and the rest for testing - this does somewhat limited the generalisation capability however as new entities that appear in the latter portion would have limited information to learn their patterns of diffusion from.
 
 \subsection{Experiments}
-We now move on to forecasting the adoption of named entities by users as they spread through Reddit.
-To this end, we used an experimental setup that induces the joint probability function (Eq. \ref{eq:joint_prob}) on a per-entity basis within the test set: each user's probability of adoption was computed as product of their neighbours' influence.
-Our goal therefore was to examine which of the above entity-adoption constructs were best suited to predicting adoptions.
+As mentioned above, one of our goals here is to \emph{forecast} the adoption of entities by users as their spread through Reddit.
+To this end, we used an experimental setup that induces the joint probability function (Eq. \ref{eq:joint_prob}) for the users citing entities within the test set by tracking their probability of adopting a given entity as a function of their neighbours influence.
+Our goal therefore is to examine which of the above influence probability functions are best suited to predicting adoptions.
+We now explain our experimental setup before moving on to present the results of such models.
 
 \subsubsection{Experimental Setup}
-Using the 100 randomly sampled subreddits and running the above Named Entity Recogniser over these subreddits' posts, resulted in a total of $>300$ million posts in our dataset (using only those from the 100 subreddits) written by $4,139,814$ users - the entity recogniser also extracted $8,797,271$ unique entities.
-%Of those users we had $2,745,311$ unique user-to-user edges.
-For our experiments we tested 6 different models that resulted from permutations of the 2 probability settings (i.e. static Bernoulli or discrete-time Bernoulli (i.e. $t_u \in [t_u - \tau_{v,u}, t_u)$) and the 3 entity-adoption constructs (entity-propagation, interactions-based, and community-homophily).
+Using the 100 randomly sampled subreddits and running the above Named Entity Recogniser over these subreddits' posts, resulted in a total of $\sim300$ million posts in our dataset (using only those from the 100 subreddits) written by $4,139,814$ users - the entity recogniser also extracted $8,797,271$ unique entities.
+Of those users we had $2,745,311$ unique user-to-user edges.
+For our experiments we tested 6 different models that resulted from permutations of the 2 probability settings (i.e. static Bernoulli or discrete-time Bernoulli (i.e. $t_u \in [t_u - \tau_{v,u}, t_u)$) and the 3 influence-probability modes (entity-propagation, interactions-based, and community-homophily).
 
 \paragraph{Deriving Adoption Probabilities}
 In order to test which model was best (from above) we took the entities within the test set, and ran the following process: we chronologically ordered each entities' posts and then iterated through the posts set one-by-one.
@@ -609,17 +575,17 @@ For each post's author ($v$) we then checked if he had been \emph{activated} bef
 If this was the case then we retrieved the prior interactions that the user had had and calculated (for each prior neighbour - $u \in \Gamma(v, t_u)$) the probability of influence between $v$ and $u$ using the above influence probability variants (e.g. interactions-based with static Bernoulli setting).
 We then updated the probability of adoption of $u$.
 By iterating through the set of time-ordered posts we maintained adoption-outcome tuples of the form $<u, p_u, r_u>$ where $r_u \in \{0,1\}$ denoting whether the user ultimately adopted the entity $e$ or not.
-Our evaluation of the models used these tuples to calculate the area under the Receiver Operator Characteristic ($ROC$) curve, aiming to achieve a value of $1$ (for perfect prediction).
+Our evaluation of the models used these tuples to calculate the area under the Receiver Operator Characteristic curve, aiming to achieve a value of $1$ (for perfect prediction - with $0.5$ being the random model baseline.
 
 \paragraph{Parallelising Processing}
-As we are working with \emph{big data} here (i.e. $>300$ million posts), we made two efforts to parallelise the induction of adoption probabilities over the test set entities.
-First, all of the data used for the experiments (timestamped interactions between users, entity posts, post details, $E_{v2u}$ values, $\tau_{v2u}$ values) was uploaded into HBase\footnote{\url{https://hbase.apache.org/}} tables ensuring that we could \emph{quickly} access the data using time-specific queries.
+As we are working with \emph{big data} here, we made two efforts to parallelise the processes above - induction of adoption probability over the test set entities.
+First, all of the data used for the experiments (timestamped interactions between users, entity posts, post details, $E_{v2u}$ values, $\tau_{v2u}$ values) was uploaded into HBase\footnote{\url{https://hbase.apache.org/}} tables ensuring that we could \emph{quickly} access the data using time-specific queries (e.g. \emph{return all interactions where $u$ is the source before 12th January 2010}).
 Second, we used Apache Spark\footnote{\url{http://spark.apache.org/}} to parallelise the per-entity diffusion processes.
 This was performed by loading the names of the test entities into HDFS and then forcing Spark to partition the entity list into at least 30 partitions.
-Each partition was then iterated over and the above test process run: (i) retrieving time-ordered entity posts from HBase, (ii) iterating over the post set, (iii) retrieving per-user interactions prior to the time of a given post, and (iv) calculating the pairwise influence probabilities.
+Each partition was then iterated over and the the above test process run: (i) retrieving time-ordered entity posts from HBase, (ii) iterating over the post set, (iii) retrieving per-user interactions prior to the time of a given post, and (iv) calculating the pairwise influence probabilities.
 The final calculated probability of adoption for each user ($u$) together with the label of whether they adopted the entity or not were recorded in a separate HBase table of results.
 
-Unfortunately, due to the use of a sample of 100 of the top-500 entities in our experiments, iteration over the time-ordered post set required an expensive sequential scan - which cannot be avoided.
+Unfortunately, due to the use of sample of 100 of the top-500 entities in our experiments, iteration over the the time-ordered post set requires an expensive sequential scan - which cannot be avoided.
 That said, we were able to add a second level of parallelism however, given the sub modular and monotonic nature of the joint probability as follows.
 Calculation of the probability of $e$ being adopted by $u$ is derived from Eq. \ref{eq:joint_prob}, and is calculated from the prior neighbours of $u$ before adoption.
 Now, as this function is sub-modular and monotonic, we could \emph{update} the probability of adoption given a new neighbour's ($v$) influence probability as follows:
@@ -628,43 +594,28 @@ Now, as this function is sub-modular and monotonic, we could \emph{update} the p
 p_s(\Gamma(u) \cup p_{v,u}) = p_s(\Gamma(u)) + (1 - p_s(\Gamma(u))) * p_{v,u}
 \end{equation}
 
-Our additional layer of parallelism was achieved by \emph{multithreading} the calculation of the influence pdrobabilities between $v$ and each of his neighbours $u \in \Gamma(v)$, thus we calculated these pairwise influence probabilities in parallel and then updated $p_u(\Gamma(u)) : \forall u \in \Gamma(v)$.\footnote{N.b. the maintenance of the interactions between users records both the source and target of the interaction, hence we can retrieve directed interactions both ways - i.e. $v \rightarrow u \wedge v \leftarrow u$.}
+Now, our additional layer of parallelism occurs by \emph{multithreading} the calculation of the influence probabilities between $v$ and each of his neighbours $u \in \Gamma(v)$, thus we calculate these pairwise influence probabilities in parallel and then update $p_u(\Gamma(u)) : \forall u \in \Gamma(v)$.\footnote{N.b. the maintenance of the interactions between users records both the source and target of the interaction, hence we can retrieve directed interactions both ways - i.e. $v \rightarrow u \wedge v \leftarrow u$.}
+
+In sum: our first layer of parallelism occurs by splitting the processing up per entity (using Apache Spark to process a partition of entities in parallel); while our second layer of parallelism occurs within the Spark job for each entity where we parallelise the computation of the influence probabilities between two users - although this parallelism occurs \emph{within} each iteration through the time-ordered set of entity posts.
 The Java implementation of this code can be found in the github repository,\footnote{\url{https://github.com/mattroweshow/NER-Diff-Paper}} including the functions for building the HBase tables, deriving the entity-propagation counts ($E_{v2u}$) and the test algorithm.
 
 \subsubsection{Results}
-Table \ref{tab:macro_results} presents the results from our experiments of the various entity-adoption constructs and probability settings including the micro-averaged $ROC$ values for each model and the micro-averaged $ROC$ values - together with their standard deviation - for each model.
-The former values are computed by \emph{pooling} together all result tuples (i.e. $<u, p_u, r_u>$ ) from all the test entities, and working out the $ROC$ value from that pool; while the latter values are computed by working out the entity-specific $ROC$ values and deriving the average (and standard deviation) from those.
-Overall the results indicate that the static Bernoulli probability achieves the best performance, and that the best performing models are the Interactions-based model (from Micro-$ROC$) and the Community-homophily model (from Macro-$ROC$).
-We note the following salient points:
-
-\begin{itemize}
-	\item The window of influence (characterised by $\tau_{v,u}$) is too narrow, as emphasised by Fig. \ref{fig:taus_hist}. 
-	The use of static probabilities, although capturing influence over a large time-period, actually contribute information towards understanding influence between users based on interactions and similarity of communities posted within, as a result the window omits interactions prior to this.
-	This effect is represented in the difference in performance (of both Micro-$ROC$ and Macro-$ROC$ values) for the interactions-based and community-homphily models.
-		
-	\item Interactions have the greatest effect on adoption, not prior entity adoptions.
-	The static Bernoulli model indicates that \emph{in general} adoption of an entity is influenced by the intensity of interactions between two individuals, and not necessarily just whether propagation has actually occurred.
-	This finding reflects the \emph{communal} nature of Reddit where users constantly follow-up to posts with comments, which then evolve into a threaded discussion.
-	It is likely that in this context that interactions around specific topics (within designated subreddits) occur frequently between clusters of users, thereby leading towards discussions around certain entities later.
-	
-	\item Adoption from community homophily varies between entities.
-	The (relatively) large standard deviation for the community homohphily model with static Bernoulli setting in Table \ref{tab:macro_results} indicates how varied community-homphily can be.
-	One could hypothesise here that entities which are specific to a given community and/or are emergent within a community would require a user to be \emph{similar} to his peers in order to adopt it from them; whereas general entities are more likely to be ignored.
-	
-\end{itemize}
+Table \ref{tab:macro_results} presents the results from our experiments of the various models and probability settings including the micro-averaged $ROC$ values for each model and the micro-averaged $ROC$ values - together with their standard deviation - for each model.
+The former values are computed by \emph{pooling} together all result tuples (i.e. $<u, p_u, r_u>$ ) from all the test entities, and working out the ROC value from that pool; while the latter values are computed by working out the entity-specific ROC values and deriving the average (and standard deviation) from those.
 
 \begin{table}
 \begin{center}
-\caption{Area under the Receiver Operator Characteristic Curve (ROC) values for the different probability settings and influence probability settings within the general threshold model.}
+\caption{Area under the Receiver Operator Characteristic Curve (ROC) values for the different probability settings and influence probability settings within the general threshold model. 
+We calculated the micro-averaged ROC value (i.e. inducing the ROC over all entities' $<p_u, r_u>$ pairs) and the macro-averaged ROC value (i.e. inducing per-entity ROC values and then averaging them) - we also record the standard deviation of this latter metric within parentheses to show the variance in performance across entities. }
 \begin{tabular}{ l | c c | c c}
 \hline
 & \multicolumn{4}{c}{Probability Setting} \\
-Entity-adoption Construct & \multicolumn{2}{c |}{Static} & \multicolumn{2}{c}{Discrete-Time} \\
+Model & \multicolumn{2}{c |}{Static} & \multicolumn{2}{c}{Discrete-Time} \\
  & Micro-$ROC$ & Macro-$ROC$ & Micro-$ROC$ & Macro-$ROC$ \\
 \hline
 Entity-propagations ($p_{u}^{E}$)  & $0.730$ & $0.713 (\pm0.095)$ & $0.730$ & $0.714 (\pm0.096)$ \\
 Interactions-based ($p_{u}^{I}$) & $0.755$ & $0.710 (\pm0.095)$ & $0.666$ & $0.644 (\pm0.091)$ \\
-Community-homophily ($p_{u}^{C}$) & $0.715$ & $0.740 (\pm0.147)$ & $0.643$ & $0.631 (\pm0.085)$  \\
+Community-homophily ($p_{u}^{C}$) & $0.715$ & $0.740 (\pm0.147)$ & $0.640$ & $0.624 (\pm0.076)$  \\
 %$\alpha p_{u}^{A} + \beta p_{u}^{I}  + \gamma p_{u}^{C}$ & & \\
 \hline
 \end{tabular}
@@ -673,44 +624,67 @@ Community-homophily ($p_{u}^{C}$) & $0.715$ & $0.740 (\pm0.147)$ & $0.643$ & $0.
 \end{table}
 
 
+Overall the results indicate that the static version of the Bernoulli probability achieves the best performance - in particular for the Macro-$ROC$ values, and that the best performing models are the Interactions-based model (from Micro-$ROC$) and the Community-homophily model (from Macro-$ROC$).
+Our results indicate the following salient points:
+
+\begin{itemize}
+	\item The window of influence (characterised by $\tau_{v,u}$) is too narrow, as emphasised by Fig. \ref{fig:taus_hist}. 
+	The use of static probabilities, although capturing influence over a large time-period, actually contribute information towards understanding influence between users based on interactions and similarity of communities posted within, as result the window omits interactions prior to this narrow window.
+	This effect is \emph{represented} in the difference in performance (of both Micro-$ROC$ and Macro-$ROC$ values) for the interactions-based and community-homphily models.
+		
+	\item Interactions have the greatest effect on adoption, not prior entity adoptions.
+	The static Bernoulli model indicates that \emph{in general} adoption of an entity is influenced by the intensity of interactions between two individuals, and not necessarily just whether propagation has actually occurred .
+	This finding reflects the \emph{communal} nature of Reddit where users constantly follow-up to posts with comments, which then evolve into a threaded discussion.
+	It is likely that in this context that interactions around specific topics (within designated subreddits) occur frequently between clusters of users, thereby leading towards discussions around certain entities at a later point in time - thus exhibiting \emph{behaviour contagion} in the adoption of the entity.
+	
+	\item Adoption from community homophily varies between entities.
+	The (relatively) large standard deviation for the community homohphily model with static Bernoulli setting in Table \ref{tab:macro_results} indicates the variance of the effect of community homphily over the entities that were tested.
+	One could hypothesise here that entities which are specific to a given community and/or are emergent within a community would require a user to be \emph{similar} to his peers in order to adopt it from them; whereas general entities are more likely to be ignored.
+	
+\end{itemize}
+
+
+
 \section{Discussion and Future Work}
 \label{sec:discussions}
 In this paper we have presented one of the first pieces of work to examine how entities spread through social networks.
-As a result of this novelty, our work has prompted a variety of avenues for future work.
-Therefore in this section we reflect on the approach we adopted and any potential issues that may arise from this, before then outlining our future work plans.
+As a result of this novelty, our work seems to have prompted more questions than we set out to answer; therefore in this section we reflect on the approach we adopted and any potential issues that may arise from this, before then outlining our plans for future work within this space.
+
 One of the core findings that we presented in this work is that the mode of the exposure-adoption function (i.e. probability of adoption as a function of $k$ exposures to an entity) resides at $k=0$.
 As we had to restrict the annotation of Reddit to a sample of 100 subreddits, it is possible that users were \emph{exposed} to entities beforehand but within communities that we did not annotate.
-Therefore to validate our finding, our future work will take a sample of $1,000$ entities and form regular expressions that match those entities within the whole of the Reddit dataset, the exposure-adoption graphs will then be derived once again from this information.
+Therefore to validate our finding, our future work will take a sample of 1000 entities and form regular expressions that match those entities within the whole of the Reddit dataset, the exposure-adoption graphs will then be derived once again from this information.
 
-Our second proposal for future work is to extend the univariate deterministic case that we have explored thus far - i.e. calculating the probability of $u$ adopting $e$ - to a multivariate case - i.e. calculating the probabilities of $u$ adopting members from entity set $E$, where members of $E$ are \emph{colinear}.
+Our second proposal for future work is to extend the univariate deterministic case that we have explored thus far - i.e. calculating the probability of $u$ adopting $e$ - to a multivariate case - i.e. calculating the probabilities of $u$ adopting members from entity set $E$, where $E$ are \emph{colinear}.
 This would allow for the investigation of \emph{vulnerability} windows to be explored which would characterise how \emph{susceptible} a given user is to adopting an entity (or any colinear contagion) based on his recent adoptions.
-The third future work effort will be to extend the calculation of the adoption probabilities to the continuous time case - as in \cite{huang2014temporal} - by computing the probability of one user \emph{influencing} another user based on the latency to their latest interaction.
-This would allow for entity adoption to be explored from the perspective of pairwise interactions, as opposed to entity-propagations - thereby potentially alleviating the confounding effect of the influence window that we found in the discrete-time setting.
+The third future work effort will be to extend the calculation of the adoption probabilities to the continuous time case - as in \cite{huang2014temporal} - by computing the probability of one user \emph{influencing} another user based on the latency between their latest interaction.
+This would allow for entity adoption to be explored from the perspective of pairwise interactions, as opposed to entity-propagations - thereby potentially alleviating the confounding effect of the influence window that we found in the results table.
 
 
 
 
 \section{Conclusions}
 \label{sec:conclusions}
-Understanding how entities spread through social networks provides researchers and marketers with valuable insights to recover and forecast the diffusion process.
+Understanding how entities spread through social networks provides researchers and marketers with valuable insights that can be used to recover and forecast the diffusion process.
 Our study of entity diffusion began by presenting an accurate means to obtain named entities from within discussion posts, before moving on to examining what \emph{patterns} of entity diffusion occur - and how frequently - and how exposures to entities are associated with the probability of a user adopting an entity.
 Following these findings we presented a general threshold diffusion model that allows for different entity-adoption constructs to be tested within the diffusion process: our results from applying this model indicated that the interactions between individuals provide the most accurate means of calculating influence probabilities and thus forecasting entity adoption.
 
 In the introduction of this paper we set forth three research questions. 
 We now revisit these questions and highlight the evidence presented in our paper and how this has contributed towards answering the questions:
 
-\textbf{RQ1:} How can we accurately detect named entities in social media based discourse, given its myriad formats, often informal vernacular, and inherent noise (e.g. misspellings, abbreviations, etc.)?
-We have presented a method to detect named entities within Reddit posts that uses structured prediction and Brown clustering.
-Furthermore, we presented an empirical evaluation of our method when trained using a blend of named entity annotated corpora to \emph{transfer} existing annotations from disparate corpora (covering different language styles) as training data.
+\begin{itemize}
+	\item \textbf{RQ1:} How can we accurately detect named entities in social media based discourse, given its myriad formats, often informal vernacular, and inherent noise (e.g. misspellings, abbreviations, etc.)?
+\end{itemize}
 
- \textbf{RQ2:} What process governs the spread of entities? And how does such spread occur?
-We derived key insights into what diffusion patterns are found when entities spread through threaded discussions,  finding that, unlike the spread of hyperlinks in the blogosphere \cite{leskovec2007patterns}, entities exhibit relatively \emph{deep} and \emph{narrow} diffusion traces.
-We also investigated the association between the number of exposures that users receive of an entity and the probability of a user adopting said entity thereafter, discovering that adoption probability decays as exposure count increases.
+We have presented a method to detect named entities within Reddit posts that using conditional random fields and brown clustering.
+Furthermore, we have presented an empirical evaluation of our method when trained using a blend of named entity annotated corpora from both newswire and Twitter to \temph{transfer}
 
- \textbf{RQ3:} How can we predict the spread of named entities and who will begin talking about them?	
-Putting all the pieces together, we implemented a modified version of a general threshold model which incorporated entity-adoption constructs to test different mechanisms for computing user-to-user influence probabilities and can be learnt in parallel.
-Our empirical evaluation of this framework found that interactions had the greatest \emph{overall} effect, while there was variance between entities in terms of the impact of \emph{community-homphily} on users adopting an entity.
+\begin{itemize}
+	\item \textbf{RQ2:} What process governs the spread of entities? And how does such spread occur?
+\end{itemize}
 
+\begin{itemize}
+	\item \textbf{RQ3:} How can we predict the spresd o named entities and who will begin talking about them?	
+\end{itemize}
 
 % if have a single appendix:
 %\appendix[Proof of the Zonklar Equations]
