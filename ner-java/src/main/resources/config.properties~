@@ -1,0 +1,6 @@
+mesos=mesos://zk://scc-culture-slave3.lancs.ac.uk:2181,scc-culture-slave4.lancs.ac.uk:2181/mesos
+appname=NER-Diffusion - Edge Writing
+spark.executor.uri=hdfs://scc-culture-mind.lancs.ac.uk/lib/spark-1.5.0-bin-hadoop2.4.tgz
+spark.mesos.coarse=true
+spark.cores.max=10
+hbase.zookeeper.quorum=scc-culture-slave3.lancs.ac.uk
