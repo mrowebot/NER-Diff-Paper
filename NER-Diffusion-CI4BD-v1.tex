@@ -1,70 +1,16 @@
-\documentclass[journal,10pt,draftclsnofoot,onecolumn]{IEEEtran}
+\documentclass[review]{elsarticle}
 
 \usepackage{url}
 \usepackage[tight,footnotesize]{subfigure}
 \usepackage{amsthm}
 \usepackage{multirow}
+\usepackage{natbib}
 
-% *** MISC UTILITY PACKAGES ***
-%\usepackage{ifpdf}
-% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
-% compilation based on whether the output is pdf or dvi.
-% usage:
-% \ifpdf
-%   % pdf code
-% \else
-%   % dvi code
-% \fi
-% The latest version of ifpdf.sty can be obtained from:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/oberdiek/
-% Also, note that IEEEtran.cls V1.7 and later provides a builtin
-% \ifCLASSINFOpdf conditional that works the same way.
-% When switching from latex to pdflatex and vice-versa, the compiler may
-% have to be run twice to clear warning/error messages.
 
-% *** CITATION PACKAGES ***
-%
-%\usepackage{cite}
-% cite.sty was written by Donald Arseneau
-% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
-% \cite{} output to follow that of IEEE. Loading the cite package will
-% result in citation numbers being automatically sorted and properly
-% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
-% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
-% \cite will automatically add leading space, if needed. Use cite.sty's
-% noadjust option (cite.sty V3.8 and later) if you want to turn this off
-% such as if a citation ever needs to be enclosed in parenthesis.
-% cite.sty is already installed on most LaTeX systems. Be sure and use
-% version 5.0 (2009-03-20) and later if using hyperref.sty.
-% The latest version can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/cite/
-% The documentation is contained in the cite.sty file itself.
-
-% *** GRAPHICS RELATED PACKAGES ***
-%
-\ifCLASSINFOpdf
-  \usepackage[pdftex]{graphicx}
-  % declare the path(s) where your graphic files are
-  % \graphicspath{{../pdf/}{../jpeg/}}
-  % and their extensions so you won't have to specify these with
-  % every instance of \includegraphics
-  \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
-\else
-  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
-  % will default to the driver specified in the system graphics.cfg if no
-  % driver is specified.
-  % \usepackage[dvips]{graphicx}
-  % declare the path(s) where your graphic files are
-  % \graphicspath{{../eps/}}
-  % and their extensions so you won't have to specify these with
-  % every instance of \includegraphics
-  % \DeclareGraphicsExtensions{.eps}
-\fi
-
+\usepackage{graphicx}
 
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
-
 \newtheorem{mydef}{Definition}
 
 
@@ -74,18 +20,17 @@
 
 %\author{Matthew Rowe and Leon Derczynski}% <-this % stops a space
 
-\author{\IEEEauthorblockN{Matthew Rowe\IEEEauthorrefmark{1} and
-Leon Derczynski\IEEEauthorrefmark{2}\\}
-\IEEEauthorblockA{\IEEEauthorrefmark{1}School of Computing and Communications, Lancaster University, Lancaster UK\\}
-\IEEEauthorblockA{\IEEEauthorrefmark{2}}Department of Computer Science, University of Sheffield, Sheffield UK}
+\author[lancs]{Matthew Rowe}
+\ead{m.rowe@lancaster.ac.uk}
+\author[usfd]{Leon Derczynski}
 
 
-% The paper headers
-\markboth{Computational Intelligence Magazine}
-{Shell \MakeLowercase{\textit{et al.}}: Tracking the Diffusion of Named Entities}
+\fntext[fn1]{Submitted to ``Knowledge-Based Systems".}
 
-% make the title area
-\maketitle
+\address[lancs]{School of Computing and Communications, Lancaster University, Lancaster UK}
+\address[usfd]{Department of Computer Science, University of Sheffield, Sheffield UK}
+
+
 
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
@@ -93,18 +38,14 @@ Leon Derczynski\IEEEauthorrefmark{2}\\}
 Existing studies of how information diffuses across social networks has thus far concentrated on analysing and recovering the spread of deterministic innovations such as URLs, hashtags, and group membership.
 However investigating how mentioned of real-world entities appear and spread has yet to be explored, largely due to the computationally intractable nature of performing large-scale entity extraction.
 In this paper we present, to the best of our knowledge, one of the first pieces of work to losslessly examine the diffusion of named entities on social media, using Reddit as our case study platform.
+This forms a data-driven methodology to analysis of propagation at large scale. %nail the KBS cfp
 We first investigate how named entities can be accurately recognised and extracted from discussion posts, using an automated approach based upon structured prediction and Brown clustering.
 We then use these extracted entities to study the patterns of entity cascades and how the probability of a user adopting an entity (i.e. mentioning it) is associated with exposures to the entity.
 We put these pieces together by presenting a parallelised diffusion model that can forecast the probability of entity adoption, finding that the influence of adoption between users can be characterised by their prior interactions - as opposed to whether the users propagated entity-adoptions beforehand.
 Our findings have important implications for researchers studying influence and language, and for digital marketers who wish to understand entity-level influence dynamics.
 \end{abstract}
 
-% Note that keywords are not normally used for peerreview papers.
-%\begin{IEEEkeywords}
-%To do
-%\end{IEEEkeywords}
-
-\IEEEpeerreviewmaketitle
+\maketitle
 
 
 \section{Introduction}
@@ -169,7 +110,7 @@ We first review state of the art approaches for recognising named entities, befo
 \subsection{Named Entity Recognition}
 Named entity recognition (NER) has been a long-recognised NLP task, the earliest major instances of which are perhaps the ACE and MUC challenges.
 The goal is typically to extract mentions of certain types of entities, like organisations, locations or person names.
-Generally, NER systems can be structured in terms of representation, induction, dependency modelling and integration of real-world knowledge~\cite{nadeau2007survey,RatinovRo09}.
+Generally, NER systems can be structured in terms of representation, induction, dependency modelling and integration of real-world knowledge~\cite{nadeau2007survey,ratinov2009design}.
 
 While initially conducted over newswire~\cite{tjong2003introduction}, older tools tend not to perform so well on modern text types, such as tweets and other short social media text~\cite{derczynski2013microblog}.
 Simultaneously, the value in non-newswire data has rocketed: for example, social media now provides us with a sample of all human discourse, unmolested by news editors, publishing guidelines and the like, and all in digital format -- leading to whole new fields of research opening in computational social science, examining e.g. demographics~\cite{hovy2015user}, personality~\cite{plank2015personality} and income~\cite{preoctiuc2015studying}.
@@ -398,7 +339,7 @@ We noted that in prior work~\cite{derczynski2015tune}, entity recognition perfor
 As General Brown clustering is dependent on the number of types and the size of the active set $a$, and results are unreliable with $a>C$, we set $C = a = 2,560$.
 This offers a decent trade-off between computational cost of building clusters, and the quality of the clusterings used.
 We then experiment with combinations of newswire, Twitter and Reddit data.
-%Brown clusters are extracted using the generalised-brown package.~\cite{sean_chester_2015_33758}.
+Brown clusters are extracted using the generalised-brown package.~\cite{sean_chester_2015_33758}.
 Results are given in Table~\ref{tab:brown-tuning}.
 
 Note how the scores are consistently best in each category when inducing Brown clusters from Reddit data.
@@ -710,122 +651,9 @@ We also investigated the association between the number of exposures that users 
  \textbf{RQ3:} How can we predict the spread of named entities and who will begin talking about them?	
 Putting all the pieces together, we implemented a modified version of a general threshold model which incorporated entity-adoption constructs to test different mechanisms for computing user-to-user influence probabilities and can be learnt in parallel.
 Our empirical evaluation of this framework found that interactions had the greatest \emph{overall} effect, while there was variance between entities in terms of the impact of \emph{community-homphily} on users adopting an entity.
-
-
-% if have a single appendix:
-%\appendix[Proof of the Zonklar Equations]
-% or
-%\appendix  % for no appendix heading
-% do not use \section anymore after \appendix, only \section*
-% is possibly needed
-
-% use appendices with more than one appendix
-% then use \section to start each appendix
-% you must declare a \section before using any
-% \subsection or using \label (\appendices by itself
-% starts a section numbered zero.)
-%
-
-
-%\appendices
-%\section{Proof of the First Zonklar Equation}
-%Appendix one text goes here.
-%
-%% you can choose not to have a title for an appendix
-%% if you want by leaving the argument blank
-%\section{}
-%Appendix two text goes here.
-%
-%
-%% use section* for acknowledgment
-%\section*{Acknowledgment}
-%
-%
-%The authors would like to thank...
-%
-%
-%% Can use something like this to put references on a page
-%% by themselves when using endfloat and the captionsoff option.
-%\ifCLASSOPTIONcaptionsoff
-%  \newpage
-%\fi
-
-
-
-% trigger a \newpage just before the given reference
-% number - used to balance the columns on the last page
-% adjust value as needed - may need to be readjusted if
-% the document is modified later
-%\IEEEtriggeratref{8}
-% The "triggered" command can be changed if desired:
-%\IEEEtriggercmd{\enlargethispage{-5in}}
-
-% references section
-
-% can use a bibliography generated by BibTeX as a .bbl file
-% BibTeX documentation can be easily obtained at:
-% http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/
-% The IEEEtran BibTeX style support page is at:
-% http://www.michaelshell.org/tex/ieeetran/bibtex/
-\bibliographystyle{IEEEtran}
-% argument is your BibTeX string definitions and bibliography database(s)
-%\bibliography{IEEEabrv,NER-Diffusion}
+\bibliographystyle{elsarticle-num}
 \bibliography{NER-Diffusion}
-%
-% <OR> manually copy in the resultant .bbl file
-% set second argument of \begin to the number of references
-% (used to reserve space for the reference number labels box)
-%\begin{thebibliography}{1}
-%
-%\bibitem{IEEEhowto:kopka}
-%H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-%  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
-%
-%\end{thebibliography}
-%
-%% biography section
-%% 
-%% If you have an EPS/PDF photo (graphicx package needed) extra braces are
-%% needed around the contents of the optional argument to biography to prevent
-%% the LaTeX parser from getting confused when it sees the complicated
-%% \includegraphics command within an optional argument. (You could create
-%% your own custom macro containing the \includegraphics command to make things
-%% simpler here.)
-%%\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
-%% or if you just want to reserve a space for a photo:
-%
-%\begin{IEEEbiography}{Michael Shell}
-%Biography text here.
-%\end{IEEEbiography}
-%
-%% if you will not have a photo at all:
-%\begin{IEEEbiographynophoto}{John Doe}
-%Biography text here.
-%\end{IEEEbiographynophoto}
-%
-%% insert where needed to balance the two columns on the last page with
-%% biographies
-%%\newpage
-%
-%\begin{IEEEbiographynophoto}{Jane Doe}
-%Biography text here.
-%\end{IEEEbiographynophoto}
 
-% You can push biographies down or up by placing
-% a \vfill before or after them. The appropriate
-% use of \vfill depends on what kind of text is
-% on the last page and whether or not the columns
-% are being equalized.
-
-%\vfill
-
-% Can be used to pull up biographies so that the bottom of the last one
-% is flush with the other column.
-%\enlargethispage{-5in}
-
-
-
-% that's all folks
 \end{document}
 
 
