@@ -1,10 +1,20 @@
-\documentclass[review]{elsarticle}
+\documentclass[10pt,journal,compsoc]{IEEEtran}
+
+\ifCLASSOPTIONcompsoc
+  % IEEE Computer Society needs nocompress option
+  % requires cite.sty v4.0 or later (November 2003)
+  \usepackage[nocompress]{cite}
+\else
+  % normal IEEE
+  \usepackage{cite}
+\fi
+
 
 \usepackage{url}
 \usepackage[tight,footnotesize]{subfigure}
 \usepackage{amsthm}
 \usepackage{multirow}
-\usepackage{natbib}
+%\usepackage{natbib}
 
 
 \usepackage{graphicx}
@@ -18,22 +28,16 @@
 
 \title{Tracking the Diffusion of Named Entities}
 
-%\author{Matthew Rowe and Leon Derczynski}% <-this % stops a space
-
-\author[lancs]{Matthew Rowe}
-\ead{m.rowe@lancaster.ac.uk}
-\author[usfd]{Leon Derczynski}
-
-
-\fntext[fn1]{Submitted to ``Knowledge-Based Systems".}
-
-\address[lancs]{School of Computing and Communications, Lancaster University, Lancaster UK}
-\address[usfd]{Department of Computer Science, University of Sheffield, Sheffield UK}
+\author{Matthew~Rowe
+        and~Leon~Derczynski}% <-this % stops a space
+\IEEEcompsocitemizethanks{\IEEEcompsocthanksitem M. Rowe was with the School of Computing and Communications, Lancaster University, Lancaster UK.\protect\\
+% note need leading \protect in front of \\ to get a newline within \thanks as
+% \\ is fragile and will error, could use \hfil\break instead.
+E-mail: m.rowe@lancaster.ac.uk
+\IEEEcompsocthanksitem J. Doe is with the Department of Computer Science, University of Sheffield, Sheffield UK.}% <-this % stops an unwanted space
 
 
-
-% As a general rule, do not put math, special symbols or citations
-% in the abstract or keywords.
+\IEEEtitleabstractindextext{%
 \begin{abstract}
 Existing studies of how information diffuses across social networks has thus far concentrated on analysing and recovering the spread of deterministic innovations such as URLs, hashtags, and group membership.
 However investigating how mentioned of real-world entities appear and spread has yet to be explored, largely due to the computationally intractable nature of performing large-scale entity extraction.
@@ -45,10 +49,40 @@ We put these pieces together by presenting a parallelised diffusion model that c
 Our findings have important implications for researchers studying influence and language, and for digital marketers who wish to understand entity-level influence dynamics.
 \end{abstract}
 
+% Note that keywords are not normally used for peerreview papers.
+\begin{IEEEkeywords}
+Computer Society, IEEE, IEEEtran, journal, \LaTeX, paper, template.
+\end{IEEEkeywords}}
+
+
 \maketitle
 
 
-\section{Introduction}
+% To allow for easy dual compilation without having to reenter the
+% abstract/keywords data, the \IEEEtitleabstractindextext text will
+% not be used in maketitle, but will appear (i.e., to be "transported")
+% here as \IEEEdisplaynontitleabstractindextext when the compsoc 
+% or transmag modes are not selected <OR> if conference mode is selected 
+% - because all conference papers position the abstract like regular
+% papers do.
+\IEEEdisplaynontitleabstractindextext
+% \IEEEdisplaynontitleabstractindextext has no effect when using
+% compsoc or transmag under a non-conference mode.
+
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+\IEEEraisesectionheading{\section{Introduction}\label{sec:introduction}}
 Understanding who influences whom and under what conditions forms a core component of information diffusion studies.
 Recovering the so-called \emph{diffusion process} allows researchers and marketers to understand how messages are passed between users, and what contributes to their flow.
 In turn, this allows for simulation and predictive models to be engineered that forecast the expected spread of information, allowing such \emph{spread potential} to be maximised or minimised.
@@ -173,7 +207,7 @@ The result that we come to at the end of this stage is a complete dataset for tr
 \begin{figure}
 \centering
 \label{fig:reddit-example}
-\includegraphics[width=0.4\columnwidth]{reddit-example.png}
+\includegraphics[width=0.7\columnwidth]{reddit-example.png}
 \caption{Example Reddit post. Note topic at the top, followed by comments, with conversations descending in a tree-like hierarchical fashion}
 \end{figure}
 
@@ -594,7 +628,7 @@ We note the following salient points:
 	
 \end{itemize}
 
-\begin{table}
+\begin{table*}
 \begin{center}
 \caption{Area under the Receiver Operator Characteristic Curve (ROC) values for the different probability settings and influence probability settings within the general threshold model.}
 \begin{tabular}{ l | c c | c c}
@@ -611,7 +645,7 @@ Community-homophily ($p_{u}^{C}$) & $0.715$ & $0.740 (\pm0.147)$ & $0.643$ & $0.
 \end{tabular}
 \label{tab:macro_results}
 \end{center}
-\end{table}
+\end{table*}
 
 
 \section{Discussion and Future Work}
@@ -651,8 +685,32 @@ We also investigated the association between the number of exposures that users 
  \textbf{RQ3:} How can we predict the spread of named entities and who will begin talking about them?	
 Putting all the pieces together, we implemented a modified version of a general threshold model which incorporated entity-adoption constructs to test different mechanisms for computing user-to-user influence probabilities and can be learnt in parallel.
 Our empirical evaluation of this framework found that interactions had the greatest \emph{overall} effect, while there was variance between entities in terms of the impact of \emph{community-homphily} on users adopting an entity.
-\bibliographystyle{elsarticle-num}
+
+% use section* for acknowledgment
+\ifCLASSOPTIONcompsoc
+  % The Computer Society usually uses the plural form
+  \section*{Acknowledgments}
+\else
+  % regular IEEE prefers the singular form
+  \section*{Acknowledgment}
+\fi
+The authors would like to thank...
+
+
+\bibliographystyle{IEEEtran}
 \bibliography{NER-Diffusion}
+
+%\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
+% or if you just want to reserve a space for a photo:
+
+\begin{IEEEbiography}{Matthew Rowe}
+Biography text here.
+\end{IEEEbiography}
+
+\begin{IEEEbiography}{Leon Derczynski}
+Biography text here.
+\end{IEEEbiography}
+
 
 \end{document}
 
