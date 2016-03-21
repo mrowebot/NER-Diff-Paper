@@ -286,7 +286,7 @@ The zero-length bitstring describes the situation at the top of the hierarchy, w
 These bitstrings are typically converted to features by \emph{shearing}~\cite{derczynski2016generalised}.
 This involves only examining the first $n$ bits of a bitstring.
 However, shearing does not maximise the information preserved in the representation -- sub-clusterings at many levels are lost.
-We therefore experiment with a new method of feature extraction from Brown clusters, which we call {\em provenance-based} feature extraction.
+We therefore introduce in this work a new method of feature extraction from Brown clusters, which we call {\em provenance-based} feature extraction.
 We take the cluster identifier at every level, tracing the provenance of a terminal word cluster all the way to the root cluster (which contains all word types).
 This preserves the entire set membership of any given term, throughout the induced hierarchical clustering.
 For example, given the bitstring {\tt 1100101}, the following text features are generated: {\tt 1}, {\tt 11}, {\tt 110}, {\tt 1100}, {\tt 11001}, {\tt 110010}, {\tt 1100101}.
@@ -324,6 +324,7 @@ These are then isolated, tokenised, and manually annotated.
 Our annotation format follows~\cite{ritter2011named} in using the Freebase top-level entity type inventory, but only uses the chunking information, as nothing further than this is needed: only the surface forms of entities.
 In total, we identified and annotated $3,708$ tokens of Reddit data, including $149$ entity chunks.
 This comprised our development set, which was used to tune a variety of parameters in our approach.
+Evaluation was performed using the standard {\tt conlleval.pl} tool for entity chunking evaluation, including across the Stanford NER output.
 
 
 \begin{table}
@@ -333,26 +334,32 @@ This comprised our development set, which was used to tune a variety of paramete
 \hline
 {\bf Brown cluster composition} & {\bf Precision} & {\bf Recall} & {\bf F1} & {\bf F2} \\
 \hline
-\multicolumn{5}{c}{Newswire training data} \\
+\multicolumn{5}{c}{\emph{Newswire training data}} \\
+\hline
+Stanford NER basic    & & & & \\
+\multicolumn{5}{c}{\emph{Newswire training data}} \\
 \hline
 RCV Newswire          & 63.57 & 59.73 & 61.59 & 60.96 \\
 Tweets                & 62.75 & 64.43 & 63.58 & 63.86 \\
-Blended tweets/news  & 68.42 & 61.07 & 64.54 & 63.34 \\
+Blended tweets/news   & 68.42 & 61.07 & 64.54 & 63.34 \\
 Reddit                & 66.32 & 67.11 & 66.71 & 66.84 \\
+Stanford baseline     & 63.97 & 58.39 & 61.05 & 60.14 \\
 \hline
 \multicolumn{5}{c}{\emph{Twitter training data}} \\
 \hline
 RCV Newswire          & 73.02 & 30.87 & 43.39 & 38.22 \\
 Tweets                & 70.37 & 38.26 & 49.57 & 45.12 \\
-Blended tweets/news  & 65.28 & 31.54 & 42.53 & 38.10 \\
+Blended tweets/news   & 65.28 & 31.54 & 42.53 & 38.10 \\
 Reddit                & 76.34 & 47.65 & 58.68 & 54.47 \\
+Stanford baseline     & 65.22 & 30.20 & 41.28 & 36.78 \\
 \hline
 \multicolumn{5}{c}{\emph{Blended training data, 50:50}} \\
 \hline
 RCV Newswire          & 66.67 & 42.96 & 52.25 & 48.74 \\
 Tweets                & 66.10 & 52.35 & 58.43 & 56.25 \\
-Blended tweets/news  & 68.69 & 45.64 & 54.84 & 51.39 \\
+Blended tweets/news   & 68.69 & 45.64 & 54.84 & 51.39 \\
 Reddit                & 70.08 & 59.73 & 64.49 & 62.82 \\
+Stanford baseline     & 67.77 & 55.03 & 41.28 & 36.78 \\
 \hline
 \end{tabular}
 \label{tab:brown-tuning}
@@ -365,12 +372,15 @@ This scheme gives broader coverage than e.g. the three-class ACE named entity sc
 For newswire, we use the Reuters RCV1 corpus annotations that were part of the CoNLL-2003 shared task~\cite{tjong2003introduction}.
 Classes are removed before training, making this just a chunking task.
 
+The baseline was the Stanford NER tool~\cite{finkel2005incorporating}.
+We included two variants: one run of the out-of-the-box stock system, and another with a model trained on the same source data as our system.
+
 Firstly, we tuned our word representations.
 Specifically, we needed to estimate the number of Brown clusters $C$ to use in feature extraction.
 We also then used this to determine what blend of social, Reddit or news data gave best results in unsupervised feature generation and extraction.
 To tune the value for $C$, we examined a similar scenario with similar dataset sizes, and estimated an optimum.
-We noted that in prior work~\cite{derczynski2015tune}, entity recognition performance with decomposed class prefixes -- similar to the provenance-based features we propose here -- peak at around $C=2,500$ for corpora of 16k tokens, $C=5,000$ for corpora of 32k tokens, and at higher values for larger datasets.
-As General Brown clustering is dependent on the number of types and the size of the active set $a$, and results are unreliable with $a>C$, we set $C = a = 2,560$.
+We noted that in prior work~\cite{derczynski2015tune}, entity recognition performance with decomposed class prefixes -- similar to the provenance-based features we propose here -- peak at around $C=2500$ for corpora of 16k tokens, $C=5,000$ for corpora of 32k tokens, and at higher values for larger datasets.
+As General Brown clustering is dependent on the number of types and the size of the active set $a$, and results are unreliable with $a>C$, we set $C = a = 2560$.
 This offers a decent trade-off between computational cost of building clusters, and the quality of the clusterings used.
 We then experiment with combinations of newswire, Twitter and Reddit data.
 Brown clusters are extracted using the generalised-brown package.~\cite{sean_chester_2015_33758}.
