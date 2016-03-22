@@ -205,6 +205,13 @@ L.~Derczynski, I.~Augenstein, and K.~Bontcheva, ``{USFD: Twitter NER with Drift
   Compensation and Linked Data},'' \emph{Proc. W-NUT (ACL-IJCNLP)}, pp. 48--53,
   2015.
 
+\bibitem{bollacker2008freebase}
+K.~Bollacker, C.~Evans, P.~Paritosh, T.~Sturge, and J.~Taylor, ``Freebase: a
+  collaboratively created graph database for structuring human knowledge,'' in
+  \emph{Proceedings of the 2008 ACM SIGMOD international conference on
+  Management of data}.\hskip 1em plus 0.5em minus 0.4em\relax ACM, 2008, pp.
+  1247--1250.
+
 \bibitem{finkel2005incorporating}
 J.~R. Finkel, T.~Grenager, and C.~Manning, ``Incorporating non-local
   information into information extraction systems by gibbs sampling,'' in

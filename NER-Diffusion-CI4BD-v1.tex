@@ -367,19 +367,27 @@ Stanford baseline     & 67.77 & 55.03 & 41.28 & 36.78 \\
 
 
 In addition, we draw supervised data for multiple datasets in order to approximate the Reddit text type.
-We take data from Reddit, taking the union of corpora used in previous work that follow the Freebase ten-class entity scheme~\cite{ritter2011named,baldwin2015shared}.
-This scheme gives broader coverage than e.g. the three-class ACE named entity scheme.
+We take data from Twitter, taking the union of corpora used in previous work that follow the Freebase~\cite{bollacker2008freebase} ten-class entity scheme.
+The classes given are company, facility, geo-loc, movie, musicartist, person, product, sportsteam, tvshow and other.
+This scheme gives broader coverage than e.g. the three-class ACE named entity scheme, in a number of ways.
+It differentiates geo-political entities from smaller granularity locations like buildings; it handles the often-metonymous categories of sports team and music artist (which often present ambiguities between location and organisation, or person and organisation, respectively); and it covers products, as well as introducing a few specific product types that may have unusal names (TV shows and movies).
+This scheme has proven successful on social media corpora before~\cite{ritter2011named,baldwin2015shared}.
 For newswire, we use the Reuters RCV1 corpus annotations that were part of the CoNLL-2003 shared task~\cite{tjong2003introduction}.
 Classes are removed before training, making this just a chunking task.
+We evaluated performance when trained on just Twitter data, just newswire data, and also a blend of the two.
+In the base cases, the same amount of data was used.
+This was capped by the volume of Twitter training data available, 66k tokens; so, the newswire approach was also trained with 66k tokens
+The the blended version used even amounts of both, totalling 132k data, to see if adding the two types of data improved performance.
+An even split was chosen because, if one is to search for the best split, this is the optimal place to begin a binary search.
 
-The baseline was the Stanford NER tool~\cite{finkel2005incorporating}.
+The baseline system was the Stanford NER tool~\cite{finkel2005incorporating}.
 We included two variants: one run of the out-of-the-box stock system, and another with a model trained on the same source data as our system.
 
 Firstly, we tuned our word representations.
 Specifically, we needed to estimate the number of Brown clusters $C$ to use in feature extraction.
 We also then used this to determine what blend of social, Reddit or news data gave best results in unsupervised feature generation and extraction.
 To tune the value for $C$, we examined a similar scenario with similar dataset sizes, and estimated an optimum.
-We noted that in prior work~\cite{derczynski2015tune}, entity recognition performance with decomposed class prefixes -- similar to the provenance-based features we propose here -- peak at around $C=2500$ for corpora of 16k tokens, $C=5,000$ for corpora of 32k tokens, and at higher values for larger datasets.
+We noted that in prior work~\cite{derczynski2015tune}, entity recognition performance with decomposed class prefixes -- similar to the provenance-based features we propose here -- peak at around $C=2500$ for corpora of 16k tokens, $C=5000$ for corpora of 32k tokens, and at higher values for larger datasets.
 As General Brown clustering is dependent on the number of types and the size of the active set $a$, and results are unreliable with $a>C$, we set $C = a = 2560$.
 This offers a decent trade-off between computational cost of building clusters, and the quality of the clusterings used.
 We then experiment with combinations of newswire, Twitter and Reddit data.
