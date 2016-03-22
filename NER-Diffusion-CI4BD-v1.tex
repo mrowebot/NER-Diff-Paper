@@ -9,13 +9,14 @@
   \usepackage{cite}
 \fi
 
-\usepackage{url}
-\usepackage[tight,footnotesize]{subfigure}
-\usepackage{amsthm}
-\usepackage{multirow}
-%\usepackage{natbib}
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath}
 
-\usepackage{graphicx}
+\usepackage[caption=false,font=footnotesize,labelfont=sf,textfont=sf]{subfig}
+\def\subfigure{\subfloat}
+
+\usepackage{url}
+\usepackage{multirow}
 
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
@@ -25,14 +26,14 @@
 \begin{document}
 
 \title{Tracking the Diffusion of Named Entities}
-
 \author{Matthew~Rowe
-        and~Leon~Derczynski}% <-this % stops a space
-\IEEEcompsocitemizethanks{\IEEEcompsocthanksitem M. Rowe was with the School of Computing and Communications, Lancaster University, Lancaster UK.\protect\\
+        and~Leon~Derczynski% <-this % stops a space
+\IEEEcompsocitemizethanks{\IEEEcompsocthanksitem M. Rowe is with the School of Computing and Communications, Lancaster University, Lancaster UK.\protect\\
 % note need leading \protect in front of \\ to get a newline within \thanks as
 % \\ is fragile and will error, could use \hfil\break instead.
 E-mail: m.rowe@lancaster.ac.uk
-\IEEEcompsocthanksitem L. Derczynski is with the Department of Computer Science, University of Sheffield, Sheffield UK.}% <-this % stops an unwanted space
+\IEEEcompsocthanksitem L. Derczynski is with the Department of Computer Science, University of Sheffield, Sheffield UK.\protect\\
+E-mail: leon.d@sheffield.ac.uk}}% <-this % stops an unwanted space
 
 
 \IEEEtitleabstractindextext{%
@@ -78,7 +79,6 @@ Entity diffusion, information diffusion, named entity recognition, social comput
 % For peerreview papers, this IEEEtran command inserts a page break and
 % creates the second title. It will be ignored for other modes.
 \IEEEpeerreviewmaketitle
-
 
 \IEEEraisesectionheading{\section{Introduction}\label{sec:introduction}}
 Understanding who influences whom and under what conditions forms a core component of information diffusion studies.
@@ -426,8 +426,9 @@ They suggest that adding too much newswire reduces performance, and that stickin
 Based on this data, we hypothesised that insufficient regularisation had lead to overfitting.
 To test this, noting the downward turn in newswire-trained blended cluster performance after 80k tokens (Figure~\ref{fig:rcv-scaling}), we re-ran the experiments with 100k newswire data using a $c_2$ regularisation penalty of $10^{-1}$ compared to the default $10^{-3}$.
 The prior performance, F2 61.38\%, rose to 62.07\%; so, while effective, still a marginal increase.
-Therefore, we continued using the 
-A potential improvement is to manually label a quantity of Reddit data for named entities, but given its prohibitive cost, we find we have a strong enough solution from near-genre supervised training data and in-genre unsupervised feature representations (Brown clusters).
+Therefore, we continued using newswire training data with Reddit clusters, the highest performing option (Table~\ref{tab:brown-tuning}).
+
+A potential route for improvement is to manually label a quantity of Reddit data for named entities, but given its prohibitive cost, we find we have a strong enough solution from near-genre supervised training data and in-genre unsupervised feature representations (Brown clusters).
 Hence, we used training data composed from newswire, with Reddit Brown clusters, for annotating the named entities across the 100 sampled subreddits.
 \footnote{NB. When predicting entity diffusion we used the top-500 entities which were manually verified for accuracy, and were found to be correct, qualitatively bearing out our earlier assumption of spurious entity surface forms not be clustered with high individual frequencies.}
 
@@ -724,8 +725,7 @@ Our empirical evaluation of this framework found that interactions had the great
   % regular IEEE prefers the singular form
   \section*{Acknowledgment}
 \fi
-The authors would like to thank...
-
+The authors acknowledge European Commission support from 7th Framework Program through grant No. 611223, {\sc Pheme}, and from Horizon 2020 through grant No. 687847, Comrades.
 
 \bibliographystyle{IEEEtran}
 \bibliography{NER-Diffusion}
@@ -737,10 +737,11 @@ The authors would like to thank...
 Biography text here.
 \end{IEEEbiography}
 
-\begin{IEEEbiography}{Leon Derczynski}
-Biography text here.
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{leon-symposium-crop.jpg}}]{Leon Derczynski}
+Leon Derczynski is a Research Associate in the Natural Language Processing group at the University of Sheffield.
+His work focuses on social media information extraction and spatio-temporal information extraction.
+Tools Dr. Derczynski has worked on are in daily use at many large enterprises, including Intel and CSIRO, and he frequently serves in an advisory role on social media, natural language processing and information retrieval.
 \end{IEEEbiography}
-
 
 \end{document}
 

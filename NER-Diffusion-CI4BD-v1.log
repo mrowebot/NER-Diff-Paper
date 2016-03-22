@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.1.25)  22 MAR 2016 12:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.1.25)  22 MAR 2016 17:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -121,51 +121,12 @@ LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
 Package: cite 2015/02/27  v 5.5
 )
-(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
-\Urlmuskip=\muskip10
-Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-)
-(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.sty
-Package: subfigure 2002/03/15 v2.1.5 subfigure package
-\subfigtopskip=\skip44
-\subfigcapskip=\skip45
-\subfigcaptopadj=\dimen126
-\subfigbottomskip=\skip46
-\subfigcapmargin=\dimen127
-\subfiglabelskip=\skip47
-\c@subfigure=\count94
-\c@lofdepth=\count95
-\c@subtable=\count96
-\c@lotdepth=\count97
-
-****************************************
-* Local config file subfigure.cfg used *
-****************************************
-(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.cfg)
-\subfig@top=\skip48
-\subfig@bottom=\skip49
-)
-(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
-Package: amsthm 2015/03/04 v2.20.2
-\thm@style=\toks15
-\thm@bodyfont=\toks16
-\thm@headfont=\toks17
-\thm@notefont=\toks18
-\thm@headpunct=\toks19
-\thm@preskip=\skip50
-\thm@postskip=\skip51
-\thm@headsep=\skip52
-\dth@everypar=\toks20
-)
-(/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
-\bigstrutjot=\dimen128
-)
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks21
+\KV@toks@=\toks15
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
@@ -187,43 +148,138 @@ Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
-\Gread@gobject=\count98
+\Gread@gobject=\count94
 ))
-\Gin@req@height=\dimen129
-\Gin@req@width=\dimen130
+\Gin@req@height=\dimen126
+\Gin@req@width=\dimen127
 )
-\c@mydef=\count99
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2013/01/14 v2.14 AMS math features
+\@mathmargin=\skip44
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks16
+\ex@=\dimen128
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen129
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count95
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count96
+\leftroot@=\count97
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count98
+\DOTSCASE@=\count99
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
+\Mathstrutbox@=\box28
+\strutbox@=\box29
+\big@size=\dimen130
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+\macc@depth=\count100
+\c@MaxMatrixCols=\count101
+\dotsspace@=\muskip10
+\c@parentequation=\count102
+\dspbrk@lvl=\count103
+\tag@help=\toks17
+\row@=\count104
+\column@=\count105
+\maxfields@=\count106
+\andhelp@=\toks18
+\eqnshift@=\dimen131
+\alignsep@=\dimen132
+\tagshift@=\dimen133
+\tagwidth@=\dimen134
+\totwidth@=\dimen135
+\lineht@=\dimen136
+\@envbody=\toks19
+\multlinegap=\skip45
+\multlinetaggap=\skip46
+\mathdisplay@stack=\toks20
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/subfig/subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
+\captionmargin=\dimen137
+\captionmargin@=\dimen138
+\captionwidth=\dimen139
+\caption@tempdima=\dimen140
+\caption@indent=\dimen141
+\caption@parindent=\dimen142
+\caption@hangindent=\dimen143
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+)
+\c@KVtest=\count107
+\sf@farskip=\skip47
+\sf@captopadj=\dimen144
+\sf@capskip=\skip48
+\sf@nearskip=\skip49
+\c@subfigure=\count108
+\c@subfigure@save=\count109
+\c@lofdepth=\count110
+\c@subtable=\count111
+\c@subtable@save=\count112
+\c@lotdepth=\count113
+\sf@top=\skip50
+\sf@bottom=\skip51
+)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen145
+)
+\c@mydef=\count114
 
 (./NER-Diffusion-CI4BD-v1.aux)
 \openout1 = `NER-Diffusion-CI4BD-v1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
 
 -- Lines per column: 61 (exact).
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count100
-\scratchdimen=\dimen131
-\scratchbox=\box28
-\nofMPsegments=\count101
-\nofMParguments=\count102
-\everyMPshowfont=\toks22
-\MPscratchCnt=\count103
-\MPscratchDim=\dimen132
-\MPnumerator=\count104
-\makeMPintoPDFobject=\count105
-\everyMPtoPDFconversion=\toks23
+\scratchcounter=\count115
+\scratchdimen=\dimen146
+\scratchbox=\box30
+\nofMPsegments=\count116
+\nofMParguments=\count117
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count118
+\MPscratchDim=\dimen147
+\MPnumerator=\count119
+\makeMPintoPDFobject=\count120
+\everyMPtoPDFconversion=\toks22
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -272,56 +328,39 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Calculating math sizes for size <9.53561> on input line 35.
-
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9.53561> on input line 35.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6.6749> on input line 35.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <4.7678> on input line 35.
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 56.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 57.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
-) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
-
-
-]
+)
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <8.03> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 56.
-LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 56
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 57.
+LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 57
 .
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <11.04124> on input line 56.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7.72884> on input line 56.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5.52061> on input line 56.
-LaTeX Font Info:    Try loading font information for U+pzd on input line 56.
+LaTeX Font Info:    Try loading font information for U+pzd on input line 57.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/upzd.fd
 File: upzd.fd 2001/06/04 font definitions for U/pzd.
 )
-LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 56.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8.03> on input line 56.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5.62097> on input line 56.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <4.015> on input line 56.
+LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 57.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <11.04124> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 83.
 LaTeX Font Info:    Font shape `OT1/phv/bx/sc' in size <11.04124> not available
 
 (Font)              Font shape `OT1/phv/b/sc' tried instead on input line 83.
- [2
+LaTeX Font Info:    Calculating math sizes for size <9.53561> on input line 96.
+
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
 
 ]
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <9.53561> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 142.
- [3]
-<reddit-example.png, id=21, 502.87875pt x 734.745pt>
+ [2]
+<reddit-example.png, id=18, 502.87875pt x 734.745pt>
 File: reddit-example.png Graphic file (type png)
  <use reddit-example.png>
 Package pdftex.def Info: reddit-example.png used on input line 207.
@@ -332,92 +371,84 @@ Underfull \hbox (badness 10000) in paragraph at lines 227--227
 Paper / tree /
  []
 
-[4 <./reddit-example.png>]
+[3 <./reddit-example.png>]
 LaTeX Font Info:    Try loading font information for OT1+pcr on input line 240.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-) [5]
-<entity-chunking/chart-results-rcv-crop.pdf, id=33, 904.37875pt x 359.3425pt>
+) [4]
+<entity-chunking/chart-results-rcv-crop.pdf, id=30, 904.37875pt x 359.3425pt>
 File: entity-chunking/chart-results-rcv-crop.pdf Graphic file (type pdf)
 
 <use entity-chunking/chart-results-rcv-crop.pdf>
 Package pdftex.def Info: entity-chunking/chart-results-rcv-crop.pdf used on inp
 ut line 404.
 (pdftex.def)             Requested size: 252.94499pt x 100.50006pt.
- [6]
-<plots/entity_ts.pdf, id=39, 578.16pt x 433.62pt>
+ [5]
+<plots/entity_ts.pdf, id=36, 578.16pt x 433.62pt>
 File: plots/entity_ts.pdf Graphic file (type pdf)
  <use plots/entity_ts.pdf>
-Package pdftex.def Info: plots/entity_ts.pdf used on input line 446.
+Package pdftex.def Info: plots/entity_ts.pdf used on input line 447.
 (pdftex.def)             Requested size: 252.94499pt x 189.70828pt.
 
-[7 <./entity-chunking/chart-results-rcv-crop.pdf> <./plots/entity_ts.pdf>]
-<plots/cascade_shapes.pdf, id=86, 566.46034pt x 423.4338pt>
+[6 <./entity-chunking/chart-results-rcv-crop.pdf> <./plots/entity_ts.pdf>]
+<plots/cascade_shapes.pdf, id=82, 566.46034pt x 423.4338pt>
 File: plots/cascade_shapes.pdf Graphic file (type pdf)
 
 <use plots/cascade_shapes.pdf>
-Package pdftex.def Info: plots/cascade_shapes.pdf used on input line 497.
+Package pdftex.def Info: plots/cascade_shapes.pdf used on input line 498.
 (pdftex.def)             Requested size: 123.94443pt x 92.6453pt.
 
-<plots/cascade_rank_dist.pdf, id=87, 507.32033pt x 403.13109pt>
+<plots/cascade_rank_dist.pdf, id=83, 507.32033pt x 403.13109pt>
 File: plots/cascade_rank_dist.pdf Graphic file (type pdf)
 
 <use plots/cascade_rank_dist.pdf>
-Package pdftex.def Info: plots/cascade_rank_dist.pdf used on input line 498.
+Package pdftex.def Info: plots/cascade_rank_dist.pdf used on input line 499.
 (pdftex.def)             Requested size: 123.94443pt x 98.48808pt.
-
-Underfull \vbox (badness 1097) has occurred while \output is active []
-
- [8 <./plots/cascade_shapes.pdf> <./plots/cascade_rank_dist.pdf
+ [7 <./plots/cascade_shapes.pdf> <./plots/cascade_rank_dist.pdf
 
 pdfTeX warning: pdflatex (file ./plots/cascade_rank_dist.pdf): PDF inclusion: m
 ultiple pdfs with page group included in a single page
->] <plots/exposure_count_dist_full_log.pdf, id=256, 524.76048pt x 404.51125pt>
+>] <plots/exposure_count_dist_full_log.pdf, id=254, 524.76048pt x 404.51125pt>
 File: plots/exposure_count_dist_full_log.pdf Graphic file (type pdf)
 
 <use plots/exposure_count_dist_full_log.pdf>
 Package pdftex.def Info: plots/exposure_count_dist_full_log.pdf used on input l
-ine 529.
+ine 530.
 (pdftex.def)             Requested size: 123.94443pt x 95.5416pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 529--529
-[]\OT1/ppl/m/n/8.03 (a) Exposure-Adoption Global
- []
-
-
-<plots/per_entity_exposure_count_dist_full_log.pdf, id=257, 578.88268pt x 433.3
+<plots/per_entity_exposure_count_dist_full_log.pdf, id=255, 578.88268pt x 433.3
 9856pt>
 File: plots/per_entity_exposure_count_dist_full_log.pdf Graphic file (type pdf)
 
  <use plots/per_entity_exposure_count_dist_full_log.pdf>
 Package pdftex.def Info: plots/per_entity_exposure_count_dist_full_log.pdf used
- on input line 530.
+ on input line 531.
 (pdftex.def)             Requested size: 123.94443pt x 92.7953pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 530--530
-[]\OT1/ppl/m/n/8.03 (b) Sam-pled En-tity Exposure-
+Underfull \hbox (badness 10000) in paragraph at lines 531--531
+[]\OT1/phv/m/n/8.03 (b) |Sam-pled En-tity Exposure-
  []
 
-<plots/taus_dist.pdf, id=258, 522.47069pt x 401.93915pt>
+<plots/taus_dist.pdf, id=256, 522.47069pt x 401.93915pt>
 File: plots/taus_dist.pdf Graphic file (type pdf)
 
 <use plots/taus_dist.pdf>
-Package pdftex.def Info: plots/taus_dist.pdf used on input line 569.
+Package pdftex.def Info: plots/taus_dist.pdf used on input line 570.
 (pdftex.def)             Requested size: 123.94443pt x 95.35114pt.
 
-<plots/taus_dist_full_log.pdf, id=259, 527.77174pt x 406.51875pt>
+<plots/taus_dist_full_log.pdf, id=257, 527.77174pt x 406.51875pt>
 File: plots/taus_dist_full_log.pdf Graphic file (type pdf)
 
 <use plots/taus_dist_full_log.pdf>
-Package pdftex.def Info: plots/taus_dist_full_log.pdf used on input line 570.
+Package pdftex.def Info: plots/taus_dist_full_log.pdf used on input line 571.
 (pdftex.def)             Requested size: 123.94443pt x 95.46368pt.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <8.03> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 572.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 573.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <9.53561> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 576.
- [9 <./plots/exposure_count_dist_full_log.pdf> <./plots/per_entity_exposure_cou
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 577.
+ [8 <./plots/exposure_count_dist_full_log.pdf> <./plots/per_entity_exposure_cou
 nt_dist_full_log.pdf> <./plots/taus_dist.pdf
 
 pdfTeX warning: pdflatex (file ./plots/taus_dist.pdf): PDF inclusion: multiple 
@@ -426,47 +457,54 @@ pdfs with page group included in a single page
 
 pdfTeX warning: pdflatex (file ./plots/taus_dist_full_log.pdf): PDF inclusion: 
 multiple pdfs with page group included in a single page
->]
-Underfull \vbox (badness 1014) has occurred while \output is active []
-
- [10]
-[11] (./NER-Diffusion-CI4BD-v1.bbl [12]
+>] [9] [10] (./NER-Diffusion-CI4BD-v1.bbl [11]
 Underfull \hbox (badness 10000) in paragraph at lines 169--171
 \OT1/ppl/m/n/8.03 https://archive.org/details/2015[]reddit[]comments[]corpus,
  []
 
-) [13] (./NER-Diffusion-CI4BD-v1.aux) ) 
+) <leon-symposium-crop.jpg, id=394, 1457.445pt x 1237.62375pt>
+File: leon-symposium-crop.jpg Graphic file (type jpg)
+
+<use leon-symposium-crop.jpg>
+Package pdftex.def Info: leon-symposium-crop.jpg used on input line 740.
+(pdftex.def)             Requested size: 72.25383pt x 61.35603pt.
+File: leon-symposium-crop.jpg Graphic file (type jpg)
+ <use leon-symposium-crop.jpg>
+Package pdftex.def Info: leon-symposium-crop.jpg used on input line 740.
+(pdftex.def)             Requested size: 72.25383pt x 61.35603pt.
+ [12 <./leon-symposium-crop.jpg>] (./NER-Diffusion-CI4BD-v1.aux) ) 
 Here is how much of TeX's memory you used:
- 3035 strings out of 495000
- 49440 string characters out of 6181169
- 114078 words of memory out of 5000000
- 6209 multiletter control sequences out of 15000+600000
- 48123 words of font info for 99 fonts, out of 8000000 for 9000
+ 4120 strings out of 495000
+ 66359 string characters out of 6181169
+ 134840 words of memory out of 5000000
+ 7273 multiletter control sequences out of 15000+600000
+ 52591 words of font info for 112 fonts, out of 8000000 for 9000
  17 hyphenation exceptions out of 8191
- 37i,9n,31p,737b,294s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc
-/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
-10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/uc
-rr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/pal
-atino/uplri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/zapfding/uzdr.
-pfb>
-Output written on NER-Diffusion-CI4BD-v1.pdf (13 pages, 1340986 bytes).
+ 38i,10n,47p,737b,377s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/t
+exlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic
+/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/urw/palatino/uplri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
+w/zapfding/uzdr.pfb>
+Output written on NER-Diffusion-CI4BD-v1.pdf (12 pages, 1578381 bytes).
 PDF statistics:
- 462 PDF objects out of 1000 (max. 8388607)
- 157 compressed objects within 2 object streams
+ 466 PDF objects out of 1000 (max. 8388607)
+ 158 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 63 words of extra memory for PDF output out of 10000 (max. 10000000)
 
