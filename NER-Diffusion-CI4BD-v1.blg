@@ -13,44 +13,44 @@ Database file #1: NER-Diffusion.bib
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 
 Done.
-You've used 38 entries,
+You've used 39 entries,
             4087 wiz_defined-function locations,
-            1046 strings with 15698 characters,
-and the built_in function-call counts, 34042 in all, are:
-= -- 2620
-> -- 891
+            1051 strings with 15996 characters,
+and the built_in function-call counts, 34565 in all, are:
+= -- 2659
+> -- 904
 < -- 305
-+ -- 487
-- -- 149
-* -- 1625
-:= -- 4713
-add.period$ -- 97
-call.type$ -- 38
-change.case$ -- 46
++ -- 493
+- -- 152
+* -- 1649
+:= -- 4798
+add.period$ -- 99
+call.type$ -- 39
+change.case$ -- 47
 chr.to.int$ -- 765
-cite$ -- 38
-duplicate$ -- 2368
-empty$ -- 2872
-format.name$ -- 190
-if$ -- 8092
+cite$ -- 39
+duplicate$ -- 2411
+empty$ -- 2931
+format.name$ -- 194
+if$ -- 8216
 int.to.chr$ -- 0
-int.to.str$ -- 38
-missing$ -- 412
-newline$ -- 139
-num.names$ -- 46
-pop$ -- 1027
+int.to.str$ -- 39
+missing$ -- 421
+newline$ -- 142
+num.names$ -- 47
+pop$ -- 1051
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 2591
+skip$ -- 2634
 stack$ -- 0
-substring$ -- 1838
-swap$ -- 1967
+substring$ -- 1839
+swap$ -- 1991
 text.length$ -- 50
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 38
+type$ -- 39
 warning$ -- 0
-while$ -- 171
-width$ -- 40
-write$ -- 381
+while$ -- 172
+width$ -- 41
+write$ -- 390

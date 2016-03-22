@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.1.25)  22 MAR 2016 09:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.1.25)  22 MAR 2016 12:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -197,18 +197,18 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 (./NER-Diffusion-CI4BD-v1.aux)
 \openout1 = `NER-Diffusion-CI4BD-v1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
 
 -- Lines per column: 61 (exact).
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
@@ -272,15 +272,15 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Calculating math sizes for size <9.53561> on input line 37.
+LaTeX Font Info:    Calculating math sizes for size <9.53561> on input line 35.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9.53561> on input line 37.
+(Font)              <9.53561> on input line 35.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6.6749> on input line 37.
+(Font)              <6.6749> on input line 35.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <4.7678> on input line 37.
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 58.
+(Font)              <4.7678> on input line 35.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 56.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
@@ -289,176 +289,184 @@ File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 
 ]
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <8.03> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 58.
-LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 58
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 56.
+LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 56
 .
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <11.04124> on input line 58.
+(Font)              <11.04124> on input line 56.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7.72884> on input line 58.
+(Font)              <7.72884> on input line 56.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5.52061> on input line 58.
-LaTeX Font Info:    Try loading font information for U+pzd on input line 58.
+(Font)              <5.52061> on input line 56.
+LaTeX Font Info:    Try loading font information for U+pzd on input line 56.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/upzd.fd
 File: upzd.fd 2001/06/04 font definitions for U/pzd.
 )
-LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 58.
+LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 56.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8.03> on input line 58.
+(Font)              <8.03> on input line 56.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5.62097> on input line 58.
+(Font)              <5.62097> on input line 56.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <4.015> on input line 58.
+(Font)              <4.015> on input line 56.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <11.04124> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 85.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 83.
 LaTeX Font Info:    Font shape `OT1/phv/bx/sc' in size <11.04124> not available
 
-(Font)              Font shape `OT1/phv/b/sc' tried instead on input line 85.
+(Font)              Font shape `OT1/phv/b/sc' tried instead on input line 83.
  [2
 
 ]
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <9.53561> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 144.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 142.
  [3]
 <reddit-example.png, id=21, 502.87875pt x 734.745pt>
 File: reddit-example.png Graphic file (type png)
  <use reddit-example.png>
-Package pdftex.def Info: reddit-example.png used on input line 209.
+Package pdftex.def Info: reddit-example.png used on input line 207.
 (pdftex.def)             Requested size: 177.06071pt x 258.70055pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 229--229
+Underfull \hbox (badness 10000) in paragraph at lines 227--227
 [][][]$\OT1/ppl/m/n/8.03 https : / / github . com / mattroweshow / NER-[]Di-[]
 Paper / tree /
  []
 
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 242.
+[4 <./reddit-example.png>]
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 240.
+
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-) [4 <./reddit-example.png>] [5]
-Underfull \vbox (badness 1675) has occurred while \output is active []
-
-
-<entity-chunking/chart-results-rcv-crop.pdf, id=35, 514.92375pt x 177.66376pt>
+) [5]
+<entity-chunking/chart-results-rcv-crop.pdf, id=33, 904.37875pt x 359.3425pt>
 File: entity-chunking/chart-results-rcv-crop.pdf Graphic file (type pdf)
 
 <use entity-chunking/chart-results-rcv-crop.pdf>
 Package pdftex.def Info: entity-chunking/chart-results-rcv-crop.pdf used on inp
-ut line 406.
-(pdftex.def)             Requested size: 199.82484pt x 68.94429pt.
- [6 <./entity-chunking/chart-results-rcv-crop.pdf>] <plots/entity_ts.pdf, id=51
-, 578.16pt x 433.62pt>
+ut line 404.
+(pdftex.def)             Requested size: 252.94499pt x 100.50006pt.
+ [6]
+<plots/entity_ts.pdf, id=39, 578.16pt x 433.62pt>
 File: plots/entity_ts.pdf Graphic file (type pdf)
+ <use plots/entity_ts.pdf>
+Package pdftex.def Info: plots/entity_ts.pdf used on input line 446.
+(pdftex.def)             Requested size: 252.94499pt x 189.70828pt.
 
-<use plots/entity_ts.pdf>
-Package pdftex.def Info: plots/entity_ts.pdf used on input line 435.
-(pdftex.def)             Requested size: 199.82484pt x 149.86372pt.
- [7 <./plots/entity_ts.pdf>]
-<plots/cascade_shapes.pdf, id=96, 566.46034pt x 423.4338pt>
+[7 <./entity-chunking/chart-results-rcv-crop.pdf> <./plots/entity_ts.pdf>]
+<plots/cascade_shapes.pdf, id=86, 566.46034pt x 423.4338pt>
 File: plots/cascade_shapes.pdf Graphic file (type pdf)
 
 <use plots/cascade_shapes.pdf>
-Package pdftex.def Info: plots/cascade_shapes.pdf used on input line 486.
+Package pdftex.def Info: plots/cascade_shapes.pdf used on input line 497.
 (pdftex.def)             Requested size: 123.94443pt x 92.6453pt.
 
-<plots/cascade_rank_dist.pdf, id=97, 507.32033pt x 403.13109pt>
+<plots/cascade_rank_dist.pdf, id=87, 507.32033pt x 403.13109pt>
 File: plots/cascade_rank_dist.pdf Graphic file (type pdf)
 
 <use plots/cascade_rank_dist.pdf>
-Package pdftex.def Info: plots/cascade_rank_dist.pdf used on input line 487.
+Package pdftex.def Info: plots/cascade_rank_dist.pdf used on input line 498.
 (pdftex.def)             Requested size: 123.94443pt x 98.48808pt.
 
-<plots/exposure_count_dist_full_log.pdf, id=98, 524.76048pt x 404.51125pt>
+Underfull \vbox (badness 1097) has occurred while \output is active []
+
+ [8 <./plots/cascade_shapes.pdf> <./plots/cascade_rank_dist.pdf
+
+pdfTeX warning: pdflatex (file ./plots/cascade_rank_dist.pdf): PDF inclusion: m
+ultiple pdfs with page group included in a single page
+>] <plots/exposure_count_dist_full_log.pdf, id=256, 524.76048pt x 404.51125pt>
 File: plots/exposure_count_dist_full_log.pdf Graphic file (type pdf)
 
 <use plots/exposure_count_dist_full_log.pdf>
 Package pdftex.def Info: plots/exposure_count_dist_full_log.pdf used on input l
-ine 518.
+ine 529.
 (pdftex.def)             Requested size: 123.94443pt x 95.5416pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 518--518
+Underfull \hbox (badness 10000) in paragraph at lines 529--529
 []\OT1/ppl/m/n/8.03 (a) Exposure-Adoption Global
  []
 
 
-<plots/per_entity_exposure_count_dist_full_log.pdf, id=99, 578.88268pt x 433.39
-856pt>
+<plots/per_entity_exposure_count_dist_full_log.pdf, id=257, 578.88268pt x 433.3
+9856pt>
 File: plots/per_entity_exposure_count_dist_full_log.pdf Graphic file (type pdf)
 
  <use plots/per_entity_exposure_count_dist_full_log.pdf>
 Package pdftex.def Info: plots/per_entity_exposure_count_dist_full_log.pdf used
- on input line 519.
+ on input line 530.
 (pdftex.def)             Requested size: 123.94443pt x 92.7953pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 519--519
+Underfull \hbox (badness 10000) in paragraph at lines 530--530
 []\OT1/ppl/m/n/8.03 (b) Sam-pled En-tity Exposure-
  []
 
-[8 <./plots/cascade_shapes.pdf> <./plots/cascade_rank_dist.pdf
-
-pdfTeX warning: pdflatex (file ./plots/cascade_rank_dist.pdf): PDF inclusion: m
-ultiple pdfs with page group included in a single page
-> <./plots/exposure_count_dist_full_log.pdf
-
-pdfTeX warning: pdflatex (file ./plots/exposure_count_dist_full_log.pdf): PDF i
-nclusion: multiple pdfs with page group included in a single page
-> <./plots/per_entity_exposure_count_dist_full_log.pdf>]
-<plots/taus_dist.pdf, id=311, 522.47069pt x 401.93915pt>
+<plots/taus_dist.pdf, id=258, 522.47069pt x 401.93915pt>
 File: plots/taus_dist.pdf Graphic file (type pdf)
 
 <use plots/taus_dist.pdf>
-Package pdftex.def Info: plots/taus_dist.pdf used on input line 558.
+Package pdftex.def Info: plots/taus_dist.pdf used on input line 569.
 (pdftex.def)             Requested size: 123.94443pt x 95.35114pt.
 
-<plots/taus_dist_full_log.pdf, id=312, 527.77174pt x 406.51875pt>
+<plots/taus_dist_full_log.pdf, id=259, 527.77174pt x 406.51875pt>
 File: plots/taus_dist_full_log.pdf Graphic file (type pdf)
 
 <use plots/taus_dist_full_log.pdf>
-Package pdftex.def Info: plots/taus_dist_full_log.pdf used on input line 559.
+Package pdftex.def Info: plots/taus_dist_full_log.pdf used on input line 570.
 (pdftex.def)             Requested size: 123.94443pt x 95.46368pt.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <8.03> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 561.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 572.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <9.53561> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 565.
- [9 <./plots/taus_dist.pdf> <./plots/taus_dist_full_log.pdf
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 576.
+ [9 <./plots/exposure_count_dist_full_log.pdf> <./plots/per_entity_exposure_cou
+nt_dist_full_log.pdf> <./plots/taus_dist.pdf
+
+pdfTeX warning: pdflatex (file ./plots/taus_dist.pdf): PDF inclusion: multiple 
+pdfs with page group included in a single page
+> <./plots/taus_dist_full_log.pdf
 
 pdfTeX warning: pdflatex (file ./plots/taus_dist_full_log.pdf): PDF inclusion: 
 multiple pdfs with page group included in a single page
->] [10] (./NER-Diffusion-CI4BD-v1.bbl [11] [12]) [13
+>]
+Underfull \vbox (badness 1014) has occurred while \output is active []
 
-]
-(./NER-Diffusion-CI4BD-v1.aux) ) 
+ [10]
+[11] (./NER-Diffusion-CI4BD-v1.bbl [12]
+Underfull \hbox (badness 10000) in paragraph at lines 169--171
+\OT1/ppl/m/n/8.03 https://archive.org/details/2015[]reddit[]comments[]corpus,
+ []
+
+) [13] (./NER-Diffusion-CI4BD-v1.aux) ) 
 Here is how much of TeX's memory you used:
- 3032 strings out of 495000
- 49394 string characters out of 6181169
- 113074 words of memory out of 5000000
- 6207 multiletter control sequences out of 15000+600000
- 47608 words of font info for 97 fonts, out of 8000000 for 9000
+ 3035 strings out of 495000
+ 49440 string characters out of 6181169
+ 114078 words of memory out of 5000000
+ 6209 multiletter control sequences out of 15000+600000
+ 48123 words of font info for 99 fonts, out of 8000000 for 9000
  17 hyphenation exceptions out of 8191
  37i,9n,31p,737b,294s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/
-base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex1
-0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
-w/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/u
-plri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on NER-Diffusion-CI4BD-v1.pdf (13 pages, 1280202 bytes).
+{/usr/share/texlive/texmf-dist/fonts/enc
+/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
+10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/uc
+rr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/pal
+atino/uplri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/zapfding/uzdr.
+pfb>
+Output written on NER-Diffusion-CI4BD-v1.pdf (13 pages, 1340986 bytes).
 PDF statistics:
- 472 PDF objects out of 1000 (max. 8388607)
- 163 compressed objects within 2 object streams
+ 462 PDF objects out of 1000 (max. 8388607)
+ 157 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

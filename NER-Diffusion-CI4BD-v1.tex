@@ -9,13 +9,11 @@
   \usepackage{cite}
 \fi
 
-
 \usepackage{url}
 \usepackage[tight,footnotesize]{subfigure}
 \usepackage{amsthm}
 \usepackage{multirow}
 %\usepackage{natbib}
-
 
 \usepackage{graphicx}
 
@@ -233,10 +231,10 @@ The list of chosen communities can be found in the github repository of this wor
 \subsection{NER for Reddit}
 
 %-- where is NER first mentioned and defined?
-
-We model micro-topics in conversation as entity mentions.
+In this diffusion analysis, we model micro-topics in conversation as entity mentions.
 This allows tracking of topics at maximally fine granularity, looking at each user's interests at a low level, as opposed to monitoring broader topics such as ``consumer electronics", ``politics" and so on.
 In fact, these broader topics are already explicitly annotated by means of the subreddit topics.
+
 Entity mentions are extracted through named entity recognition.
 Generally, this task aims to detect the boundaries of certain kinds of entities within a certain piece of text.
 In this instance, we tokenise text, splitting it into sentences using the Punkt tokeniser~\cite{kiss2006unsupervised}, and subsequently word-sized chunks, using the {\tt twokenize} tool with some adaptations~\cite{o2010tweetmotif}.
@@ -254,6 +252,9 @@ The following output entities should be collected:
 \begin{quote}
 \emph{``entity\_texts": [``Conor McGregor", ``Gunnar Nelson"]}
 \end{quote}
+
+We present named entity recognition here, applied to Reddit posts and conversations, a text type for which to our knowledge has never had custom NER applied.
+Notably, we experiment with techniques previously demonstrated to be successful on other user-generated content and find them lacking.
 
 Typically, many NER systems take a supervised approach; that is, they use data labelled by humans as training data, from which features are extracted to form training instances for a machine learning algorithm.
 However, NLP systems can be hard to transfer between text types; for example, NER systems for newswire might reach about 89\% F1 on news articles, but only around 40\% on tweets (a form of user-generated content), as found in~\cite{derczynski2015analysis}.
@@ -302,16 +303,17 @@ There are a number of parameters in our training data balance, feature extractio
 We present our method for estimating of these factors, and intrinsic NER evaluation.
 
 In terms of evaluation, we prefer recall over precision.
-Over the large dataset, spurious entities are likely to be those that are not seen very often or have an unusual pattern.
-This suggests that there will be great variation in their surface forms, leaving them in the long tail of discovered entities.
+Over the large dataset, spurious entities (i.e. false positives) are likely to be those that are not seen very often or have an unusual temporal pattern.
+Mis-recognised entity names tend not to be distributed in a few high-frequency clumps, but rather as many different terms, each with a lower frequency.
+This suggests that there will be great variation in their surface forms, leaving them in the long tail of entities discovered~\cite{leginus2015enhanced}.
 As the majority of our work looks at the more frequent patterns, these are less likely to have an impact.
+%Indeed, this was borne out in our analysis of entities extracted, with no individual  false-positive, spurious entity surface forms occurring often enough to reach our lists of entities selection for diffusion analysis.
 Conversely, recall expresses how broadly and comprehensively the extraction is performing, and is important to tracking a range of entities.\footnote{N.b. It has often been more challenging to achieve high recall in social media texts than high precision~\cite{ritter2011named,derczynski2015analysis}.}
-%That is to say, the problem addressed is more tolerant to low precision in input data than low recall.
+That is to say, the problem addressed is more tolerant to low precision in input data than low recall.
 
 \begin{equation}
 F_\beta = (1+\beta^2)\frac{PR}{(\beta^2 P) + R} 
 \end{equation}
-
 
 When $\beta=1$, precision and recall are balanced in a harmonic mean, e.g. F1-score.
 That is, false positives and false negatives impact results equally.
@@ -324,33 +326,36 @@ These are then isolated, tokenised, and manually annotated.
 Our annotation format follows~\cite{ritter2011named} in using the Freebase top-level entity type inventory, but only uses the chunking information, as nothing further than this is needed: only the surface forms of entities.
 In total, we identified and annotated $3,708$ tokens of Reddit data, including $149$ entity chunks.
 This comprised our development set, which was used to tune a variety of parameters in our approach.
-Evaluation was performed using the standard {\tt conlleval.pl} tool for entity chunking evaluation, including across the Stanford NER output.
+Evaluation was performed using the standard {\tt \small conlleval.pl} tool for entity chunking evaluation, including across the Stanford NER output.
+This gives results at entity level (as opposed to token level).
+
 
 
 \begin{table}
 \centering
-\caption{Results from applying different corpora blends as training data for named entity recognition.}
+\caption{Reddit development set NER, varying text type in training data and Brown cluster source. Best per scenario is starred; best overall, bold.}
 \begin{tabular}{lrrrr}
 \hline
-{\bf Brown cluster composition} & {\bf Precision} & {\bf Recall} & {\bf F1} & {\bf F2} \\
+{\bf Brown cluster source} & {\bf Precision} & {\bf Recall} & {\bf F1} & {\bf F2} \\
 \hline
-\multicolumn{5}{c}{\emph{Newswire training data}} \\
+\multicolumn{5}{c}{\emph{Baseline}} \\
 \hline
-Stanford NER basic    & & & & \\
+Stanford (3-class builtin)   & {\bf 87.88} & 38.93 & 53.96 & 47.81 \\
+\hline
 \multicolumn{5}{c}{\emph{Newswire training data}} \\
 \hline
 RCV Newswire          & 63.57 & 59.73 & 61.59 & 60.96 \\
 Tweets                & 62.75 & 64.43 & 63.58 & 63.86 \\
-Blended tweets/news   & 68.42 & 61.07 & 64.54 & 63.34 \\
-Reddit                & 66.32 & 67.11 & 66.71 & 66.84 \\
+Blended tweets/news   &*68.42 & 61.07 & 64.54 & 63.34 \\
+Reddit                & 66.32 & {\bf 67.11} & {\bf 66.71} & {\bf 66.84} \\
 Stanford baseline     & 63.97 & 58.39 & 61.05 & 60.14 \\
 \hline
 \multicolumn{5}{c}{\emph{Twitter training data}} \\
 \hline
-RCV Newswire          & 73.02 & 30.87 & 43.39 & 38.22 \\
+RCV Newswire          &*73.02 & 30.87 & 43.39 & 38.22 \\
 Tweets                & 70.37 & 38.26 & 49.57 & 45.12 \\
 Blended tweets/news   & 65.28 & 31.54 & 42.53 & 38.10 \\
-Reddit                & 76.34 & 47.65 & 58.68 & 54.47 \\
+Reddit                & 76.34 &*47.65 &*58.68 &*54.47 \\
 Stanford baseline     & 65.22 & 30.20 & 41.28 & 36.78 \\
 \hline
 \multicolumn{5}{c}{\emph{Blended training data, 50:50}} \\
@@ -358,13 +363,12 @@ Stanford baseline     & 65.22 & 30.20 & 41.28 & 36.78 \\
 RCV Newswire          & 66.67 & 42.96 & 52.25 & 48.74 \\
 Tweets                & 66.10 & 52.35 & 58.43 & 56.25 \\
 Blended tweets/news   & 68.69 & 45.64 & 54.84 & 51.39 \\
-Reddit                & 70.08 & 59.73 & 64.49 & 62.82 \\
-Stanford baseline     & 67.77 & 55.03 & 41.28 & 36.78 \\
+Reddit                &*70.08 &*59.73 &*64.49 &*62.82 \\
+Stanford baseline     & 67.77 & 55.03 & 60.74 & 36.78 \\
 \hline
 \end{tabular}
 \label{tab:brown-tuning}
 \end{table}
-
 
 In addition, we draw supervised data for multiple datasets in order to approximate the Reddit text type.
 We take data from Twitter, taking the union of corpora used in previous work that follow the Freebase~\cite{bollacker2008freebase} ten-class entity scheme.
@@ -381,7 +385,7 @@ The the blended version used even amounts of both, totalling 132k data, to see i
 An even split was chosen because, if one is to search for the best split, this is the optimal place to begin a binary search.
 
 The baseline system was the Stanford NER tool~\cite{finkel2005incorporating}.
-We included two variants: one run of the out-of-the-box stock system, and another with a model trained on the same source data as our system.
+We included two variants: one run of the out-of-the-box stock system, using the {\tt \small english.all.3class.distsim} binary, and another with a model trained on the same source data as our system.
 
 Firstly, we tuned our word representations.
 Specifically, we needed to estimate the number of Brown clusters $C$ to use in feature extraction.
@@ -394,31 +398,38 @@ We then experiment with combinations of newswire, Twitter and Reddit data.
 Brown clusters are extracted using the generalised-brown package.~\cite{sean_chester_2015_33758}.
 Results are given in Table~\ref{tab:brown-tuning}.
 
-Note how the scores are consistently best in each category when inducing Brown clusters from Reddit data.
-Attempts to approximate this using newswire, twitter, or a blend of those two did not score as well.
-This is remarkable, especially considering that we used on 64M tokens of Reddit data for cluster induction, compared to around 130k total for the other text type blends.
-This strongly illustrates the importance of taking the target text type into account during unsupervised feature extraction.
-
-
 
 \begin{figure}
 \centering
-\includegraphics[width=0.79\columnwidth]{entity-chunking/chart-results-rcv-crop.pdf}
-\caption{Scaling newswire (RCV) training data under three conditions: blended news and twitter clusters; blended news and twitter clusters with extra twitter training data; just new clusters.}
+\includegraphics[width=\columnwidth]{entity-chunking/chart-results-rcv-crop.pdf}
+\caption{Scaling news training data under three conditions: news clusters; blended news and twitter clusters; blended news and twitter clusters, with 66k extra twitter training data. Note increasing news training data (x-axis) eventually lead to decreased performance in every case.}
 \label{fig:rcv-scaling}
 \end{figure}
+
+Note how the scores are consistently best in each category when inducing Brown clusters from Reddit data.
+Attempts to approximate this using newswire, twitter, or a blend of those two did not score as well.
+This is remarkable, considering that we used on 64M tokens of Reddit data for cluster induction, compared to around 130M total for the other text type blends.
+Even half the amount of in-text-type data provides notably improved unsupervised representations that an approximation.
+This illustrates the importance of taking the target text type into account during unsupervised feature extraction.
+In fact, this is good news: we can improve NE performance in a new genre without doing any human annotation of text in the genre, as long as a sample of the text is available.
+The Twitter Brown clusters consistently give second-best F2 scores, leading newswire.
+
+
 
 We also examined the learning rate of our entity chunking system, scaling up the RCV newswire data.
 We experimented with pure newswire and also newswire plus tweet training data, and with pure newswire vs. blended clusters.
 Results are given in Figure~\ref{fig:rcv-scaling}.
+
 Unlike prior experiences with NLP on user-generated content, blending training text types in supervised learning did not lead to improved performance.
 They suggest that adding too much newswire reduces performance, and that sticking to just newswire clusters also reduces performance.
 
 Based on this data, we hypothesised that insufficient regularisation had lead to overfitting.
-To test this, we re-ran the experiments on half the newswire data using a $c_2$ regularisation penalty of $10^{-1}$ compared to the default $10^{-3}$.
-This increased F2 from 61.38\% to 62.07\%; so, while effective, still a marginal increase.
+To test this, noting the downward turn in newswire-trained blended cluster performance after 80k tokens (Figure~\ref{fig:rcv-scaling}), we re-ran the experiments with 100k newswire data using a $c_2$ regularisation penalty of $10^{-1}$ compared to the default $10^{-3}$.
+The prior performance, F2 61.38\%, rose to 62.07\%; so, while effective, still a marginal increase.
+Therefore, we continued using the 
 A potential improvement is to manually label a quantity of Reddit data for named entities, but given its prohibitive cost, we find we have a strong enough solution from near-genre supervised training data and in-genre unsupervised feature representations (Brown clusters).
-Hence, we used training data composed from newswire and twitter equal parts, with the newswire and twitter Brown clusters for annotating the named entities across the 100 sampled subreddits.\footnote{NB. When predicting entity diffusion we used the top-500 entities which were manually verified for accuracy, and were found to be correct.}
+Hence, we used training data composed from newswire, with Reddit Brown clusters, for annotating the named entities across the 100 sampled subreddits.
+\footnote{NB. When predicting entity diffusion we used the top-500 entities which were manually verified for accuracy, and were found to be correct, qualitatively bearing out our earlier assumption of spurious entity surface forms not be clustered with high individual frequencies.}
 
 
 %We compare against Stanford NER~\cite{finkel2005incorporating} as a baseline.
@@ -432,7 +443,7 @@ This drop reflects the findings of earlier work~\cite{ritter2011named}, where a 
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.79\columnwidth]{plots/entity_ts.pdf}
+\includegraphics[width=\columnwidth]{plots/entity_ts.pdf}
 \caption{Top nine entities and their mention intensity over time}
 \label{fig:entity-ts}
 \end{center}

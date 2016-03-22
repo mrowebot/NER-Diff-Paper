@@ -166,7 +166,8 @@ J.~Huang, C.~Li, W.-Q. Wang, H.-W. Shen, G.~Li, and X.-Q. Cheng, ``Temporal
   2014.
 
 \bibitem{reddit-data}
-J.~Baumgartner, ``Complete public {Reddit} comments corpus,'' 2015.
+J.~Baumgartner, ``Complete public {Reddit} comments corpus,''
+  https://archive.org/details/2015\_reddit\_comments\_corpus, 2015.
 
 \bibitem{kergl2014endogenesis}
 D.~Kergl, R.~Roedler, and S.~Seeber, ``On the endogenesis of twitter's spritzer
@@ -204,6 +205,12 @@ L.~Derczynski and S.~Chester, ``{Generalised Brown Clustering and Roll-Up
 L.~Derczynski, I.~Augenstein, and K.~Bontcheva, ``{USFD: Twitter NER with Drift
   Compensation and Linked Data},'' \emph{Proc. W-NUT (ACL-IJCNLP)}, pp. 48--53,
   2015.
+
+\bibitem{leginus2015enhanced}
+M.~Leginus, L.~Derczynski, and P.~Dolog, ``Enhanced information access to
+  social streams through word clouds with entity grouping,'' in
+  \emph{Proceedings of the conference on Web Information Systems and
+  Technologies (WEBIST)}, 2015.
 
 \bibitem{bollacker2008freebase}
 K.~Bollacker, C.~Evans, P.~Paritosh, T.~Sturge, and J.~Taylor, ``Freebase: a
