@@ -280,6 +280,22 @@ Our base features are:
 In addition, we induce Brown clusters~\cite{brown1992class} and use these as word representations~\cite{turian2009preliminary}.
 Brown clustering is a form of hierarchical agglomerative hard clustering, using average mutual information as its objective function.
 It takes as input a corpus, in the form of a sequence of words, and in its generalised form~\cite{derczynski2016generalised}, a single hyperparameter: the size of its active set $a$.
+This active set is filled with the $a$ most-frequent classes drawn from all word classes $C$, with one word per class at initialisation.
+
+The mutual information of two classes, $C_i,C_j\in C$, denoted $MI(C_i,C_j)$, is:
+
+\begin{equation}
+MI(C_i,C_j)=
+p(\left<C_i,C_j\right>)\ \log_2{\frac{p(\left<C_i,C_j\right>)}{p(\left<C_i,*\right>)\ p(\left<*,C_j\right>)}}
+\end{equation}
+
+The average mutual information of $C$, denoted $AMI(C)$, is the sum of mutual information of all cluster pairs in $C$:
+\begin{equation}
+AMI(C) = \sum_{C_i,C_j\in C}{MI(C_i,C_j)}
+\end{equation}
+
+Brown clustering proceeds by greedily merging the pair of classes within the active set that causes the least loss to average mutual information, until all classes are merged.
+A fuller definition is provided in~\cite{derczynski2016generalised}.
 The result is a sequence of binary merges, describing the set membership of each word type in the corpus as the merges progress.
 For each single word type, therefore, the path to a destination cluster can be described as a bitstring, which details the sequence of binary merges taken.
 The zero-length bitstring describes the situation at the top of the hierarchy, where there is one class.
@@ -397,7 +413,7 @@ We noted that in prior work~\cite{derczynski2015tune}, entity recognition perfor
 As General Brown clustering is dependent on the number of types and the size of the active set $a$, and results are unreliable with $a>C$, we set $C = a = 2560$.
 This offers a decent trade-off between computational cost of building clusters, and the quality of the clusterings used.
 We then experiment with combinations of newswire, Twitter and Reddit data.
-Brown clusters are extracted using the generalised-brown package.~\cite{sean_chester_2015_33758}.
+Brown clusters are extracted using the generalised-brown package~\cite{sean_chester_2015_33758}.
 Results are given in Table~\ref{tab:brown-tuning}.
 
 

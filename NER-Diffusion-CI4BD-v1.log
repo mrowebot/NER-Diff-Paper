@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.1.25)  22 MAR 2016 17:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.1.25)  22 MAR 2016 18:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -377,77 +377,83 @@ LaTeX Font Info:    Try loading font information for OT1+pcr on input line 240.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-) [4]
-<entity-chunking/chart-results-rcv-crop.pdf, id=30, 904.37875pt x 359.3425pt>
+)
+Underfull \hbox (badness 4739) in paragraph at lines 292--293
+[]\OT1/ppl/m/n/9.53561 The av-er-age mu-tual in-for-ma-tion of $\OML/cmm/m/it/1
+0 C$\OT1/ppl/m/n/9.53561 , de-noted
+ []
+
+[4] [5]
+<entity-chunking/chart-results-rcv-crop.pdf, id=37, 904.37875pt x 359.3425pt>
 File: entity-chunking/chart-results-rcv-crop.pdf Graphic file (type pdf)
 
 <use entity-chunking/chart-results-rcv-crop.pdf>
 Package pdftex.def Info: entity-chunking/chart-results-rcv-crop.pdf used on inp
-ut line 406.
+ut line 422.
 (pdftex.def)             Requested size: 252.94499pt x 100.50006pt.
- [5]
-<plots/entity_ts.pdf, id=36, 578.16pt x 433.62pt>
+
+<plots/entity_ts.pdf, id=38, 578.16pt x 433.62pt>
 File: plots/entity_ts.pdf Graphic file (type pdf)
  <use plots/entity_ts.pdf>
-Package pdftex.def Info: plots/entity_ts.pdf used on input line 448.
+Package pdftex.def Info: plots/entity_ts.pdf used on input line 464.
 (pdftex.def)             Requested size: 252.94499pt x 189.70828pt.
 
 [6 <./entity-chunking/chart-results-rcv-crop.pdf> <./plots/entity_ts.pdf>]
-<plots/cascade_shapes.pdf, id=82, 566.46034pt x 423.4338pt>
+<plots/cascade_shapes.pdf, id=84, 566.46034pt x 423.4338pt>
 File: plots/cascade_shapes.pdf Graphic file (type pdf)
 
 <use plots/cascade_shapes.pdf>
-Package pdftex.def Info: plots/cascade_shapes.pdf used on input line 499.
+Package pdftex.def Info: plots/cascade_shapes.pdf used on input line 515.
 (pdftex.def)             Requested size: 123.94443pt x 92.6453pt.
 
-<plots/cascade_rank_dist.pdf, id=83, 507.32033pt x 403.13109pt>
+<plots/cascade_rank_dist.pdf, id=85, 507.32033pt x 403.13109pt>
 File: plots/cascade_rank_dist.pdf Graphic file (type pdf)
 
 <use plots/cascade_rank_dist.pdf>
-Package pdftex.def Info: plots/cascade_rank_dist.pdf used on input line 500.
+Package pdftex.def Info: plots/cascade_rank_dist.pdf used on input line 516.
 (pdftex.def)             Requested size: 123.94443pt x 98.48808pt.
  [7 <./plots/cascade_shapes.pdf> <./plots/cascade_rank_dist.pdf
 
 pdfTeX warning: pdflatex (file ./plots/cascade_rank_dist.pdf): PDF inclusion: m
 ultiple pdfs with page group included in a single page
->] <plots/exposure_count_dist_full_log.pdf, id=254, 524.76048pt x 404.51125pt>
+>] <plots/exposure_count_dist_full_log.pdf, id=256, 524.76048pt x 404.51125pt>
 File: plots/exposure_count_dist_full_log.pdf Graphic file (type pdf)
 
 <use plots/exposure_count_dist_full_log.pdf>
 Package pdftex.def Info: plots/exposure_count_dist_full_log.pdf used on input l
-ine 531.
+ine 547.
 (pdftex.def)             Requested size: 123.94443pt x 95.5416pt.
 
-<plots/per_entity_exposure_count_dist_full_log.pdf, id=255, 578.88268pt x 433.3
+<plots/per_entity_exposure_count_dist_full_log.pdf, id=257, 578.88268pt x 433.3
 9856pt>
 File: plots/per_entity_exposure_count_dist_full_log.pdf Graphic file (type pdf)
 
  <use plots/per_entity_exposure_count_dist_full_log.pdf>
 Package pdftex.def Info: plots/per_entity_exposure_count_dist_full_log.pdf used
- on input line 532.
+ on input line 548.
 (pdftex.def)             Requested size: 123.94443pt x 92.7953pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 532--532
+Underfull \hbox (badness 10000) in paragraph at lines 548--548
 []\OT1/phv/m/n/8.03 (b) |Sam-pled En-tity Exposure-
  []
 
-<plots/taus_dist.pdf, id=256, 522.47069pt x 401.93915pt>
+<plots/taus_dist.pdf, id=258, 522.47069pt x 401.93915pt>
 File: plots/taus_dist.pdf Graphic file (type pdf)
 
 <use plots/taus_dist.pdf>
-Package pdftex.def Info: plots/taus_dist.pdf used on input line 571.
+Package pdftex.def Info: plots/taus_dist.pdf used on input line 587.
 (pdftex.def)             Requested size: 123.94443pt x 95.35114pt.
 
-<plots/taus_dist_full_log.pdf, id=257, 527.77174pt x 406.51875pt>
+<plots/taus_dist_full_log.pdf, id=259, 527.77174pt x 406.51875pt>
 File: plots/taus_dist_full_log.pdf Graphic file (type pdf)
 
 <use plots/taus_dist_full_log.pdf>
-Package pdftex.def Info: plots/taus_dist_full_log.pdf used on input line 572.
+Package pdftex.def Info: plots/taus_dist_full_log.pdf used on input line 588.
 (pdftex.def)             Requested size: 123.94443pt x 95.46368pt.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <8.03> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 574.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 590.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <9.53561> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 578.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 594.
  [8 <./plots/exposure_count_dist_full_log.pdf> <./plots/per_entity_exposure_cou
 nt_dist_full_log.pdf> <./plots/taus_dist.pdf
 
@@ -462,21 +468,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 169--171
 \OT1/ppl/m/n/8.03 https://archive.org/details/2015[]reddit[]comments[]corpus,
  []
 
-) <leon-symposium-crop.jpg, id=394, 1457.445pt x 1237.62375pt>
+) <leon-symposium-crop.jpg, id=395, 1457.445pt x 1237.62375pt>
 File: leon-symposium-crop.jpg Graphic file (type jpg)
 
 <use leon-symposium-crop.jpg>
-Package pdftex.def Info: leon-symposium-crop.jpg used on input line 741.
+Package pdftex.def Info: leon-symposium-crop.jpg used on input line 757.
 (pdftex.def)             Requested size: 72.25383pt x 61.35603pt.
 File: leon-symposium-crop.jpg Graphic file (type jpg)
  <use leon-symposium-crop.jpg>
-Package pdftex.def Info: leon-symposium-crop.jpg used on input line 741.
+Package pdftex.def Info: leon-symposium-crop.jpg used on input line 757.
 (pdftex.def)             Requested size: 72.25383pt x 61.35603pt.
  [12 <./leon-symposium-crop.jpg>] (./NER-Diffusion-CI4BD-v1.aux) ) 
 Here is how much of TeX's memory you used:
  4120 strings out of 495000
  66359 string characters out of 6181169
- 134840 words of memory out of 5000000
+ 133840 words of memory out of 5000000
  7273 multiletter control sequences out of 15000+600000
  52591 words of font info for 112 fonts, out of 8000000 for 9000
  17 hyphenation exceptions out of 8191
@@ -485,26 +491,27 @@ Here is how much of TeX's memory you used:
 exlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
-0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic
-/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/urw/palatino/uplri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
-w/zapfding/uzdr.pfb>
-Output written on NER-Diffusion-CI4BD-v1.pdf (12 pages, 1578599 bytes).
+blic/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
+8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/hel
+vetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/urw/palatino/uplri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/zapfd
+ing/uzdr.pfb>
+Output written on NER-Diffusion-CI4BD-v1.pdf (12 pages, 1588897 bytes).
 PDF statistics:
- 466 PDF objects out of 1000 (max. 8388607)
- 158 compressed objects within 2 object streams
+ 470 PDF objects out of 1000 (max. 8388607)
+ 161 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  63 words of extra memory for PDF output out of 10000 (max. 10000000)
 
