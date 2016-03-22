@@ -253,7 +253,7 @@ The following output entities should be collected:
 \emph{``entity\_texts": [``Conor McGregor", ``Gunnar Nelson"]}
 \end{quote}
 
-We present named entity recognition here, applied to Reddit posts and conversations, a text type for which to our knowledge has never had custom NER applied.
+We present named entity recognition here, adapted and applied to Reddit posts and conversations, a text type for which to our knowledge there have been no prior NER efforts.
 Notably, we experiment with techniques previously demonstrated to be successful on other user-generated content and find them lacking.
 
 Typically, many NER systems take a supervised approach; that is, they use data labelled by humans as training data, from which features are extracted to form training instances for a machine learning algorithm.
@@ -303,13 +303,14 @@ There are a number of parameters in our training data balance, feature extractio
 We present our method for estimating of these factors, and intrinsic NER evaluation.
 
 In terms of evaluation, we prefer recall over precision.
-Over the large dataset, spurious entities (i.e. false positives) are likely to be those that are not seen very often or have an unusual temporal pattern.
+Over the large dataset, spurious entities (i.e. false positives) are likely to be seen rarely.
 Mis-recognised entity names tend not to be distributed in a few high-frequency clumps, but rather as many different terms, each with a lower frequency.
 This suggests that there will be great variation in their surface forms, leaving them in the long tail of entities discovered~\cite{leginus2015enhanced}.
-As the majority of our work looks at the more frequent patterns, these are less likely to have an impact.
+As the our diffusion analysis concerns the more frequent entity lexicalisations, these infrequent spurious mis-recognitions are less likely to have an impact.
 %Indeed, this was borne out in our analysis of entities extracted, with no individual  false-positive, spurious entity surface forms occurring often enough to reach our lists of entities selection for diffusion analysis.
 Conversely, recall expresses how broadly and comprehensively the extraction is performing, and is important to tracking a range of entities.\footnote{N.b. It has often been more challenging to achieve high recall in social media texts than high precision~\cite{ritter2011named,derczynski2015analysis}.}
 That is to say, the problem addressed is more tolerant to low precision in input data than low recall.
+We can therefore better evaluate our systems using an adjust $F_\beta$ score.
 
 \begin{equation}
 F_\beta = (1+\beta^2)\frac{PR}{(\beta^2 P) + R} 
@@ -326,7 +327,7 @@ These are then isolated, tokenised, and manually annotated.
 Our annotation format follows~\cite{ritter2011named} in using the Freebase top-level entity type inventory, but only uses the chunking information, as nothing further than this is needed: only the surface forms of entities.
 In total, we identified and annotated $3,708$ tokens of Reddit data, including $149$ entity chunks.
 This comprised our development set, which was used to tune a variety of parameters in our approach.
-Evaluation was performed using the standard {\tt \small conlleval.pl} tool for entity chunking evaluation, including across the Stanford NER output.
+Evaluation was performed using the standard {\tt \small conlleval.pl} tool for entity chunking evaluation, on all systems.
 This gives results at entity level (as opposed to token level).
 
 
@@ -385,7 +386,8 @@ The the blended version used even amounts of both, totalling 132k data, to see i
 An even split was chosen because, if one is to search for the best split, this is the optimal place to begin a binary search.
 
 The baseline system was the Stanford NER tool~\cite{finkel2005incorporating}.
-We included two variants: one run of the out-of-the-box stock system, using the {\tt \small english.all.3class.distsim} binary, and another with a model trained on the same source data as our system.
+We included two variants: one run of the out-of-the-box stock system, using the {\tt \small english.all.3class.distsim} binary, and another with a first-order model trained on the same source data as our system.
+The properties files for these runs are included in the github repository.\footnote{\url{https://github.com/mattroweshow/NER-Diff-Paper}}
 
 Firstly, we tuned our word representations.
 Specifically, we needed to estimate the number of Brown clusters $C$ to use in feature extraction.
@@ -414,8 +416,6 @@ This illustrates the importance of taking the target text type into account duri
 In fact, this is good news: we can improve NE performance in a new genre without doing any human annotation of text in the genre, as long as a sample of the text is available.
 The Twitter Brown clusters consistently give second-best F2 scores, leading newswire.
 
-
-
 We also examined the learning rate of our entity chunking system, scaling up the RCV newswire data.
 We experimented with pure newswire and also newswire plus tweet training data, and with pure newswire vs. blended clusters.
 Results are given in Figure~\ref{fig:rcv-scaling}.
@@ -438,7 +438,8 @@ Hence, we used training data composed from newswire, with Reddit Brown clusters,
 
 
 \subsection{NER analysis}%-- analysis of cross-genre ne chunking performance
-It is interesting to note that adding the Twitter chunking data is generally not helpful.
+
+It is interesting to note that adding the other UGC chunking data (from Twitter) is often not helpful.
 Also, performance generally drops when adding extra newswire data.
 This drop reflects the findings of earlier work~\cite{ritter2011named}, where a little Twitter training data improved social media NE chunking performance more than additional newswire training data.
 
