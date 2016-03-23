@@ -41,7 +41,7 @@ E-mail: leon.d@sheffield.ac.uk}}% <-this % stops an unwanted space
 Existing studies of how information diffuses across social networks has thus far concentrated on analysing and recovering the spread of deterministic innovations such as URLs, hashtags, and group membership.
 However investigating how mentions of real-world entities appear and spread has yet to be explored, largely due to the computationally intractable nature of performing large-scale entity extraction.
 In this paper we present, to the best of our knowledge, one of the first pieces of work to closely examine the diffusion of named entities on social media, using Reddit as our case study platform.
-This forms a data-driven methodology to analysis of propagation at large scale. %nail the KBS cfp
+This forms a data-driven methodology to analyse propagation at large scale. %nail the KBS cfp
 We first investigate how named entities can be accurately recognised and extracted from discussion posts, using an automated approach based upon structured prediction and Brown clustering.
 We then use these extracted entities to study the patterns of entity cascades and how the probability of a user adopting an entity (i.e. mentioning it) is associated with exposures to the entity.
 We put these pieces together by presenting a parallelised diffusion model that can forecast the probability of entity adoption, finding that the influence of adoption between users can be characterised by their prior interactions - as opposed to whether the users propagated entity-adoptions beforehand.
@@ -97,7 +97,7 @@ Using the recognised named entities we then carried out a study of how such enti
 The contributions that we make in this paper are as follows:
 
 \begin{enumerate}
-	\item A method to recognise and extract named entities found with discussion posts based upon structured prediction and Brown clustering, together with an evaluation of this method.
+	\item A novel method to recognise and extract named entities found with discussion posts based upon structured prediction and Brown clustering, together with an evaluation of this method.
 	\item A study of how entities spread and are adopted following exposures, using an approach based upon graph isomorphism to track patterns of entity diffusion.
 	\item A parallelised general threshold diffusion model (using Apache Spark), based on the work of Goyal et al. \cite{goyal2010learning}, that incorporates different entity-adoption constructs (entity propagation, influence of interactions, community homophily) when calculating adoption probabilities - this is accompanied by a comparative empirical evaluation of the different constructs when forecasting entity adoption within the diffusion process.
 \end{enumerate}
@@ -195,7 +195,7 @@ As we will describe below, we also required corpora from which we could \emph{mo
 (iii) \emph{Twitter data (annotated)}, comprised of datasets annotated with named entities - one from Ritter's 2011 EMNLP paper~\cite{ritter2011named} and a second from W-NUT 2015 shared task \cite{baldwin2015shared}.
 
 %\subsection{Data Preparation}
-To conduct our study, we needed to convert the full $140$GB of compressed Reddit posts into a set of interlinked and time-ordered conversations and the entities mentioned in each of them.
+To conduct our study, we needed to convert the full $140$Gb of compressed Reddit posts into a set of interlinked and time-ordered conversations and the entities mentioned in each of them.
 This provides a number of sub-challenges: sampling of the Reddit data, creating a linked series of conversations, and picking out entity mentions in this text type.
 Reddit data is largely unexplored in the NLP community, despite its large volume and especially rich metadata.
 This poses additional challenges: certainly, given the lack of work on Reddit text, there are no annotated datasets available yet, so supervised in-domain work is not directly possible.
@@ -219,8 +219,8 @@ This leads to a threaded discussion, centred on a particular topic, with a hiera
 
 \subsection{Subreddit extraction}
 
-The Reddit dataset is large, and needs to be pared down for initial analysis.
-Fortunately, the data is segmented by community, meaning that we can adjust the scope of the study arbitrarily by selecting a certain number of subreddits and taking the whole.
+The Reddit dataset is large, and needed to be pared down for initial analysis.
+Fortunately, the data is segmented by community, meaning that we could adjust the scope of the study arbitrarily by selecting a certain number of subreddits and taking the whole.
 This is in contrast to, for example, Twitter, where reducing the sample is performed by reducing the sampling of posts~\cite{kergl2014endogenesis}, thus leading to broken conversation threads and so on.
 We chose to examine one hundred entire individual subreddit communities.
 The subreddits were chosen from a list of top subreddits,\footnote{\url{http://redditlist.com/}} which ranks communities based on levels of activity, numbers of subscribers, and rates of growth.
@@ -258,7 +258,7 @@ Notably, we experiment with techniques previously demonstrated to be successful 
 
 Typically, many NER systems take a supervised approach; that is, they use data labelled by humans as training data, from which features are extracted to form training instances for a machine learning algorithm.
 However, NLP systems can be hard to transfer between text types; for example, NER systems for newswire might reach about 89\% F1 on news articles, but only around 40\% on tweets (a form of user-generated content), as found in~\cite{derczynski2015analysis}.
-One approach to overcoming this performance drop when changing text type is to train over a blend of text types.
+One approach to overcome this performance drop when changing text type is to train over a blend of text types.
 For example, Ritter~\cite{ritter2011named} used both IRC\footnote{Internet Relay Chat -- informal internet conversation text} and newswire data when developing a part-of-speech tagger for tweets, as well as an unsupervised language model from the target text type.
 This led to strong performance improvements.
 We follow a similar approach, using a blend of NE-annotated corpora from both newswire and tweets.
@@ -322,7 +322,7 @@ In terms of evaluation, we prefer recall over precision.
 Over the large dataset, spurious entities (i.e. false positives) are likely to be seen rarely.
 Mis-recognised entity names tend not to be distributed in a few high-frequency clumps, but rather as many different terms, each with a lower frequency.
 This suggests that there will be great variation in their surface forms, leaving them in the long tail of entities discovered~\cite{leginus2015enhanced}.
-As the our diffusion analysis concerns the more frequent entity lexicalisations, these infrequent spurious mis-recognitions are less likely to have an impact.
+As our diffusion analysis concerns the more frequent entity lexicalisations, these infrequent spurious mis-recognitions are less likely to have an impact.
 %Indeed, this was borne out in our analysis of entities extracted, with no individual  false-positive, spurious entity surface forms occurring often enough to reach our lists of entities selection for diffusion analysis.
 Conversely, recall expresses how broadly and comprehensively the extraction is performing, and is important to tracking a range of entities.\footnote{N.b. It has often been more challenging to achieve high recall in social media texts than high precision~\cite{ritter2011named,derczynski2015analysis}.}
 That is to say, the problem addressed is more tolerant to low precision in input data than low recall.
@@ -398,7 +398,7 @@ Classes are removed before training, making this just a chunking task.
 We evaluated performance when trained on just Twitter data, just newswire data, and also a blend of the two.
 In the base cases, the same amount of data was used.
 This was capped by the volume of Twitter training data available, 66k tokens; so, the newswire approach was also trained with 66k tokens
-The the blended version used even amounts of both, totalling 132k data, to see if adding the two types of data improved performance.
+The blended version used even amounts of both, totalling 132k data, to see if adding the two types of data improved performance.
 An even split was chosen because, if one is to search for the best split, this is the optimal place to begin a binary search.
 
 The baseline system was the Stanford NER tool~\cite{finkel2005incorporating}.
@@ -412,7 +412,7 @@ To tune the value for $C$, we examined a similar scenario with similar dataset s
 We noted that in prior work~\cite{derczynski2015tune}, entity recognition performance with decomposed class prefixes -- similar to the provenance-based features we propose here -- peak at around $C=2500$ for corpora of 16k tokens, $C=5000$ for corpora of 32k tokens, and at higher values for larger datasets.
 As General Brown clustering is dependent on the number of types and the size of the active set $a$, and results are unreliable with $a>C$, we set $C = a = 2560$.
 This offers a decent trade-off between computational cost of building clusters, and the quality of the clusterings used.
-We then experiment with combinations of newswire, Twitter and Reddit data.
+We then experimented with combinations of newswire, Twitter and Reddit data.
 Brown clusters are extracted using the generalised-brown package~\cite{sean_chester_2015_33758}.
 Results are given in Table~\ref{tab:brown-tuning}.
 
@@ -427,7 +427,7 @@ Results are given in Table~\ref{tab:brown-tuning}.
 Note how the scores are consistently best in each category when inducing Brown clusters from Reddit data.
 Attempts to approximate this using newswire, twitter, or a blend of those two did not score as well.
 This is remarkable, considering that we used on 64M tokens of Reddit data for cluster induction, compared to around 130M total for the other text type blends.
-Even half the amount of in-text-type data provides notably improved unsupervised representations that an approximation.
+Even half the amount of in-text-type data provides notably improved unsupervised representations than an approximation.
 This illustrates the importance of taking the target text type into account during unsupervised feature extraction.
 In fact, this is good news: we can improve NE performance in a new genre without doing any human annotation of text in the genre, as long as a sample of the text is available.
 The Twitter Brown clusters consistently give second-best F2 scores, leading newswire.
@@ -655,7 +655,7 @@ Our additional layer of parallelism was achieved by \emph{multithreading} the ca
 The Java implementation of this code can be found in the github repository,\footnote{\url{https://github.com/mattroweshow/NER-Diff-Paper}} including the functions for building the HBase tables, deriving the entity-propagation counts ($E_{v2u}$) and the test algorithm.
 
 \subsubsection{Results}
-Table \ref{tab:macro_results} presents the results from our experiments of the various entity-adoption constructs and probability settings including the micro-averaged $ROC$ values for each model and the micro-averaged $ROC$ values - together with their standard deviation - for each model.
+Table \ref{tab:macro_results} presents the results from our experiments of the various entity-adoption constructs and probability settings including the micro-averaged $ROC$ values for each model and the macro-averaged $ROC$ values - together with their standard deviation - for each model.
 The former values are computed by \emph{pooling} together all result tuples (i.e. $<u, p_u, r_u>$ ) from all the test entities, and working out the $ROC$ value from that pool; while the latter values are computed by working out the entity-specific $ROC$ values and deriving the average (and standard deviation) from those.
 Overall the results indicate that the static Bernoulli probability achieves the best performance, and that the best performing models are the Interactions-based model (from Micro-$ROC$) and the Community-homophily model (from Macro-$ROC$).
 We note the following salient points:
@@ -742,7 +742,7 @@ Our empirical evaluation of this framework found that interactions had the great
   % regular IEEE prefers the singular form
   \section*{Acknowledgment}
 \fi
-The authors acknowledge European Commission support from 7th Framework Program through grant No. 611223, {\sc Pheme}, and from Horizon 2020 through grant No. 687847, Comrades.
+The authors acknowledge European Commission support from 7th Framework Program through grant No. 611223, {\sc Pheme}, from Horizon 2020 through grant No. 687847, Comrades, and from NERC through grant ref. NE/L010100/1 Analysis of historic drought and water scarcity in the UK: a systems-based study of drivers, impacts.
 
 \bibliographystyle{IEEEtran}
 \bibliography{NER-Diffusion}
@@ -750,8 +750,11 @@ The authors acknowledge European Commission support from 7th Framework Program t
 %\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
 % or if you just want to reserve a space for a photo:
 
-\begin{IEEEbiography}{Matthew Rowe}
-Biography text here.
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{matthew.jpg}}]{Matthew Rowe}
+Matthew Rowe is  a Lecturer in Social Computing at Lancaster University.
+His work focuses on computational models of user and community behaviour on social media, with applications spanning information diffusion, recommender systems, and churn prediction.
+Dr. Rowe's work has been used in enterprise communities and by web-based systems to predict user behaviour, customer retention, and customer dissatisfaction.
+He currently runs a small social computing team comprised of three researchers within the School of Computing and Communications at Lancaster University.
 \end{IEEEbiography}
 
 \begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{leon-symposium-crop.jpg}}]{Leon Derczynski}
