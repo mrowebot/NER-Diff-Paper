@@ -10,7 +10,8 @@ import sys
 import networkx.algorithms.isomorphism as iso
 import networkx as nx
 from matplotlib.patches import FancyArrowPatch
-
+from pylab import rcParams
+rcParams['figure.figsize'] = 5, 5
 
 def plot_cascade_patterns_distribution():
     cascade_type_frequency = {}
@@ -103,5 +104,5 @@ def plot_cascade_patterns_shapes():
 
 
 ##### Main Execution code
-# plot_cascade_patterns_distribution()
-plot_cascade_patterns_shapes()
+plot_cascade_patterns_distribution()
+# plot_cascade_patterns_shapes()

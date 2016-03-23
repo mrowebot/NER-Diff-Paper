@@ -9,9 +9,11 @@ import sys
 import networkx.algorithms.isomorphism as iso
 import networkx as nx
 from matplotlib.patches import FancyArrowPatch
+from pylab import rcParams
+rcParams['figure.figsize'] = 5, 5
 
 def plotTauDistribution():
-    # taus = []
+    taus = []
     tau_dist = {}
     total_freq = 0
 
@@ -22,6 +24,7 @@ def plotTauDistribution():
         for row in reader:
             try:
                 tau = int(float(row[0]) / 1000 / 60 / 60)
+                taus.append(tau)
                 if tau in tau_dist:
                     tau_dist[tau] += 1
                 else:
@@ -34,6 +37,7 @@ def plotTauDistribution():
     rel_freqs_dist = {key: (float(value)/float(total_freq)) for (key, value) in tau_dist.items()}
     data = {'counts': pd.Series(rel_freqs_dist.values(),
                                 index=rel_freqs_dist.keys())}
+    df2 = pd.Series(data=taus)
     # Compute the average tau
     avg_tau = 0
     for tau in rel_freqs_dist:
@@ -46,12 +50,23 @@ def plotTauDistribution():
     df = df.sort('counts', ascending=False)
 
     print "Plotting"
+
+    # plot the histogram of the tau values
+    fig = plt.figure()
+    df2.plot(kind='hist', bins=100)
+    plt.xlabel(r"$\tau_{v,u}$ - hours")
+    plt.xlim((0, 60000))
+    # plt.xlabel("$\tau_{v,u}$")
+    plt.ylabel("Frequency")
+    plt.savefig('../plots/taus_dist.pdf', bbox_inches='tight')
+    plt.clf()
+
     # plot the full distibution with full logs on x and y
     fig = plt.figure()
     ax = plt.gca()
     ax.plot(df.index, df['counts'], '.')
     plt.axvline(x=avg_tau, color="darkgreen", linestyle="--", linewidth=float(2))
-    plt.text(avg_tau+1000, .001, r'$\mu=$' + str(int(avg_tau)), color="darkgreen")
+    plt.text(avg_tau-10000, .001, r'$\mu=$' + str(int(avg_tau)), color="darkgreen")
     ax.set_yscale('log')
     ax.set_xscale('log')
     plt.xlabel(r"log($\tau_{v,u}$) - hours")

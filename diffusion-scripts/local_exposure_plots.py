@@ -9,6 +9,9 @@ import sys
 import networkx.algorithms.isomorphism as iso
 import networkx as nx
 from matplotlib.patches import FancyArrowPatch
+from pylab import rcParams
+rcParams['figure.figsize'] = 5, 5
+
 
 def plot_exposure_curves(sample):
     exposure_count_dist = {}
@@ -196,6 +199,6 @@ def plot_top_k_exposure_curves(sample, k):
 
 #### Main Execution code
 sample = False
-# plot_exposure_curves(sample)
+plot_exposure_curves(sample)
 k = 9
 plot_top_k_exposure_curves(sample, 9)
