@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.15)  23 MAR 2016 15:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.1.25)  29 MAR 2016 10:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **NER-Diffusion-CI4BD-v1.tex
 (./NER-Diffusion-CI4BD-v1.tex
-LaTeX2e <2011/06/27>
-Babel <3.9h> and hyphenation patterns for 78 languages loaded.
+LaTeX2e <2015/01/01>
+Babel <3.9l> and hyphenation patterns for 2 languages loaded.
 (./IEEEtran.cls
 Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
 -- See the "IEEEtran_HOWTO" manual for usage information.
@@ -118,18 +118,18 @@ LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <24.09> not available
 \@IEEEtranrubishbin=\box27
 ) (/usr/share/texlive/texmf-dist/tex/latex/cite/cite.sty
 LaTeX Info: Redefining \cite on input line 302.
-LaTeX Info: Redefining \nocite on input line 373.
-Package: cite 2010/09/10  v 5.3
+LaTeX Info: Redefining \nocite on input line 332.
+Package: cite 2015/02/27  v 5.5
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks15
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
@@ -137,7 +137,7 @@ Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
 File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: pdftex.def on input line 91.
+Package graphics Info: Driver file: pdftex.def on input line 94.
 
 (/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
@@ -363,22 +363,22 @@ LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <9.53561> not available
 <reddit-example.png, id=18, 502.87875pt x 734.745pt>
 File: reddit-example.png Graphic file (type png)
  <use reddit-example.png>
-Package pdftex.def Info: reddit-example.png used on input line 207.
+Package pdftex.def Info: reddit-example.png used on input line 211.
 (pdftex.def)             Requested size: 177.06071pt x 258.70055pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 227--227
+Underfull \hbox (badness 10000) in paragraph at lines 231--231
 [][][]$\OT1/ppl/m/n/8.03 https : / / github . com / mattroweshow / NER-[]Di-[]
 Paper / tree /
  []
 
 [3 <./reddit-example.png>]
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 240.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 244.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Underfull \hbox (badness 4739) in paragraph at lines 292--293
+Underfull \hbox (badness 4739) in paragraph at lines 296--297
 []\OT1/ppl/m/n/9.53561 The av-er-age mu-tual in-for-ma-tion of $\OML/cmm/m/it/1
 0 C$\OT1/ppl/m/n/9.53561 , de-noted
  []
@@ -389,13 +389,13 @@ File: entity-chunking/chart-results-rcv-crop.pdf Graphic file (type pdf)
 
 <use entity-chunking/chart-results-rcv-crop.pdf>
 Package pdftex.def Info: entity-chunking/chart-results-rcv-crop.pdf used on inp
-ut line 422.
+ut line 426.
 (pdftex.def)             Requested size: 252.94499pt x 100.50006pt.
 
 <plots/entity_ts.pdf, id=38, 578.16pt x 433.62pt>
 File: plots/entity_ts.pdf Graphic file (type pdf)
  <use plots/entity_ts.pdf>
-Package pdftex.def Info: plots/entity_ts.pdf used on input line 464.
+Package pdftex.def Info: plots/entity_ts.pdf used on input line 467.
 (pdftex.def)             Requested size: 252.94499pt x 189.70828pt.
 
 [6 <./entity-chunking/chart-results-rcv-crop.pdf> <./plots/entity_ts.pdf>]
@@ -403,14 +403,14 @@ Package pdftex.def Info: plots/entity_ts.pdf used on input line 464.
 File: plots/cascade_shapes.pdf Graphic file (type pdf)
 
 <use plots/cascade_shapes.pdf>
-Package pdftex.def Info: plots/cascade_shapes.pdf used on input line 515.
+Package pdftex.def Info: plots/cascade_shapes.pdf used on input line 518.
 (pdftex.def)             Requested size: 123.94443pt x 124.0948pt.
 
 <plots/cascade_rank_dist.pdf, id=85, 337.2851pt x 346.82071pt>
 File: plots/cascade_rank_dist.pdf Graphic file (type pdf)
 
 <use plots/cascade_rank_dist.pdf>
-Package pdftex.def Info: plots/cascade_rank_dist.pdf used on input line 516.
+Package pdftex.def Info: plots/cascade_rank_dist.pdf used on input line 519.
 (pdftex.def)             Requested size: 123.94443pt x 127.44846pt.
  [7 <./plots/cascade_shapes.pdf> <./plots/cascade_rank_dist.pdf
 
@@ -421,7 +421,7 @@ File: plots/exposure_count_dist_full_log.pdf Graphic file (type pdf)
 
 <use plots/exposure_count_dist_full_log.pdf>
 Package pdftex.def Info: plots/exposure_count_dist_full_log.pdf used on input l
-ine 547.
+ine 550.
 (pdftex.def)             Requested size: 123.94443pt x 122.01025pt.
 
 <plots/per_entity_exposure_count_dist_full_log.pdf, id=272, 361.92215pt x 361.1
@@ -430,10 +430,10 @@ File: plots/per_entity_exposure_count_dist_full_log.pdf Graphic file (type pdf)
 
  <use plots/per_entity_exposure_count_dist_full_log.pdf>
 Package pdftex.def Info: plots/per_entity_exposure_count_dist_full_log.pdf used
- on input line 548.
+ on input line 551.
 (pdftex.def)             Requested size: 123.94443pt x 123.67476pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 548--548
+Underfull \hbox (badness 10000) in paragraph at lines 551--551
 []\OT1/phv/m/n/8.03 (b) |Sam-pled En-tity Exposure-
  []
 
@@ -441,21 +441,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 548--548
 File: plots/taus_dist.pdf Graphic file (type pdf)
 
 <use plots/taus_dist.pdf>
-Package pdftex.def Info: plots/taus_dist.pdf used on input line 587.
+Package pdftex.def Info: plots/taus_dist.pdf used on input line 590.
 (pdftex.def)             Requested size: 123.94443pt x 115.45102pt.
 
 <plots/taus_dist_full_log.pdf, id=274, 356.73274pt x 350.20837pt>
 File: plots/taus_dist_full_log.pdf Graphic file (type pdf)
 
 <use plots/taus_dist_full_log.pdf>
-Package pdftex.def Info: plots/taus_dist_full_log.pdf used on input line 588.
+Package pdftex.def Info: plots/taus_dist_full_log.pdf used on input line 591.
 (pdftex.def)             Requested size: 117.61848pt x 115.46758pt.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <8.03> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 590.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 593.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <9.53561> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 594.
- [8 <./plots/exposure_count_dist_full_log.pdf> <./plots/per_entity_exposure_cou
-nt_dist_full_log.pdf
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 597.
+
+Underfull \hbox (badness 2790) in paragraph at lines 597--597
+ \OT1/phv/m/sl/9.53561 4.3.1 Ad-di-tional In-flu-ence Dy-nam-ics -- Entity-Adop
+tion
+ []
+
+[8 <./plots/exposure_count_dist_full_log.pdf> <./plots/per_entity_exposure_coun
+t_dist_full_log.pdf
 
 pdfTeX warning: pdflatex (file ./plots/per_entity_exposure_count_dist_full_log.
 pdf): PDF inclusion: multiple pdfs with page group included in a single page
@@ -464,40 +470,40 @@ pdf): PDF inclusion: multiple pdfs with page group included in a single page
 pdfTeX warning: pdflatex (file ./plots/taus_dist_full_log.pdf): PDF inclusion: 
 multiple pdfs with page group included in a single page
 >] [10] (./NER-Diffusion-CI4BD-v1.bbl [11]
-Underfull \hbox (badness 10000) in paragraph at lines 169--171
+Underfull \hbox (badness 10000) in paragraph at lines 180--182
 \OT1/ppl/m/n/8.03 https://archive.org/details/2015[]reddit[]comments[]corpus,
  []
 
 ) <matthew.jpg, id=454, 390.45876pt x 527.9725pt>
 File: matthew.jpg Graphic file (type jpg)
  <use matthew.jpg>
-Package pdftex.def Info: matthew.jpg used on input line 753.
+Package pdftex.def Info: matthew.jpg used on input line 757.
 (pdftex.def)             Requested size: 66.80608pt x 90.33418pt.
 File: matthew.jpg Graphic file (type jpg)
 
 <use matthew.jpg>
-Package pdftex.def Info: matthew.jpg used on input line 753.
+Package pdftex.def Info: matthew.jpg used on input line 757.
 (pdftex.def)             Requested size: 66.80608pt x 90.33418pt.
  <leon-symposium-crop.jpg, id=457, 1457.445pt x 1237.62375pt>
 File: leon-symposium-crop.jpg Graphic file (type jpg)
 
 <use leon-symposium-crop.jpg>
-Package pdftex.def Info: leon-symposium-crop.jpg used on input line 760.
+Package pdftex.def Info: leon-symposium-crop.jpg used on input line 764.
 (pdftex.def)             Requested size: 72.25383pt x 61.35603pt.
 File: leon-symposium-crop.jpg Graphic file (type jpg)
  <use leon-symposium-crop.jpg>
-Package pdftex.def Info: leon-symposium-crop.jpg used on input line 760.
+Package pdftex.def Info: leon-symposium-crop.jpg used on input line 764.
 (pdftex.def)             Requested size: 72.25383pt x 61.35603pt.
  [12 <./matthew.jpg> <./leon-symposium-crop.jpg>] (./NER-Diffusion-CI4BD-v1.aux
 ) ) 
 Here is how much of TeX's memory you used:
- 4132 strings out of 493304
- 66470 string characters out of 6139871
- 136947 words of memory out of 5000000
- 7508 multiletter control sequences out of 15000+600000
+ 4129 strings out of 495000
+ 66491 string characters out of 6181169
+ 134852 words of memory out of 5000000
+ 7281 multiletter control sequences out of 15000+600000
  52591 words of font info for 112 fonts, out of 8000000 for 9000
- 960 hyphenation exceptions out of 8191
- 38i,10n,47p,737b,377s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 17 hyphenation exceptions out of 8191
+ 38i,10n,47p,738b,377s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dis
@@ -518,7 +524,7 @@ usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/urw/palatino/uplri8a.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/zapfding/uzdr.pfb>
-Output written on NER-Diffusion-CI4BD-v1.pdf (12 pages, 1403895 bytes).
+Output written on NER-Diffusion-CI4BD-v1.pdf (12 pages, 1405043 bytes).
 PDF statistics:
  533 PDF objects out of 1000 (max. 8388607)
  168 compressed objects within 2 object streams

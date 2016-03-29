@@ -21,6 +21,10 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{duggan20136}
+M.~Duggan and A.~Smith, ``6\% of online adults are {R}eddit users,'' \emph{Pew
+  Internet \& American Life Project}, vol.~3, 2013.
+
 \bibitem{goyal2010learning}
 A.~Goyal, F.~Bonchi, and L.~V. Lakshmanan, ``Learning influence probabilities
   in social networks,'' in \emph{Proceedings of the third ACM international
@@ -44,18 +48,16 @@ E.~F. Tjong Kim~Sang and F.~De~Meulder, ``Introduction to the {CoNLL-2003}
   \emph{Proceedings of the seventh Conference on Natural Language
   Learning}.\hskip 1em plus 0.5em minus 0.4em\relax ACL, 2003, pp. 142--147.
 
-\bibitem{derczynski2013microblog}
-L.~Derczynski, D.~Maynard, N.~Aswani, and K.~Bontcheva, ``Microblog-genre noise
-  and impact on semantic annotation accuracy,'' in \emph{Proceedings of the
-  24th ACM Conference on Hypertext and Social Media}.\hskip 1em plus 0.5em
-  minus 0.4em\relax ACM, 2013, pp. 21--30.
+\bibitem{derczynski2015analysis}
+L.~Derczynski, D.~Maynard, G.~Rizzo, M.~van Erp, G.~Gorrell, R.~Troncy,
+  J.~Petrak, and K.~Bontcheva, ``Analysis of named entity recognition and
+  linking for tweets,'' \emph{Information Processing \& Management}, vol.~51,
+  no.~2, pp. 32--49, 2015.
 
 \bibitem{hovy2015user}
 D.~Hovy, A.~Johannsen, and A.~S{\o}gaard, ``User review sites as a resource for
   large-scale sociolinguistic studies,'' in \emph{Proceedings of the 24th
-  International Conference on World Wide Web}.\hskip 1em plus 0.5em minus
-  0.4em\relax International World Wide Web Conferences Steering Committee,
-  2015, pp. 452--461.
+  International Conference on World Wide Web}, 2015, pp. 452--461.
 
 \bibitem{plank2015personality}
 B.~Plank and D.~Hovy, ``Personality traits on {Twitter}--or--{How} to get 1,500
@@ -83,9 +85,7 @@ X.~Liu, S.~Zhang, F.~Wei, and M.~Zhou, ``{Recognizing Named Entities in
 \bibitem{plank2014adapting}
 B.~Plank, D.~Hovy, R.~McDonald, and A.~S{\o}gaard, ``Adapting taggers to
   {Twitter} with not-so-distant supervision,'' in \emph{Proceedings of COLING:
-  Technical Papers}, J.~Tsujii and J.~Hajic, Eds.\hskip 1em plus 0.5em minus
-  0.4em\relax Dublin, Ireland: Dublin City University and Association for
-  Computational Linguistics, 2014, pp. 1783--1792.
+  Technical Papers}, 2014, pp. 1783--1792.
 
 \bibitem{rowe2015microposts2015}
 M.~Rowe, M.~Stankovic, and A.-S. Dadzie, ``{\#Microposts2015 -- 5th Workshop on
@@ -113,16 +113,9 @@ B.~Han and T.~Baldwin, ``Lexical normalisation of short text messages: Makn
 
 \bibitem{fromreide2014crowdsourcing}
 H.~Fromreide, D.~Hovy, and A.~S{\o}gaard, ``{Crowdsourcing and annotating NER
-  for Twitter \#drift},'' in \emph{Proceedings of LREC}, N.~Calzolari,
-  K.~Choukri, T.~Declerck, H.~Loftsson, B.~Maegaard, J.~Mariani, A.~Moreno,
-  J.~Odijk, and S.~Piperidis, Eds.\hskip 1em plus 0.5em minus 0.4em\relax
-  European Language Resources Association, 2014, pp. 2544--2547.
-
-\bibitem{derczynski2015analysis}
-L.~Derczynski, D.~Maynard, G.~Rizzo, M.~van Erp, G.~Gorrell, R.~Troncy,
-  J.~Petrak, and K.~Bontcheva, ``Analysis of named entity recognition and
-  linking for tweets,'' \emph{Information Processing \& Management}, vol.~51,
-  no.~2, pp. 32--49, 2015.
+  for Twitter \#drift},'' in \emph{Proceedings of LREC}.\hskip 1em plus 0.5em
+  minus 0.4em\relax European Language Resources Association, 2014, pp.
+  2544--2547.
 
 \bibitem{suen2013nifty}
 C.~Suen, S.~Huang, C.~Eksombatchai, R.~Sosic, and J.~Leskovec, ``Nifty: A
@@ -154,6 +147,24 @@ L.~Yang, T.~Sun, M.~Zhang, and Q.~Mei, ``We know what@ you\# tag: does the dual
   role affect hashtag adoption?'' in \emph{Proceedings of the 21st
   international conference on World Wide Web}.\hskip 1em plus 0.5em minus
   0.4em\relax ACM, 2012, pp. 261--270.
+
+\bibitem{singer2014evolution}
+P.~Singer, F.~Fl{\"o}ck, C.~Meinhart, E.~Zeitfogel, and M.~Strohmaier,
+  ``{Evolution of Reddit: from the front page of the internet to a
+  self-referential community?}'' in \emph{Proceedings of the companion volume
+  of the 23rd International World Wide Web Conference, Web Science track},
+  2014, pp. 517--522.
+
+\bibitem{weninger2015random}
+T.~Weninger, T.~J. Johnston, and M.~Glenski, ``Random voting effects in
+  social-digital spaces: A case study of {R}eddit post submissions,'' in
+  \emph{Proceedings of the 26th ACM Conference on Hypertext \& Social
+  Media}.\hskip 1em plus 0.5em minus 0.4em\relax ACM, 2015, pp. 293--297.
+
+\bibitem{olson2015navigating}
+R.~S. Olson and Z.~P. Neal, ``Navigating the massive world of {R}eddit: Using
+  backbone networks to map user interests in social media,'' \emph{PeerJ
+  Computer Science}, vol.~1, p.~e4, 2015.
 
 \bibitem{fang2013predicting}
 X.~Fang, P.~J.-H. Hu, Z.~Li, and W.~Tsai, ``Predicting adoption probabilities
