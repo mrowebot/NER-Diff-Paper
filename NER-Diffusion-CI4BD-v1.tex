@@ -1,42 +1,34 @@
-\documentclass[10pt,journal,compsoc]{IEEEtran}
+\documentclass{elsarticle}
 
-\ifCLASSOPTIONcompsoc
-  % IEEE Computer Society needs nocompress option
-  % requires cite.sty v4.0 or later (November 2003)
-  \usepackage[nocompress]{cite}
-\else
-  % normal IEEE
-  \usepackage{cite}
-\fi
+\usepackage{rotating}
+\usepackage{multirow}
+%\usepackage{apacite}
+\usepackage{natbib}
 
-\usepackage[pdftex]{graphicx}
+\usepackage{graphicx}
 \usepackage{amsmath}
 
 \usepackage[caption=false,font=footnotesize,labelfont=sf,textfont=sf]{subfig}
 \def\subfigure{\subfloat}
 
 \usepackage{url}
-\usepackage{multirow}
 
-% correct bad hyphenation here
-\hyphenation{op-tical net-works semi-conduc-tor}
 \newtheorem{mydef}{Definition}
 
 
 \begin{document}
 
 \title{Tracking the Diffusion of Named Entities}
-\author{Matthew~Rowe
-        and~Leon~Derczynski% <-this % stops a space
-\IEEEcompsocitemizethanks{\IEEEcompsocthanksitem M. Rowe is with the School of Computing and Communications, Lancaster University, Lancaster UK.\protect\\
-% note need leading \protect in front of \\ to get a newline within \thanks as
-% \\ is fragile and will error, could use \hfil\break instead.
-E-mail: m.rowe@lancaster.ac.uk
-\IEEEcompsocthanksitem L. Derczynski is with the Department of Computer Science, University of Sheffield, Sheffield UK.\protect\\
-E-mail: leon.d@sheffield.ac.uk}}% <-this % stops an unwanted space
+\author[lancs]{Matthew Rowe}
+\author[usfd]{Leon Derczynski}
+
+\fntext[fn1]{Submitted to ``Information Processing and Management".}
+
+\address[lancs]{Lancaster University, Lancaster, LA1 4YW, UK}
+\address[usfd]{University of Sheffield, Sheffield, S1 4DP, UK}
 
 
-\IEEEtitleabstractindextext{%
+
 \begin{abstract}
 Existing studies of how information diffuses across social networks has thus far concentrated on analysing and recovering the spread of deterministic innovations such as URLs, hashtags, and group membership.
 However investigating how mentions of real-world entities appear and spread has yet to be explored, largely due to the computationally intractable nature of performing large-scale entity extraction.
@@ -45,42 +37,24 @@ This forms a data-driven methodology to analyse propagation at large scale. %nai
 We first investigate how named entities can be accurately recognised and extracted from discussion posts, using an automated approach based upon structured prediction and Brown clustering.
 We then use these extracted entities to study the patterns of entity cascades and how the probability of a user adopting an entity (i.e. mentioning it) is associated with exposures to the entity.
 We put these pieces together by presenting a parallelised diffusion model that can forecast the probability of entity adoption, finding that the influence of adoption between users can be characterised by their prior interactions -- as opposed to whether the users propagated entity-adoptions beforehand.
-Our findings have important implications for researchers studying influence and language, and for digital marketers who wish to understand entity-level influence dynamics.
+Our findings have important implications for researchers studying influence and language, and for community analysts who wish to understand entity-level influence dynamics.
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
-\begin{IEEEkeywords}
-Entity diffusion, information diffusion, named entity recognition, social computing
-\end{IEEEkeywords}}
+\begin{keyword}
+entity diffusion \sep information diffusion \sep named entity recognition \sep social computing
+\end{keyword}
 
 
 \maketitle
 
 
-% To allow for easy dual compilation without having to reenter the
-% abstract/keywords data, the \IEEEtitleabstractindextext text will
-% not be used in maketitle, but will appear (i.e., to be "transported")
-% here as \IEEEdisplaynontitleabstractindextext when the compsoc 
-% or transmag modes are not selected <OR> if conference mode is selected 
-% -- because all conference papers position the abstract like regular
-% papers do.
-\IEEEdisplaynontitleabstractindextext
-% \IEEEdisplaynontitleabstractindextext has no effect when using
-% compsoc or transmag under a non-conference mode.
+
+\interfootnotelinepenalty=8000
 
 
 
-% For peer review papers, you can put extra information on the cover
-% page as needed:
-% \ifCLASSOPTIONpeerreview
-% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
-% \fi
-%
-% For peerreview papers, this IEEEtran command inserts a page break and
-% creates the second title. It will be ignored for other modes.
-\IEEEpeerreviewmaketitle
-
-\IEEEraisesectionheading{\section{Introduction}\label{sec:introduction}}
+\section{Introduction}\label{sec:introduction}
 Understanding who influences whom and under what conditions forms a core component of information diffusion studies.
 Recovering the so-called \emph{diffusion process} allows researchers and marketers to understand how messages are passed between users, and what contributes to their flow.
 In turn, this allows for simulation and predictive models to be engineered that forecast the expected spread of information, allowing such \emph{spread potential} to be maximised or minimised.
@@ -738,35 +712,24 @@ We also investigated the association between the number of exposures that users 
 Putting all the pieces together, we implemented a modified version of a general threshold model which incorporated entity-adoption constructs to test different mechanisms for computing user-to-user influence probabilities and can be learnt in parallel.
 Our empirical evaluation of this framework found that interactions had the greatest \emph{overall} effect, while there was variance between entities in terms of the impact of \emph{community-homophily} on users adopting an entity.
 
-% use section* for acknowledgment
-\ifCLASSOPTIONcompsoc
-  % The Computer Society usually uses the plural form
-  \section*{Acknowledgments}
-\else
-  % regular IEEE prefers the singular form
-  \section*{Acknowledgment}
-\fi
+\section*{Acknowledgments}
 The authors acknowledge European Commission support from 7th Framework Program through grant No. 611223, {\sc Pheme}, from Horizon 2020 through grant No. 687847, Comrades, and from NERC through grant ref. NE/L010100/1 Analysis of historic drought and water scarcity in the UK: a systems-based study of drivers, impacts.
 
-\bibliographystyle{IEEEtran}
+\bibliographystyle{elsarticle-num}
 \bibliography{NER-Diffusion}
 
-%\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
-% or if you just want to reserve a space for a photo:
 
-\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{matthew.jpg}}]{Matthew Rowe}
+\section*{Vitae}
+
+{\bf Matthew Rowe}
 Matthew Rowe is  a Lecturer in Social Computing at Lancaster University.
 His work focuses on computational models of user and community behaviour on social media, with applications spanning information diffusion, recommender systems, and churn prediction.
 Dr. Rowe's work has been used in enterprise communities and by web-based systems to predict user behaviour, customer retention, and customer dissatisfaction.
 He currently runs a small social computing team comprised of three researchers within the School of Computing and Communications at Lancaster University.
-\end{IEEEbiography}
 
-\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{leon-symposium-crop.jpg}}]{Leon Derczynski}
+{\bf Leon Derczynski}
 Leon Derczynski is a Research Associate in the Natural Language Processing group at the University of Sheffield.
 His work focuses on social media information extraction and spatio-temporal information extraction.
 Tools that Dr. Derczynski has worked on are in daily use at many large enterprises, including Intel and CSIRO, and he frequently serves in an advisory role on social media, natural language processing and information retrieval.
-\end{IEEEbiography}
 
 \end{document}
-
-
