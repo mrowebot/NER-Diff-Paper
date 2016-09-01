@@ -1,0 +1,180 @@
+\relax 
+\citation{duggan20136}
+\citation{goyal2010learning}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}}
+\newlabel{sec:introduction}{{1}{1}}
+\citation{nadeau2007survey,ratinov2009design}
+\citation{tjong2003introduction}
+\citation{derczynski2015analysis}
+\citation{hovy2015user}
+\citation{plank2015personality}
+\citation{preoctiuc2015studying}
+\citation{ritter2011named}
+\citation{liu2011recognizing}
+\citation{plank2014adapting}
+\citation{rowe2015microposts2015,baldwin2015shared}
+\citation{cherryunreasonable}
+\citation{han2011lexical}
+\citation{fromreide2014crowdsourcing}
+\citation{derczynski2015analysis}
+\citation{suen2013nifty}
+\citation{guille2013information}
+\citation{bakshy2012role}
+\citation{romero2011differences}
+\citation{yang2012we}
+\citation{yang2012we}
+\citation{goyal2010learning}
+\citation{goyal2010learning}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related work}{2}}
+\newlabel{sec:rw}{{2}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Named Entity Recognition}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Information Diffusion}{2}}
+\citation{singer2014evolution}
+\citation{weninger2015random}
+\citation{olson2015navigating}
+\citation{fang2013predicting}
+\citation{huang2014temporal}
+\citation{goyal2010learning}
+\citation{ritter2011named}
+\citation{baldwin2015shared}
+\citation{reddit-data}
+\citation{kergl2014endogenesis}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Datasets preparation and NER}{3}}
+\newlabel{sec:datasets_ner}{{3}{3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Example Reddit post. Note topic at the top, followed by comments, with conversations descending in a tree-like hierarchical fashion}}{3}}
+\newlabel{fig:reddit-example}{{1}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Subreddit extraction}{3}}
+\citation{kiss2006unsupervised}
+\citation{o2010tweetmotif}
+\citation{derczynski2015analysis}
+\citation{ritter2011named}
+\citation{tjong2003introduction}
+\citation{ritter2011named,baldwin2015shared}
+\citation{brown1992class}
+\citation{turian2009preliminary}
+\citation{derczynski2016generalised}
+\citation{derczynski2016generalised}
+\citation{derczynski2016generalised}
+\citation{ratinov2009design}
+\citation{derczynski2015usfd}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}NER for Reddit}{4}}
+\citation{leginus2015enhanced}
+\citation{ritter2011named,derczynski2015analysis}
+\citation{ritter2011named}
+\citation{bollacker2008freebase}
+\citation{ritter2011named,baldwin2015shared}
+\citation{tjong2003introduction}
+\citation{finkel2005incorporating}
+\citation{derczynski2015tune}
+\citation{sean_chester_2015_33758}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Tuning entity recognition}{5}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Reddit development set NER, varying text type in training data and Brown cluster source. Best per scenario is starred; best overall, bold.}}{5}}
+\newlabel{tab:brown-tuning}{{1}{5}}
+\citation{ritter2011named}
+\citation{derczynski2015analysis}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Scaling news training data under three conditions: news clusters; blended news and twitter clusters; blended news and twitter clusters, with 66k extra twitter training data. Note increasing news training data (x-axis) eventually lead to decreased performance in every case.}}{6}}
+\newlabel{fig:rcv-scaling}{{2}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Top nine entities and their mention intensity over time}}{6}}
+\newlabel{fig:entity-ts}{{3}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}NER analysis}{6}}
+\citation{leskovec2007patterns}
+\citation{cordella2001improved}
+\citation{leskovec2007patterns}
+\citation{romero2011differences}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Entity Diffusion}{7}}
+\newlabel{sec:diffusion}{{4}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Entity Mention Cascades}{7}}
+\newlabel{fig:cascade_shapes}{{4a}{7}}
+\newlabel{sub@fig:cascade_shapes}{{(a)}{a}}
+\newlabel{fig:rank_dist}{{4b}{7}}
+\newlabel{sub@fig:rank_dist}{{(b)}{b}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces The top-20 cascade shapes are generally deep and narrow with little branching (Fig. 4a\hbox {}, while the cascade shape rank follows a power-law distribution (Fig. 4b\hbox {}.}}{7}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Top-20 Cascade Shapes}}}{7}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Cascade Shape Rank Distribution}}}{7}}
+\newlabel{fig:entity_cascades}{{4}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Entity Adoption Post-$({k-1})^{th}$ Exposure}{7}}
+\newlabel{def:exposure}{{2}{7}}
+\citation{romero2011differences}
+\citation{goyal2010learning}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Global Threshold Diffusion Model}{8}}
+\newlabel{eq:joint_prob}{{4}{8}}
+\newlabel{fig:global_exposure_dist}{{5a}{8}}
+\newlabel{sub@fig:global_exposure_dist}{{(a)}{a}}
+\newlabel{fig:entity_exposure_dists}{{5b}{8}}
+\newlabel{sub@fig:entity_exposure_dists}{{(b)}{b}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces The probability of a user adopting an entity as a function of $k$ prior exposures to the entity has a heavy-tailed distribution (Fig. 5a\hbox {}) that is consistent across all entities, including a sample of 9 random entities (Fig. 5b\hbox {}).}}{8}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Exposure-Adoption Global Distribution}}}{8}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Sampled Entity Exposure-Adoption Distributions}}}{8}}
+\newlabel{fig:exposure_dists}{{5}{8}}
+\newlabel{eq:action_prob}{{5}{8}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}Additional Influence Dynamics -- Entity-Adoption Constructs}{8}}
+\citation{goyal2010learning}
+\newlabel{fig:taus_hist}{{6a}{9}}
+\newlabel{sub@fig:taus_hist}{{(a)}{a}}
+\newlabel{fig:taus_loglog}{{6b}{9}}
+\newlabel{sub@fig:taus_loglog}{{(b)}{b}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces The influence window ($\tau _{v,u}$) between two arbitrary users characterises the average time for an entity to propagate from $v$ to $u$. In hours, this value has a \emph  {right-skew} (Fig. 6a\hbox {}), while the log-log plot (Fig. 6b\hbox {}) of the relative frequency distribution demonstrates the heavy-tail nature of the distribution with a mean of $10,780$ hours ($\approx 449$ days $\approx 1.2$ years).}}{9}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Binned Frequency Distribution of $\tau _{v,u}$ values}}}{9}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Log-log Plot of the Binned $\tau _{v,u}$ distribution}}}{9}}
+\newlabel{fig:taus}{{6}{9}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Experiments}{9}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1}Experimental Setup}{9}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {4.4.1.1}Deriving Adoption Probabilities}{9}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {4.4.1.2}Parallelising Processing}{9}}
+\citation{huang2014temporal}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.2}Results}{10}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion and Future Work}{10}}
+\newlabel{sec:discussions}{{5}{10}}
+\citation{leskovec2007patterns}
+\bibstyle{IEEEtran}
+\bibdata{NER-Diffusion}
+\bibcite{duggan20136}{1}
+\bibcite{goyal2010learning}{2}
+\bibcite{nadeau2007survey}{3}
+\bibcite{ratinov2009design}{4}
+\bibcite{tjong2003introduction}{5}
+\bibcite{derczynski2015analysis}{6}
+\bibcite{hovy2015user}{7}
+\bibcite{plank2015personality}{8}
+\bibcite{preoctiuc2015studying}{9}
+\bibcite{ritter2011named}{10}
+\bibcite{liu2011recognizing}{11}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Area under the Receiver Operator Characteristic Curve (ROC) values for the different probability settings and influence probability settings within the general threshold model.}}{11}}
+\newlabel{tab:macro_results}{{2}{11}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusions}{11}}
+\newlabel{sec:conclusions}{{6}{11}}
+\@writefile{toc}{\contentsline {section}{References}{11}}
+\bibcite{plank2014adapting}{12}
+\bibcite{rowe2015microposts2015}{13}
+\bibcite{baldwin2015shared}{14}
+\bibcite{cherryunreasonable}{15}
+\bibcite{han2011lexical}{16}
+\bibcite{fromreide2014crowdsourcing}{17}
+\bibcite{suen2013nifty}{18}
+\bibcite{guille2013information}{19}
+\bibcite{bakshy2012role}{20}
+\bibcite{romero2011differences}{21}
+\bibcite{yang2012we}{22}
+\bibcite{singer2014evolution}{23}
+\bibcite{weninger2015random}{24}
+\bibcite{olson2015navigating}{25}
+\bibcite{fang2013predicting}{26}
+\bibcite{huang2014temporal}{27}
+\bibcite{reddit-data}{28}
+\bibcite{kergl2014endogenesis}{29}
+\bibcite{kiss2006unsupervised}{30}
+\bibcite{o2010tweetmotif}{31}
+\bibcite{brown1992class}{32}
+\bibcite{turian2009preliminary}{33}
+\bibcite{derczynski2016generalised}{34}
+\bibcite{derczynski2015usfd}{35}
+\bibcite{leginus2015enhanced}{36}
+\bibcite{bollacker2008freebase}{37}
+\bibcite{finkel2005incorporating}{38}
+\bibcite{derczynski2015tune}{39}
+\bibcite{sean_chester_2015_33758}{40}
+\bibcite{leskovec2007patterns}{41}
+\bibcite{cordella2001improved}{42}
+\@writefile{toc}{\contentsline {section}{Biographies}{12}}
+\@writefile{toc}{\contentsline {subsection}{Matthew Rowe}{12}}
+\@writefile{toc}{\contentsline {subsection}{Leon Derczynski}{12}}
