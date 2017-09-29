@@ -1,10 +1,14 @@
-\documentclass{elsarticle}
+\documentclass[sigconf,anonymous,review]{acmart}
+
+
+% Submissions should not exceed nine pages including any diagrams or appendices, plus unlimited page for references.
+
+
+\usepackage{booktabs} % For formal tables
 
 \usepackage{rotating}
 \usepackage{multirow}
-%\usepackage{apacite}
 \usepackage{natbib}
-
 \usepackage{graphicx}
 \usepackage{amsmath}
 
@@ -16,17 +20,37 @@
 \newtheorem{mydef}{Definition}
 
 
+\setcopyright{rightsretained}
+
+% DOI
+\acmDOI{10.475/123_4}
+
+% ISBN
+\acmISBN{123-4567-24-567/08/06}
+
+%Conference
+\acmConference[WOODSTOCK'97]{ACM Woodstock conference}{July 1997}{El
+  Paso, Texas USA} 
+\acmYear{1997}
+\copyrightyear{2016}
+
+
+\acmArticle{4}
+\acmPrice{15.00}
+
+
 \begin{document}
-
 \title{Tracking the Diffusion of Named Entities}
-\author[lancs]{Matthew Rowe}
-\author[usfd]{Leon Derczynski}
-
-\fntext[fn1]{Submitted to ``Information Processing and Management".}
-
-\address[lancs]{Lancaster University, Lancaster, LA1 4YW, UK}
-\address[usfd]{University of Sheffield, Sheffield, S1 4DP, UK}
-
+\author{Matthew Rowe}
+\affiliation{
+	\institution{Experian}
+	\city{London, UK}
+}
+\author{Leon Derczynski}
+\affiliation{
+	\institution{University of Sheffield}
+	\city{Sheffield, UK}
+}
 
 
 \begin{abstract}
@@ -41,9 +65,7 @@ Our findings have important implications for researchers studying influence and 
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
-\begin{keyword}
-entity diffusion \sep information diffusion \sep named entity recognition \sep social computing
-\end{keyword}
+\keywords{entity diffusion, information diffusion, named entity recognition, social computing}
 
 
 \maketitle
@@ -712,13 +734,16 @@ We also investigated the association between the number of exposures that users 
 Putting all the pieces together, we implemented a modified version of a general threshold model which incorporated entity-adoption constructs to test different mechanisms for computing user-to-user influence probabilities and can be learnt in parallel.
 Our empirical evaluation of this framework found that interactions had the greatest \emph{overall} effect, while there was variance between entities in terms of the impact of \emph{community-homophily} on users adopting an entity.
 
+\iffalse
 \section*{Acknowledgments}
 The authors acknowledge European Commission support from 7th Framework Program through grant No. 611223, {\sc Pheme}, from Horizon 2020 through grant No. 687847, Comrades, and from NERC through grant ref. NE/L010100/1 Analysis of historic drought and water scarcity in the UK: a systems-based study of drivers, impacts.
+\fi
 
-\bibliographystyle{elsarticle-num}
+\bibliographystyle{ACM-Reference-Format}
 \bibliography{NER-Diffusion}
 
 
+\iffalse
 \section*{Vitae}
 
 {\bf Matthew Rowe}
@@ -731,5 +756,5 @@ He currently runs a small social computing team comprised of three researchers w
 Leon Derczynski is a Research Associate in the Natural Language Processing group at the University of Sheffield.
 His work focuses on social media information extraction and spatio-temporal information extraction.
 Tools that Dr. Derczynski has worked on are in daily use at many large enterprises, including Intel and CSIRO, and he frequently serves in an advisory role on social media, natural language processing and information retrieval.
-
+\fi
 \end{document}
