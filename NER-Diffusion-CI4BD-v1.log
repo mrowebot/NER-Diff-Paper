@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.9.29)  29 SEP 2017 19:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.9.29)  31 OCT 2017 22:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1072,52 +1072,33 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
 (Font)              scaled to size 9.0pt on input line 81.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 9.0pt on input line 92.
-
-Overfull \hbox (5.41992pt too wide) in paragraph at lines 98--99
-[]\T1/LinuxLibertineT-TLF/m/n/9 (-20) A par-al-lelised gen-eral thresh-old dif-
-fu-sion model (us-ing Apache
- []
-
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 6.0pt on input line 106.
-[1.1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+ [1.1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
-Overfull \hbox (8.88496pt too wide) in paragraph at lines 146--150
-\T1/LinuxLibertineT-TLF/m/n/9 (-20) area, in-clud-ing gen-eral ap-proaches [[]]
-, topic-specific ap-proaches [[]],
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 172.
+(Font)              scaled to size 9.0pt on input line 180.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 6.0pt on input line 172.
+(Font)              scaled to size 6.0pt on input line 180.
  [2.2]
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 7.3pt on input line 191.
+(Font)              scaled to size 7.3pt on input line 190.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 5.5pt on input line 191.
+(Font)              scaled to size 5.5pt on input line 190.
 
-<reddit-example.png, id=167, 502.87875pt x 734.745pt>
+<reddit-example.png, id=166, 502.87875pt x 734.745pt>
 File: reddit-example.png Graphic file (type png)
  <use reddit-example.png>
-Package pdftex.def Info: reddit-example.png used on input line 207.
+Package pdftex.def Info: reddit-example.png used on input line 206.
 (pdftex.def)             Requested size: 168.8025pt x 246.62598pt.
-
-[3.3 <./reddit-example.png>]
-LaTeX Font Info:    Try loading font information for T1+zi4 on input line 240.
+LaTeX Font Info:    Try loading font information for T1+zi4 on input line 238.
 
 (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd
 File: t1zi4.fd 2016/12/29 T1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 9.0pt on input line 240.
+(Font)              scaled to size 9.0pt on input line 238.
 Package microtype Info: Loading generic settings for font family
 (microtype)             `zi4' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
@@ -1128,9 +1109,9 @@ Package microtype Info: Character `textendash ' is missing
 Package microtype Info: Character `textemdash ' is missing
 (microtype)             in font `T1/zi4/m/n/9'.
 (microtype)             Ignoring protrusion settings for this character.
- [4.4]
+ [3.3 <./reddit-example.png>] [4.4]
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 8.0pt on input line 346.
+(Font)              scaled to size 8.0pt on input line 374.
 Package microtype Info: Character `textendash ' is missing
 (microtype)             in font `T1/zi4/m/n/8'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -1138,150 +1119,147 @@ Package microtype Info: Character `textemdash ' is missing
 (microtype)             in font `T1/zi4/m/n/8'.
 (microtype)             Ignoring protrusion settings for this character.
 
-Overfull \hbox (6.36621pt too wide) in paragraph at lines 354--388
- [][] 
- []
-
-
-Overfull \hbox (3.80772pt too wide) in paragraph at lines 408--418
-[]\T1/LinuxLibertineT-TLF/m/n/9 (-20) Firstly, we tuned our word rep-re-sen-ta-
-tions. Specif-i-cally, we needed
- []
-
-[5.5]
-<entity-chunking/chart-results-rcv-crop.pdf, id=258, 904.37875pt x 359.3425pt>
+<entity-chunking/chart-results-rcv-crop.pdf, id=232, 904.37875pt x 359.3425pt>
 File: entity-chunking/chart-results-rcv-crop.pdf Graphic file (type pdf)
 
 <use entity-chunking/chart-results-rcv-crop.pdf>
 Package pdftex.def Info: entity-chunking/chart-results-rcv-crop.pdf used on inp
-ut line 422.
+ut line 407.
 (pdftex.def)             Requested size: 241.14749pt x 95.812pt.
-
-<plots/entity_ts.pdf, id=264, 578.16pt x 433.62pt>
-File: plots/entity_ts.pdf Graphic file (type pdf)
- <use plots/entity_ts.pdf>
-Package pdftex.def Info: plots/entity_ts.pdf used on input line 463.
-(pdftex.def)             Requested size: 241.14749pt x 180.85541pt.
-
-[6.6 <./entity-chunking/chart-results-rcv-crop.pdf> <./plots/entity_ts.pdf>]
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
-(Font)              scaled to size 9.0pt on input line 494.
-
-<plots/cascade_shapes.pdf, id=325, 349.82994pt x 350.26044pt>
+(Font)              scaled to size 9.0pt on input line 479.
+ [5.5 <./entity-chunking/chart-results-rcv-crop.pdf>]
+<plots/cascade_shapes.pdf, id=257, 349.82994pt x 350.26044pt>
 File: plots/cascade_shapes.pdf Graphic file (type pdf)
 
 <use plots/cascade_shapes.pdf>
-Package pdftex.def Info: plots/cascade_shapes.pdf used on input line 514.
+Package pdftex.def Info: plots/cascade_shapes.pdf used on input line 499.
 (pdftex.def)             Requested size: 118.16359pt x 118.30667pt.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 7.0pt on input line 514.
+(Font)              scaled to size 7.0pt on input line 499.
 
-<plots/cascade_rank_dist.pdf, id=326, 337.2851pt x 346.82071pt>
+<plots/cascade_rank_dist.pdf, id=258, 337.2851pt x 346.82071pt>
 File: plots/cascade_rank_dist.pdf Graphic file (type pdf)
 
 <use plots/cascade_rank_dist.pdf>
-Package pdftex.def Info: plots/cascade_rank_dist.pdf used on input line 515.
+Package pdftex.def Info: plots/cascade_rank_dist.pdf used on input line 500.
 (pdftex.def)             Requested size: 118.16359pt x 121.5002pt.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 10.95pt on input line 521.
+(Font)              scaled to size 10.95pt on input line 506.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 6.1pt on input line 521.
+(Font)              scaled to size 6.1pt on input line 506.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 521.
+(hyperref)                removing `math shift' on input line 506.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 521.
+(hyperref)                removing `superscript' on input line 506.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 521.
+(hyperref)                removing `math shift' on input line 506.
 
-[7.7 <./plots/cascade_shapes.pdf> <./plots/cascade_rank_dist.pdf
-
-pdfTeX warning: pdflatex (file ./plots/cascade_rank_dist.pdf): PDF inclusion: m
-ultiple pdfs with page group included in a single page
->] <plots/exposure_count_dist_full_log.pdf, id=534, 353.7215pt x 348.20087pt>
+<plots/exposure_count_dist_full_log.pdf, id=267, 353.7215pt x 348.20087pt>
 File: plots/exposure_count_dist_full_log.pdf Graphic file (type pdf)
 
 <use plots/exposure_count_dist_full_log.pdf>
 Package pdftex.def Info: plots/exposure_count_dist_full_log.pdf used on input l
-ine 546.
+ine 535.
 (pdftex.def)             Requested size: 118.16359pt x 116.31992pt.
 
-<plots/per_entity_exposure_count_dist_full_log.pdf, id=535, 361.92215pt x 361.1
+<plots/per_entity_exposure_count_dist_full_log.pdf, id=268, 361.92215pt x 361.1
 2856pt>
 File: plots/per_entity_exposure_count_dist_full_log.pdf Graphic file (type pdf)
 
  <use plots/per_entity_exposure_count_dist_full_log.pdf>
 Package pdftex.def Info: plots/per_entity_exposure_count_dist_full_log.pdf used
- on input line 547.
+ on input line 536.
 (pdftex.def)             Requested size: 118.16359pt x 117.9054pt.
+ [6.6 <./plots/cascade_shapes.pdf> <./plots/cascade_rank_dist.pdf
 
-<plots/taus_dist.pdf, id=545, 370.50294pt x 345.12689pt>
+pdfTeX warning: pdflatex (file ./plots/cascade_rank_dist.pdf): PDF inclusion: m
+ultiple pdfs with page group included in a single page
+>] <plots/taus_dist.pdf, id=472, 370.50294pt x 345.12689pt>
 File: plots/taus_dist.pdf Graphic file (type pdf)
 
 <use plots/taus_dist.pdf>
-Package pdftex.def Info: plots/taus_dist.pdf used on input line 586.
+Package pdftex.def Info: plots/taus_dist.pdf used on input line 575.
 (pdftex.def)             Requested size: 118.16359pt x 110.06895pt.
 
-<plots/taus_dist_full_log.pdf, id=546, 356.73274pt x 350.20837pt>
+<plots/taus_dist_full_log.pdf, id=473, 356.73274pt x 350.20837pt>
 File: plots/taus_dist_full_log.pdf Graphic file (type pdf)
 
 <use plots/taus_dist_full_log.pdf>
-Package pdftex.def Info: plots/taus_dist_full_log.pdf used on input line 587.
+Package pdftex.def Info: plots/taus_dist_full_log.pdf used on input line 576.
 (pdftex.def)             Requested size: 112.13269pt x 110.08109pt.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/it' will be
-(Font)              scaled to size 9.0pt on input line 589.
+(Font)              scaled to size 9.0pt on input line 578.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/it' will be
-(Font)              scaled to size 9.0pt on input line 594.
- [8.8 <./plots/exposure_count_dist_full_log.pdf> <./plots/per_entity_exposure_c
+(Font)              scaled to size 9.0pt on input line 583.
+ [7.7 <./plots/exposure_count_dist_full_log.pdf> <./plots/per_entity_exposure_c
 ount_dist_full_log.pdf
 
 pdfTeX warning: pdflatex (file ./plots/per_entity_exposure_count_dist_full_log.
 pdf): PDF inclusion: multiple pdfs with page group included in a single page
->]
-Underfull \vbox (badness 2856) has occurred while \output is active []
+> <./plots/taus_dist.pdf
 
- [9.9 <./plots/taus_dist.pdf> <./plots/taus_dist_full_log.pdf
+pdfTeX warning: pdflatex (file ./plots/taus_dist.pdf): PDF inclusion: multiple 
+pdfs with page group included in a single page
+> <./plots/taus_dist_full_log.pdf
 
 pdfTeX warning: pdflatex (file ./plots/taus_dist_full_log.pdf): PDF inclusion: 
 multiple pdfs with page group included in a single page
->] [10.10] (./NER-Diffusion-CI4BD-v1.bbl
+>]
+Overfull \hbox (8.06128pt too wide) in paragraph at lines 671--673
+[]\T1/LinuxLibertineT-TLF/m/n/9 (-20) Overall the re-sults in-di-cate that stat
+ic Bernoulli prob-a-bil-ity achieves
+ []
+
+
+Overfull \hbox (6.62137pt too wide) in paragraph at lines 671--673
+\T1/LinuxLibertineT-TLF/m/n/9 (-20) Interactions-based (from Micro-$\OML/nxlmi/
+m/it/9 ROC$\T1/LinuxLibertineT-TLF/m/n/9 (-20) ) and the Community-homophily
+ []
+
+[8.8] (./NER-Diffusion-CI4BD-v1.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [11.11]
-Underfull \hbox (badness 10000) in paragraph at lines 180--182
-[]\T1/LinuxLibertineT-TLF/m/n/7 (+20) J. Baum-gart-ner, ``Com-plete pub-lic Red
--dit com-ments cor-pus,''
+ [9.9]
+Underfull \hbox (badness 2368) in paragraph at lines 69--76
+[]\T1/LinuxLibertineT-TLF/m/n/7 (+20) Jason Baum-gart-ner. 2015.  Com-plete Pub
+-lic Red-dit Com-ments Cor-pus.
  []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 )
 - LAST -
-Extra skip:8.0pt
-Left:234.0pt/1.652pt
-Right:226.0pt/1.652pt
-Output:234.0pt
- [12.12]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 760.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 760.
- (./NER-Diffusion-CI4BD-v1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 760.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 760.
+Extra skip:12.444pt
+Left:556.75pt/1.652pt
+Right:544.306pt/1.652pt
+Output:557.528pt
+ [10.10]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 741.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 741.
+
+(./NER-Diffusion-CI4BD-v1.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 741.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 741.
 Package rerunfilecheck Info: File `NER-Diffusion-CI4BD-v1.out' has not changed.
 
-(rerunfilecheck)             Checksum: 5C25CB47BB4971582E3567FF581435DE;3025.
+(rerunfilecheck)             Checksum: 51041C46276417ED4B889D169CA788C7;2881.
  ) 
 Here is how much of TeX's memory you used:
- 19007 strings out of 494489
- 291556 string characters out of 6172455
- 408027 words of memory out of 5000000
- 21243 multiletter control sequences out of 15000+600000
- 222201 words of font info for 499 fonts, out of 8000000 for 9000
+ 18988 strings out of 494489
+ 291053 string characters out of 6172455
+ 451572 words of memory out of 5000000
+ 21252 multiletter control sequences out of 15000+600000
+ 220048 words of font info for 489 fonts, out of 8000000 for 9000
  425 hyphenation exceptions out of 8191
- 60i,17n,94p,822b,660s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,17n,94p,822b,618s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_ki75ao.enc}{/us
 r/share/texlive/texmf-dist/fonts/enc/dvips/newtx/libertinealt.enc}{/usr/share/t
 exlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_25tcsq.enc}{/usr/share/texlive
@@ -1310,10 +1288,10 @@ s/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txexs.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txsys.pfb></usr/share/tex
 live/texmf-dist/fonts/type1/public/newtx/zxlr.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/newtx/zxlri.pfb>
-Output written on NER-Diffusion-CI4BD-v1.pdf (12 pages, 1636741 bytes).
+Output written on NER-Diffusion-CI4BD-v1.pdf (10 pages, 1443075 bytes).
 PDF statistics:
- 908 PDF objects out of 1000 (max. 8388607)
- 513 compressed objects within 6 object streams
- 120 named destinations out of 1000 (max. 500000)
- 59594 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 819 PDF objects out of 1000 (max. 8388607)
+ 462 compressed objects within 5 object streams
+ 108 named destinations out of 1000 (max. 500000)
+ 59581 words of extra memory for PDF output out of 61914 (max. 10000000)
 
