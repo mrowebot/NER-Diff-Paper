@@ -1,5 +1,8 @@
-\documentclass[sigconf,anonymous,review]{acmart}
-
+\documentclass[sigconf]{acmart}
+%\documentclass[sigconf,anonymous,review]{acmart}
+\settopmatter{printacmref=false} % Removes citation information below abstract
+\renewcommand\footnotetextcopyrightpermission[1]{} % removes footnote with conference information in first column
+\pagestyle{plain} % removes running headers
 
 % Submissions should not exceed nine pages including any diagrams or appendices, plus unlimited page for references.
 
@@ -20,23 +23,22 @@
 \newtheorem{mydef}{Definition}
 
 
-\setcopyright{rightsretained}
+%\setcopyright{rightsretained}
 
 % DOI
-\acmDOI{10.475/123_4}
+%\acmDOI{10.475/123_4}
 
 % ISBN
-\acmISBN{123-4567-24-567/08/06}
+%\acmISBN{123-4567-24-567/08/06}
 
 %Conference
-\acmConference[WOODSTOCK'97]{ACM Woodstock conference}{July 1997}{El
-  Paso, Texas USA} 
-\acmYear{1997}
-\copyrightyear{2016}
+%\acmConference[WOODSTOCK'97]{ACM Woodstock conference}{July 1997}{El Paso, Texas USA} 
+\acmConference{ }{December 2017}{ } 
+%\acmYear{2017}
+%\copyrightyear{2017}
 
-
-\acmArticle{4}
-\acmPrice{15.00}
+%\acmArticle{4}
+%\acmPrice{15.00}
 
 
 \begin{document}
@@ -219,7 +221,7 @@ The Reddit dataset~\cite{reddit-data} comprises a sequence of comments, with one
 
 The Reddit dataset is large, and had to be pared down for initial analysis.
 The data is segmented by community, meaning that the scope of the sample is determined by the selection of {\em subreddits}.
-This contrasts for example Twitter, where reducing the sample is performed by reducing the sampling of posts~\cite{kergl2014endogenesis}, thus leading to broken conversation threads and so on.
+This contrasts, for example, with Twitter, where reducing the sample is performed by reducing the sampling of posts~\cite{kergl2014endogenesis}, thus leading to broken conversation threads and so on.
 We chose to examine one hundred entire individual subreddit communities.
 The subreddits were chosen from a list of top subreddits (\url{http://redditlist.com/}) which ranks communities based on levels of activity, numbers of subscribers, and rates of growth.
 The list of chosen communities can be found in the github repository of this work.\footnote{\url{https://github.com/hidden-for-review}}
@@ -261,7 +263,7 @@ For example, Ritter et al.~\cite{ritter2011named} used both chat %\footnote{Inte
 and newswire data when developing a part-of-speech tagger for tweets, as well as an unsupervised language model from the target text type.
 This led to strong performance improvements.
 We follow a similar approach, using a mixture data from both newswire and tweets.
-The newswire data is drawn from the CoNLL-2003 evaluation task set~\cite{tjong2003introduction}; the twitter data is from Ritter et al.'s early experiments and also the W-NUT 2015 shared task~\cite{ritter2011named,baldwin2015shared}.
+The newswire data is drawn from the CoNLL-2003 evaluation task set~\cite{tjong2003introduction}; the Twitter data is from Ritter et al.'s early experiments and also the W-NUT 2015 shared task~\cite{ritter2011named,baldwin2015shared}.
 
 We start using structured predicting in the form of a Conditional Random Fields (CRF) model to label whole sentences at a time.
 For features, we use a fairly classical set, and add some unsupervised word representations to this.
@@ -354,7 +356,7 @@ As our diffusion analysis concerns the more frequent entity lexicalisations, the
 %Indeed, this was borne out in our analysis of entities extracted, with no individual  false-positive, spurious entity surface forms occurring often enough to reach our lists of entities selection for diffusion analysis.
 Conversely, recall expresses how broadly and comprehensively the extraction is performing, and is important to tracking a range of entities.\footnote{NB. It has often been more challenging to achieve high recall in social media texts than high precision~\cite{ritter2011named,derczynski2015analysis}.}
 That is to say, the problem addressed is more tolerant to low precision in input data than low recall.
-We can therefore better evaluate our systems using an adjust $F_\beta$ score.
+We can therefore better evaluate our systems using an adjusted $F_\beta$ score.
 
 \begin{equation}
 F_\beta = (1+\beta^2)\frac{PR}{(\beta^2 P) + R} 
@@ -369,7 +371,7 @@ Our approach here is to tune an entity recogniser with reference to a dataset th
 We draw this development set from Reddit posts, using comments encountered during our work that appear to have missing or spurious annotations.
 These are then isolated, tokenised, and manually annotated.
 %Our annotation format uses only the chunking information, as we do not care about classifying entity types in this study.
-In total we annotated $3,708$ tokens of Reddit data, having $149$ entity chunks.
+In total we annotated $3 708$ tokens of Reddit data, having $149$ entity chunks.
 This comprised our development set which was used to tune parameters in our approach.
 Evaluation was performed using the standard {\tt \small conlleval.pl} tool for entity chunking evaluation.
 
@@ -410,8 +412,8 @@ Results are given in Table~\ref{tab:brown-tuning}.
 \end{figure}
 
 Note how the scores are consistently best in each category when inducing Brown clusters from Reddit data.
-Attempts to approximate this using newswire, twitter, or a blend of those two did not score as well.
-This is remarkable considering that we used on 64M tokens of Reddit data for cluster induction, compared to around 130M total for the other text type blends.
+Attempts to approximate this using newswire, Twitter, or a blend of those two did not score as well.
+This is remarkable considering that we used only 64M tokens of Reddit data for cluster induction, compared to around 130M total for the other text type blends.
 So, half the amount of in-text-type data provides notably improved unsupervised representations over approximated supervised data.
 %This illustrates the importance of taking the target text type into account during unsupervised feature extraction.
 %In fact, this is good news: we can improve NE performance in a new genre without doing any human annotation of text in the genre, as long as a sample of the text is available.
@@ -420,8 +422,8 @@ So, half the amount of in-text-type data provides notably improved unsupervised 
 We experimented with pure newswire and also newswire plus tweet training data, and with pure newswire vs. blended clusters.
 Results are given in Figure~\ref{fig:rcv-scaling}.
 Blending training text types in supervised learning did not lead to improved performance.
-This suggests that adding too much newswire reduces performance, and that using to just newswire clusters also reduces performance.
-Based on this data, we hypothesised that insufficient regularisation had lead to overfitting.
+This suggests that adding too much newswire reduces performance, and that limiting to just newswire clusters also reduces performance.
+Based on this data, we hypothesised that insufficient regularisation had led to overfitting.
 To test this, noting the downward turn in newswire-trained blended cluster performance after 80k tokens (Figure~\ref{fig:rcv-scaling}), we re-ran the experiments with 100k newswire data using a $c_2$ regularisation penalty of $10^{-1}$. % compared to the default $10^{-3}$.
 Performance rose to F2 62.07\%; so, while effective, still a marginal increase.
 Therefore, we continued using newswire training data with Reddit clusters for annotating the named entities across the 100 sampled subreddits.%\footnote{NB. When predicting entity diffusion we used the top-500 entities which were manually verified for accuracy, and were found to be correct, qualitatively bearing out our assumption of spurious entity surface forms not be clustered with high individual frequencies.}
@@ -567,7 +569,7 @@ The authors present two variants of this calculation: (i) a static Bernoulli ran
 \end{equation}
 
 Fig.~\ref{fig:taus_hist} shows the binned distribution of the $\tau_{v,u}$ values. Note the distribution has a right skew with the mode of the distribution being around one hour; this then gradually tails off with fewer people having larger \emph{influence windows}.
-The log-log plot of the relative frequency distribution (Fig.~\ref{fig:taus_loglog}) shows the \emph{heavy-tail} property of the distribution, and that the mean window width is $10,780$ hours ($\approx 449$ days $\approx 1.2$ years), indicating a degree of \emph{stickiness} in Reddit communities, where people remain for long periods.
+The log-log plot of the relative frequency distribution (Fig.~\ref{fig:taus_loglog}) shows the \emph{heavy-tail} property of the distribution, and that the mean window width is $10 780$ hours ($\approx 449$ days $\approx 1.2$ years), indicating a degree of \emph{stickiness} in Reddit communities, where people remain for long periods.
 
 
 \begin{figure}[ht!]
@@ -610,7 +612,7 @@ To this end, we used an experimental setup that induces the joint probability fu
 Our goal therefore was to examine which of the above entity-adoption constructs were best suited to predicting adoptions.
 
 \subsubsection{Experimental Setup}
-Using the 100 randomly sampled subreddits and running the above Named Entity Recogniser over these subreddits' posts resulted in over $300$ million posts in our dataset (using only those from the 100 subreddits) written by $4,139,814$ users -- the entity recogniser also extracted $8,797,271$ unique entities.
+Using the 100 randomly sampled subreddits and running the above Named Entity Recogniser over these subreddits' posts resulted in over $300$ million posts in our dataset (using only those from the 100 subreddits) written by $4 139 814$ users -- the entity recogniser also extracted $8 797 271$ unique entities.
 %Of those users we had $2,745,311$ unique user-to-user edges.
 For our experiments we tested 6 different models that resulted from permutations of the 2 probability settings (i.e. static Bernoulli or discrete-time Bernoulli (i.e. $t_u \in [t_u -- \tau_{v,u}, t_u)$) and the 3 entity-adoption constructs (entity-propagation, interactions-based, and community-homophily).
 
@@ -624,7 +626,7 @@ Our evaluation of the models used these tuples to calculate the area under the R
 
 \paragraph{Parallelising Processing}
 As we are working with large datasets (i.e. $>300$ million posts), we made two efforts to parallelise induction of adoption probabilities over test set entities.
-First, of the data used (timestamped interactions between users, entity posts, post details, $E_{v2u}$ values, $\tau_{v2u}$ values) was uploaded into HBase tables.%\footnote{\url{https://hbase.apache.org/}. % ensuring that we could \emph{quickly} access the data using time-specific queries.
+First, of the data used (timestamped interactions between users, entity posts, post details, $E_{v2u}$ values, $\tau_{v2u}$ values) was uploaded into HBase tables. %\footnote{\url{https://hbase.apache.org/}. % ensuring that we could \emph{quickly} access the data using time-specific queries.
 Second, we used Apache Spark%\footnote{\url{http://spark.apache.org/}}
  to parallelise the per-entity diffusion processes.
 This involved loading the names of the test entities into HDFS and then forcing Spark to partition the entity list into at least 30 partitions.
