@@ -224,7 +224,7 @@ The data is segmented by community, meaning that the scope of the sample is dete
 This contrasts, for example, with Twitter, where reducing the sample is performed by reducing the sampling of posts~\cite{kergl2014endogenesis}, thus leading to broken conversation threads and so on.
 We chose to examine one hundred entire individual subreddit communities.
 The subreddits were chosen from a list of top subreddits (\url{http://redditlist.com/}) which ranks communities based on levels of activity, numbers of subscribers, and rates of growth.
-The list of chosen communities can be found in the github repository of this work.\footnote{\url{https://github.com/hidden-for-review}}
+The list of chosen communities can be found in the github repository of this work.\footnote{\url{https://github.com/mrowebot/NER-Diff-Paper}}
 
 %figures for raw dataset (\# per year; total volume over time; volume-rank graph of subreddits; possible ref to appx)
 
@@ -294,7 +294,6 @@ The zero-length bitstring describes the top of the hierarchy, where there is one
 These bitstrings are typically converted to features by \emph{shearing}~\cite{derczynski2016generalised}.
 This involves only examining the first $n$ bits of a bitstring.
 However, shearing does not maximise the information preserved in the representation -- sub-clusterings at many levels are lost.
-%Therefore we take the cluster identifier at every level, tracing the provenance of a terminal word cluster all the way to the root cluster (which contains all word types).
 %This preserves the entire set membership of any given term, throughout the induced hierarchical clustering.
 Therefore we take the cluster identifier at every level, tracing the provenance of a terminal word cluster all the way to the root cluster.
 For example, given the bitstring {\tt 1100101}, the following text features are generated: {\tt 1}, {\tt 11}, {\tt 110}, {\tt 1100}, {\tt 11001}, {\tt 110010}, {\tt 1100101}.
@@ -353,7 +352,7 @@ Over the large dataset, spurious entities (i.e. false positives) are likely to b
 Mis-recognised entity names tend not to be distributed in a few high-frequency clumps, but rather as many different terms, each with a lower frequency.
 This suggests that there will be great variation in their surface forms, leaving them in the long tail of entities discovered~\cite{leginus2015enhanced}.
 As our diffusion analysis concerns the more frequent entity lexicalisations, these infrequent spurious mis-recognitions are less likely to have an impact.
-%Indeed, this was borne out in our analysis of entities extracted, with no individual  false-positive, spurious entity surface forms occurring often enough to reach our lists of entities selection for diffusion analysis.
+Indeed, this was borne out in our analysis of entities extracted, with no individual  false-positive, spurious entity surface forms occurring often enough to reach our lists of entities selection for diffusion analysis.
 Conversely, recall expresses how broadly and comprehensively the extraction is performing, and is important to tracking a range of entities.\footnote{NB. It has often been more challenging to achieve high recall in social media texts than high precision~\cite{ritter2011named,derczynski2015analysis}.}
 That is to say, the problem addressed is more tolerant to low precision in input data than low recall.
 We can therefore better evaluate our systems using an adjusted $F_\beta$ score.
@@ -391,7 +390,7 @@ The blended version used even amounts of both, totalling 132k data.
 
 The baseline system was the Stanford NER tool~\cite{finkel2005incorporating}.
 We included two variants: one run of the out-of-the-box stock system, using the {\tt \small english.all.3class.distsim} binary, and another with a first-order model trained on the same source data as our system.
-%The properties files for these runs are included in github repository.\footnote{\url{https://github.com/hidden-for-review}}
+%The properties files for these runs are included in github repository.\footnote{\url{https://github.com/mrowebot/NER-Diff-Paper}}
 
 Tuning our word representations required estimating the number of Brown clusters $C$ to use.
 %We also then used this to determine what blend of social, Reddit or news data gave best results in unsupervised feature generation and extraction.
@@ -406,7 +405,7 @@ Results are given in Table~\ref{tab:brown-tuning}.
 
 \begin{figure}
 \centering
-\includegraphics[width=\columnwidth]{entity-chunking/chart-results-rcv-crop.pdf}
+\includegraphics[width=\columnwidth]{chart-results-rcv-crop.pdf}
 \caption{Scaling news training data under three conditions: news clusters; blended news and Twitter clusters; blended news and Twitter clusters, with 66k extra Twitter training data. Note that increasing the proportion of news training data led to decreased performance in every case.}
 \label{fig:rcv-scaling}
 \end{figure}
@@ -446,7 +445,7 @@ This drop reflects the findings of earlier work~\cite{ritter2011named}, where a 
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=\columnwidth]{plots/entity_ts.pdf}
+\includegraphics[width=\columnwidth]{entity_ts.pdf}
 \caption{Top nine entities and their mention intensity over time}
 \label{fig:entity-ts}
 \end{center}
@@ -486,7 +485,7 @@ Our goal is to derive all cascades for each entity in our analysis, and then exa
 To gather each entity's cascades, we retrieved all (of the 100) subreddit posts that contained a given entity $e$.
 Then, for each post ($p \in P_e$) we recovered the reply-chain that that entity appeared within -- this was performed by going \emph{up} the reply chain from $p$ to its parent post (i.e. the post that $p$ was replying to) and \emph{down} the reply chain by getting the posts that replied to $p$.
 When iterating through the posts, if we came across a post that replied to another post in an existing chain then that post was added to the chain.
-We only maintained posts within the chain that cited the entity in question: this produced entity cascades where each consecutive post in the chain mentions the entity -- we refer to this as \emph{strict cascade derivation}, as we do not consider posts higher-up or lower-down the reply chain that cite the entity yet are connected by a non-entity citing post. %\footnote{Chain-derivation Python code can be found here: \url{https://github.com/hidden-for-review}}
+We only maintained posts within the chain that cited the entity in question: this produced entity cascades where each consecutive post in the chain mentions the entity -- we refer to this as \emph{strict cascade derivation}, as we do not consider posts higher-up or lower-down the reply chain that cite the entity yet are connected by a non-entity citing post.\footnote{Chain-derivation Python code can be found here: \url{https://github.com/mrowebot/NER-Diff-Paper}}
 
 This process produces, in essence, a collection of cascade graphs for each entity, each of which may have isomorphic shapes yet contain different node labels (i.e. different post ids).
 We reduced each entity's cascade graph collection down to a frequency distribution of the \emph{canonical form} of each graph using Cordella at al.'s~\cite{cordella2001improved} graph isomorphism approach.
@@ -498,8 +497,8 @@ The ranking of the patterns follows a general power-law distribution where a sma
 
 \begin{figure}[ht!]
   \begin{center}
-  \subfigure[Top-20 Cascade Shapes]{\includegraphics[width=0.49\columnwidth]{plots/cascade_shapes.pdf}\label{fig:cascade_shapes}}   
-  \subfigure[Cascade Shape Rank Distribution]{\includegraphics[width=0.49\columnwidth]{plots/cascade_rank_dist.pdf}\label{fig:rank_dist}}
+  \subfigure[Top-20 Cascade Shapes]{\includegraphics[width=0.49\columnwidth]{cascade_shapes.pdf}\label{fig:cascade_shapes}}   
+  \subfigure[Cascade Shape Rank Distribution]{\includegraphics[width=0.49\columnwidth]{cascade_rank_dist.pdf}\label{fig:rank_dist}}
   \end{center}    
   \caption{The top-20 cascade shapes are generally deep and narrow with little branching (Fig.~\ref{fig:cascade_shapes}, while the cascade shape rank follows a power-law distribution (Fig.~\ref{fig:rank_dist}.}
   \label{fig:entity_cascades}
@@ -534,8 +533,8 @@ The nature of how and why the distributions differ is something that requires fu
 
 \begin{figure}[ht!]
   \begin{center}
-  \subfigure[Exposure-Adoption Global Distribution]{\includegraphics[width=0.49\columnwidth]{plots/exposure_count_dist_full_log.pdf}\label{fig:global_exposure_dist}}   
-  \subfigure[Sampled Entity Exposure-Adoption Distributions]{\includegraphics[width=0.49\columnwidth]{plots/per_entity_exposure_count_dist_full_log.pdf}\label{fig:entity_exposure_dists}}
+  \subfigure[Exposure-Adoption Global Distribution]{\includegraphics[width=0.49\columnwidth]{exposure_count_dist_full_log.pdf}\label{fig:global_exposure_dist}}   
+  \subfigure[Sampled Entity Exposure-Adoption Distributions]{\includegraphics[width=0.49\columnwidth]{per_entity_exposure_count_dist_full_log.pdf}\label{fig:entity_exposure_dists}}
   \end{center}    
   \caption{The probability of a user adopting an entity as a function of $k$ prior exposures to the entity has a heavy-tailed distribution (Fig.~\ref{fig:global_exposure_dist}) that is consistent across all entities, including a sample of 9 random entities (Fig.~\ref{fig:entity_exposure_dists}).}
   \label{fig:exposure_dists}
@@ -574,8 +573,8 @@ The log-log plot of the relative frequency distribution (Fig.~\ref{fig:taus_logl
 
 \begin{figure}[ht!]
   \begin{center}
-  \subfigure[Binned Frequency Distribution of $\tau_{v,u}$ values]{\includegraphics[width=0.49\columnwidth]{plots/taus_dist.pdf}\label{fig:taus_hist}}   
-  \subfigure[Log-log Plot of the Binned $\tau_{v,u}$ distribution]{\includegraphics[width=0.465\columnwidth]{plots/taus_dist_full_log.pdf}\label{fig:taus_loglog}}
+  \subfigure[Binned Frequency Distribution of $\tau_{v,u}$ values]{\includegraphics[width=0.49\columnwidth]{taus_dist.pdf}\label{fig:taus_hist}}   
+  \subfigure[Log-log Plot of the Binned $\tau_{v,u}$ distribution]{\includegraphics[width=0.465\columnwidth]{taus_dist_full_log.pdf}\label{fig:taus_loglog}}
   \end{center}    
   \caption{The influence window ($\tau_{v,u}$) between two arbitrary users characterises the average time for an entity to propagate from $v$ to $u$. In hours, this value has a \emph{right-skew} (Fig.~\ref{fig:taus_hist}), while the log-log plot (Fig.~\ref{fig:taus_loglog}) of the relative frequency distribution demonstrates the heavy-tail nature of the distribution with a mean of $10,780$ hours ($\approx 449$ days $\approx 1.2$ years).}
   \label{fig:taus}
@@ -643,7 +642,7 @@ p_s(\Gamma(u) \cup p_{v,u}) = p_s(\Gamma(u)) + (1 -- p_s(\Gamma(u))) * p_{v,u}
 \end{equation}
 
 Also, \emph{multithreading} the calculation of the influence probabilities between $v$ and each of their neighbours $u \in \Gamma(v)$ gave additional parallelism. We calculated these pairwise influence probabilities in parallel and then updated $p_u(\Gamma(u)) : \forall u \in \Gamma(v)$.\footnote{Maintenance of interactions between users stores both interaction source and target. Thus we can retrieve directed interactions both ways -- i.e. $v \rightarrow u \wedge v \leftarrow u$.}
-Java implementation of this code can be found in the github repository,\footnote{\url{https://github.com/hidden-for-review}} including the functions for building the HBase tables, deriving the entity-propagation counts ($E_{v2u}$) and the test algorithm.
+Java implementation of this code can be found in the github repository,\footnote{\url{https://github.com/mrowebot/NER-Diff-Paper}} including the functions for building the HBase tables, deriving the entity-propagation counts ($E_{v2u}$) and the test algorithm.
 
 
 \begin{table*}
@@ -731,10 +730,8 @@ We also investigated the association between the number of exposures that users 
 Putting all the pieces together, we implemented a modified version of a general threshold model which incorporated entity-adoption constructs to test different mechanisms for computing user-to-user influence probabilities and can be learnt in parallel.
 Our empirical evaluation of this framework found that interactions had the greatest \emph{overall} effect, while there was variance between entities in terms of the impact of \emph{community-homophily} on users adopting an entity.
 
-\iffalse
 \section*{Acknowledgments}
-The authors acknowledge European Commission support from 7th Framework Program through grant No. 611223, {\sc Pheme}, from Horizon 2020 through grant No. 687847, Comrades, and from NERC through grant ref. NE/L010100/1 Analysis of historic drought and water scarcity in the UK: a systems-based study of drivers, impacts. Thanks to Kalina Bontcheva for helpful comments in the preparation of this manuscript.
-\fi
+The authors acknowledge European Commission support from 7th Framework Program through grant No. 611223, {\sc Pheme}, from Horizon 2020 through grant No. 687847, Comrades, and from NERC through grant ref. NE/L010100/1 Analysis of historic drought and water scarcity in the UK: a systems-based study of drivers, impacts. Thanks to Kalina Bontcheva for helpful comments in the preparation of this manuscript, and to Jason Baumgartner for harvesting and publishing the data.
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{NER-Diffusion}
