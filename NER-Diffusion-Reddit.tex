@@ -1,59 +1,68 @@
-\documentclass[sigconf]{acmart}
-%\documentclass[sigconf,anonymous,review]{acmart}
-\settopmatter{printacmref=false} % Removes citation information below abstract
-\renewcommand\footnotetextcopyrightpermission[1]{} % removes footnote with conference information in first column
-\pagestyle{plain} % removes running headers
+% PLEASE USE THIS FILE AS A TEMPLATE
+% Check file iosart2x.tex for more examples
 
-% Submissions should not exceed nine pages including any diagrams or appendices, plus unlimited page for references.
+% add. options: [seceqn,secthm,crcready,onecolumn]
+\documentclass[sw]{iosart2x}
 
+%\usepackage{dcolumn}
+%\usepackage{endnotes}
 
-\usepackage{booktabs} % For formal tables
-
+%%%%%%%%%%% Put your definitions here
 \usepackage{rotating}
 \usepackage{multirow}
 \usepackage{natbib}
 \usepackage{graphicx}
+\graphicspath{{.}{./plots/}}
 \usepackage{amsmath}
-
+ 
 \usepackage[caption=false,font=footnotesize,labelfont=sf,textfont=sf]{subfig}
 \def\subfigure{\subfloat}
 
 \usepackage{url}
 
 \newtheorem{mydef}{Definition}
+%%%%%%%%%%% End of definitions
 
-
-%\setcopyright{rightsretained}
-
-% DOI
-%\acmDOI{10.475/123_4}
-
-% ISBN
-%\acmISBN{123-4567-24-567/08/06}
-
-%Conference
-%\acmConference[WOODSTOCK'97]{ACM Woodstock conference}{July 1997}{El Paso, Texas USA} 
-\acmConference{ }{December 2017}{ } 
-%\acmYear{2017}
-%\copyrightyear{2017}
-
-%\acmArticle{4}
-%\acmPrice{15.00}
-
+\pubyear{0000}
+\volume{0}
+\firstpage{1}
+\lastpage{1}
 
 \begin{document}
-\title{Tracking the Diffusion of Named Entities}
-\author{Matthew Rowe}
-\affiliation{
-	\institution{Experian}
-	\city{London, UK}
-}
-\author{Leon Derczynski}
-\affiliation{
-	\institution{University of Sheffield}
-	\city{Sheffield, UK}
-}
 
+\begin{frontmatter}
+
+%\pretitle{}
+\title{Tracking the Diffusion of Named Entities on Reddit}
+\runningtitle{Tracking the Diffusion of Named Entities}
+%\subtitle{}
+
+% For one author:
+%\author{\inits{N.}\fnms{Name1} \snm{Surname1}\ead[label=e1]{first@somewhere.com}}
+%\address{Department first, \orgname{University or Company name},
+%Abbreviate US states, \cny{Country}\printead[presep={\\}]{e1}}
+%\runningauthor{N. Surname1}
+
+% Two or more authors:
+\author[A]{\inits{L.}\fnms{Leon} \snm{Derczynski}\ead[label=e1]{ld@itu.dk}%
+\thanks{Corresponding author. \printead{e1}.}},
+\author[B]{\inits{M.}\fnms{Matthew} \snm{Rowe}}
+\runningauthor{L. Derczynski and M. Rowe}
+\address[A]{Department of Computer Science, \orgname{IT University}, \cny{Denmark}\printead[presep={\\}]{e1}}
+\address[B]{\orgname{Oracle Corporation}, \cny{UK}}
+
+%\begin{review}{editor}
+%\reviewer{\fnms{First} \snm{Editor}\address{\orgname{University or Company name}, \cny{Country}}}
+%\reviewer{\fnms{Second} \snm{Editor}\address{\orgname{First University or Company name}, \cny{Country}
+%    and \orgname{Second University or Company name}, \cny{Country}}}
+%\end{review}
+%\begin{review}{solicited}
+%\reviewer{\fnms{First} \snm{Solicited reviewer}\address{\orgname{University or Company name}, \cny{Country}}}
+%\reviewer{\snm{anonymous reviewer}}
+%\end{review}
+%\begin{review}{open}
+%\reviewer{\fnms{First} \snm{Open Reviewer}\address{\orgname{University or Company name}, \cny{Country}}}
+%\end{review}
 
 \begin{abstract}
 Existing studies of how information diffuses across social networks have thus far concentrated on analysing and recovering the spread of deterministic innovations such as URLs, hashtags, and group membership.
@@ -66,15 +75,20 @@ We put these pieces together by presenting a parallelised diffusion model that c
 Our findings have important implications for researchers studying influence and language, and for community analysts who wish to understand entity-level influence dynamics.
 \end{abstract}
 
-% Note that keywords are not normally used for peerreview papers.
-\keywords{entity diffusion, information diffusion, named entity recognition}%, social computing}
+
+\begin{keyword}
+\kwd{information diffusion}
+\kwd{reddit}
+\kwd{named entity recognition}
+\end{keyword}
+
+\end{frontmatter}
 
 
-\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
-\interfootnotelinepenalty=8000
 
 
 
@@ -205,7 +219,7 @@ Given the lack of prior work on Reddit text, there are no annotated datasets ava
 
 \begin{figure}
 \centering
-\includegraphics[width=0.7\columnwidth]{reddit-example.png}
+\includegraphics[width=0.95\columnwidth]{reddit-example.png}
 \caption{Example Reddit post. Note topic at the top, then comments, with conversations following in a tree.}
 \label{fig:reddit-example}
 \end{figure}
@@ -302,8 +316,7 @@ As a result of taking all directly-relevant features in the merge list, the loss
 Feature extraction, training, classification and JSON annotation are all performed using an entity recognition toolkit~\cite{derczynski2015usfd}.%,\footnote{https://github.com/leondz/entity\_recognition} with custom extractors.
 
 
-\begin{table}
-\small
+\begin{table*}
 \centering
 \caption{Reddit NER, varying training text type and Brown cluster source. Best per scenario is starred; best overall, bold.}
 \begin{tabular}{lrrrr}
@@ -340,7 +353,7 @@ Stanford baseline     & 67.77 & 55.03 & 60.74 & 36.78 \\
 \hline
 \end{tabular}
 \label{tab:brown-tuning}
-\end{table}
+\end{table*}
 
 \subsection{Tuning entity recognition}
 
@@ -389,7 +402,7 @@ This was capped by the volume of Twitter training data available, 66k tokens; so
 The blended version used even amounts of both, totalling 132k data.
 
 The baseline system was the Stanford NER tool~\cite{finkel2005incorporating}.
-We included two variants: one run of the out-of-the-box stock system, using the {\tt \small english.all.3class.distsim} binary, and another with a first-order model trained on the same source data as our system.
+We included two variants: one run of the out-of-the-box stock system, using the {\tt \small english.all.3class .distsim} binary, and another with a first-order model trained on the same source data as our system.
 %The properties files for these runs are included in github repository.\footnote{\url{https://github.com/mrowebot/NER-Diff-Paper}}
 
 Tuning our word representations required estimating the number of Brown clusters $C$ to use.
@@ -405,7 +418,7 @@ Results are given in Table~\ref{tab:brown-tuning}.
 
 \begin{figure}
 \centering
-\includegraphics[width=\columnwidth]{chart-results-rcv-crop.pdf}
+\includegraphics[width=\columnwidth]{entity-chunking/chart-results-rcv-crop.pdf}
 \caption{Scaling news training data under three conditions: news clusters; blended news and Twitter clusters; blended news and Twitter clusters, with 66k extra Twitter training data. Note that increasing the proportion of news training data led to decreased performance in every case.}
 \label{fig:rcv-scaling}
 \end{figure}
@@ -477,7 +490,9 @@ We follow a similar process here, however we instead inspect the emergence of en
 We first make the following explicit.
 
 \begin{mydef}
-(Entity Cascade) A cascade of ${<p_i, pj>} \in C_e$ of an entity $e \in E$ occurs when two or more posts citing the entity are chained together in a reply graph. 
+(Entity Cascade) 
+
+A cascade of ${<p_i, pj>} \in C_e$ of an entity $e \in E$ occurs when two or more posts citing the entity are chained together in a reply graph. 
 Hence: $C_e = \{<p_i, p_j> : p_i \rightarrow p_j \in R, cites(p_1) = cites(p_j) = e\}$.
 \end{mydef}
 
@@ -733,7 +748,9 @@ Our empirical evaluation of this framework found that interactions had the great
 \section*{Acknowledgments}
 The authors acknowledge European Commission support from 7th Framework Program through grant No. 611223, {\sc Pheme}, from Horizon 2020 through grant No. 687847, Comrades, and from NERC through grant ref. NE/L010100/1 Analysis of historic drought and water scarcity in the UK: a systems-based study of drivers, impacts. Thanks to Kalina Bontcheva for helpful comments in the preparation of this manuscript, and to Jason Baumgartner for harvesting and publishing the data.
 
-\bibliographystyle{ACM-Reference-Format}
+\nocite{*} 
+% if your bibliography is in bibtex format, use those commands:
+\bibliographystyle{ios1}           % Style BST file.
 \bibliography{NER-Diffusion}
 
 
