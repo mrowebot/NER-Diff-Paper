@@ -1,11 +1,30 @@
-% PLEASE USE THIS FILE AS A TEMPLATE
-% Check file iosart2x.tex for more examples
+\documentclass[acmsmall]{acmart}
 
-% add. options: [seceqn,secthm,crcready,onecolumn]
-\documentclass[sw]{iosart2x}
+%%
+%% \BibTeX command to typeset BibTeX logo in the docs
+\AtBeginDocument{%
+  \providecommand\BibTeX{{%
+    \normalfont B\kern-0.5em{\scshape i\kern-0.25em b}\kern-0.8em\TeX}}}
 
-%\usepackage{dcolumn}
-%\usepackage{endnotes}
+%% Rights management information.  This information is sent to you
+%% when you complete the rights form.  These commands have SAMPLE
+%% values in them; it is your responsibility as an author to replace
+%% the commands and values with those provided to you when you
+%% complete the rights form.
+\setcopyright{acmcopyright}
+%\copyrightyear{2018}
+%\acmYear{2018}
+%\acmDOI{10.1145/1122445.1122456}
+
+%%
+%% These commands are for a JOURNAL article.
+\acmJournal{JACM}
+%\acmVolume{37}
+%\acmNumber{4}
+%\acmArticle{111}
+%\acmMonth{8}
+
+
 
 %%%%%%%%%%% Put your definitions here
 \usepackage{rotating}
@@ -23,46 +42,29 @@
 \newtheorem{mydef}{Definition}
 %%%%%%%%%%% End of definitions
 
-\pubyear{0000}
-\volume{0}
-\firstpage{1}
-\lastpage{1}
-
 \begin{document}
 
-\begin{frontmatter}
 
-%\pretitle{}
 \title{Tracking the Diffusion of Named Entities on Reddit}
-\runningtitle{Tracking the Diffusion of Named Entities}
-%\subtitle{}
+%\runningtitle{Tracking the Diffusion of Named Entities}
 
-% For one author:
-%\author{\inits{N.}\fnms{Name1} \snm{Surname1}\ead[label=e1]{first@somewhere.com}}
-%\address{Department first, \orgname{University or Company name},
-%Abbreviate US states, \cny{Country}\printead[presep={\\}]{e1}}
-%\runningauthor{N. Surname1}
 
-% Two or more authors:
-\author[A]{\inits{L.}\fnms{Leon} \snm{Derczynski}\ead[label=e1]{ld@itu.dk}%
-\thanks{Corresponding author. \printead{e1}.}},
-\author[B]{\inits{M.}\fnms{Matthew} \snm{Rowe}}
-\runningauthor{L. Derczynski and M. Rowe}
-\address[A]{Department of Computer Science, \orgname{IT University}, \cny{Denmark}\printead[presep={\\}]{e1}}
-\address[B]{\orgname{Oracle Corporation}, \cny{UK}}
+\author{Leon Derczynski}
+\email{ld@itu.dk}
+\orcid{0000-0002-8656-3431}
+\affiliation{%
+  \institution{IT University of Copenhagen}
+  \country{Denmark}
+}
 
-%\begin{review}{editor}
-%\reviewer{\fnms{First} \snm{Editor}\address{\orgname{University or Company name}, \cny{Country}}}
-%\reviewer{\fnms{Second} \snm{Editor}\address{\orgname{First University or Company name}, \cny{Country}
-%    and \orgname{Second University or Company name}, \cny{Country}}}
-%\end{review}
-%\begin{review}{solicited}
-%\reviewer{\fnms{First} \snm{Solicited reviewer}\address{\orgname{University or Company name}, \cny{Country}}}
-%\reviewer{\snm{anonymous reviewer}}
-%\end{review}
-%\begin{review}{open}
-%\reviewer{\fnms{First} \snm{Open Reviewer}\address{\orgname{University or Company name}, \cny{Country}}}
-%\end{review}
+\author{Matthew Rowe}
+\affiliation{%
+  \institution{Oracle Corporation}
+  \country{UK}
+}
+
+
+
 
 \begin{abstract}
 Existing studies of how information diffuses across social networks have thus far concentrated on analysing and recovering the spread of deterministic innovations such as URLs, hashtags, and group membership.
@@ -76,20 +78,12 @@ Our findings have important implications for researchers studying influence and 
 \end{abstract}
 
 
-\begin{keyword}
-\kwd{information diffusion}
-\kwd{reddit}
-\kwd{named entity recognition}
-\end{keyword}
+\keywords{online communities,information diffusion,reddit,named entity recognition}
 
-\end{frontmatter}
 
+\maketitle
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
 
 
 \section{Introduction}\label{sec:introduction}
@@ -750,7 +744,7 @@ The authors acknowledge European Commission support from 7th Framework Program t
 
 \nocite{*} 
 % if your bibliography is in bibtex format, use those commands:
-\bibliographystyle{ios1}           % Style BST file.
+\bibliographystyle{ACM-Reference-Format}
 \bibliography{NER-Diffusion}
 
 
